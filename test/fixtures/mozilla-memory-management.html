@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="redesign no-js"  data-ffo-opensanslight=true data-ffo-opensans=true >
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+    
+    
+    
+    
+    <title>Memory Management - JavaScript | MDN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <link rel="home" href="/en-US/">
+    <link rel="copyright" href="#copyright">
+    
+    
+    
+    
+    <link href="https://developer.cdn.mozilla.net/static/build/styles/mdn.7ebe8dac87c8.css" rel="stylesheet" type="text/css" />
+    
+    
+    <link href="https://developer.cdn.mozilla.net/static/build/styles/wiki.23273f8b6edb.css" rel="stylesheet" type="text/css" />
+    
+    <!-- common social tags -->
+    
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.dc4e08e2f6af.png">
+    <meta property="og:site_name" content="Mozilla Developer Network">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://developer.cdn.mozilla.net/static/img/opengraph-logo.dc4e08e2f6af.png">
+    <meta name="twitter:site" content="@MozDevNet">
+    <meta name="twitter:creator" content="@MozDevNet">
+    <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/en-US/search/xml" title="Mozilla Developer Network">
+    
+    <!-- third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.cdn.mozilla.net/static/img/favicon144.a6e4162070f4.png">
+    <!-- iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/static/img/favicon114.0e9fabd44f85.png">
+    <!-- first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/static/img/favicon72.8ff9d87c82a0.png">
+    <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/static/img/favicon57.a2490b9a2d76.png">
+    <!-- basic favicon -->
+    
+    
+    
+    <link rel="shortcut icon" href="https://developer.cdn.mozilla.net/static/img/favicon32.e02854fdcf73.png">
+    <!--[if IE]>
+    <meta http-equiv="imagetoolbar" content="no">
+    <script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/html5shiv.3948ccddab6f.js" charset="utf-8"></script>
+    <![endif]-->
+    
+    <link rel="alternate" type="application/json" href="/en-US/docs/Web/JavaScript/Memory_Management$json">
+    <link rel="canonical" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management" >
+      
+      
+      <link rel="alternate" hreflang="bn-BD" href="/bn-BD/docs/Web/JavaScript/Memory_Management" title="মেমোরি ব্যবস্থাপনা">
+      
+      <link rel="alternate" hreflang="de" href="/de/docs/Web/JavaScript/Speicherverwaltung" title="Speicherverwaltung">
+      
+      <link rel="alternate" hreflang="es" href="/es/docs/Web/JavaScript/Gestion_de_Memoria" title="Gestión de Memoria">
+      
+      <link rel="alternate" hreflang="fr" href="/fr/docs/Web/JavaScript/Gestion_de_la_m%C3%A9moire" title="Gestion de la mémoire">
+      
+      <link rel="alternate" hreflang="id" href="/id/docs/Web/JavaScript/Memory_Management" title="Memory Management">
+      
+      <link rel="alternate" hreflang="it" href="/it/docs/Web/JavaScript/Gestione_della_Memoria" title="Gestione della memoria">
+      
+      <link rel="alternate" hreflang="ja" href="/ja/docs/Web/JavaScript/Memory_Management" title="Memory Management">
+      
+      <link rel="alternate" hreflang="ko" href="/ko/docs/Web/JavaScript/Memory_Management" title="자바스크립트의 메모리관리">
+      
+      <link rel="alternate" hreflang="pt-BR" href="/pt-BR/docs/Web/JavaScript/Memory_Management" title="Gerenciamento de Memória">
+      
+      <link rel="alternate" hreflang="ru" href="/ru/docs/Web/JavaScript/Memory_Management" title="Управление памятью">
+      
+      <link rel="alternate" hreflang="zh-CN" href="/zh-CN/docs/Web/JavaScript/Memory_Management" title="内存管理">
+      
+      
+      <!-- document-specific social tags -->
+      <meta property="og:title" content="Memory Management">
+      <meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management">
+      <meta name="twitter:url" content="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management">
+      <meta name="twitter:title" content="Memory Management">
+      
+      <meta property="og:description" content="Low-level languages, like C, have low-level memory management primitives like malloc() and free(). On the other hand, JavaScript values are allocated when things (objects, strings, etc.) are created and &#34;automatically&#34; freed when they are not used anymore. The latter process is called garbage collection. This &#34;automatically&#34; is a source of confusion and gives JavaScript (and high-level languages) developers the impression they can decide not to care about memory management. This is a mistake.">
+      <meta name="description" content="Low-level languages, like C, have low-level memory management primitives like malloc() and free(). On the other hand, JavaScript values are allocated when things (objects, strings, etc.) are created and &#34;automatically&#34; freed when they are not used anymore. The latter process is called garbage collection. This &#34;automatically&#34; is a source of confusion and gives JavaScript (and high-level languages) developers the impression they can decide not to care about memory management. This is a mistake.">
+      <meta name="twitter:description" content="Low-level languages, like C, have low-level memory management primitives like malloc() and free(). On the other hand, JavaScript values are allocated when things (objects, strings, etc.) are created and &#34;automatically&#34; freed when they are not used anymore. The latter process is called garbage collection. This &#34;automatically&#34; is a source of confusion and gives JavaScript (and high-level languages) developers the impression they can decide not to care about memory management. This is a mistake.">
+      
+      
+      <script type="text/javascript">
+      
+      var document_saved = 0;
+      
+      </script>
+      
+      
+      <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-36116321-5', 'mozilla.org');
+      ga('set', 'anonymizeIp', true);
+      
+      // dimension9 == "Section editing"
+      
+      // dimension12 == 'Page Revision"
+      ga('set', 'dimension12', '1099621');
+      (function() {
+      // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+      var win = window;
+      var removeUtms = function(){
+      var location = win.location;
+      if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+      win.history.replaceState({}, '', location.pathname);
+      }
+      };
+      ga('send', 'pageview', {'hitCallback': removeUtms});
+      })();
+      </script>
+      
+    </head>
+    <body data-slug="Web/JavaScript/Memory_Management" contextmenu="edit-history-menu" data-search-url="" class="document  ">
+      <script type="text/javascript">
+      (function(win) {
+      'use strict';
+      
+      (function(){
+      var FLAGS = {
+      'compat_api': false,'iperceptions': false,'kumaediting': false,'page_move': false,'registration_disabled': false,'search_suggestions': false,'section_edit': false,'sg_task_completion': false,'spam_admin_override': false,'spam_checks_enabled': true,'spam_spammer_override': false,'spam_submissions_enabled': false,'spam_testing_mode': false,'wiki_samples': true,'wiki_spam_exempted': false,'wiki_spam_training': false
+      },
+      SWITCHES = {
+      'wiki_error_on_delete': false,'wiki_force_immediate_rendering': false,'enable_optimizely': false,'welcome_email': true,'application_ACAO': true,'store_revision_ips': true,'dumb_doc_urls': true
+      },
+      SAMPLES = {
+      
+      };
+      window.waffle = {
+      "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+      },
+      "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+      },
+      "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+      },
+      "FLAGS": FLAGS,
+      "SWITCHES": SWITCHES,
+      "SAMPLES": SAMPLES
+      };
+      })();
+      
+      // This needs to be set before ckeditor.js loads
+      window.CKEDITOR_BASEPATH = '/static/js/libs/ckeditor/build/ckeditor/';
+      // This represents the site configuration
+      win.mdn = {
+      // Properties and settings for CKEditor will go here
+      ckeditor: {},
+      // Feature test results and methods will be placed here
+      features: {},
+      // The path to static assets (images, CSS, JS) in MDN
+      staticPath: 'https://developer.cdn.mozilla.net/static/',
+      // Optimizely API
+      optimizely: win['optimizely'] || [],
+      // Site notifications
+      
+      notifications: [],
+      
+      // Wiki-specific settings will be placed here
+      wiki: {
+      autosuggestTitleUrl: '/en-US/docs/get-documents'
+      },
+      // Assets that need to be dynamically injected
+      assets: {
+      css: {
+      'editor-content': ['https://developer.cdn.mozilla.net/static/build/styles/editor-content.56a05ec8f3e0.css',],
+      'wiki-compat-tables': ['https://developer.cdn.mozilla.net/static/build/styles/wiki-compat-tables.f3a3bfce97a1.css',]
+      },
+      js: {
+      'syntax-prism': ['https://developer.cdn.mozilla.net/static/build/js/syntax-prism.7a66ddfa68bf.js',],
+      'wiki-compat-tables': ['https://developer.cdn.mozilla.net/static/build/js/wiki-compat-tables.14ce5dcb2c3d.js',]
+      }
+      }
+      };
+      })(this);
+      </script>
+      
+      
+      <ul id="nav-access">
+        <li><a href="#document-main" id="skip-main">Skip to main content</a></li>
+        <li><a id="skip-language" href="#language">Select language</a></li>
+        <li><a href="#q" id="skip-search">Skip to search</a></li>
+      </ul>
+      <!-- Header -->
+      <header id="main-header"><div class="center">
+        <div id="tabzilla">
+          <a href="//www.mozilla.org/" class="no-track">mozilla</a>
+        </div>
+        <div class="clear header-clear"></div>
+        <a href="/en-US/" class="logo">Mozilla Developer Network</a>
+        <div id="nav-sec">
+          
+          <ul>
+            <li>
+              
+              <form>
+                <div class="oauth-login-container">
+                  <div class="oauth-login-options" tabIndex="0">
+                    <span class="oauth-login-options-text">
+                    Sign in
+                    </span>
+                    <span class="oauth-icon oauth-github" data-service="GitHub" data-href="/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FJavaScript%2FMemory_Management" title="GitHub"><i class="icon-github" aria-hidden="true"></i></span>
+                  </div>
+                  <div class="oauth-login-picker" aria-hidden="true">
+                    <ul>
+                      <li>
+                        Sign in or create an account:<br>
+                        <a href="/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FJavaScript%2FMemory_Management" class="login-link" data-service="GitHub"><i class="icon-github" aria-hidden="true"></i>GitHub</a>
+                      </li>
+                      <li class="wait-for-persona disabled">
+                        Sign in: <a href="/docs/MDN/Contribute/Persona_Sign_In_on_MDN"><i aria-hidden="true" title="Why is Persona sign in only?" class="icon-question-sign"></i></a><br>
+                        <a href="/en-US/users/signin" class="login-link launch-persona-login" data-next="/en-US/docs/Web/JavaScript/Memory_Management" data-service="Persona"><i class="icon-user" aria-hidden="true"></i>Persona</a>
+                      </li>
+                    </ul>
+                    
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+          
+        </div>
+        <nav id="main-nav" role="navigation"><ul><li><a href="/en-US/docs/Web">Web Technologies<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <div class="submenu submenu-cols-2 js-submenu" id="nav-platform-submenu">
+          <div class="submenu-column">
+            <div class="title">Technologies</div>
+            <ul>
+              <li><a href="/en-US/docs/Web/HTML">HTML</a></li>
+              <li><a href="/en-US/docs/Web/CSS">CSS</a></li>
+              <li><a href="/en-US/docs/Web/JavaScript">JavaScript</a></li>
+              <li><a href="/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+              <li><a href="/en-US/docs/Web/HTTP">HTTP</a></li>
+              <li><a href="/en-US/docs/Web/API">APIs / DOM</a></li>
+              <li><a href="/en-US/docs/Mozilla/Add-ons/WebExtensions">WebExtensions</a></li>
+              <li><a href="/en-US/docs/Web/MathML">MathML</a></li>
+            </ul>
+          </div><div class="submenu-column last">
+          <div class="title">References & Guides</div>
+          <ul>
+            <li><a href="/en-US/docs/Learn">Learning web development</a></li>
+            <li><a href="/en-US/docs/Web/Tutorials">Tutorials</a></li>
+            <li><a href="/en-US/docs/Web/Reference">References</a></li>
+            <li><a href="/en-US/docs/Web/Guide">Developer Guides</a></li>
+            <li><a href="/en-US/docs/Web/Accessibility">Accessibility</a></li>
+            <li><a href="/en-US/docs/Games">Game development</a></li>
+            <li><a href="/en-US/docs/Web">...more docs</a></li>
+          </ul>
+        </div>
+      </div>
+      </li><li><a href="/en-US/docs/Zones">Mozilla Docs<i aria-hidden="true" class="icon-caret-down"></i></a>
+      <div class="submenu js-submenu" id="nav-zones-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="/en-US/docs/Mozilla/Add-ons">Add-ons</a></li>
+            <li><a href="/en-US/docs/Mozilla/Firefox">Firefox</a></li>
+          </ul>
+        </div>
+      </div>
+      </li><li><a href="/en-US/docs/Tools">Developer Tools</a></li><li><a href="/en-US/docs/MDN/Feedback">Feedback<i aria-hidden="true" class="icon-caret-down"></i></a>
+      <div class="submenu js-submenu" id="nav-contact-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="https://support.mozilla.org/">Get Firefox help<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            <li><a href="http://stackoverflow.com/">Get web development help<i aria-hidden="true" class="icon-external-link"></i></a></li>
+          </ul>
+          <ul>
+            <li><a href="/en-US/docs/MDN/Community">Join the MDN community</a></li>
+            <li><a target="_blank" href="https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management">Report a content problem<i aria-hidden="true" class="icon-external-link"></i></a></li>
+            <li><a target="_blank" href="https://bugzilla.mozilla.org/form.mdn">Report a bug<i aria-hidden="true" class="icon-external-link"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      </li><li class="nav-search-link"><a href="/en-US/search" title="Search"><i aria-hidden="true" class="icon-search"></i></a></li><li class="main-nav-search"><form action="/en-US/search" method="get" role="search">
+      <div class="search-wrap">
+        <label for="main-q" class="offscreen">Search</label>
+        <input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="" />
+        <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
+        <button type="submit" class="offscreen">Search</button>
+      </div>
+    </form></li></ul></nav>
+  </div></header>
+  <!-- Content will go here -->
+  <main id="content"><div class="center clear">
+    
+    <!-- end is_zone -->
+    <div class="wiki-main-content" id="document-main"><div class="center">
+      
+      <div class="article-meta">
+        <!-- action buttons -->
+        
+        
+        
+        
+        
+        
+        
+        
+        <ul class="page-buttons" data-sticky="false">
+          
+          <li><button id="languages-menu" class="transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false"><span>Languages</span><i aria-hidden="true" class="icon-language"></i></button>
+            <div class="submenu js-submenu" id="languages-menu-submenu">
+              <div class="submenu-column">
+                <ul id="translations">
+                  
+                  
+                  <li><bdi><a rel="internal" href="/bn-BD/docs/Web/JavaScript/Memory_Management" title="Bengali (Bangladesh)">বাংলা (বাংলাদেশ) (bn-BD)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/de/docs/Web/JavaScript/Speicherverwaltung" title="German">Deutsch (de)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/es/docs/Web/JavaScript/Gestion_de_Memoria" title="Spanish">Español (es)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/fr/docs/Web/JavaScript/Gestion_de_la_m%C3%A9moire" title="French">Français (fr)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/id/docs/Web/JavaScript/Memory_Management" title="Indonesian">Bahasa Indonesia (id)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/it/docs/Web/JavaScript/Gestione_della_Memoria" title="Italian">Italiano (it)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/ja/docs/Web/JavaScript/Memory_Management" title="Japanese">日本語 (ja)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/ko/docs/Web/JavaScript/Memory_Management" title="Korean">한국어 (ko)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/pt-BR/docs/Web/JavaScript/Memory_Management" title="Portuguese (Brazilian)">Português (do Brasil) (pt-BR)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/ru/docs/Web/JavaScript/Memory_Management" title="Russian">Русский (ru)</a></bdi></li>
+                  
+                  <li><bdi><a rel="internal" href="/zh-CN/docs/Web/JavaScript/Memory_Management" title="Chinese (Simplified)">中文 (简体) (zh-CN)</a></bdi></li>
+                  
+                  
+                  
+                  <li><a href="/en-US/docs/Web/JavaScript/Memory_Management$locales" rel="nofollow, noindex" id="translations-add">Add a translation</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </li>
+          
+          <li class="page-buttons-edit"><a href="/en-US/docs/Web/JavaScript/Memory_Management$edit" class="button" data-optimizely-hook="button-edit-doc" id="edit-button">Edit<i aria-hidden="true" class="icon-pencil"></i></a></li>
+          
+          
+          <li><button id="advanced-menu" class="only-icon" aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false"><span>Advanced</span><i aria-hidden="true" class="icon-cog"></i></button>
+            <div class="submenu js-submenu" id="advanced-menu-submenu">
+              <!-- this page -->
+              <div class="submenu-column">
+                <div class="title">Advanced</div>
+                <ul>
+                  <li><a href="/en-US/docs/Web/JavaScript/Memory_Management$history" rel="nofollow, noindex">History</a></li>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <li class="page-print"><a href="#" onclick="return window.print();">Print this article</a></li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- crumbs -->
+        
+        <nav class="crumbs" role="navigation"><ol xmlns:v="http://rdf.data-vocabulary.org/#" aria-label="breadcrumbs">
+          <li typeof="v:Breadcrumb"><a href="/en-US" rel="v:url" property="v:title">MDN</a></li>
+          
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web" rel="v:url" property="v:title">Web technology For developers</a></li>
+          
+          <li class="crumb" typeof="v:Breadcrumb"><a href="/en-US/docs/Web/JavaScript" rel="v:url" property="v:title">JavaScript</a></li>
+          
+          <li class="crumb" typeof="v:Breadcrumb" property="v:title">Memory Management</li>
+        </ol></nav>
+      </div>
+        <!-- heading -->
+        <div id="wiki-document-head" class="document-head">
+          <span class="from-search-previous-box">
+          <a class="button from-search-previous only-icon disabled" title="Previous Search Result" data-empty-title="No Previous Search Result"><i aria-hidden="true" class="icon-chevron-left"></i></a>
+          </span>
+          <span class="from-search-navigate-wrap">
+          <a href="#" class="from-search-navigate"><span class="from-search-navigate-up"><i aria-hidden="true" class="icon-double-angle-up"></i></span><span class="from-search-navigate-down"><i aria-hidden="true" class="icon-double-angle-down"></i></span></a>
+          </span>
+          <div class="from-search-toc submenu">
+            <span class="title">Your Search Results</span>
+          <ol></ol>
+        </div>
+        <span class="from-search-next-box">
+        <a class="button from-search-next only-icon disabled" title="Next Search Result" data-empty-title="No Previous Search Result"><i aria-hidden="true" class="icon-chevron-right"></i></a>
+        </span>
+        
+        <div class="contributor-avatars" data-all-text="see all contributors" data-alternate-message="hide contributors" data-has-hidden="1">
+          <ul>
+            
+            <li class="shown">
+              <a href="/en-US/profiles/lleaff" title="View profile: lleaff">
+                <noscript data-width="34" data-height="34" data-class="avatar" data-alt="lleaff" data-src="https://secure.gravatar.com/avatar/a9ad860e1d0f6f934763dba08562425d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">lleaff</noscript>
+              </a>
+            </li>
+            
+            <li class="shown">
+              <a href="/en-US/profiles/rudolfo" title="View profile: rudolfo">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="rudolfo" data-src="https://secure.gravatar.com/avatar/86c5a146364665f3905e97ec34ab6f4f?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">rudolfo</noscript></a>
+            </li>
+            
+            <li class="shown">
+              <a href="/en-US/profiles/beytek" title="View profile: beytek">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="beytek" data-src="https://secure.gravatar.com/avatar/9d6bc6ef6db2e7615039534e105078f5?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">beytek</noscript></a>
+            </li>
+            
+            <li class="shown">
+              <a href="/en-US/profiles/jontejada" title="View profile: jontejada">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="jontejada" data-src="https://secure.gravatar.com/avatar/1103fc0b0ae7a1d83442af234b6f62cb?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">jontejada</noscript></a>
+            </li>
+            
+            <li class="shown">
+              <a href="/en-US/profiles/mbjordan" title="View profile: mbjordan">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="mbjordan" data-src="https://secure.gravatar.com/avatar/254fa2edb94eb13aff2d7e5b4c2a185c?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">mbjordan</noscript></a>
+            </li>
+            
+            <li class="shown">
+              <a href="/en-US/profiles/ronyeh" title="View profile: ronyeh">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="ronyeh" data-src="https://secure.gravatar.com/avatar/a0a6af117d40190874bb1e519a9a1dc6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">ronyeh</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/fscholz" title="View profile: fscholz">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="fscholz" data-src="https://secure.gravatar.com/avatar/e24391c9174352988d819a9b9ea77c9e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">fscholz</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/mishra" title="View profile: mishra">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="mishra" data-src="https://secure.gravatar.com/avatar/2aa7bd4247afeb9b92dfb23d478bb2ef?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">mishra</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/macinnir" title="View profile: macinnir">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="macinnir" data-src="https://secure.gravatar.com/avatar/297067cffd73328920e94765aa0c8040?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">macinnir</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/RogerPoon" title="View profile: RogerPoon">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="RogerPoon" data-src="https://secure.gravatar.com/avatar/ca1624b61b924857524d6c2b21bc09a1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">RogerPoon</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/xfq" title="View profile: xfq">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="xfq" data-src="https://secure.gravatar.com/avatar/d37eb6e5701cb30b871077f04cf2ebb7?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">xfq</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/bigperm" title="View profile: bigperm">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="bigperm" data-src="https://secure.gravatar.com/avatar/c45c6577eba4aa4c0221059fd7a529d8?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">bigperm</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/anirudh_venkatesh" title="View profile: anirudh_venkatesh">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="anirudh_venkatesh" data-src="https://secure.gravatar.com/avatar/8fd1cb67172be912356cb705f01984b3?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">anirudh_venkatesh</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/Agamemnus" title="View profile: Agamemnus">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="Agamemnus" data-src="https://secure.gravatar.com/avatar/d25dd0a8ebf8e7050752fc5615b170c5?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">Agamemnus</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/velvel53" title="View profile: velvel53">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="velvel53" data-src="https://secure.gravatar.com/avatar/6289dbbcdb1736a1fec87498d90321a0?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">velvel53</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/hectorsan68" title="View profile: hectorsan68">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="hectorsan68" data-src="https://secure.gravatar.com/avatar/52c15f067e1279a483f71fc922639e20?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">hectorsan68</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/Nick_Pershin" title="View profile: Nick_Pershin">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="Nick_Pershin" data-src="https://secure.gravatar.com/avatar/83c15b61171fbda8364b59203c5b8441?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">Nick_Pershin</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/Sheppy" title="View profile: Sheppy">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="Sheppy" data-src="https://secure.gravatar.com/avatar/945076feb88f2d7003891ffbf06f32bf?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">Sheppy</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/RichardC" title="View profile: RichardC">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="RichardC" data-src="https://secure.gravatar.com/avatar/4074dc0113d795764e223d79a7ed6ae4?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">RichardC</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/ethertank" title="View profile: ethertank">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="ethertank" data-src="https://secure.gravatar.com/avatar/abac73ba2093b500bf7599c76d80280c?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">ethertank</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/maxatwork" title="View profile: maxatwork">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="maxatwork" data-src="https://secure.gravatar.com/avatar/476f2e06733dd383aaa5a9f06660fc69?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">maxatwork</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/iskitz" title="View profile: iskitz">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="iskitz" data-src="https://secure.gravatar.com/avatar/d8faf1e45a3fc3738e68c00499e02c9b?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">iskitz</noscript></a>
+            </li>
+            
+            <li class="hidden">
+              <a href="/en-US/profiles/dbruant" title="View profile: dbruant">
+              <noscript data-width="34" data-height="34" data-class="avatar" data-alt="dbruant" data-src="https://secure.gravatar.com/avatar/b9b113093c351a599f86e0647c43add1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2Fimg%2Favatar.png">dbruant</noscript></a>
+            </li>
+            
+          </ul>
+        </div>
+        
+        <h1>Memory Management</h1>
+      </div>
+      
+      <!-- start the main content container -->
+      <div id="wiki-column-container" class="wiki-right-present wiki-left-present">
+        <!-- content row with three strips -->
+        <div class="column-container column-container-reverse">
+          
+          <!-- TOC, approvals, etc -->
+          <div class="column-strip wiki-column" id="wiki-right">
+            
+            <!-- table of contents -->
+            <div id="toc" class="toc toggleable">
+              <h2 href="#toc" class="title toggler" data-open-icon="icon-plus" data-closed-icon="icon-minus">In This Article<i></i></h2>
+              <ol class="toggle-container">
+                <li><a href="#Introduction" rel="internal">Introduction</a><li><a href="#Memory_life_cycle" rel="internal">Memory life cycle</a><ol><li><a href="#Allocation_in_JavaScript" rel="internal">Allocation in JavaScript</a><ol><li><a href="#Value_initialization" rel="internal">Value initialization</a><li><a href="#Allocation_via_function_calls" rel="internal">Allocation via function calls</a></ol></li><li><a href="#Using_values" rel="internal">Using values</a><li><a href="#Release_when_the_memory_is_not_needed_anymore" rel="internal">Release when the memory is not needed anymore</a></ol></li><li><a href="#Garbage_collection" rel="internal">Garbage collection</a><ol><li><a href="#References" rel="internal">References</a><li><a href="#Reference-counting_garbage_collection" rel="internal">Reference-counting garbage collection</a><ol><li><a href="#Example" rel="internal">Example</a><li><a href="#Limitation_cycles" rel="internal">Limitation: cycles</a><li><a href="#Real-life_example" rel="internal">Real-life example</a></ol></li><li><a href="#Mark-and-sweep_algorithm" rel="internal">Mark-and-sweep algorithm</a><ol><li><a href="#Cycles_are_not_a_problem_anymore" rel="internal">Cycles are not a problem anymore</a><li><a href="#Limitation_objects_need_to_be_made_explicitly_unreachable" rel="internal">Limitation: objects need to be made explicitly unreachable</a></ol></li></ol></li><li><a href="#See_also" rel="internal">See also</a>
+              </ol>
+            </div>
+            
+          </div>
+          
+          
+          
+          
+          
+          <!-- center: main article content -->
+          <div id="wiki-content" class="column-half wiki-column text-content">
+            
+            
+            
+            
+            
+            
+            
+            
+            <!-- just the article content -->
+            <article id="wikiArticle">
+              
+              
+              <div><section class="Quick_links" id="Quick_Links"><!-- --></section></div>
+              <h2 id="Introduction">Introduction</h2>
+              <p>Low-level languages, like C, have low-level memory management primitives like <code>malloc()</code> and <code>free()</code>. On the other hand, JavaScript values are allocated when things (objects, strings, etc.) are created and "automatically" freed when they are not used anymore. The latter process is called <em>garbage collection</em>. This "automatically" is a source of confusion and gives JavaScript (and high-level languages) developers the impression they can decide not to care about memory management. This is a mistake.</p>
+              <h2 id="Memory_life_cycle">Memory life cycle</h2>
+              <p>Regardless of the programming language, memory life cycle is pretty much always the same:</p>
+              <ol>
+                <li>Allocate the memory you need</li>
+                <li>Use the allocated memory (read, write)</li>
+                <li>Release the allocated memory when it is not needed anymore</li>
+              </ol>
+              <p>The first and second parts are explicit in all languages. The last part is explicit in low-level languages, but is mostly implicit in high-level languages like JavaScript.</p>
+              <h3 id="Allocation_in_JavaScript">Allocation in JavaScript</h3>
+              <h4 id="Value_initialization">Value initialization</h4>
+              <p>In order not to bother the programmer with allocations, JavaScript does it alongside with declaring values.</p>
+<pre class="brush: js">var n = 123; // allocates memory for a number
+var s = "azerty"; // allocates memory for a string 
+var o = {
+  a: 1,
+  b: null
+}; // allocates memory for an object and contained values
+// (like object) allocates memory for the array and 
+// contained values
+var a = [1, null, "abra"]; 
+function f(a){
+  return a + 2;
+} // allocates a function (which is a callable object)
+// function expressions also allocate an object
+someElement.addEventListener('click', function(){
+  someElement.style.backgroundColor = 'blue';
+}, false);
+</pre>
+              <h4 id="Allocation_via_function_calls">Allocation via function calls</h4>
+              <p>Some function calls result in object allocation.</p>
+<pre class="brush: js">var d = new Date(); // allocates a Date object
+var e = document.createElement('div'); // allocates a DOM element</pre>
+              <p>Some methods allocate new values or objects:</p>
+<pre class="brush: js">var s = "azerty";
+var s2 = s.substr(0, 3); // s2 is a new string
+// Since strings are immutable value, 
+// JavaScript may decide to not allocate memory, 
+// but just store the [0, 3] range.
+var a = ["ouais ouais", "nan nan"];
+var a2 = ["generation", "nan nan"];
+var a3 = a.concat(a2); 
+// new array with 4 elements being
+// the concatenation of a and a2 elements
+</pre>
+              <h3 id="Using_values">Using values</h3>
+              <p>Using value basically means reading and writing in allocated memory. This can be done by reading or writing the value of a variable or an object property or even passing an argument to a function.</p>
+              <h3 id="Release_when_the_memory_is_not_needed_anymore">Release when the memory is not needed anymore</h3>
+              <p>Most of memory management issues come at this phase. The hardest task here is to find when "the allocated memory is not needed any longer". It often requires for the developer to determine where in the program such piece of memory is not needed anymore and free it.</p>
+              <p>High-level languages embed a piece of software called "garbage collector" whose job is to track memory allocation and use in order to find when a piece of allocated memory is not needed any longer in which case, it will automatically free it. This process is an approximation since the general problem of knowing whether some piece of memory is needed is <a href="http://en.wikipedia.org/wiki/Decidability_%28logic%29" class="external">undecidable</a> (can't be solved by an algorithm).</p>
+              <h2 id="Garbage_collection">Garbage collection</h2>
+              <p>As stated above the general problem of automatically finding whether some memory "is not needed anymore" is undecidable. As a consequence, garbage collections implement a restriction of a solution to the general problem. This section will explain the necessary notions to understand the main garbage collection algorithms and their limitations.</p>
+              <h3 id="References">References</h3>
+              <p>The main notion garbage collection algorithms rely on is the notion of <em>reference</em>. Within the context of memory management, an object is said to reference another object if the former has an access to the latter (either implicitly or explicitly). For instance, a JavaScript object has a reference to its <a href="/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">prototype</a> (implicit reference) and to its properties values (explicit reference).</p>
+              <p>In this context, the notion of "object" is extended to something broader than regular JavaScript objects and also contains function scopes (or the global lexical scope).</p>
+              <h3 id="Reference-counting_garbage_collection">Reference-counting garbage collection</h3>
+              <p>This is the most naive garbage collection algorithm. This algorithm reduces the definition of "an object is not needed anymore" to "an object has no other object referencing to it". An object is considered garbage collectable if there is zero reference pointing at this object.</p>
+              <h4 id="Example">Example</h4>
+<pre class="brush: js">var o = { 
+  a: {
+    b:2
+  }
+}; 
+// 2 objects are created. One is referenced by the other as one of its properties.
+// The other is referenced by virtue of being assigned to the 'o' variable.
+// Obviously, none can be garbage-collected
+var o2 = o; // the 'o2' variable is the second thing that 
+            // has a reference to the object
+o = 1;      // now, the object that was originally in 'o' has a unique reference
+            // embodied by the 'o2' variable
+var oa = o2.a; // reference to 'a' property of the object.
+               // This object has now 2 references: one as a property, 
+               // the other as the 'oa' variable
+o2 = "yo"; // The object that was originally in 'o' has now zero
+           // references to it. It can be garbage-collected.
+           // However what was its 'a' property is still referenced by 
+           // the 'oa' variable, so it cannot be freed
+oa = null; // what was the 'a' property of the object originally in o 
+           // has zero references to it. It can be garbage collected.
+</pre>
+              <h4 id="Limitation_cycles">Limitation: cycles</h4>
+              <p>There is a limitation when it comes to cycles. In the following example two objects are created and reference one another – thus creating a cycle. They will not get out of the function scope after the function call, so they are effectively useless and could be freed. However, the reference-counting algorithm considers that since each of both object is referenced at least once, none can be garbage-collected.</p>
+<pre class="brush: js">function f(){
+  var o = {};
+  var o2 = {};
+  o.a = o2; // o references o2
+  o2.a = o; // o2 references o
+  return "azerty";
+}
+f();
+</pre>
+              <h4 id="Real-life_example">Real-life example</h4>
+              <p>Internet Explorer 6 and 7 are known to have reference-counting garbage collectors for DOM objects. Cycles are a common mistake that can generate memory leaks:</p>
+<pre class="brush: js">var div;
+window.onload = function(){
+  div = document.getElementById("myDivElement");
+  div.circularReference = div;
+  div.lotsOfData = new Array(10000).join("*");
+};
+</pre>
+              <p>In the above example, the DOM element "myDivElement" has a circular reference to itself in the "circularReference" property. If the property is not explicitly removed or nulled, a reference-counting garbage collector will always have at least one reference intact and will keep the DOM element in memory even if it was removed from the DOM tree. If the DOM element holds lots of data (illustrated in the above example with the "lotsOfData" property), the memory consumed by this data will never be released.</p>
+              <h3 id="Mark-and-sweep_algorithm">Mark-and-sweep algorithm</h3>
+              <p>This algorithm reduces the definition of "an object is not needed anymore" to "an object is unreachable".</p>
+              <p>This algorithm assumes the knowledge of a set of objects called <em>roots</em> (In JavaScript, the root is the global object). Periodically, the garbage-collector will start from these roots, find all objects that are referenced from these roots, then all objects referenced from these, etc. Starting from the roots, the garbage collector will thus find all <em>reachable</em> objects and collect all non-reachable objects.</p>
+              <p>This algorithm is better than the previous one since "an object has zero reference" leads to this object being unreachable. The opposite is not true as we have seen with cycles.</p>
+              <p>As of 2012, all modern browsers ship a mark-and-sweep garbage-collector. All improvements made in the field of JavaScript garbage collection (generational/incremental/concurrent/parallel garbage collection) over the last few years are implementation improvements of this algorithm, but not improvements over the garbage collection algorithm itself nor its reduction of the definition of when "an object is not needed anymore".</p>
+              <h4 id="Cycles_are_not_a_problem_anymore">Cycles are not a problem anymore</h4>
+              <p>In the first above example, after the function call returns, the 2 objects are not referenced anymore by something reachable from the global object. Consequently, they will be found unreachable by the garbage collector.</p>
+              <p>The same thing goes with the second example. Once the div and its handler are made unreachable from the roots, they can both be garbage-collected despite referencing each other.</p>
+              <h4 id="Limitation_objects_need_to_be_made_explicitly_unreachable">Limitation: objects need to be made explicitly unreachable</h4>
+              <p>Although this is marked as a limitation, it is one that is rarely reached in practice which is why no one usually cares that much about garbage collection.</p>
+              <h2 id="See_also">See also</h2>
+              <ul>
+                <li><a href="http://www.ibm.com/developerworks/web/library/wa-memleak/" class="external">IBM article on "Memory leak patterns in JavaScript" (2007)</a></li>
+                <li><a href="http://msdn.microsoft.com/en-us/magazine/ff728624.aspx" class="external">Kangax article on how to register event handler and avoid memory leaks (2010)</a></li>
+                <li><a title="https://developer.mozilla.org/en-US/docs/Mozilla/Performance" href="https://developer.mozilla.org/en-US/docs/Mozilla/Performance">Performance</a></li>
+              </ul>
+              
+              
+            </article>
+            
+            <!-- contributors -->
+            <div class="wiki-block contributors">
+              <h2 class="offscreen">Document Tags and Contributors</h2>
+              
+              
+              <div class="tag-attach-list contributors-sub">
+                <i aria-hidden="true" class="icon-tags icon-fw"></i>
+                <strong>Tags:</strong>&nbsp;
+                <ul class="tags tags-small">
+                  
+                  <li><a href="/en-US/docs/tag/JavaScript">JavaScript</a></li>
+                  
+                  <li><a href="/en-US/docs/tag/memory">memory</a></li>
+                  
+                  <li><a href="/en-US/docs/tag/Performance">Performance</a></li>
+                  
+                  <li><a href="/en-US/docs/tag/performance">performance</a></li>
+                  
+                </ul>
+              </div>
+              
+              <div class="contributors-sub">
+                <i aria-hidden="true" class="icon-group icon-fw"></i>&nbsp;<strong>Contributors to this page:</strong>
+                <a href="/en-US/profiles/lleaff">lleaff</a>,
+                
+                <a href="/en-US/profiles/rudolfo">rudolfo</a>,
+                
+                <a href="/en-US/profiles/beytek">beytek</a>,
+                
+                <a href="/en-US/profiles/jontejada">jontejada</a>,
+                
+                <a href="/en-US/profiles/mbjordan">mbjordan</a>,
+                
+                <a href="/en-US/profiles/ronyeh">ronyeh</a>,
+                
+                <a href="/en-US/profiles/fscholz">fscholz</a>,
+                
+                <a href="/en-US/profiles/mishra">mishra</a>,
+                
+                <a href="/en-US/profiles/macinnir">macinnir</a>,
+                
+                <a href="/en-US/profiles/RogerPoon">RogerPoon</a>,
+                
+                <a href="/en-US/profiles/xfq">xfq</a>,
+                
+                <a href="/en-US/profiles/bigperm">bigperm</a>,
+                
+                <a href="/en-US/profiles/anirudh_venkatesh">anirudh_venkatesh</a>,
+                
+                <a href="/en-US/profiles/Agamemnus">Agamemnus</a>,
+                
+                <a href="/en-US/profiles/velvel53">velvel53</a>,
+                
+                <a href="/en-US/profiles/hectorsan68">hectorsan68</a>,
+                
+                <a href="/en-US/profiles/Nick_Pershin">Nick_Pershin</a>,
+                
+                <a href="/en-US/profiles/Sheppy">Sheppy</a>,
+                
+                <a href="/en-US/profiles/RichardC">RichardC</a>,
+                
+                <a href="/en-US/profiles/ethertank">ethertank</a>,
+                
+                <a href="/en-US/profiles/maxatwork">maxatwork</a>,
+                
+                <a href="/en-US/profiles/iskitz">iskitz</a>,
+                
+                <a href="/en-US/profiles/dbruant">dbruant</a>
+                
+              </div>
+              
+              
+              <div class="contributors-sub">
+                <i aria-hidden="true" class="icon-clock-o icon-fw"></i>&nbsp;<strong>Last updated by:</strong>
+                <a href="/en-US/profiles/lleaff">lleaff</a>,
+                <time datetime="2016-08-01T13:06:43-07:00">Aug 1, 2016, 1:06:43 PM</time>
+              </div>
+              
+            </div>
+            
+          </div>
+          
+          <!-- quick links and zone subnav strip -->
+          <div id="wiki-left" class="column-strip wiki-column">
+            
+            
+            
+            <!-- quick links -->
+            
+            <div class="quick-links" id="quick-links">
+              <div class="title see-also">See also</div>
+              
+              <ol>
+                <li><a href="/en-US/docs/Web/JavaScript"><strong><em>JavaScript</em></strong></a></li>
+                <li><a href="/en-US/docs/Web/JavaScript/Tutorials"><strong>Tutorials:</strong></a></li>
+                <li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a>
+                <ol>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Introduction">Introduction</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Grammar_and_Types">Grammar and types</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling">Control flow and error handling</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration">Loops and iteration</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Functions">Functions</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators">Expressions and operators</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates">Numbers and dates</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Text_formatting">Text formatting</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Regular expressions</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Indexed_collections">Indexed collections</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Keyed_collections">Keyed collections</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Working_with_Objects">Working with objects</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model">Details of the object model</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Iterators_and_generators">Iterators and generators</a></li>
+                  <li><a href="/en-US/docs/Web/JavaScript/Guide/Meta_programming">Meta programming</a></li>
+                </ol>
+              </li>
+              <li data-default-state="closed"><a href="#">Introductory</a>
+              <ol>
+                <li><a href="/en-US/Learn/Getting_started_with_the_web/JavaScript_basics">JavaScript basics</a></li>
+                <li><a href="/en-US/docs/Web/JavaScript/JavaScript_technologies_overview">JavaScript technologies overview</a></li>
+                <li><a href="/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript">Introduction to Object Oriented JavaScript</a></li>
+              </ol>
+            </li>
+            <li data-default-state="closed"><a href="#">Intermediate</a>
+            <ol>
+              <li><a href="/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript">A re-introduction to JavaScript</a></li>
+              <li><a href="/en-US/docs/Web/JavaScript/Data_structures">JavaScript data structures</a></li>
+              <li><a href="/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness">Equality comparisons and sameness</a></li>
+              <li><a href="/en-US/docs/Web/JavaScript/Closures">Closures</a></li>
+            </ol>
+          </li>
+          <li data-default-state="open"><a href="#">Advanced</a>
+          <ol>
+            <li><a href="/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">Inheritance and the prototype chain</a></li>
+            <li><a href="/en-US/docs/Web/JavaScript/Reference/Strict_mode">Strict mode</a></li>
+            <li><a href="/en-US/docs/Web/JavaScript/Typed_arrays">JavaScript typed arrays</a></li>
+            <li><a href="/en-US/docs/Web/JavaScript/SIMD_types">SIMD types</a></li>
+            <li><a href="/en-US/docs/Web/JavaScript/Memory_Management">Memory Management</a></li>
+            <li><a href="/en-US/docs/Web/JavaScript/EventLoop">Concurrency model and Event Loop</a></li>
+          </ol>
+        </li>
+        <li><strong><a href="/en-US/docs/Web/JavaScript/Reference">References:</a></strong></li>
+        <li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Reference/Global_Objects">Built-in objects</a>
+        <ol><li><a title="The JavaScript Array object is a global object that is used in the construction of arrays; which are high-level, list-like objects." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></li><li><a title="The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You cannot directly manipulate the contents of an ArrayBuffer; instead, you create one of the typed array objects or a DataView object which represents the buffer in a specific format, and use that to read and write the contents of the buffer." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer">ArrayBuffer</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The Atomics object provides atomic operations as static methods. They are used with SharedArrayBuffer objects." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics">Atomics</a></li><li><a title="The Boolean object is an object wrapper for a boolean value." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></li><li><a title="The DataView view provides a low-level interface for reading and writing multiple number types in an ArrayBuffer irrespective of the platform's endianness." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView">DataView</a></li><li><a title="Creates a JavaScript Date instance that represents a single moment in time. Date objects are based on a time value that is the number of milliseconds since 1 January, 1970 UTC." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date</a></li><li><a title="The Error constructor creates an error object. Instances of Error objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. See below for standard built-in error types." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error">Error</a></li><li><a title="The EvalError object indicates an error regarding the global eval() function. This exception is not thrown by JavaScript anymore, however the EvalError object remains for compatibility." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError">EvalError</a></li><li><a title="The Float32Array typed array represents an array of 32-bit floating point numbers (corresponding to the C float data type) in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array">Float32Array</a></li><li><a title="The Float64Array typed array represents an array of 64-bit floating point numbers (corresponding to the C double data type) in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array">Float64Array</a></li><li><a title="The Function constructor creates a new Function object. In JavaScript every function is actually a Function object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">Function</a></li><li><a title="The Generator object is returned by a generator function and it conforms to both the iterable protocol and the iterator protocol." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator">Generator</a></li><li><a title="The GeneratorFunction constructor creates a new generator function object. In JavaScript every generator function is actually a GeneratorFunction object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction">GeneratorFunction</a></li><li><a title="The global Infinity property is a numeric value representing infinity." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity">Infinity</a></li><li><a title="The Int16Array typed array represents an array of twos-complement 16-bit signed integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array">Int16Array</a></li><li><a title="The Int32Array typed array represents an array of twos-complement 32-bit signed integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array">Int32Array</a></li><li><a title="The Int8Array typed array represents an array of twos-complement 8-bit signed integers. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array">Int8Array</a></li><li><a title='The InternalError object indicates an error that occurred internally in the JavaScript engine. For example: "InternalError: too much recursion".' href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError">InternalError</a></li><li><a title="The Intl object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. The constructors for Collator, NumberFormat, and DateTimeFormat objects are properties of the Intl object. This page documents these properties as well as functionality common to the internationalization constructors and other language sensitive functions." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl">Intl</a></li><li><a title="The Intl.Collator object is a constructor for collators, objects that enable language sensitive string comparison." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Collator">Intl.Collator</a></li><li><a title="The Intl.DateTimeFormat object is a constructor for objects that enable language sensitive date and time formatting." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat">Intl.DateTimeFormat</a></li><li><a title="The Intl.NumberFormat object is a constructor for objects that enable language sensitive number formatting." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat">Intl.NumberFormat</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The Iterator function returns an object which implements legacy iterator protocol and iterates over enumerable properties of an object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator">Iterator</a></li><li><a title="The JSON object contains methods for parsing JavaScript Object Notation (JSON) and converting values to JSON. It can't be called or constructed, and aside from its two method properties it has no interesting functionality of its own." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON">JSON</a></li><li><a title="The Map object is a simple key/value map. Any value (both objects and primitive values) may be used as either a key or a value." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a></li><li><a title="Math is a built-in object that has properties and methods for mathematical constants and functions. Not a function object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">Math</a></li><li><a title="The global NaN property is a value representing Not-A-Number." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN">NaN</a></li><li><a title="The Number JavaScript object is a wrapper object allowing you to work with numerical values. A Number object is created using the Number() constructor." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">Number</a></li><li><a title="The Object constructor creates an object wrapper." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a title="The goal of ParallelArray was to enable data-parallelism in web applications. The higher-order functions available on ParallelArray attempted to execute in parallel, though they may fall back to sequential execution if necessary. To ensure that your code executes in parallel, it is suggested that the functions should be limited to the parallelizable subset of JS that Firefox supports." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/ParallelArray">ParallelArray</a></li><li><a title="The Promise object is used for asynchronous computations. A Promise represents an operation that hasn't completed yet, but is expected in the future." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a></li><li><a title="The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">Proxy</a></li><li><a title="The RangeError object indicates an error when a value is not in the set or range of allowed values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError">RangeError</a></li><li><a title="The ReferenceError object represents an error when a non-existent variable is referenced." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError">ReferenceError</a></li><li><a title="Reflect is a built-in object that provides methods for interceptable JavaScript operations. The methods are the same as those of proxy handlers. Reflect is not a function object, so it's not constructible." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect">Reflect</a></li><li><a title="The RegExp constructor creates a regular expression object for matching text with a pattern." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title='SIMD (pronounced "sim-dee") is short for Single Instruction/Multiple Data which is one classification of computer architectures. SIMD operations perform the same computation on multiple data points resulting in data level parallelism and thus performance gains, for example for 3D graphics and video processing, physics simulations or cryptography, and other domains.' href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/SIMD">SIMD</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Bool16x8 data type is a 128-bit vector divided into 8 lanes storing boolean values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Bool16x8">SIMD.Bool16x8</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Bool32x4 data type is a 128-bit vector divided into 4 lanes storing boolean values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Bool32x4">SIMD.Bool32x4</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Bool64x2 data type is a 128-bit vector divided into 2 lanes storing boolean values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Bool64x2">SIMD.Bool64x2</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Bool8x16 data type is a 128-bit vector divided into 16 lanes storing boolean values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Bool8x16">SIMD.Bool8x16</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Float32x4 data type is a 128-bit vector divided into 4 lanes storing single precision floating point values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32x4">SIMD.Float32x4</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Float64x2 data type is a 128-bit vector divided into 2 lanes storing double precision floating point values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64x2">SIMD.Float64x2</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Int16x8 data type is a 128-bit vector divided into 8 lanes storing 16-bit signed integer values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16x8">SIMD.Int16x8</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Int32x4 data type is a 128-bit vector divided into 4 lanes storing 32-bit signed integer values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32x4">SIMD.Int32x4</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Int8x16 data type is a 128-bit vector divided into 16 lanes storing 8-bit signed integer values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8x16">SIMD.Int8x16</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Uint16x8 data type is a 128-bit vector divided into 8 lanes storing 16-bit unsigned integer values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16x8">SIMD.Uint16x8</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Uint32x4 data type is a 128-bit vector divided into 4 lanes storing 32-bit unsigned integer values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32x4">SIMD.Uint32x4</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SIMD.Uint8x16 data type is a 128-bit vector divided into 16 lanes storing 8-bit unsigned integer values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8x16">SIMD.Uint8x16</a></li><li><a title="The Set object lets you store unique values of any type, whether primitive values or object references." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a></li><li><span class="sidebar-icon"><span title="This is an experimental API that should not be used in production code."><i class="icon-beaker"> </i></span></span><a title="The SharedArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer, similar to the ArrayBuffer object, but in a way that they can be used to create views on shared memory. Unlike an ArrayBuffer, a SharedArrayBuffer cannot become detached." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer">SharedArrayBuffer</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The StopIteration object is used to tell the end of the iteration in the legacy iterator protocol." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/StopIteration">StopIteration</a></li><li><a title="The String global object is a constructor for strings, or a sequence of characters." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a></li><li><a title="A symbol is a unique and immutable data type and may be used as an identifier for object properties. The Symbol object is an implicit object wrapper for the symbol primitive data type." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbol</a></li><li><a title="The SyntaxError object represents an error when trying to interpret syntactically invalid code." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError">SyntaxError</a></li><li><a title="The TypeError object represents an error when a value is not of the expected type." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError">TypeError</a></li><li><a title="A TypedArray object describes an array-like view of an underlying binary data buffer. There is no global property named TypedArray, nor is there a directly visible TypedArray constructor.  Instead, there are a number of different global properties, whose values are typed array constructors for specific element types, listed below. On the following pages you will find common properties and methods that can be used with any typed array containing elements of any type." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">TypedArray</a></li><li><a title="The URIError object represents an error when a global URI handling function was used in a wrong way." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError">URIError</a></li><li><a title="The Uint16Array typed array represents an array of 16-bit unsigned integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array">Uint16Array</a></li><li><a title="The Uint32Array typed array represents an array of 32-bit unsigned integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array">Uint32Array</a></li><li><a title="The Uint8Array typed array represents an array of 8-bit unsigned integers. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a></li><li><a title="The Uint8ClampedArray typed array represents an array of 8-bit unsigned integers clamped to 0-255; if you specified a value that is out of the range of [0,255], 0 or 255 will be set instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray">Uint8ClampedArray</a></li><li><a title="The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced.  The keys must be objects and the values can be arbitrary values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap">WeakMap</a></li><li><a title="The WeakSet object lets you store weakly held objects in a collection." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet">WeakSet</a></li><li><a title="The decodeURI() function decodes a Uniform Resource Identifier (URI) previously created by encodeURI or by a similar routine." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI">decodeURI()</a></li><li><a title="The decodeURIComponent() function decodes a Uniform Resource Identifier (URI) component previously created by encodeURIComponent or by a similar routine." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">decodeURIComponent()</a></li><li><a title='The encodeURI() function encodes a Uniform Resource Identifier (URI) by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character (will only be four escape sequences for characters composed of two "surrogate" characters).' href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI">encodeURI()</a></li><li><a title='The encodeURIComponent() function encodes a Uniform Resource Identifier (URI) component by replacing each instance of certain characters by one, two, three, or four escape sequences representing the UTF-8 encoding of the character (will only be four escape sequences for characters composed of two "surrogate" characters).' href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent">encodeURIComponent()</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The deprecated escape() function computes a new string in which certain characters have been replaced by a hexadecimal escape sequence. Use encodeURI or encodeURIComponent instead." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/escape">escape()</a></li><li><a title="The eval() function evaluates JavaScript code represented as a string." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval">eval()</a></li><li><a title="The global isFinite() function determines whether the passed value is a finite number. If needed, the parameter is first converted to a number." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite">isFinite()</a></li><li><a title="The isNaN() function determines whether a value is NaN or not. Note: coercion inside the isNaN function has interesting rules; you may alternatively want to use Number.isNaN(), as defined in ECMAScript 6, or you can use typeof to determine if the value is Not-A-Number." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN">isNaN()</a></li><li><a title="The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></li><li><a title="The parseFloat() function parses a string argument and returns a floating point number." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat">parseFloat()</a></li><li><a title="The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt">parseInt()</a></li><li><a title="The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The deprecated unescape() function computes a new string in which hexadecimal escape sequences are replaced with the character that it represents. The escape sequences might be introduced by a function like escape. Because unescape is deprecated, use decodeURI or decodeURIComponent instead." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/unescape">unescape()</a></li><li><a title="The uneval() function creates a string representation of the source code of an Object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/uneval">uneval()</a></li><li><a title="The Array.from() method creates a new Array instance from an array-like or iterable object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">Array.from()</a></li><li><a title="The Array.isArray() determines whether the passed value is an Array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray">Array.isArray()</a></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a title="The Array.observe() method was used for asynchronously observing changes to Arrays, similar to Object.observe() for objects. It provided a stream of changes in order of occurrence. It's equivalent to Object.observe() invoked with the accept type list [&quot;add&quot;, &quot;update&quot;, &quot;delete&quot;, &quot;splice&quot;]. However, this API has been deprecated and removed from Browsers. You can use the more general Proxy object instead." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe">Array.observe()</a></li><li><a title="The Array.of() method creates a new Array instance with a variable number of arguments, regardless of number or type of the arguments." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of">Array.of()</a></li><li><a title="The Array.prototype property represents the prototype for the Array constructor." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype">Array.prototype</a></li><li><a title="The concat() method returns a new array comprised of the array on which it is called joined with the array(s) and/or value(s) provided as arguments." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat">Array.prototype.concat()</a></li><li><a title="The copyWithin() method shallow copies part of an array to another location in the same array and returns it, without modifying its size." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin">Array.prototype.copyWithin()</a></li><li><a title="The entries() method returns a new Array Iterator object that contains the key/value pairs for each index in the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/entries">Array.prototype.entries()</a></li><li><a title="The every() method tests whether all elements in the array pass the test implemented by the provided function." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">Array.prototype.every()</a></li><li><a title="The fill() method fills all the elements of an array from a start index to an end index with a static value." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">Array.prototype.fill()</a></li><li><a title="The filter() method creates a new array with all elements that pass the test implemented by the provided function." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.prototype.filter()</a></li><li><a title="The find() method returns a value in the array, if an element in the array satisfies the provided testing function. Otherwise undefined is returned." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.prototype.find()</a></li><li><a title="The findIndex() method returns an index in the array, if an element in the array satisfies the provided testing function. Otherwise -1 is returned." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">Array.prototype.findIndex()</a></li><li><a title="The forEach() method executes a provided function once per array element." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach">Array.prototype.forEach()</a></li><li><a title="The includes() method determines whether an array includes a certain element, returning true or false as appropriate." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">Array.prototype.includes()</a></li><li><a title="The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf">Array.prototype.indexOf()</a></li><li><a title="The join() method joins all elements of an array into a string." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join">Array.prototype.join()</a></li><li><a title="The keys() method returns a new Array Iterator that contains the keys for each index in the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/keys">Array.prototype.keys()</a></li><li><a title="The lastIndexOf() method returns the last index at which a given element can be found in the array, or -1 if it is not present. The array is searched backwards, starting at fromIndex." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf">Array.prototype.lastIndexOf()</a></li><li><a title="The map() method creates a new array with the results of calling a provided function on every element in this array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map()</a></li><li><a title="The pop() method removes the last element from an array and returns that element." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">Array.prototype.pop()</a></li><li><a title="The push() method adds one or more elements to the end of an array and returns the new length of the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push">Array.prototype.push()</a></li><li><a title="The reduce() method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">Array.prototype.reduce()</a></li><li><a title="The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) has to reduce it to a single value." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight">Array.prototype.reduceRight()</a></li><li><a title="The reverse() method reverses an array in place. The first array element becomes the last and the last becomes the first." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse">Array.prototype.reverse()</a></li><li><a title="The shift() method removes the first element from an array and returns that element. This method changes the length of the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift">Array.prototype.shift()</a></li><li><a title="The slice() method returns a shallow copy of a portion of an array into a new array object." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">Array.prototype.slice()</a></li><li><a title="The some() method tests whether some element in the array passes the test implemented by the provided function." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">Array.prototype.some()</a></li><li><a title="The sort() method sorts the elements of an array in place and returns the array. The sort is not necessarily stable. The default sort order is according to string Unicode code points." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Array.prototype.sort()</a></li><li><a title="The splice() method changes the content of an array by removing existing elements and/or adding new elements." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Array.prototype.splice()</a></li><li><a title="The toLocaleString() method returns a string representing the elements of the array. The elements are converted to Strings using their toLocaleString methods and these Strings are separated by a locale-specific String (such as a comma “,”)." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toLocaleString">Array.prototype.toLocaleString()</a></li><li><a title="The toSource() method returns a string representing the source code of the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSource">Array.prototype.toSource()</a></li><li><a title="The toString() method returns a string representing the specified array and its elements." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toString">Array.prototype.toString()</a></li><li><a title="The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift">Array.prototype.unshift()</a></li><li><a title="The values() method returns a new Array Iterator object that contains the values for each index in the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/values">Array.prototype.values()</a></li><li><a title="The initial value of the @@iterator property is the same function object as the initial value of the values() property." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator">Array.prototype[@@iterator]()</a></li><li><a title="The @@unscopable symbol property contains property names that were not included in the ECMAScript standard prior to the ES2015 (ES6) version. These properties are excluded from with statement bindings." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@unscopables">Array.prototype[@@unscopables]</a></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a title="The Array.unobserve() method was used to remove observers set by Array.observe(), but has been deprecated and removed from Browsers. You can use the more general Proxy object instead." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unobserve">Array.unobserve()</a></li><li><a title="The length property represents an unsigned, 32-bit integer that is always numerically greater than the highest index in the array." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length">array.length</a></li><li><a title="The Array[@@species] accessor property returns the Array constructor." href="/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@species">get Array[@@species]</a></li></ol>
+      </li>
+      <li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Reference/Operators">Expressions &amp; operators</a>
+      <ol><li><a title="Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value. The standard arithmetic operators are addition (+), subtraction (-), multiplication (*), and division (/)." href="/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators">Arithmetic operators</a></li><li><span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span><a title="The array comprehension syntax is a JavaScript expression which allows you to quickly assemble a new array based on an existing one. Comprehensions exist in many programming languages." href="/en-US/docs/Web/JavaScript/Reference/Operators/Array_comprehensions">Array comprehensions</a></li><li><a title="An assignment operator assigns a value to its left operand based on the value of its right operand." href="/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators">Assignment operators</a></li><li><a title="Bitwise operators treat their operands as a sequence of 32 bits (zeroes and ones), rather than as decimal, hexadecimal, or octal numbers. For example, the decimal number nine has a binary representation of 1001. Bitwise operators perform their operations on such binary representations, but they return standard JavaScript numerical values." href="/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators">Bitwise operators</a></li><li><a title="The comma operator evaluates each of its operands (from left to right) and returns the value of the last operand." href="/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator">Comma operator</a></li><li><a title="JavaScript has both strict and type–converting comparisons. A strict comparison (e.g., ===) is only true if the operands are of the same type and the contents match. The more commonly-used abstract comparison (e.g. ==) converts the operands to the same type before making the comparison. For relational abstract comparisons (e.g., &lt;=), the operands are first converted to primitives, then to the same type, before comparison." href="/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators">Comparison operators</a></li><li><a title="The conditional (ternary) operator is the only JavaScript operator that takes three operands. This operator is frequently used as a shortcut for the if statement." href="/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator">Conditional (ternary) Operator</a></li><li><a title="The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects into distinct variables." href="/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring assignment</a></li><li><a title="Expression closures are a shorthand function syntax for writing simple functions." href="/en-US/docs/Web/JavaScript/Reference/Operators/Expression_closures">Expression closures</a></li><li><span class="sidebar-icon"><span title="This API has not been standardized."><i class="icon-warning-sign"> </i></span></span><a title="The generator comprehension syntax is a JavaScript expression which allows you to quickly assemble a new generator function based on an existing iterable object. Comprehensions exist in many programming languages." href="/en-US/docs/Web/JavaScript/Reference/Operators/Generator_comprehensions">Generator comprehensions</a></li><li><a title="The grouping operator ( ) controls the precedence of evaluation in expressions." href="/en-US/docs/Web/JavaScript/Reference/Operators/Grouping">Grouping operator</a></li><li><a title="The function keyword can be used to define a legacy generator function inside an expression. To make the function a legacy generator, the function body should contain at least one yield expression." href="/en-US/docs/Web/JavaScript/Reference/Operators/Legacy_generator_function">Legacy generator function expression</a></li><li><a title="Logical operators are typically used with Boolean (logical) values. When they are, they return a Boolean value. However, the &amp;&amp; and || operators actually return the value of one of the specified operands, so if these operators are used with non-Boolean values, they may return a non-Boolean value." href="/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators">Logical Operators</a></li><li><a title="Objects can be initialized using new Object(), Object.create(), or using the literal notation (initializer notation). An object initializer is a list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({})." href="/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer">Object initializer</a></li><li><a title="Operator precedence determines the order in which operators are evaluated. Operators with higher precedence are evaluated first." href="/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence">Operator precedence</a></li><li><a title="Property accessors provide access to an object's properties by using the dot notation or the bracket notation." href="/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors">Property accessors</a></li><li><a title="The spread operator allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables  (for destructuring assignment) are expected." href="/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator">Spread operator</a></li><li><a title="The class expression is one way to define a class in ECMAScript 2015 (ES6). Similar to function expressions, class expressions can be named or unnamed. If named, the name of the class is local to the class body only. JavaScript classes are using prototype-based inheritance." href="/en-US/docs/Web/JavaScript/Reference/Operators/class">class expression</a></li><li><a title="The delete operator removes a property from an object." href="/en-US/docs/Web/JavaScript/Reference/Operators/delete">delete operator</a></li><li><a title="The function keyword can be used to define a function inside an expression." href="/en-US/docs/Web/JavaScript/Reference/Operators/function">function expression</a></li><li><a title="The function* keyword can be used to define a generator function inside an expression." href="/en-US/docs/Web/JavaScript/Reference/Operators/function*">function* expression</a></li><li><a title="The in operator returns true if the specified property is in the specified object." href="/en-US/docs/Web/JavaScript/Reference/Operators/in">in operator</a></li><li><a title="The instanceof operator tests whether an object has in its prototype chain the prototype property of a constructor." href="/en-US/docs/Web/JavaScript/Reference/Operators/instanceof">instanceof</a></li><li><a title="The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function." href="/en-US/docs/Web/JavaScript/Reference/Operators/new">new operator</a></li><li><a title="The new.target property lets you detect whether a function or constructor was called using the new operator. In constructors and functions instantiated with the new operator, new.target returns a reference to the constructor or function. In normal function calls, new.target is undefined." href="/en-US/docs/Web/JavaScript/Reference/Operators/new.target">new.target</a></li><li><a title="The super keyword is used to call functions on an object's parent." href="/en-US/docs/Web/JavaScript/Reference/Operators/super">super</a></li><li><a title="A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode." href="/en-US/docs/Web/JavaScript/Reference/Operators/this">this</a></li><li><a title="The typeof operator returns a string indicating the type of the unevaluated operand." href="/en-US/docs/Web/JavaScript/Reference/Operators/typeof">typeof</a></li><li><a title="The void operator evaluates the given expression and then returns undefined." href="/en-US/docs/Web/JavaScript/Reference/Operators/void">void operator</a></li><li><a title="The yield keyword is used to pause and resume a generator function (function* or legacy generator function)." href="/en-US/docs/Web/JavaScript/Reference/Operators/yield">yield</a></li><li><a title="The yield* expression is used to delegate to another generator or iterable object." href="/en-US/docs/Web/JavaScript/Reference/Operators/yield*">yield*</a></li></ol>
+    </li>
+    <li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Reference/Statements">Statements &amp; declarations</a>
+    <ol><li><a title="The legacy generator function statement declares legacy generator functions with the specified parameters." href="/en-US/docs/Web/JavaScript/Reference/Statements/Legacy_generator_function">Legacy generator function</a></li><li><a title="A block statement (or compound statement in other languages) is used to group zero or more statements. The block is delimited by a pair of curly brackets." href="/en-US/docs/Web/JavaScript/Reference/Statements/block">block</a></li><li><a title="The break statement terminates the current loop, switch, or label statement and transfers program control to the statement following the terminated statement." href="/en-US/docs/Web/JavaScript/Reference/Statements/break">break</a></li><li><a title="The class declaration creates a new class with a given name using prototype-based inheritance." href="/en-US/docs/Web/JavaScript/Reference/Statements/class">class</a></li><li><a title="The const declaration creates a read-only reference to a value. It does not mean the value it holds is immutable, just that the variable identifier cannot be reassigned." href="/en-US/docs/Web/JavaScript/Reference/Statements/const">const</a></li><li><a title="The continue statement terminates execution of the statements in the current iteration of the current or labeled loop, and continues execution of the loop with the next iteration." href="/en-US/docs/Web/JavaScript/Reference/Statements/continue">continue</a></li><li><a title="The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect." href="/en-US/docs/Web/JavaScript/Reference/Statements/debugger">debugger</a></li><li><a title="Technical review completed." href="/en-US/docs/Web/JavaScript/Reference/Statements/default">default</a></li><li><a title="The do...while statement creates a loop that executes a specified statement until the test condition evaluates to false. The condition is evaluated after executing the statement, resulting in the specified statement executing at least once." href="/en-US/docs/Web/JavaScript/Reference/Statements/do...while">do...while</a></li><li><a title="An empty statement is used to provide no statement, although the JavaScript syntax would expect one." href="/en-US/docs/Web/JavaScript/Reference/Statements/Empty">empty</a></li><li><a title="The export statement is used to export functions, objects or primitives from a given file (or module)." href="/en-US/docs/Web/JavaScript/Reference/Statements/export">export</a></li><li><a title="The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement or a set of statements executed in the loop." href="/en-US/docs/Web/JavaScript/Reference/Statements/for">for</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The for each...in statement iterates a specified variable over all values of object's properties. For each distinct property, a specified statement is executed." href="/en-US/docs/Web/JavaScript/Reference/Statements/for_each...in">for each...in</a></li><li><a title="The for...in statement iterates over the enumerable properties of an object, in arbitrary order. For each distinct property, statements can be executed." href="/en-US/docs/Web/JavaScript/Reference/Statements/for...in">for...in</a></li><li><a title="The for...of statement creates a loop iterating over iterable objects (including Array, Map, Set, String, TypedArray, arguments object and so on), invoking a custom iteration hook with statements to be executed for the value of each distinct property." href="/en-US/docs/Web/JavaScript/Reference/Statements/for...of">for...of</a></li><li><a title="The function declaration defines a function with the specified parameters." href="/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a></li><li><a title="The function* declaration (function keyword followed by an asterisk) defines a generator function, which returns a Generator object." href="/en-US/docs/Web/JavaScript/Reference/Statements/function*">function*</a></li><li><a title="The if statement executes a statement if a specified condition is true. If the condition is false, another statement can be executed." href="/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if...else</a></li><li><a title="The import statement is used to import functions, objects or primitives that have been exported from an external module, another script, etc." href="/en-US/docs/Web/JavaScript/Reference/Statements/import">import</a></li><li><a title="The labeled statement can be used with break or continue statements. It is prefixing a statement with an identifier which you can refer to." href="/en-US/docs/Web/JavaScript/Reference/Statements/label">label</a></li><li><a title="The let statement declares a block scope local variable, optionally initializing it to a value." href="/en-US/docs/Web/JavaScript/Reference/Statements/let">let</a></li><li><a title="The return statement ends function execution and specifies a value to be returned to the function caller." href="/en-US/docs/Web/JavaScript/Reference/Statements/return">return</a></li><li><a title="The switch statement evaluates an expression, matching the expression's value to a case clause, and executes statements associated with that case." href="/en-US/docs/Web/JavaScript/Reference/Statements/switch">switch</a></li><li><a title="The throw statement throws a user-defined exception. Execution of the current function will stop (the statements after throw won't be executed), and control will be passed to the first catch block in the call stack. If no catch block exists among caller functions, the program will terminate." href="/en-US/docs/Web/JavaScript/Reference/Statements/throw">throw</a></li><li><a title="The try...catch statement marks a block of statements to try, and specifies a response, should an exception be thrown." href="/en-US/docs/Web/JavaScript/Reference/Statements/try...catch">try...catch</a></li><li><a title="The variable statement declares a variable, optionally initializing it to a value." href="/en-US/docs/Web/JavaScript/Reference/Statements/var">var</a></li><li><a title="The while statement creates a loop that executes a specified statement as long as the test condition evaluates to true. The condition is evaluated before executing the statement." href="/en-US/docs/Web/JavaScript/Reference/Statements/while">while</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The with statement extends the scope chain for a statement." href="/en-US/docs/Web/JavaScript/Reference/Statements/with">with</a></li></ol>
+  </li>
+  <li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Reference/Functions">Functions</a>
+  <ol><li><a title="The arguments object is an Array-like object corresponding to the arguments passed to a function." href="/en-US/docs/Web/JavaScript/Reference/Functions/arguments">Arguments object</a></li><li><a title="An arrow function expression has a shorter syntax compared to function expressions and lexically binds the this value (does not bind its own this, arguments, super, or new.target). Arrow functions are always anonymous. These function expressions are best suited for non-method functions and they can not be used as constructors." href="/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">Arrow functions</a></li><li><a title="Default function parameters allow formal parameters to be initialized with default values if no value or undefined is passed." href="/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters">Default parameters</a></li><li><a title="Starting with ECMAScript 2015 (ES6), a shorter syntax for method definitions on objects initializers is introduced. It is a shorthand for a function assigned to the method's name." href="/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions">Method definitions</a></li><li><a title="The rest parameter syntax allows us to represent an indefinite number of arguments as an array." href="/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters">Rest parameters</a></li><li><a title="The get syntax binds an object property to a function that will be called when that property is looked up." href="/en-US/docs/Web/JavaScript/Reference/Functions/get">getter</a></li><li><a title="The set syntax binds an object property to a function to be called when there is an attempt to set that property." href="/en-US/docs/Web/JavaScript/Reference/Functions/set">setter</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The arguments.callee property contains the currently executing function." href="/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee">arguments.callee</a></li><li><span class="sidebar-icon"><span title="This is an obsolete API and is no longer guaranteed to work."><i class="icon-trash"> </i></span></span><a title="The obsolete arguments.caller property used to provide the function that invoked the currently executing function. This property has been removed and no longer works." href="/en-US/docs/Web/JavaScript/Reference/Functions/arguments/caller">arguments.caller</a></li><li><a title="The arguments.length property contains the number of arguments passed to the function." href="/en-US/docs/Web/JavaScript/Reference/Functions/arguments/length">arguments.length</a></li><li><span class="sidebar-icon"><span title="This deprecated API should no longer be used, but will probably still work."><i class="icon-thumbs-down-alt"> </i></span></span><a title="The initial value of the @@iterator property is the same function object as the initial value of the Array.prototype.values property." href="/en-US/docs/Web/JavaScript/Reference/Functions/arguments/@@iterator">arguments[@@iterator]()</a></li></ol>
+</li>
+<li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Reference/Classes">Classes</a>
+<ol><li><a title="The constructor method is a special method for creating and initializing an object created with a class." href="/en-US/docs/Web/JavaScript/Reference/Classes/constructor">constructor</a></li><li><a title="The extends keyword is used in a class declarations or class expressions to create a class with a child of another class." href="/en-US/docs/Web/JavaScript/Reference/Classes/extends">extends</a></li><li><a title="The static keyword defines a static method for a class." href="/en-US/docs/Web/JavaScript/Reference/Classes/static">static</a></li></ol>
+</li>
+<li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/Reference/Errors">Errors</a>
+<ol><li><a title="Error." href="/en-US/docs/Web/JavaScript/Reference/Errors/Property_access_denied">Error: Permission denied to access property "x"</a></li><li><a title="InternalError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Too_much_recursion">InternalError: too much recursion</a></li><li><a title="RangeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_a_codepoint">RangeError: argument is not a valid code point</a></li><li><a title="RangeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_array_length">RangeError: invalid array length</a></li><li><a title="RangeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Precision_range">RangeError: precision is out of range</a></li><li><a title="RangeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Bad_radix">RangeError: radix must be an integer</a></li><li><a title="RangeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Resulting_string_too_large">RangeError: repeat count must be less than infinity</a></li><li><a title="RangeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Negative_repetition_count">RangeError: repeat count must be non-negative</a></li><li><a title="ReferenceError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_defined">ReferenceError: "x" is not defined</a></li><li><a title="ReferenceError warning in strict mode only." href="/en-US/docs/Web/JavaScript/Reference/Errors/Undeclared_var">ReferenceError: assignment to undeclared variable "x"</a></li><li><a title="A strict-mode-only warning that a ReferenceError occurred. JavaScript execution won't be halted." href="/en-US/docs/Web/JavaScript/Reference/Errors/Deprecated_caller_or_arguments_usage">ReferenceError: deprecated caller or arguments usage</a></li><li><a title="ReferenceError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Invalid_assignment_left-hand_side">ReferenceError: invalid assignment left-hand side</a></li><li><a title="ReferenceError warning in strict mode only." href="/en-US/docs/Web/JavaScript/Reference/Errors/Undefined_prop">ReferenceError: reference to undefined property "x"</a></li><li><a title="SyntaxError warning in strict mode only." href="/en-US/docs/Web/JavaScript/Reference/Errors/Bad_octal">SyntaxError: "x" is not a legal ECMA-262 octal constant</a></li><li><a title="SyntaxError" href="/en-US/docs/Web/JavaScript/Reference/Errors/JSON_bad_parse">SyntaxError: JSON.parse: bad parsing</a></li><li><a title="SyntaxError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Malformed_formal_parameter">SyntaxError: Malformed formal parameter</a></li><li><a title="SyntaxError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_token">SyntaxError: Unexpected token</a></li><li><a title="A warning that a SyntaxError occurred. JavaScript execution won't be halted." href="/en-US/docs/Web/JavaScript/Reference/Errors/Deprecated_source_map_pragma">SyntaxError: Using //@ to indicate sourceURL pragmas is deprecated. Use //# instead</a></li><li><a title="SyntaxError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Missing_parenthesis_after_argument_list">SyntaxError: missing ) after argument list</a></li><li><a title="SyntaxError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Missing_semicolon_before_statement">SyntaxError: missing ; before statement</a></li><li><a title="SyntaxError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Missing_bracket_after_list">SyntaxError: missing ] after element list</a></li><li><a title="SyntaxError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Missing_curly_after_property_list">SyntaxError: missing } after property list</a></li><li><a title="SyntaxError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Redeclared_parameter">SyntaxError: redeclaration of formal parameter "x"</a></li><li><a title="SyntaxError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Bad_return_or_yield">SyntaxError: return not in function</a></li><li><a title="SyntaxError warning in strict mode only." href="/en-US/docs/Web/JavaScript/Reference/Errors/Equal_as_assign">SyntaxError: test for equality (==) mistyped as assignment (=)?</a></li><li><a title="SyntaxError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Unterminated_string_literal">SyntaxError: unterminated string literal</a></li><li><a title="TypeError." href="/en-US/docs/Web/JavaScript/Reference/Errors/No_properties">TypeError: "x" has no properties</a></li><li><a title="TypeError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Unexpected_type">TypeError: "x" is (not) "y"</a></li><li><a title="TypeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_a_constructor">TypeError: "x" is not a constructor</a></li><li><a title="TypeError." href="/en-US/docs/Web/JavaScript/Reference/Errors/Not_a_function">TypeError: "x" is not a function</a></li><li><a title="TypeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Read-only">TypeError: "x" is read-only</a></li><li><a title="TypeError." href="/en-US/docs/Web/JavaScript/Reference/Errors/More_arguments_needed">TypeError: More arguments needed</a></li><li><a title="TypeError" href="/en-US/docs/Web/JavaScript/Reference/Errors/Array_sort_argument">TypeError: invalid Array.prototype.sort argument</a></li><li><a title="TypeError in strict mode only." href="/en-US/docs/Web/JavaScript/Reference/Errors/Cant_delete">TypeError: property "x" is non-configurable and can't be deleted</a></li><li><a title="TypeError warning in strict mode only." href="/en-US/docs/Web/JavaScript/Reference/Errors/Var_hides_argument">TypeError: variable "x" redeclares argument</a></li><li><a title="A warning. JavaScript execution won't be halted." href="/en-US/docs/Web/JavaScript/Reference/Errors/Already_has_pragma">Warning: -file- is being assigned a //# sourceMappingURL, but already has one</a></li><li><a title="Warning" href="/en-US/docs/Web/JavaScript/Reference/Errors/Stmt_after_return">Warning: unreachable code after return statement</a></li></ol>
+</li>
+<li data-default-state="closed"><a href="#">Misc</a>
+<ol>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Lexical_grammar">Lexical grammar</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Data_structures">JavaScript data structures</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">Enumerability and ownership of properties</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Iteration_protocols">Iteration protocols</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Strict_mode">Strict mode</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Strict_mode/Transitioning_to_strict_mode">Transitioning to strict mode</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Template_literals">Template literals</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features">Deprecated features</a></li>
+</ol>
+</li>
+<li data-default-state="closed"><a href="/en-US/docs/Web/JavaScript/New_in_JavaScript">New in JavaScript</a>
+<ol><li><a title="ECMAScript 5.1, an older version of the standard upon which JavaScript is based, was approved in June 2011." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_5_support_in_Mozilla">ECMAScript 5 support in Mozilla</a></li><li><a title='ECMAScript 2015 (6th Edition) is the current version of the ECMAScript Language Specification standard. Commonly referred to as "ES6", it defines the standard for the JavaScript implementation in SpiderMonkey, the engine used in Firefox and other Mozilla applications.' href="/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">ECMAScript 6 support in Mozilla</a></li><li><a title="ECMAScript Next refers to new features of the ECMA-262 standard (commonly referred to as JavaScript) introduced after ECMAScript 6 (ES2015). New versions of ECMAScript specifications are released yearly. This year, the ES2016 specification will be released and the ES2017 is the current ECMAScript draft specification." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_Next_support_in_Mozilla">ECMAScript Next support in Mozilla</a></li><li><a title="The following is a changelog for JavaScript features in Firefox releases." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/Firefox_JavaScript_changelog">Firefox JavaScript changelog</a></li><li><a title='The following is a changelog for JavaScript from Netscape Navigator 2.0 to 3.0. The old Netscape documentation references this as "Features added after version 1". Netscape Navigator 3.0 was released on August 19, 1996. Netscape Navigator 3.0 was the second major version of the browser with JavaScript support.' href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.1">New in JavaScript 1.1</a></li><li><a title="The following is a changelog for JavaScript from Netscape Navigator 3.0 to 4.0. The old Netscape documentation can be found on archive.org. Netscape Navigator 4.0 was released on June 11, 1997. Netscape Navigator 4.0 was the third major version of the browser with JavaScript support." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.2">New in JavaScript 1.2</a></li><li><a title="The following is a changelog for JavaScript from Netscape Navigator 4.0 to 4.5. The old Netscape documentation can be found on archive.org. Netscape Navigator 4.5 was released on October 19, 1998." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.3">New in JavaScript 1.3</a></li><li><a title="The following is a changelog for JavaScript 1.4, which was only used for Netscape's server side JavaScript released in 1999. The old Netscape documentation can be found on archive.org." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.4">New in JavaScript 1.4</a></li><li><a title="The following is a changelog for JavaScript 1.5. This version was included in Netscape Navigator 6.0 was released on November 14, 2000 and was also used in later versions of Netscape Navigator and Firefox 1.0. You can compare JavaScript 1.5 to JScript version 5.5 and Internet Explorer 5.5, which was released in July 2000. The corresponding ECMA standard is ECMA-262 Edition 3 (from December 1999)." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.5">New in JavaScript 1.5</a></li><li><a title="The following is a changelog for JavaScript 1.6. This version was included in Firefox 1.5 (Gecko 1.8), which was released in November 2005. The corresponding ECMA standard is ECMA-262 Edition 3 and ECMAScript for XML (E4X) with some additional features. Several new features were introduced: E4X, several new Array methods, and Array and String generics." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.6">New in JavaScript 1.6</a></li><li><a title="The following is a changelog for JavaScript 1.7. This version was included in Firefox 2 (October 2006)." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.7">New in JavaScript 1.7</a></li><li><a title="The following is a changelog for JavaScript 1.8. This version was included in Firefox 3 and is part of Gecko 1.9. See bug 380236 for a tracking development bug for JavaScript 1.8." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8">New in JavaScript 1.8</a></li><li><a title="The following is a changelog for JavaScript 1.8.1. This version was included in Firefox 3.5." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8.1">New in JavaScript 1.8.1</a></li><li><a title="The following is a changelog for JavaScript 1.8.5. This version was included in Firefox 4." href="/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8.5">New in JavaScript 1.8.5</a></li></ol>
+</li>
+<li><strong><a href="/en-US/docs/MDN">Documentation:</a></strong></li>
+<li data-default-state="closed"><a href="#">Useful lists</a>
+<ol>
+<li><a href="/en-US/docs/Web/JavaScript/Index">All pages index</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Methods_Index">Methods index</a></li>
+<li><a href="/en-US/docs/Web/JavaScript/Reference/Properties_Index">Properties index</a></li>
+<li><a href="/en-US/docs/tag/JavaScript">Pages tagged "JavaScript"</a></li>
+</ol>
+</li>
+<li data-default-state="closed"><a href="#">Contribute</a>
+<ol>
+<li><a href="/en-US/docs/MDN/Doc_status/JavaScript">JavaScript doc status</a></li>
+<li><a href="/en-US/docs/MDN">The MDN project</a></li>
+</ol>
+</li>
+</ol>
+</div>
+
+<!-- approvals -->
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div> <!-- ends "main-content" -->
+<menu type="context" id="edit-history-menu">
+<menuitem data-action="/en-US/docs/Web/JavaScript/Memory_Management$edit" label="Edit page"></menuitem>
+<menuitem data-action="/en-US/docs/Web/JavaScript/Memory_Management$history" label="View page history"></menuitem>
+</menu>
+</div></main>
+<!-- Footer -->
+<footer><div class="center">
+<div class="column-container">
+<div class="column-main">
+
+<div class="contentinfo">
+<p>&copy; 2005-2016 Mozilla Developer Network and individual contributors.</p> <p>Content is available under <a href="/en-US/docs/MDN/About#Copyrights_and_licenses">these licenses</a>.</p>
+<ul>
+<li><a href="/docs/MDN/About">About MDN</a></li>
+<li><a href="//www.mozilla.org/about/legal/terms/mozilla">Terms</a></li>
+<li><a href="//www.mozilla.org/privacy/websites/">Privacy</a></li>
+<li><a href="//www.mozilla.org/privacy/websites/#cookies">Cookies</a></li>
+<li><a href="//github.com/mozilla/kuma">Contribute to the code</a></li>
+</ul>
+</div>
+
+</div>
+<div class="column-strip">
+
+
+
+<form class="languages go" method="get" action="/en-US/docs/Web">
+<label for="language">Other languages:</label>
+<select id="language" class="wiki-l10n" name="next" dir="ltr">
+<option title="English (US)" value="/en-US/docs/Web/JavaScript/Memory_Management" selected>
+English (US) (en-US)
+</option>
+
+<option title="Bengali (Bangladesh)" value="/bn-BD/docs/Web/JavaScript/Memory_Management">
+বাংলা (বাংলাদেশ) (bn-BD)
+</option>
+<option title="German" value="/de/docs/Web/JavaScript/Speicherverwaltung">
+Deutsch (de)
+</option>
+<option title="Spanish" value="/es/docs/Web/JavaScript/Gestion_de_Memoria">
+Español (es)
+</option>
+<option title="French" value="/fr/docs/Web/JavaScript/Gestion_de_la_m%C3%A9moire">
+Français (fr)
+</option>
+<option title="Indonesian" value="/id/docs/Web/JavaScript/Memory_Management">
+Bahasa Indonesia (id)
+</option>
+<option title="Italian" value="/it/docs/Web/JavaScript/Gestione_della_Memoria">
+Italiano (it)
+</option>
+<option title="Japanese" value="/ja/docs/Web/JavaScript/Memory_Management">
+日本語 (ja)
+</option>
+<option title="Korean" value="/ko/docs/Web/JavaScript/Memory_Management">
+한국어 (ko)
+</option>
+<option title="Portuguese (Brazilian)" value="/pt-BR/docs/Web/JavaScript/Memory_Management">
+Português (do Brasil) (pt-BR)
+</option>
+<option title="Russian" value="/ru/docs/Web/JavaScript/Memory_Management">
+Русский (ru)
+</option>
+<option title="Chinese (Simplified)" value="/zh-CN/docs/Web/JavaScript/Memory_Management">
+中文 (简体) (zh-CN)
+</option>
+</select>
+<noscript><button type="submit">Go</button></noscript>
+</form>
+
+
+</div>
+</div>
+</div></footer>
+<!-- site js -->
+
+
+<!--[if lte IE 8]><script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/selectivizr.091e18cf669b.js" charset="utf-8"></script><![endif]-->
+<form id="_persona_login" method="post" action="/users/persona/signin" data-csrf-token-url="/users/persona/csrf" data-request='{"siteName": "Mozilla Developer Network", "siteLogo": "/static/img/opengraph-logo.png"}' data-persona-script="https://login.persona.org/include.js">
+<input type="hidden" name="csrfmiddlewaretoken" value="" id="_persona_csrf_token" />
+<input type="hidden" name="next" value="" id="_persona_next_url"/>
+<input type="hidden" name="process" value="" id="_persona_process"/>
+<input type="hidden" name="assertion" id="_persona_assertion"/>
+</form>
+<script type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/main.0b27624b66bf.js" charset="utf-8"></script>
+
+<script>
+if(window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+</script>
+
+
+<script type="text/javascript" src="https://developer.cdn.mozilla.net/static/jsi18n/en-us/javascript.b28203373cc1.js"></script>
+
+<script async type="text/javascript" src="https://developer.cdn.mozilla.net/static/build/js/wiki.d85ddd33511e.js" charset="utf-8"></script>
+
+
+
+</body>
+</html>

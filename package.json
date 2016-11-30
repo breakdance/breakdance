@@ -1,0 +1,50 @@
+{
+  "name": "sledgehammer",
+  "description": "Convert HTML to markdown. Gently.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jonschlinkert/sledgehammer",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/sledgehammer",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/sledgehammer/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "bin",
+    "index.js",
+    "lib"
+  ],
+  "main": "index.js",
+  "bin": {
+    "tomd": "bin/cli.js"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "block-elements": "^1.1.0",
+    "define-property": "^0.2.5",
+    "export-files": "^2.1.1",
+    "extend-shallow": "^2.0.1",
+    "get-value": "^2.0.6",
+    "inline-elements": "^1.0.0",
+    "pretty-remarkable": "^0.4.0",
+    "remarkable": "^1.7.1",
+    "repeat-string": "^1.6.1",
+    "resolve-dir": "^1.0.0",
+    "snapdragon": "^0.8.1",
+    "strip-color": "^0.1.0",
+    "trim-leading-lines": "^0.1.1",
+    "trim-trailing-lines": "^1.1.0",
+    "yargs-parser": "^4.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "keywords": [
+    "sledgehammer"
+  ]
+}
