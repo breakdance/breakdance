@@ -28,7 +28,7 @@ describe('lists', function() {
       isEqual('list-ul-anchor-code');
     });
 
-    it.only('should convert an unordered list with code', function() {
+    it('should convert an unordered list with code', function() {
       isEqual('list-li-code');
     });
 

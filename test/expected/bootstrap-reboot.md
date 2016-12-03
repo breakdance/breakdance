@@ -121,19 +121,19 @@ Reboot builds upon Normalize, providing many HTML elements with somewhat opinion
 
 Here are our guidelines and reasons for choosing what to override in Reboot:
 
-* Update some browser default values to use `Update some browser default values to use rems instead of ems for scalable component spacing.`s instead of `Update some browser default values to use rems instead of ems for scalable component spacing.`s for scalable component spacing.
-* Avoid `Avoid margin-top. Vertical margins can collapse, yielding unexpected results. More importantly though, a single direction of margin is a simpler mental model.`. Vertical margins can collapse, yielding unexpected results. More importantly though, a single direction of `Avoid margin-top. Vertical margins can collapse, yielding unexpected results. More importantly though, a single direction of margin is a simpler mental model.` is a simpler mental model.
-* For easier scaling across device sizes, block elements should use `For easier scaling across device sizes, block elements should use rems for margins.`s for `For easier scaling across device sizes, block elements should use rems for margins.`s.
-* Keep declarations of `Keep declarations of font-related properties to a minimum, using inherit whenever possible.`-related properties to a minimum, using `Keep declarations of font-related properties to a minimum, using inherit whenever possible.` whenever possible.
+* Update some browser default values to use `rem`s instead of `em`s for scalable component spacing.
+* Avoid `margin-top`. Vertical margins can collapse, yielding unexpected results. More importantly though, a single direction of `margin` is a simpler mental model.
+* For easier scaling across device sizes, block elements should use `rem`s for `margin`s.
+* Keep declarations of `font`-related properties to a minimum, using `inherit` whenever possible.
 
 ## Page defaults
 
 The `<span class="nt"><html></span>` and `<body>` elements are updated to provide better page-wide defaults. More specifically:
 
-* The `The box-sizing is globally set on every element—including *:before and *:after, to border-box. This ensures that the declared width of element is never exceeded due to padding or border.` is globally set on every element—including `The box-sizing is globally set on every element—including *:before and *:after, to border-box. This ensures that the declared width of element is never exceeded due to padding or border.` and `The box-sizing is globally set on every element—including *:before and *:after, to border-box. This ensures that the declared width of element is never exceeded due to padding or border.`, to `The box-sizing is globally set on every element—including *:before and *:after, to border-box. This ensures that the declared width of element is never exceeded due to padding or border.`. This ensures that the declared width of element is never exceeded due to padding or border.
-* A base `A base font-size: 16px is declared on the <html> and font-size: 1rem on the <body> for easy responsive type-scaling via media queries.` is declared on the `A base font-size: 16px is declared on the <html> and font-size: 1rem on the <body> for easy responsive type-scaling via media queries.` and `A base font-size: 16px is declared on the <html> and font-size: 1rem on the <body> for easy responsive type-scaling via media queries.` on the `A base font-size: 16px is declared on the <html> and font-size: 1rem on the <body> for easy responsive type-scaling via media queries.` for easy responsive type-scaling via media queries.
-* The `The <body> also sets a global font-family and line-height. This is inherited later by some form elements to prevent font inconsistencies.` also sets a global `The <body> also sets a global font-family and line-height. This is inherited later by some form elements to prevent font inconsistencies.` and `The <body> also sets a global font-family and line-height. This is inherited later by some form elements to prevent font inconsistencies.`. This is inherited later by some form elements to prevent font inconsistencies.
-* For safety, the `For safety, the <body> has a declared background-color, defaulting to #fff.` has a declared `For safety, the <body> has a declared background-color, defaulting to #fff.`, defaulting to `For safety, the <body> has a declared background-color, defaulting to #fff.`.
+* The `box-sizing` is globally set on every element—including `*:before` and `*:after`, to `border-box`. This ensures that the declared width of element is never exceeded due to padding or border.
+* A base `font-size: 16px` is declared on the `<span class="nt"><html></span>` and `font-size: 1rem` on the `<body>` for easy responsive type-scaling via media queries.
+* The `<body>` also sets a global `font-family` and `line-height`. This is inherited later by some form elements to prevent font inconsistencies.
+* For safety, the `<body>` has a declared `background-color`, defaulting to `#fff`.
 
 ## Native font stack
 
@@ -237,11 +237,11 @@ Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure
 
 Various form elements have been rebooted for simpler base styles. Here are some of the most notable changes:
 
-* `<fieldset>s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.`s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.
-* `<legend>s, like fieldsets, have also been restyled to be displayed as a heading of sorts.`s, like fieldsets, have also been restyled to be displayed as a heading of sorts.
-* `<label>s are set to display: inline-block to allow margin to be applied.`s are set to `<label>s are set to display: inline-block to allow margin to be applied.` to allow `<label>s are set to display: inline-block to allow margin to be applied.` to be applied.
-* `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, and `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s are mostly addressed by Normalize, but Reboot removes their `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.` and sets `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`, too.
-* `<textarea>s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.`s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.
+* `<fieldset>`s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.
+* `<legend>`s, like fieldsets, have also been restyled to be displayed as a heading of sorts.
+* `<label>`s are set to `display: inline-block` to allow `margin` to be applied.
+* `<input>`s, `<select>`s, `<textarea>`s, and `<button>`s are mostly addressed by Normalize, but Reboot removes their `margin` and sets `line-height: inherit`, too.
+* `<textarea>`s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.
 
 These changes, and more, are demonstrated below.
 
@@ -252,27 +252,14 @@ These changes, and more, are demonstrated below.
 The `<address>` element is updated to reset the browser default `font-style` from `italic` to `normal`. `line-height` is also now inherited, and `margin-bottom: 1rem` has been added. `<address>`s are for presenting contact information for the nearest ancestor (or an entire body of work). Preserve formatting by ending lines with `<br>`.
 
 <address>
-**Twitter, Inc.**
-
-<br>
-
-    1355 Market St, Suite 900
-
-<br>
-
-    San Francisco, CA 94103
-
-<br>
-
-<abbr>P:</abbr> (123) 456-7890
-
+**Twitter, Inc.**<br>
+1355 Market St, Suite 900<br>
+San Francisco, CA 94103<br>
+<abbr>P:</abbr> (123) 456-7890  
 </address>
 
 <address>
-**Full Name**
-
-<br>
-
+**Full Name**<br>
 [[email protected]](/cdn-cgi/l/email-protection#6546)
 </address>
 

@@ -19,18 +19,9 @@ describe('breaks', function() {
 
     isEqual.inline(fixture, [
       '<br>',
-      '',
-      'foo',
-      '',
-      '<br>',
-      '',
-      'bar',
-      '',
-      '<br>',
-      '',
-      'baz',
-      '',
-      '<br>\n',
+      'foo<br>',
+      'bar<br>',
+      'baz<br>\n',
     ].join('\n'));
   });
 });

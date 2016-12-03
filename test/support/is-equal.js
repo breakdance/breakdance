@@ -12,9 +12,9 @@ module.exports = function(name, expectedName, options) {
   }
 
   var actual = sledgehammer(read(path.join('fixtures', name + '.html')), options);
-  console.log(actual)
-  // var expected = read(path.join('expected', (expectedName || name) + '.md'));
-  // assert.strictEqual(actual, expected);
+  // console.log(actual)
+  var expected = read(path.join('expected', (expectedName || name) + '.md'));
+  assert.strictEqual(actual, expected);
 };
 
 module.exports.inline = function(html, markdown, options) {
