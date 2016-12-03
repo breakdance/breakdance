@@ -1,5 +1,3 @@
-# Sample document 3
-
 <caption>Oceans</caption>
 | <br> | Area<br>million km<sup>2</sup> | Mean depth<br>m | 
 | --- | --- | --- | 

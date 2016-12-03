@@ -4,17 +4,26 @@ var extend = require('extend-shallow');
 var isEqual = require('./support/is-equal');
 var plugins = require('../lib/plugins/');
 
-describe('integration tests', function() {
-  it('should convert complex html pages to test compiler coverage', function() {
+describe('integration tests (testing random complex HTML for coverage)', function() {
+  this.timeout(20000);
+
+  it('should convert caniuse HTML', function() {
     isEqual('caniuse-li-p');
-    isEqual('caniuse');
-    // isEqual('mozilla-memory-management', {pick: ['#toc', '#wikiArticle']});
-    isEqual('mozilla-memory-management', extend({readable: true}, plugins.mozilla));
+    isEqual('caniuse', {title: true});
   });
 
-  it('should convert bootstrap HTML to markdown', function() {
+  it('should convert mozilla docs HTML', function() {
+    isEqual('mozilla-memory-management', extend({readable: true, title: true}, plugins.mozilla));
+    isEqual('mozilla-html-elements', extend({readable: true, title: true}, plugins.mozilla));
+  });
+
+  it('should convert bootstrap v3 HTML', function() {
+    isEqual('bootstrap-css');
+  });
+
+  it('should convert bootstrap v4 HTML', function() {
+    isEqual('bootstrap-code', {title: true});
+    isEqual('bootstrap-reboot', {title: true});
     isEqual('bootstrap-typeography');
-    isEqual('bootstrap-reboot');
-    isEqual('bootstrap-code');
   });
 });

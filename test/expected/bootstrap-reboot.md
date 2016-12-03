@@ -95,7 +95,7 @@ Styles for displaying content with some of the most commonly used HTML elements,
 
 # Reboot
 
-Part of Bootstrap’s job is to provide an elegant, consistent, and simple baseline to build upon. We use Reboot, a collection of element-specific CSS changes in a single file, to kickstart that.
+Part of Bootstrap's job is to provide an elegant, consistent, and simple baseline to build upon. We use Reboot, a collection of element-specific CSS changes in a single file, to kickstart that.
 
 Reboot builds upon Normalize, providing many HTML elements with somewhat opinionated styles using only element selectors. Additional styling is done only with classes. For example, we reboot some `<table>` styles for a simpler baseline and later provide `.table`, `.table-bordered`, and more.
 
@@ -137,7 +137,7 @@ The `<span class="nt"><html></span>` and `<body>` elements are updated to provid
 
 ## Native font stack
 
-The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a “native font stack” for optimum text rendering on every device and OS. Read more about [native font stacks in this_Smashing Magazine_article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
+The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a "native font stack" for optimum text rendering on every device and OS. Read more about [native font stacks in this_Smashing Magazine_article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
 
 ```sass
 $font-family-sans-serif:
@@ -210,7 +210,16 @@ All lists— `<ul>`, `<ol>`, and `<dl>`—have their `margin-top` removed and a 
 8. Eget porttitor lorem
 
 For simpler styling, clear hierarchy, and better spacing, description lists have updated `margin`s. `<dd>`s reset `margin-left` to `0` and add `margin-bottom: .5rem`. `<dt>`s are **bolded**.
-<dl><dt>Description lists</dt><dd>A description list is perfect for defining terms.</dd><dt>Euismod</dt><dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem.</dd><dd>Donec id elit non mi porta gravida at eget metus.</dd><dt>Malesuada porta</dt><dd>Etiam porta sem malesuada magna mollis euismod.</dd></dl>
+
+<dl>
+  <dt>Description lists</dt>
+  <dd>A description list is perfect for defining terms.</dd>
+  <dt>Euismod</dt>
+  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem.</dd>
+  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+  <dt>Malesuada porta</dt>
+  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>
 
 ## Preformatted text
 
@@ -241,7 +250,7 @@ Various form elements have been rebooted for simpler base styles. Here are some 
 * `<legend>`s, like fieldsets, have also been restyled to be displayed as a heading of sorts.
 * `<label>`s are set to `display: inline-block` to allow `margin` to be applied.
 * `<input>`s, `<select>`s, `<textarea>`s, and `<button>`s are mostly addressed by Normalize, but Reboot removes their `margin` and sets `line-height: inherit`, too.
-* `<textarea>`s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.
+* `<textarea>`s are modified to only be resizable vertically as horizontal resizing often "breaks" page layout.
 
 These changes, and more, are demonstrated below.
 
@@ -268,7 +277,7 @@ San Francisco, CA 94103<br>
 The default `margin` on blockquotes is `1em 40px`, so we reset that to `0 0 1rem` for something more consistent with other elements.
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-Someone famous in Source Title
+Someone famous in <cite>Source Title</cite>
 
 ### Inline elements
 
@@ -277,7 +286,7 @@ Nulla<abbr>attr</abbr> vitae elit libero, a pharetra augue.
 
 ## HTML5 `[hidden]`attribute
 
-HTML5 adds [a new global attribute named `[hidden]`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden), which is styled as `display: none` by default. Borrowing an idea from [PureCSS](http://purecss.io), we improve upon this default by making `[hidden] { display: none !important; }` to help prevent its `display` from getting accidentally overridden. While `[hidden]` isn’t natively supported by IE9-10, the explicit declaration in our CSS gets around that problem.
+HTML5 adds [a new global attribute named `[hidden]`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden), which is styled as `display: none` by default. Borrowing an idea from [PureCSS](http://purecss.io), we improve upon this default by making `[hidden] { display: none !important; }` to help prevent its `display` from getting accidentally overridden. While `[hidden]` isn't natively supported by IE9-10, the explicit declaration in our CSS gets around that problem.
 
 ```html
 <input type="text" hidden>
@@ -285,17 +294,17 @@ HTML5 adds [a new global attribute named `[hidden]`](https://developer.mozilla.o
 
 #### jQuery incompatibility
 
-`[hidden]` is not compatible with jQuery’s `$(...).hide()` and `$(...).show()` methods. This could potentially change in jQuery 3, but we’re not holding our breath. Therefore, we don’t currently especially endorse `[hidden]` over other techniques for managing the `display` of elements.
+`[hidden]` is not compatible with jQuery's `$(...).hide()` and `$(...).show()` methods. This could potentially change in jQuery 3, but we're not holding our breath. Therefore, we don't currently especially endorse `[hidden]` over other techniques for managing the `display` of elements.
 
 To merely toggle the visibility of an element, meaning its `display` is not modified and the element can still affect the flow of the document, use [the `.invisible` class](/utilities/invisible-content/) instead.
 
 ## Click delay optimization for touch
 
-Traditionally, browsers on touchscreen devices have a delay of approximately 300ms between the end of a “tap” – the moment when a finger/stylus is lifted from screen – and the [`click` event](https://developer.mozilla.org/en-US/docs/Web/Events/click) being fired. This delay is necessary for these browsers to correctly handle “double-tap to zoom” gestures without prematurely triggering actions or links after the first “tap”, but it can make your site feel slightly sluggish and unresponsive.
+Traditionally, browsers on touchscreen devices have a delay of approximately 300ms between the end of a "tap" – the moment when a finger/stylus is lifted from screen – and the [`click` event](https://developer.mozilla.org/en-US/docs/Web/Events/click) being fired. This delay is necessary for these browsers to correctly handle "double-tap to zoom" gestures without prematurely triggering actions or links after the first "tap", but it can make your site feel slightly sluggish and unresponsive.
 
 Most mobile browsers automatically optimize away this 300ms delay for sites that use the `width=device-width` property as part of their [responsive meta tag](/getting-started/introduction/#responsive-meta-tag) (as well as for sites that disable zooming, for instance with `user-scalable=no`, though this practice is strongly discouraged for accessibility and usability reasons). The biggest exceptions here are IE11 on Windows Phone 8.1, and iOS Safari (and any other iOS WebView-based browser) [prior to iOS 9.3](https://webkit.org/blog/5610/more-responsive-tapping-on-ios/).
 
-On touch-enabled laptop/desktop devices, IE11 and Microsoft Edge are currently the only browsers with “double-tap to zoom” functionality. As the [responsive meta tag](/getting-started/introduction/#responsive-meta-tag) is ignored by all desktop browsers, using `width=device-width` will have no effect on the 300ms delay here.
+On touch-enabled laptop/desktop devices, IE11 and Microsoft Edge are currently the only browsers with "double-tap to zoom" functionality. As the [responsive meta tag](/getting-started/introduction/#responsive-meta-tag) is ignored by all desktop browsers, using `width=device-width` will have no effect on the 300ms delay here.
 
 To address this problem in IE11 and Microsoft Edge on desktop, as well as IE11 on Windows Phone 8.1, Bootstrap explicitly uses the [`touch-action:manipulation` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action) on all interactive elements (such as buttons and links). This property essentially disables double-tap functionality on those elements, eliminating the 300ms delay.
 

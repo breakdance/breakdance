@@ -5,7 +5,7 @@ var isEqual = require('./support/is-equal');
 describe('options', function() {
   describe('stripTags', function() {
     it('should strip the given elements from HTML before converting', function() {
-      isEqual('caniuse', 'options.stripTags', {stripTags: ['.ciu-panel-wrap']});
+      isEqual('caniuse', 'options.stripTags', {stripTags: ['.ciu-panel-wrap'], title: true});
     });
   });
 });

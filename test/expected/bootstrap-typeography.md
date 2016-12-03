@@ -1,5 +1,3 @@
-# Typography · Bootstrap
-
 # Typography
 
 Bootstrap includes simple and easily customized typography for headings, body text, lists, and more. For even more control, check out the [textual utility classes](/utilities/).
@@ -157,7 +155,7 @@ Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis moll
 
 Styling for common inline HTML5 elements.
 
-You can use the mark tag to  text.
+You can use the mark tag to <mark>highlight</mark> text.
 
 ~~This line of text is meant to be treated as deleted text.~~
 
@@ -224,7 +222,7 @@ For quoting blocks of content from another source within your document. Wrap `<b
 Add a `<footer class="blockquote-footer">` for identifying the source. Wrap the name of the source work in `<cite>`.
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-Someone famous in Source Title
+Someone famous in <cite>Source Title</cite>
 
 ```html
 <blockquote class="blockquote">
@@ -238,7 +236,7 @@ Someone famous in Source Title
 Add `.blockquote-reverse` for a blockquote with right-aligned content.
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-Someone famous in Source Title
+Someone famous in <cite>Source Title</cite>
 
 ```html
 <blockquote class="blockquote blockquote-reverse">
@@ -360,7 +358,7 @@ _Responsive typography_ refers to scaling text and components by simply adjustin
 
 Here's an example of it in practice. Choose whatever `font-size`s and media queries you wish.
 
-```scss
+```sass
 html {
   font-size: 14px;
 }

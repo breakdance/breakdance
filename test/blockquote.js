@@ -17,14 +17,4 @@ describe('quotes', function() {
       isEqual('blockquote-nested');
     });
   });
-
-  describe('inline quotes', function() {
-    it('should convert inline quotes to markdown', function() {
-      isEqual('q');
-    });
-
-    it('should retain spacing in inline quotes', function() {
-      isEqual.inline('<div>This is another<q> inline quote </q>.</div>', 'This is another" inline quote ".\n');
-    });
-  });
 });

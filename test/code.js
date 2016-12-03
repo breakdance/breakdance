@@ -18,6 +18,7 @@ describe('code', function() {
     it('should convert pre tags to markdown', function() {
       isEqual('pre');
       isEqual('pre-multiple');
+      isEqual('pre-html');
     });
   });
 
