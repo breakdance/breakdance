@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>breakdance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <style>
+      .page-header { 
+            }
+    </style>
+  </head>  <body>
+    <div class="container">
+      <nav class="navbar">
+        <ul class="nav navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+              <li class="nav-item active">
+          <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="options.html">Options</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="customize.html">Customize</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+        </li>
+  </ul>
+      </nav>
+      
+    </div>
+
+    <div class="container-fluid">
+      <div class="page-header page-header-sm">
+        <div class="container">
+          <h1 class="project-name">Examples</h1>
+  </div>
+      </div>    </div>
+
+    <div class="container">
+      <section class="main-content">
+        <h3>ul</h3>
+<p>The following HTML list:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Baz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code><span class="hljs-bullet">* </span>Foo
+<span class="hljs-bullet">* </span>Bar
+<span class="hljs-bullet">* </span>Baz
+</code></pre>
+<h3>ol</h3>
+<p>The following HTML ordered list:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Baz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+</code></pre>
+<p>When <a href="#optionsone">options.one</a> is true, converts to the following markdown (in markdown, numbers are automatically incremented by the renderer when <code>1.</code> is used):</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">1. </span>Bar
+<span class="hljs-bullet">1. </span>Baz
+</code></pre>
+<p>Otherwise the following is rendered:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">2. </span>Bar
+<span class="hljs-bullet">3. </span>Baz
+</code></pre>
+<h3>checkboxes</h3>
+<p>An HTML <code>input</code> that has the <code>type=&quot;checkbox&quot;</code> attribute:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> /&gt;</span>Lorem ipsum dolor sit amet
+</code></pre>
+<p>Converts to the following markdown:</p>
+<pre><code><span class="hljs-string">[ ]</span> Lorem ipsum dolor sit amet
+</code></pre>
+<p><strong>Checked</strong></p>
+<p>The following:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox checked"</span> /&gt;</span>Lorem ipsum dolor sit amet
+</code></pre>
+<p>Converts to:</p>
+<pre><code><span class="hljs-string">[x]</span> Lorem ipsum dolor sit amet
+</code></pre>
+<h3>a</h3>
+<p>The following HTML anchor:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/some-link"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>[<span class="hljs-string">Foo</span>](<span class="hljs-link">/some-link</span>)
+</code></pre>
+<h3>blockquote</h3>
+<p>The following HTML blockquote:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span> Lorem ipsum. <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code><span class="hljs-quote">&gt; Lorem ipsum.</span>
+</code></pre>
+<p><strong>Nested blockquotes</strong></p>
+<p>The following nested HTML blockquotes:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>Someone famous in <span class="hljs-tag">&lt;<span class="hljs-name">cite</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Source Title"</span>&gt;</span>Source Title<span class="hljs-tag">&lt;/<span class="hljs-name">cite</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"blockquote"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>Someone famous in <span class="hljs-tag">&lt;<span class="hljs-name">cite</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Source Title"</span>&gt;</span>Source Title<span class="hljs-tag">&lt;/<span class="hljs-name">cite</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">footer</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat <span class="hljs-selector-tag">a</span> ante.
+Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;/cite&gt;
+&gt;&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat <span class="hljs-selector-tag">a</span> ante.
+Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;/cite&gt;
+</code></pre>
+<h2>br</h2>
+<p>Breaks are retained. Thus, the following HTML <code>br</code> tag:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+</code></pre>
+<p>Is output in markdown as is:</p>
+<pre><code><span class="hljs-section">&lt;br&gt;</span>
+</code></pre>
+<h3>code</h3>
+<p>The following HTML code tag:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>1em 40px<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>`1em <span class="hljs-number">40</span>px`
+</code></pre>
+<p><strong>Nested backticks</strong></p>
+<p>When a <code>code</code> tag contains backticks, it will be wrapped with double backticks. The following:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>foo`a`b`bar<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+</code></pre>
+<p>Would convert to:</p>
+<pre><code>``foo`a`b`bar``
+</code></pre>
+<h3>img</h3>
+<p>The following HTML image tag:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"hammer.gif"</span>/&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>!<span class="hljs-selector-attr">[]</span>(<span class="hljs-selector-tag">hammer</span><span class="hljs-selector-class">.gif</span>)
+</code></pre>
+<p><strong>alt</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"hammer.gif"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Can\'t touch this"</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>![<span class="hljs-string">Can\'t touch this</span>](<span class="hljs-link">hammer.gif</span>)
+</code></pre>
+<p><strong>Title</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"hammer.gif"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Foo bar"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"Can\'t touch this"</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>![<span class="hljs-string">Can\'t touch this</span>](<span class="hljs-link">hammer.gif "Foo bar"</span>)
+</code></pre>
+<p><strong>No src</strong></p>
+<p>When the <code>&lt;img&gt;</code> tag has no <code>src</code> attribute (e.g. <code>&lt;img alt=&quot;foo&quot;/&gt;</code>), it will not be rendered.</p>
+<h3>code</h3>
+<p>Anchors inside <code>&lt;code&gt;</code> tags are not converted. The following HTML:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/some-link"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>`<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/some-link"</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>`
+</code></pre>
+
+      </section>
+      
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>    </div>
+  </body>
+</html>

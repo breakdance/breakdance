@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>breakdance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <style>
+      .page-header { 
+            }
+    </style>
+  </head>  <body>
+    <div class="container">
+      <nav class="navbar">
+        <ul class="nav navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+              <li class="nav-item ">
+          <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="options.html">Options</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="customize.html">Customize</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+        </li>
+  </ul>
+      </nav>
+      
+    </div>
+
+    <div class="container-fluid">
+      <div class="page-header page-header-sm">
+        <div class="container">
+          <h1 class="project-name">Edge Cases</h1>
+  </div>
+      </div>    </div>
+
+    <div class="container">
+      <section class="main-content">
+        <p>A number of edge cases are supported. In most cases these should be pretty easy to override with options or custom parsers/compilers. Please feel free to create an issue if you have questions or need guidance on customizations.</p>
+<h2>Tables</h2>
+<h3>1. Multiple rows in <code>thead</code></h3>
+<p>When multiple rows (<code>&lt;tr&gt;</code>) are in <code>&lt;thead&gt;</code>, the rows are collapsed to a single <code>&lt;tr&gt;</code>, and a <code>&lt;br&gt;</code> is added as a text separater to retain the visual appearance of multiple lines.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Name<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>(first)<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>(last)<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+</code></pre>
+<p>Renders to:</p>
+<pre><code>| <span class="hljs-symbol">&lt;br&gt;</span> | Name<span class="hljs-symbol">&lt;br&gt;</span>(<span class="hljs-keyword">first</span>) | Name<span class="hljs-symbol">&lt;br&gt;</span>(<span class="hljs-keyword">last</span>) |
+</code></pre>
+<h3>2. Nested tables</h3>
+<p>When a table has nested tables within it, the table will be rendered as HTML.</p>
+<h2>Headings</h2>
+<h3>1. List items containing <code>&lt;h1-6&gt;</code> tags</h3>
+<p>When a list item contains a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading element</a>, the item will be output as bold (in other words, the element's meaning as a list item takes precedence over its meaning as a heading).</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Item one<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Item two<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+</code></pre>
+<p>Results in</p>
+<pre><code><span class="hljs-bullet">- </span>*<span class="hljs-strong">*Item one*</span>*
+<span class="hljs-bullet">- </span>*<span class="hljs-strong">*Item two*</span>*
+</code></pre>
+<h3>2. Table cells containing <code>&lt;h1-6&gt;</code> tags</h3>
+<p>When a table cell contains a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading element</a>, the entire table will be output as HTML with attributes stripped, and not converted to markdown. This is to ensure formatting is retained, since markdown tables do not render headings.</p>
+<p><strong>Example</strong></p>
+<p>The following table (from Bootstrap's docs):</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"bd-example bd-example-type"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"display-1"</span>&gt;</span>Display 1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"display-2"</span>&gt;</span>Display 2<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"display-3"</span>&gt;</span>Display 3<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"display-4"</span>&gt;</span>Display 4<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 1<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 2<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 3<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 4<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+</code></pre>
+<h2>Definition Lists</h2>
+<p>Definition lists are not converted to markdown.</p>
+<p><strong>Example</strong></p>
+<p>The following <code>&lt;dl&gt;</code> (from Bootstrap's docs):</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-3"</span>&gt;</span>Description lists<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-9"</span>&gt;</span>A description list is perfect for defining terms.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-3"</span>&gt;</span>Euismod<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-9"</span>&gt;</span>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-9 offset-sm-3"</span>&gt;</span>Donec id elit non mi porta gravida at eget metus.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-3"</span>&gt;</span>Malesuada porta<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-9"</span>&gt;</span>Etiam porta sem malesuada magna mollis euismod.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-3 text-truncate"</span>&gt;</span>Truncated term is truncated<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-9"</span>&gt;</span>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-3"</span>&gt;</span>Nesting<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-9"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-4"</span>&gt;</span>Nested definition list<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"col-sm-8"</span>&gt;</span>Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+</code></pre>
+<p>Renders to:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Description lists<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>A description list is perfect for defining terms.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Euismod<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Donec id elit non mi porta gravida at eget metus.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Malesuada porta<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Etiam porta sem malesuada magna mollis euismod.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Truncated term is truncated<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Nesting<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Nested definition list<span class="hljs-tag">&lt;/<span class="hljs-name">dt</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.<span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
+</code></pre>
+
+      </section>
+      
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>    </div>
+  </body>
+</html>

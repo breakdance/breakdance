@@ -1,0 +1,71 @@
+// Theme overrides
+.container-fluid {
+  padding: 0;
+}
+
+.page-header {
+  h1, h2, {
+    color: white;
+  }
+}
+
+.page-header-sm {
+  padding: 1rem 0.5rem;
+
+  h1, h2, {
+    text-align: left;
+  }
+}
+
+.page-header,
+.main-content {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.container-fluid {
+  .page-header {
+    margin-left: -15px;
+    margin-right: -15px;
+
+    h1 {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
+.page-header-sm {
+  text-align: left;
+
+  .project-name {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .page-header-sm {
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (min-width: 64em) {
+  .page-header-sm {
+    padding: 1rem 0;
+  }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+  .page-header-sm {
+    padding: 1rem 4rem;
+  }
+}
+
+@media screen and (max-width: 42em) {
+  .page-header-sm {
+    padding: 0.5rem 1rem;
+  }
+}
+

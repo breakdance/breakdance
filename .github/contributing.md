@@ -1,6 +1,6 @@
-# Contributing to sledgehammer
+# Contributing to breakdance
 
-First and foremost, thank you! We appreciate that you want to contribute to sledgehammer, your time is valuable, and your contributions mean a lot to us.
+First and foremost, thank you! We appreciate that you want to contribute to breakdance, your time is valuable, and your contributions mean a lot to us.
 
 **What does "contributing" mean?**
 
@@ -12,14 +12,14 @@ Creating an issue is the simplest form of contributing to a project. But there a
 
 If you'd like to learn more about contributing in general, the [Guide to Idiomatic Contributing](https://github.com/jonschlinkert/idiomatic-contributing) has a lot of useful information.
 
-**Showing support for sledgehammer**
+**Showing support for breakdance**
 
 Please keep in mind that open source software is built by people like you, who spend their free time creating things the rest the community can use.
 
-Don't have time to contribute? No worries, here are some other ways to show your support for sledgehammer:
+Don't have time to contribute? No worries, here are some other ways to show your support for breakdance:
 
-- star the [project](https://github.com/jonschlinkert/sledgehammer)
-- tweet your support for sledgehammer
+- star the [project](https://github.com/jonschlinkert/breakdance)
+- tweet your support for breakdance
 
 ## Issues
 
@@ -37,7 +37,7 @@ Try to follow these guidelines
 
 Please be as descriptive as possible when creating an issue. Give us the information we need to successfully answer your question or address your issue by answering the following in your issue:
 
-- **version**: please note the version of sledgehammer are you using
+- **version**: please note the version of breakdance are you using
 - **extensions, plugins, helpers, etc** (if applicable): please list any extensions you're using
 - **error messages**: please paste any error messages into the issue, or a [gist](https://gist.github.com/)
 
@@ -54,4 +54,4 @@ Here are some tips for creating idiomatic issues. Taking just a little bit extra
 
 [node-glob]: https://github.com/isaacs/node-glob
 [micromatch]: https://github.com/jonschlinkert/micromatch
-[so]: http://stackoverflow.com/questions/tagged/sledgehammer
+[so]: http://stackoverflow.com/questions/tagged/breakdance

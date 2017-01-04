@@ -2,16 +2,16 @@
 
 require('mocha');
 var assert = require('assert');
-var sledgehammer = require('..');
+var breakdance = require('..');
 
-describe('sledgehammer', function() {
+describe('breakdance', function() {
   it('should export a function', function() {
-    assert.equal(typeof sledgehammer, 'function');
+    assert.equal(typeof breakdance, 'function');
   });
 
   it('should throw an error when invalid args are passed', function(cb) {
     try {
-      sledgehammer();
+      breakdance();
       cb(new Error('expected an error'));
     } catch (err) {
       assert(err);

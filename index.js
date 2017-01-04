@@ -13,7 +13,7 @@ module.exports = function(html, options) {
 
   var opts = extend({}, options);
   function fn() {
-    var snapdragon = new Snapdragon(opts);
+    var snapdragon = opts.snapdragon || new Snapdragon(opts);
     snapdragon.use(renderers(opts));
 
     var ast = parse(html, opts);

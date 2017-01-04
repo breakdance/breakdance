@@ -1,0 +1,11 @@
+<div class="page-header {{#isnt id "home"}}page-header-sm{{/isnt}}">
+  <div class="container">
+    {{#is id "home"}}
+    {{#if @site.name}}<h1 class="project-name">{{@site.name}}</h1>{{/if}}
+    {{#if @site.description}}<h2 class="project-tagline">{{@site.description}}</h2>{{/if}}
+    <a href="https://github.com/jonschlinkert/test" class="btn">View on GitHub</a>
+    {{else}}
+    {{#if @page.title}}<h1 class="project-name">{{@page.title}}</h1>{{/if}}
+    {{/is}}
+  </div>
+</div>

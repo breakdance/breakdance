@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>breakdance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <style>
+      .page-header { 
+            }
+    </style>
+  </head>  <body>
+    <div class="container">
+      <nav class="navbar">
+        <ul class="nav navbar-nav">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+              <li class="nav-item ">
+          <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="options.html">Options</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="customize.html">Customize</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+        </li>
+  </ul>
+      </nav>
+      
+    </div>
+
+    <div class="container-fluid">
+      <div class="page-header page-header-sm">
+        <div class="container">
+          <h1 class="project-name">Options</h1>
+  </div>
+      </div>    </div>
+
+    <div class="container">
+      <section class="main-content">
+        <pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">'breakdance'</span>);
+breakdance(htmlString[, options]);
+</code></pre>
+<h2>condense</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>true</code></p>
+<p>Collapse more than two newlines to only two newlines. Enabled by default.</p>
+<h2>domain</h2>
+<p>Type: <code>string</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Specify the root domain name to prefix onto <code>href</code> or <code>src</code> paths that do not start with <code>#</code> or contain <code>://</code>.</p>
+<h2>leadingNewline</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Add a newline at the beggining of the generated markdown string.</p>
+<h2>one</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Use <code>1.</code> for all ordered list items. Most markdown renderers automatically renumber lists. Using <code>1.</code> for all items is an easy way of not having to renumber list items when one is added or removed.</p>
+<p><strong>Examples</strong></p>
+<p>Given the following HTML ordered list:</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bar<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Baz<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span>
+</code></pre>
+<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(list));
+</code></pre>
+<p>Renders to:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">2. </span>Bar
+<span class="hljs-bullet">3. </span>Baz
+</code></pre>
+<p>And if <code>options.one</code> is true:</p>
+<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(list));
+</code></pre>
+<p>The result is:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">1. </span>Bar
+<span class="hljs-bullet">1. </span>Baz
+</code></pre>
+<h2>prettify</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Format the generated markdown with [pretty-remarkable][] to smooth out inconsistencies and ensure even formatting throughout the document.</p>
+<h2>reflinks</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Move URLs to the bottom of the rendered markdown document, and replace them with &quot;placeholder&quot; references. The advantage is that this can make the markdown more readable, but the downside is that the &quot;placeholder&quot; URLs are numbered, so it won't be immediately clear what a URL is until you visit the actual link at the bottom of the document.</p>
+<h2>snapdragon</h2>
+<p>Type: <code>object</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Pass your own instance of [snapdragon][]. We're using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.</p>
+<h2>slugify</h2>
+<p>Type: <code>function</code></p>
+<p>Default: <code>undefined</code></p>
+<h2>title</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Output the text in the <code>&lt;title&gt;</code> tag as an <code>h1</code> at the start of the generated markdown document.</p>
+<p><strong>Example</strong></p>
+<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">'&lt;title&gt;Foo&lt;/title&gt;'</span>, {<span class="hljs-attr">title</span>: <span class="hljs-literal">true</span>}));
+<span class="hljs-comment">//=&gt; '# Foo\n'</span>
+</code></pre>
+<h2>trailingNewline</h2>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>true</code></p>
+<p>Add a newline at the end of the generated markdown string.</p>
+<h2>url</h2>
+<p>Type: <code>function</code></p>
+<p>Default: <code>undefined</code></p>
+
+      </section>
+      
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>    </div>
+  </body>
+</html>

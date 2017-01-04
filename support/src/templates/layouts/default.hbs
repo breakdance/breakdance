@@ -1,0 +1,24 @@
+---
+layout: frame
+---
+<!DOCTYPE html>
+<html lang="en-us">
+  {{> head }}
+  <body>
+    <div class="container">
+      {{> navbar }}
+    </div>
+
+    <div class="container-fluid">
+      {{> header }}
+    </div>
+
+    <div class="container">
+      <section class="main-content">
+        {% body %}
+      </section>
+      
+      {{> footer }}
+    </div>
+  </body>
+</html>

@@ -3,14 +3,14 @@
 var fs = require('fs');
 var path = require('path');
 var util = require('util');
-var sledgehammer = require('..');
+var breakdance = require('..');
 var argv = require('yargs-parser')(process.argv.slice(2));
 var name = argv._[0];
 
 var fp = path.join(process.cwd(), 'test/fixtures', name + '.html');
 var str = fs.readFileSync(fp, 'utf8');
 
-var res = sledgehammer(str, {
+var res = breakdance(str, {
   domain: 'http://www.xe.com/',
   preprocess: function fn(node, prev, $) {
     if (node.name === 'html' && node.attribs) {
