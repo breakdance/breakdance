@@ -3,27 +3,8 @@
 var extend = require('extend-shallow');
 var parse = require('snapdragon-cheerio');
 var Snapdragon = require('snapdragon');
-var compilers = require('./lib/compilers');
+var renderers = require('./lib/renderers');
 var utils = require('./lib/utils');
-
-function Sledgehammer() {
-  if (typeof val === 'string') {
-    var proto = Object.create(Sledgehammer.prototype);
-    Sledgehammer.call(proto);
-
-    return proto.render.apply(proto, arguments);
-  }
-
-}
-
-Sledgehammer.prototype.compile = function() {
-
-};
-
-Sledgehammer.prototype.parse = function() {
-
-};
-
 
 module.exports = function(html, options) {
   if (typeof html !== 'string') {
@@ -31,10 +12,9 @@ module.exports = function(html, options) {
   }
 
   var opts = extend({}, options);
-
-  function fn(opts) {
+  function fn() {
     var snapdragon = new Snapdragon(opts);
-    snapdragon.use(compilers(opts));
+    snapdragon.use(renderers(opts));
 
     var ast = parse(html, opts);
     if (ast.canonical && !opts.domain) {
@@ -58,23 +38,3 @@ module.exports = function(html, options) {
 
   return fn();
 };
-
-var Sledgehammer = require('sledgehammer');
-var sledgehammer = new Sledgehammer()
-  .use(function(sledgehammer) {
-    sledgehammer.parser(function() {
-
-    });
-    sledgehammer.compiler(function() {
-
-    });
-  })
-  .use(wikipedia())
-  .parser(function() {
-
-  })
-  .compiler(function() {
-
-  })
-
-console.log(sledgehammer.render('<h1>Foo</h1>'))

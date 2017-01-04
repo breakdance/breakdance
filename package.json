@@ -25,26 +25,52 @@
     "test": "mocha"
   },
   "dependencies": {
-    "block-elements": "^1.1.0",
     "define-property": "^0.2.5",
     "export-files": "^2.1.1",
-    "extend-shallow": "^2.0.1",
     "get-value": "^2.0.6",
-    "inline-elements": "^1.0.0",
+    "is-punctuation": "^0.2.0",
+    "js-beautify": "^1.6.8",
     "pretty-remarkable": "^0.4.0",
     "remarkable": "^1.7.1",
     "repeat-string": "^1.6.1",
     "resolve-dir": "^1.0.0",
     "snapdragon": "^0.8.1",
+    "snapdragon-cheerio": "^0.1.0",
+    "strip-attributes": "^0.2.0",
     "strip-color": "^0.1.0",
     "trim-leading-lines": "^0.1.1",
     "trim-trailing-lines": "^1.1.0",
-    "yargs-parser": "^4.0.2"
+    "unescape": "^0.2.0"
   },
   "devDependencies": {
-    "mocha": "^3.1.2"
+    "extend-shallow": "^2.0.1",
+    "gulp-format-md": "^0.1.11",
+    "mocha": "^3.2.0",
+    "yargs-parser": "^4.2.1"
   },
   "keywords": [
     "sledgehammer"
-  ]
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    },
+    "related": {
+      "list": []
+    },
+    "reflinks": [
+      "cheerio",
+      "snapdragon",
+      "verb",
+      "verb-generate-readme"
+    ]
+  }
 }

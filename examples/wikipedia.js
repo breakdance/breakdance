@@ -11,5 +11,6 @@ var name = argv._[0];
 
 var fp = path.join(process.cwd(), 'test/fixtures', name + '.html');
 var str = fs.readFileSync(fp, 'utf8');
+
 var res = sledgehammer(str, require('../lib/plugins/wikipedia'));
-// console.log(res);
+console.log(res);
