@@ -5,13 +5,7 @@ var extend = require('extend-shallow');
 var isObject = require('isobject');
 var geo = require('geopattern');
 
-module.exports = function(word, generator, options) {
-  if (isObject(generator) && generator.hash) {
-    options = generator;
-    generator = options.data;
-  }
-
-  options = options || {};
+module.exports = function(word, options) {
   var appOpts = this.app.option('geopatterns') || {};
   var opts = extend({}, appOpts, options, options.hash);
   if (typeof generator === 'string') {

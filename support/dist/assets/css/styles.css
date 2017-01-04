@@ -2114,33 +2114,6 @@ output {
   margin-left: 0;
 }
 
-.jumbotron {
-  padding: 2rem 1rem;
-  margin: 0 0 2rem 0;
-  border-radius: 0;
-  text-align: center;
-}
-
-.jumbotron h1, .jumbotron h2 {
-  color: white;
-}
-
-@media (min-width: 576px) {
-  .jumbotron {
-    padding: 4rem 2rem;
-  }
-}
-
-.jumbotron-hr {
-  border-top-color: #d0d5d8;
-}
-
-.jumbotron-fluid {
-  padding-right: 0;
-  padding-left: 0;
-  border-radius: 0;
-}
-
 a {
   color: #1e6bb8;
   text-decoration: none;

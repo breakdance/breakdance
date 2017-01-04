@@ -3,6 +3,7 @@
 var path = require('path');
 var Pkg = require('expand-pkg');
 var clone = require('gh-clone');
+var extend = require('extend-shallow');
 var helpers = require('handlebars-helpers');
 var assemble = require('assemble');
 var md = require('gulp-remarkable');
@@ -29,11 +30,12 @@ var pkg = new Pkg();
  */
 
 app.data({site: pkg.expand(require('../package'))});
+app.data('site.title', app.data('site.name'));
 app.option('geopatterns.generator', 'hexagons');
 app.option('geopatterns.baseColor', '#900');
 app.option('geopatterns.color', '#127896');
 app.option('nav', ['home', 'examples', 'options', 'customize', 'edge-cases']);
-// app.option('gradient', 'EasyMed');
+// app.option('gradient', 'Under the Lake');
 
 /**
  * Helpers
@@ -74,11 +76,18 @@ app.task('sass', function () {
     .pipe(app.dest('dist/assets/css'))
 });
 
+app.task('sass-lint', function() {
+  return app.src('src/sass/p*.scss')
+    .pipe(lint({configFile: 'src/sass/.sass-lint.yml'}))
+    .pipe(lint.format())
+    .pipe(lint.failOnError())
+});
+
 app.task('uncss', function() {
   var css = path.join.bind(path, 'dist/assets/css');
   return app.src('styles.css', {cwd: css()})
-    .pipe(uncss({html: 'dist/*.html'}))
-    .pipe(app.dest(css('uncss.css')));
+    .pipe(uncss({html: ['dist/*.html']}))
+    .pipe(app.dest(css('uncss')));
 });
 
 app.task('clone', function(cb) {

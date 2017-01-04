@@ -8,7 +8,6 @@ var breakdance = require('breakdance');
 breakdance(htmlString[, options]);
 ```
 
-
 ## condense
 
 Type: `boolean`

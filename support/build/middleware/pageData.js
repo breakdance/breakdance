@@ -19,19 +19,9 @@ module.exports = function(app) {
     page.stem = file.stem;
     page.extname = file.extname;
 
-    for (var key in file.data) {
-      if (file.data.hasOwnProperty(key)) {
-        var val = file.data[key];
-        if (typeof val === 'string' && !page[key]) {
-          page[key] = val;
-        }
-      }
-    }
-
-    var obj = extend({}, page);
+    var obj = merge({}, page, file.data);
     delete obj.page;
-
-    file.data = merge({}, file.data, obj);
+    file.data.page = obj;
     next();
   };
 };

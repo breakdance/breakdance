@@ -1,13 +1,13 @@
 <head>
   <meta charset="UTF-8">
-  <title>{{site.name}}</title>
+  <title>{{#if @page.title}}{{@page.title}} | {{@site.name}}{{else}}{{@site.name}}{{/if}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
   <style>
     .page-header { 
-      {{#if options.gradient}}{{gradient options.gradient reverse=true}}{{else}}
+      {{#if options.gradient}}{{gradient options.gradient}}{{else}}
       background-image: {{geopattern (default @page.pattern @page.title)}};
       {{/if}}
     }
