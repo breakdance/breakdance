@@ -5,42 +5,42 @@ var isEqual = require('./support/is-equal');
 describe('checklists', function() {
   var fixtures = [
     {
-      it: 'should create a checbox from an input',
+      it: 'should create a checkbox from an input',
       fixture: '<input type="checkbox" />Lorem ipsum dolor sit amet',
       expected: '[ ] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create a checked checbox from an input',
+      it: 'should create a checked checkbox from an input',
       fixture: '<input type="checkbox checked" />Lorem ipsum dolor sit amet',
       expected: '[x] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create a checbox from a list item',
+      it: 'should create a checkbox from a list item',
       fixture: '<li><input type="checkbox" />Lorem ipsum dolor sit amet</li>',
       expected: '[ ] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create a checked checbox from a list item',
+      it: 'should create a checked checkbox from a list item',
       fixture: '<li><input type="checkbox checked" />Lorem ipsum dolor sit amet</li>',
       expected: '[x] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create a checbox from list item `type`',
+      it: 'should create a checkbox from list item `type`',
       fixture: '<ul><li><input type="checkbox" />Lorem ipsum dolor sit amet</li></ul>',
       expected: '* [ ] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create a checked checbox from list item `type`',
+      it: 'should create a checked checkbox from list item `type`',
       fixture: '<ul><li><input type="checkbox checked" />Lorem ipsum dolor sit amet</li></ul>',
       expected: '* [x] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create an active checbox from list item `type`',
+      it: 'should create an active checkbox from list item `type`',
       fixture: '<ul><li><input type="checkbox active" />Lorem ipsum dolor sit amet</li></ul>',
       expected: '* [x] Lorem ipsum dolor sit amet\n'
     },
     {
-      it: 'should create a checbox from the class on a parent div',
+      it: 'should create a checkbox from the class on a parent div',
       fixture: [
         '<div class="ui checkbox">',
         '  <input type="checkbox" name="example" />',
@@ -50,7 +50,7 @@ describe('checklists', function() {
       expected: '* [ ] Make my profile visible\n'
     },
     {
-      it: 'should create a checked checbox from the class on a parent div',
+      it: 'should create a checked checkbox from the class on a parent div',
       fixture: [
         '<div class="ui checkbox checked">',
         '  <input type="checkbox" name="example" />',

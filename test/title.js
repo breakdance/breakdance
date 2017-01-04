@@ -7,7 +7,7 @@ describe('title', function() {
     isEqual.inline('<title>This is a title</title>', '');
   });
 
-  it('should not output <title> when `options.title` is true', function() {
+  it('should output <title> when `options.title` is true', function() {
     isEqual.inline('<title>This is a title</title>', '# This is a title\n', {title: true});
   });
 });
