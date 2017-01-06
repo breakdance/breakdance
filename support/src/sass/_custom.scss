@@ -1,19 +1,70 @@
 // Theme overrides
+
+// Summary/details
+summary,
+summary:focus,
+summary:hover {
+  cursor: pointer;
+}
+summary:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  position: relative;
+}
+
+// svg/icons
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+.anchor {
+  position: absolute;
+  left: -35px;
+  color: white;
+  padding: 7px;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4 {
+  &:hover .anchor {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.anchor:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+// containers
 .container-fluid {
   padding: 0;
 }
 
+.navbar-nav .active {
+  font-weight: 500;
+}
+
 .page-header {
+  box-shadow: inset 0 1px 20px rgba(0, 0, 0, 0.2);
+
   h1, h2, {
     color: white;
+    font-weight: 300;
   }
 }
 
 .page-header-sm {
   padding: 1rem 0.5rem;
 
-  h1, h2, {
+  h1, {
     text-align: left;
+    font-weight: 200;
   }
 }
 
@@ -41,7 +92,7 @@
   text-align: left;
 
   .project-name {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -69,3 +120,6 @@
   }
 }
 
+.breakdance {
+  font-family: "Montserrat Subrayada", $font-family-base;
+}

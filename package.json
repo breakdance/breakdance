@@ -1,6 +1,6 @@
 {
   "name": "breakdance",
-  "description": "Convert HTML to markdown. For when your markup needs to get down.",
+  "description": "For when your markup needs to get down. Convert HTML to markdown. API and CLI. Pluggable, fast and flexible.",
   "version": "0.1.0",
   "homepage": "https://github.com/jonschlinkert/breakdance",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",

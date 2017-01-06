@@ -3,6 +3,7 @@
 var hljs = require('highlight.js');
 
 exports.markdownOptions = {
+  escapeText: false,
   highlight: function(str, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {

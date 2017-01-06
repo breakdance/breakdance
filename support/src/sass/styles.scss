@@ -2,6 +2,7 @@
 // Includes only Normalize and our custom Reboot reset.
 
 @import "variables";
+@import "variables-custom";
 @import "mixins";
 
 // Reset
@@ -9,10 +10,8 @@
 @import "reset/print";
 @import "reset/reset";
 
-// Core CSS
-@import "grid";
-
 // Components
+@import "container";
 @import "nav";
 @import "navbar";
 

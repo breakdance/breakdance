@@ -1,6 +1,7 @@
 ---
+title: Breakdance
 slug: index
-id: home
+id: breakdance
 pattern: breakdance
 ---
 

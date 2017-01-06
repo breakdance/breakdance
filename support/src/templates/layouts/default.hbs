@@ -13,10 +13,12 @@
 
     <div class="container">
       <section class="main-content">
+        {{#if @page.description}} {{@page.description}} {{/if}}
+
         {% body %}
+
+        {{> footer }}
       </section>
-      
-      {{> footer }}
     </div>
   </body>
 </html>

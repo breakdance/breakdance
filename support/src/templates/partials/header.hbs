@@ -1,11 +1,17 @@
-<div class="page-header {{#isnt id "home"}}page-header-sm{{/isnt}}">
+<div class="page-header {{#isnt @page.stem "index"}}page-header-sm{{/isnt}}">
   <div class="container">
-    {{#is id "home"}}
-    {{#if @site.name}}<h1 class="project-name">{{@site.name}}</h1>{{/if}}
-    {{#if @site.description}}<h2 class="project-tagline">{{@site.description}}</h2>{{/if}}
-    <a href="https://github.com/jonschlinkert/test" class="btn">View on GitHub</a>
-    {{else}}
-    {{#if @page.title}}<h1 class="project-name">{{@page.title}}</h1>{{/if}}
+    <h1 id="project-name" class="project-name{{#is @page.stem "index"}} breakdance{{/is}}">
+      {{@page.title}}
+    </h1>
+
+    {{#is @page.stem "index"}}
+      {{#if @site.description}}
+        <h2 id="project-description" class="project-tagline">
+          {{@site.description}}
+        </h2>
+      {{/if}}
+
+      <a href="https://github.com/jonschlinkert/test" class="btn">View on GitHub</a>
     {{/is}}
   </div>
 </div>

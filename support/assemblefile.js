@@ -3,7 +3,11 @@
 var path = require('path');
 var Pkg = require('expand-pkg');
 var clone = require('gh-clone');
+var through = require('through2');
 var extend = require('extend-shallow');
+var unescape = require('unescape');
+var pageData = require('assemble-middleware-page-variable');
+var geopattern = require('helper-geopattern');
 var helpers = require('handlebars-helpers');
 var assemble = require('assemble');
 var md = require('gulp-remarkable');
@@ -15,7 +19,7 @@ var del = require('delete');
  * Local dependencies
  */
 
-var middleware = require('./build/middleware');
+var tools = require('./build/tools');
 var utils = require('./build/utils');
 
 /**
@@ -31,11 +35,10 @@ var pkg = new Pkg();
 
 app.data({site: pkg.expand(require('../package'))});
 app.data('site.title', app.data('site.name'));
-app.option('geopatterns.generator', 'hexagons');
-app.option('geopatterns.baseColor', '#900');
-app.option('geopatterns.color', '#127896');
-app.option('nav', ['home', 'examples', 'options', 'customize', 'edge-cases']);
-// app.option('gradient', 'Under the Lake');
+app.option('geopatterns.generator', 'sine_waves');
+app.option('geopatterns.color', '#13a1cc');
+app.option('nav', ['index', 'examples', 'options', 'customize', 'edge-cases', 'about']);
+app.option('gradient', false);
 
 /**
  * Helpers
@@ -43,6 +46,12 @@ app.option('nav', ['home', 'examples', 'options', 'customize', 'edge-cases']);
 
 app.helpers(helpers());
 app.helpers(require('./build/helpers'));
+app.helper('octicon', require('helper-octicon'));
+app.helper('geopattern', function() {
+  // var helper = geopattern(this.app.option('geopatterns'));
+  var helper = geopattern();
+  return helper.apply(this, arguments);
+});
 
 /**
  * Options
@@ -54,7 +63,7 @@ app.option('dest', 'dist');
  * Middleware
  */
 
-app.onLoad(/\.md$/, middleware.pageData(app));
+app.onLoad(/\.md$/, pageData(app));
 
 /**
  * Tasks
@@ -66,11 +75,26 @@ app.task('render', function() {
   app.pages('src/content/*.md');
   return app.toStream('pages')
     .pipe(md(utils.markdownOptions))
+    .pipe(through.obj(function(file, enc, next) {
+      var str = file.contents.toString();
+      str = str.replace(/(\{{2,4})([^}]+)(\}{2,4})/g, function(m, open, inner, close) {
+        return open + unescape(inner) + close;
+      });
+      file.contents = new Buffer(str);
+      next(null, file);
+    }))
     .pipe(app.renderFile({layout: 'default'}))
+    .pipe(through.obj(function(file, enc, next) {
+      if (file.data.toc === true) {
+        var str = file.contents.toString();
+        file.contents = new Buffer(tools.toc(str, {details: true}));
+      }
+      next(null, file);
+    }))
     .pipe(app.dest('dist'));
 });
 
-app.task('sass', function () {
+app.task('sass', function() {
   return app.src('src/sass/**/*.scss')
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(app.dest('dist/assets/css'))
