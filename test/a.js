@@ -30,7 +30,7 @@ describe('anchors', function() {
     isEqual.inline('<a class="nav-item nav-link " href="/" onclick="ga(\'send\', \'event\', \'Navbar\', \'Community links\', \'Bootstrap\');">Bootstrap</a>', '[Bootstrap](/)\n');
   });
 
-  it('should convert an anchor with children to markdown', function() {
+  it.only('should convert an anchor with children to markdown', function() {
     isEqual('a-children');
   });
 

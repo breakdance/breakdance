@@ -21,7 +21,10 @@ describe('breaks', function() {
       '<br>',
       'foo<br>',
       'bar<br>',
-      'baz<br>\n',
+      'baz',
+      '',
+      '<br>',
+      '',
     ].join('\n'));
   });
 });

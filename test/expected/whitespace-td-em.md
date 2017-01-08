@@ -1,0 +1,1 @@
+The **HTML `<meta>` element** represents any metadata information that cannot be represented by one of the other HTML meta-related elements ( [`<base>`](/en-US/docs/Web/HTML/Element/base "The HTML <base> element specifies the base URL to use for all relative URLs contained within a document. There can be only one <base> element in a document.") ). |

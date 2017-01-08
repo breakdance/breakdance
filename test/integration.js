@@ -19,6 +19,7 @@ describe('integration tests (testing random complex HTML for coverage)', functio
 
   it('should convert mozilla docs HTML', function() {
     var opts = extend({readable: true, title: true}, plugins.mozilla);
+    isEqual('mozilla-memory-management-toc', opts);
     isEqual('mozilla-memory-management', opts);
     isEqual('mozilla-html-elements', opts);
   });

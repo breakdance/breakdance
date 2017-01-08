@@ -37,7 +37,7 @@ describe('lists', function() {
     });
 
     it('should handle text nodes in complex nested lists', function() {
-      isEqual('list-nav-nested', plugins.mozilla);
+      isEqual('list-nav-nested');
     });
   });
 

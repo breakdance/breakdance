@@ -5,7 +5,7 @@
 
 [October 23, 2016 -New visualization: Date relative mode](/feed/157)
 
-* [Comparebrowsers](#comparison)
+* [Compare browsers](#comparison)
 * [Import stats](#stats_import)
 * [Index](#index)
 * [About](#info_about)

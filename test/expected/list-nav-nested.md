@@ -1,4 +1,4 @@
-* [Web Technologies](/en-US/docs/Web)Technologies
+* [Web Technologies](/en-US/docs/Web) Technologies
   - [HTML](/en-US/docs/Web/HTML)
   - [CSS](/en-US/docs/Web/CSS)
   - [JavaScript](/en-US/docs/Web/JavaScript)
@@ -6,7 +6,7 @@
   - [HTTP](/en-US/docs/Web/HTTP)
   - [APIs / DOM](/en-US/docs/Web/API)
   - [WebExtensions](/en-US/docs/Mozilla/Add-ons/WebExtensions)
-  - [MathML](/en-US/docs/Web/MathML)References & Guides
+  - [MathML](/en-US/docs/Web/MathML) References & Guides
   - [Learning web development](/en-US/docs/Learn)
   - [Tutorials](/en-US/docs/Web/Tutorials)
   - [References](/en-US/docs/Web/Reference)

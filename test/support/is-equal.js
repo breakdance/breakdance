@@ -17,5 +17,5 @@ module.exports = function(name, expectedName, options) {
 };
 
 module.exports.inline = function(html, markdown, options) {
-  assert.strictEqual(breakdance(html, options), markdown);
+  assert.strictEqual(breakdance(html, options).replace(/\n$/, ''), markdown.replace(/\n$/, ''));
 };
