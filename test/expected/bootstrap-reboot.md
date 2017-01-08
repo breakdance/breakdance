@@ -1,6 +1,8 @@
 # Reboot · Bootstrap
 
-[Skip to main content](#content) [Bootstrap](/)
+[Skip to main content](#content)
+
+[Bootstrap](/)
 
 * [Bootstrap](/)
 * [Documentation](/getting-started/introduction/)
@@ -137,7 +139,7 @@ The `<span class="nt"><html></span>` and `<body>` elements are updated to provid
 
 ## Native font stack
 
-The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a "native font stack" for optimum text rendering on every device and OS. Read more about [native font stacks in this_Smashing Magazine_article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
+The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a "native font stack" for optimum text rendering on every device and OS. Read more about [native font stacks in this _Smashing Magazine_ article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
 
 ```sass
 $font-family-sans-serif:
@@ -236,11 +238,12 @@ The `<pre>` element is reset to remove its `margin-top` and use `rem` units for 
 Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure consistent `text-align` throughout. Additional changes for borders, padding, and more come with [the `.table` class](/content/tables/).
 
 <caption>This is an example table, and this is its caption to describe the contents.</caption>
-| Table heading | Table heading | Table heading | Table heading | 
-| --- | --- | --- | --- | 
-| Table cell | Table cell | Table cell | Table cell | 
-| Table cell | Table cell | Table cell | Table cell | 
-| Table cell | Table cell | Table cell | Table cell | 
+
+| Table heading | Table heading | Table heading | Table heading |
+| --- | --- | --- | --- |
+| Table cell | Table cell | Table cell | Table cell |
+| Table cell | Table cell | Table cell | Table cell |
+| Table cell | Table cell | Table cell | Table cell |
 
 ## Forms
 
@@ -264,7 +267,7 @@ The `<address>` element is updated to reset the browser default `font-style` fro
 **Twitter, Inc.**<br>
 1355 Market St, Suite 900<br>
 San Francisco, CA 94103<br>
-<abbr>P:</abbr> (123) 456-7890  
+<abbr>P:</abbr> (123) 456-7890
 </address>
 
 <address>
@@ -282,9 +285,9 @@ Someone famous in <cite>Source Title</cite>
 ### Inline elements
 
 The `<abbr>` element receives basic styling to make it stand out amongst paragraph text.
-Nulla<abbr>attr</abbr> vitae elit libero, a pharetra augue.
+Nulla <abbr>attr</abbr> vitae elit libero, a pharetra augue.
 
-## HTML5 `[hidden]`attribute
+## HTML5 `[hidden]` attribute
 
 HTML5 adds [a new global attribute named `[hidden]`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden), which is styled as `display: none` by default. Borrowing an idea from [PureCSS](http://purecss.io), we improve upon this default by making `[hidden] { display: none !important; }` to help prevent its `display` from getting accidentally overridden. While `[hidden]` isn't natively supported by IE9-10, the explicit declaration in our CSS gets around that problem.
 

@@ -1,3 +1,5 @@
+## In This Article
+
 1. [Introduction](#introduction)
 2. [Memory life cycle](#memory-life-cycle)
   1. [Allocation in JavaScript](#allocation-in-javascript)

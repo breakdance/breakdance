@@ -1,16 +1,16 @@
 # Can I use... Support tables for HTML5, CSS3, etc
 
 * [Home](#home)
-* [News](#info_news)
+* [News](#info-news)
 
 [October 23, 2016 - New visualization: Date relative mode](/feed/157)
 
 * [Compare browsers](#comparison)
-* [Import stats](#stats_import)
+* [Import stats](#stats-import)
 * [Index](#index)
-* [About](#info_about)
+* [About](#info-about)
 
-[Can I use](#tables)?
+[Can I use](#tables) ?
 
 ##### Can I use...
 
@@ -20,7 +20,7 @@ Created & maintained by [@Fyrd](http://twitter.com/Fyrd), design by [@Lensco](ht
 
 Support data contributions by the GitHub [community](https://github.com/Fyrd/caniuse/graphs/contributors).
 
-Usage share statistics by [StatCounter GlobalStats](http://gs.statcounter.com/) for September, 2016 
+Usage share statistics by [StatCounter GlobalStats](http://gs.statcounter.com/) for September, 2016
 
 Location detection provided by [ipinfo.io](http://ipinfo.io).
 

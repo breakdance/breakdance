@@ -2,13 +2,13 @@
 
 var extend = require('extend-shallow');
 var isEqual = require('./support/is-equal');
-var plugins = require('../lib/plugins/');
+var configs = require('../lib/configs/');
 
 describe('integration tests (testing random complex HTML for coverage)', function() {
   this.timeout(20000);
 
   it('should use canonical link in <img> src in wikipedia HTML', function() {
-    var opts = extend({reflinks: false}, plugins.wikipedia);
+    var opts = extend({reflinks: false}, configs.wikipedia);
     isEqual('wikipedia-img-src', opts);
   });
 
@@ -17,11 +17,16 @@ describe('integration tests (testing random complex HTML for coverage)', functio
     isEqual('caniuse', {title: true});
   });
 
-  it('should convert mozilla docs HTML', function() {
-    var opts = extend({readable: true, title: true}, plugins.mozilla);
-    isEqual('mozilla-memory-management-toc', opts);
-    isEqual('mozilla-memory-management', opts);
-    isEqual('mozilla-html-elements', opts);
+  it.only('should convert mozilla docs HTML', function() {
+    isEqual('mozilla-a');
+    isEqual('mozilla-html-td-a');
+    isEqual('mozilla-html-td-datalist');
+    isEqual('mozilla-html-table-td-datalist');
+    isEqual('mozilla-table');
+    isEqual('mozilla-memory-management-toc');
+    isEqual('mozilla-memory-management');
+    isEqual('mozilla-html-elements');
+    isEqual('mozilla-html-elements', 'options.readable-mozilla-html-elements', {readable: true});
   });
 
   it('should convert bootstrap v3 HTML', function() {

@@ -3,26 +3,30 @@
 var extend = require('extend-shallow');
 var parse = require('snapdragon-cheerio');
 var Snapdragon = require('snapdragon');
-var renderers = require('./lib/renderers');
+var compilers = require('./lib/renderers');
 var utils = require('./lib/utils');
 
-module.exports = function(html, options) {
+module.exports = function breakdance(html, options) {
   if (typeof html !== 'string') {
     throw new TypeError('expected a string of HTML');
   }
 
-  var opts = extend({}, options);
+  var opts = extend({stripEmpty: ['ul', 'ol', 'li', 'span', 'div', 'em', 'strong', 'b', 'i', 'u']}, options);
+
   function fn() {
     var snapdragon = opts.snapdragon || new Snapdragon(opts);
-    snapdragon.use(renderers(opts));
+    snapdragon.use(compilers(opts));
+
+    if (typeof opts.compilers === 'function') {
+      snapdragon.use(opts.compilers(opts));
+    }
 
     var ast = parse(html, opts);
     if (ast.canonical && !opts.domain) {
       opts.domain = ast.canonical;
     }
 
-    snapdragon.options = extend({}, snapdragon.options, opts);
-    var res = snapdragon.compile(ast, snapdragon.options);
+    var res = snapdragon.compile(ast, opts);
     return res.output;
   }
 

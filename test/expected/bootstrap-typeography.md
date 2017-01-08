@@ -29,7 +29,7 @@ Bootstrap sets basic global display, typography, and link styles. Specifically, 
 * Use a [native font stack](/content/reboot/#native-font-stack) that selects the best `font-family` for each OS and device.
 * Use the `$font-family-base`, `$font-size-base`, and `$line-height-base` attributes as our typographic base applied to the `<body>`.
 * Set the global link color via `$link-color` and apply link underlines only on `:hover`.
-* Use `$body-bg` to set a `background-color` on the `<body>`( `#fff` by default).
+* Use `$body-bg` to set a `background-color` on the `<body>` ( `#fff` by default).
 
 These styles can be found within `_reboot.scss`, and the global variables are defined in `_variables.scss`.
 
@@ -358,7 +358,7 @@ _Responsive typography_ refers to scaling text and components by simply adjustin
 
 Here's an example of it in practice. Choose whatever `font-size`s and media queries you wish.
 
-```sass
+```scss
 html {
   font-size: 14px;
 }

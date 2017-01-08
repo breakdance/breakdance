@@ -103,7 +103,7 @@ Look to the examples for applying these principles to your code.
 
 We use the following media queries in our Less files to create the key breakpoints in our grid system.
 
-```sass
+```scss
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
@@ -119,7 +119,7 @@ We use the following media queries in our Less files to create the key breakpoin
 
 We occasionally expand on these media queries to include a `max-width` to limit CSS to a narrower set of devices.
 
-```sass
+```scss
 @media (max-width: @screen-xs-max) { ... }
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
@@ -130,22 +130,22 @@ We occasionally expand on these media queries to include a `max-width` to limit 
 
 See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
 
-|  | Extra small devices<small>Phones (<768px)</small> | Small devices<small>Tablets (≥768px)</small> | Medium devices<small>Desktops (≥992px)</small> | Large devices<small>Desktops (≥1200px)</small> | 
-| --- | --- | --- | --- | --- | 
-| Grid behavior | Horizontal at all times | Collapsed to start, horizontal above breakpoints | 
-| Container width | None (auto) | 750px | 970px | 1170px | 
-| Class prefix | `.col-xs-` | `.col-sm-` | `.col-md-` | `.col-lg-` | 
-| # of columns | 12 | 
-| Column width | Auto | ~62px | ~81px | ~97px | 
-| Gutter width | 30px (15px on each side of a column) | 
-| Nestable | Yes | 
-| Offsets | Yes | 
-| Column ordering | Yes | 
+|  | Extra small devices<small>Phones (<768px)</small> | Small devices<small>Tablets (≥768px)</small> | Medium devices<small>Desktops (≥992px)</small> | Large devices<small>Desktops (≥1200px)</small> |
+| --- | --- | --- | --- | --- |
+| Grid behavior | Horizontal at all times | Collapsed to start, horizontal above breakpoints |
+| Container width | None (auto) | 750px | 970px | 1170px |
+| Class prefix | `.col-xs-` | `.col-sm-` | `.col-md-` | `.col-lg-` |
+| # of columns | 12 |
+| Column width | Auto | ~62px | ~81px | ~97px |
+| Gutter width | 30px (15px on each side of a column) |
+| Nestable | Yes |
+| Offsets | Yes |
+| Column ordering | Yes |
 
 ## Example: Stacked-to-horizontal
 
 Using a single set of `.col-md-*` grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any `.row`.
-.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-1.col-md-8.col-md-4.col-md-4.col-md-4.col-md-4.col-md-6.col-md-6
+.col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-1 .col-md-8 .col-md-4 .col-md-4 .col-md-4 .col-md-4 .col-md-6 .col-md-6
 
 ```html
 <div class="row">
@@ -192,7 +192,7 @@ Turn any fixed-width grid layout into a full-width layout by changing your outer
 ## Example: Mobile and desktop
 
 Don't want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns. See the example below for a better idea of how it all works.
-.col-xs-12 .col-md-8.col-xs-6 .col-md-4.col-xs-6 .col-md-4.col-xs-6 .col-md-4.col-xs-6 .col-md-4.col-xs-6.col-xs-6
+.col-xs-12 .col-md-8 .col-xs-6 .col-md-4 .col-xs-6 .col-md-4 .col-xs-6 .col-md-4 .col-xs-6 .col-md-4 .col-xs-6 .col-xs-6
 
 ```html
 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
@@ -218,7 +218,7 @@ Don't want your columns to simply stack in smaller devices? Use the extra small 
 ## Example: Mobile, tablet, desktop
 
 Build on the previous example by creating even more dynamic and powerful layouts with tablet `.col-sm-*` classes.
-.col-xs-12 .col-sm-6 .col-md-8.col-xs-6 .col-md-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4.col-xs-6 .col-sm-4
+.col-xs-12 .col-sm-6 .col-md-8 .col-xs-6 .col-md-4 .col-xs-6 .col-sm-4 .col-xs-6 .col-sm-4 .col-xs-6 .col-sm-4
 
 ```html
 <div class="row">
@@ -237,8 +237,8 @@ Build on the previous example by creating even more dynamic and powerful layouts
 ## Example: Column wrapping
 
 If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
-.col-xs-9.col-xs-4<br>
-Since 9 + 4 = 13 > 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit..col-xs-6<br>
+.col-xs-9 .col-xs-4<br>
+Since 9 + 4 = 13 > 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit. .col-xs-6<br>
 Subsequent columns continue along the new line.
 
 ```html
@@ -253,7 +253,7 @@ Subsequent columns continue along the new line.
 
 With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a `.clearfix` and our [responsive utility classes](#responsive-utilities).
 .col-xs-6 .col-sm-3<br>
-Resize your viewport or check it out on your phone for an example..col-xs-6 .col-sm-3.col-xs-6 .col-sm-3.col-xs-6 .col-sm-3
+Resize your viewport or check it out on your phone for an example. .col-xs-6 .col-sm-3 .col-xs-6 .col-sm-3 .col-xs-6 .col-sm-3
 
 ```html
 <div class="row">
@@ -285,7 +285,7 @@ In addition to column clearing at responsive breakpoints, you may need to **rese
 ## Offsetting columns
 
 Move columns to the right using `.col-md-offset-*` classes. These classes increase the left margin of a column by `*` columns. For example, `.col-md-offset-4` moves `.col-md-4` over four columns.
-.col-md-4.col-md-4 .col-md-offset-4.col-md-3 .col-md-offset-3.col-md-3 .col-md-offset-3.col-md-6 .col-md-offset-3
+.col-md-4 .col-md-4 .col-md-offset-4 .col-md-3 .col-md-offset-3 .col-md-3 .col-md-offset-3 .col-md-6 .col-md-offset-3
 
 ```html
 <div class="row">
@@ -338,7 +338,7 @@ Level 1: .col-sm-9 Level 2: .col-xs-8 .col-sm-6 Level 2: .col-xs-4 .col-sm-6
 ## Column ordering
 
 Easily change the order of our built-in grid columns with `.col-md-push-*` and `.col-md-pull-*` modifier classes.
-.col-md-9 .col-md-push-3.col-md-3 .col-md-pull-9
+.col-md-9 .col-md-push-3 .col-md-3 .col-md-pull-9
 
 ```html
 <div class="row">
@@ -355,7 +355,7 @@ In addition to [prebuilt grid classes](#grid-example-basic) for fast layouts, Bo
 
 Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.
 
-```sass
+```scss
 @grid-columns:              12;
 @grid-gutter-width:         30px;
 @grid-float-breakpoint:     768px;
@@ -365,7 +365,7 @@ Variables determine the number of columns, the gutter width, and the media query
 
 Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.
 
-```sass
+```scss
 // Creates a wrapper for a series of columns
 .make-row(@gutter: @grid-gutter-width) {
   // Then clear the floated columns
@@ -503,7 +503,7 @@ Mixins are used in conjunction with the grid variables to generate semantic CSS 
 
 You can modify the variables to your own custom values, or just use the mixins with their default values. Here's an example of using the default settings to create a two-column layout with a gap between.
 
-```sass
+```scss
 .wrapper {
   .make-row();
 }
@@ -739,7 +739,7 @@ Present contact information for the nearest ancestor or the entire body of work.
 **Twitter, Inc.**<br>
 1355 Market Street, Suite 900<br>
 San Francisco, CA 94103<br>
-<abbr>P:</abbr> (123) 456-7890 
+<abbr>P:</abbr> (123) 456-7890
 </address>
 
 <address>
@@ -924,7 +924,7 @@ Horizontal description lists will truncate terms that are too long to fit in the
 ## Inline
 
 Wrap inline snippets of code with `<code>`.
-For example, `<section>` should be wrapped as inline. 
+For example, `<section>` should be wrapped as inline.
 
 ```html
 For example, <code>&lt;section&gt;</code> should be wrapped as inline.
@@ -933,8 +933,8 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 ## User input
 
 Use the `<kbd>` to indicate input that is typically entered via keyboard.
-To switch directories, type<kbd>cd</kbd> followed by the name of the directory.<br>
-To edit settings, press<kbd><kbd>ctrl</kbd>+<kbd>,</kbd></kbd>
+To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
 
 ```html
 To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
@@ -956,7 +956,7 @@ You may optionally add the `.pre-scrollable` class, which will set a max-height 
 
 For indicating variables use the `<var>` tag.
 
-<var>y</var>=<var>m</var><var>x</var>+<var>b</var>
+<var>y</var> = <var>m</var><var>x</var> + <var>b</var>
 
 ```html
 <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
@@ -979,11 +979,12 @@ For indicating blocks sample output from a program use the `<samp>` tag.
 For basic styling—light padding and only horizontal dividers—add the base class `.table` to any `<table>`. It may seem super redundant, but given the widespread use of tables for other plugins like calendars and date pickers, we've opted to isolate our custom table styles.
 
 <caption>Optional table caption.</caption>
-| # | First Name | Last Name | Username | 
-| --- | --- | --- | --- | 
-| 1 | Mark | Otto | @mdo | 
-| 2 | Jacob | Thornton | @fat | 
-| 3 | Larry | the Bird | @twitter | 
+
+| # | First Name | Last Name | Username |
+| --- | --- | --- | --- |
+| 1 | Mark | Otto | @mdo |
+| 2 | Jacob | Thornton | @fat |
+| 3 | Larry | the Bird | @twitter |
 
 ```html
 <table class="table">
@@ -999,11 +1000,11 @@ Use `.table-striped` to add zebra-striping to any table row within the `<tbody>`
 
 Striped tables are styled via the `:nth-child` CSS selector, which is not available in Internet Explorer 8.
 
-| # | First Name | Last Name | Username | 
-| --- | --- | --- | --- | 
-| 1 | Mark | Otto | @mdo | 
-| 2 | Jacob | Thornton | @fat | 
-| 3 | Larry | the Bird | @twitter | 
+| # | First Name | Last Name | Username |
+| --- | --- | --- | --- |
+| 1 | Mark | Otto | @mdo |
+| 2 | Jacob | Thornton | @fat |
+| 3 | Larry | the Bird | @twitter |
 
 ```html
 <table class="table table-striped">
@@ -1015,11 +1016,11 @@ Striped tables are styled via the `:nth-child` CSS selector, which is not availa
 
 Add `.table-bordered` for borders on all sides of the table and cells.
 
-| # | First Name | Last Name | Username | 
-| --- | --- | --- | --- | 
-| 1 | Mark | Otto | @mdo | 
-| 2 | Jacob | Thornton | @fat | 
-| 3 | Larry | the Bird | @twitter | 
+| # | First Name | Last Name | Username |
+| --- | --- | --- | --- |
+| 1 | Mark | Otto | @mdo |
+| 2 | Jacob | Thornton | @fat |
+| 3 | Larry | the Bird | @twitter |
 
 ```html
 <table class="table table-bordered">
@@ -1031,11 +1032,11 @@ Add `.table-bordered` for borders on all sides of the table and cells.
 
 Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
-| # | First Name | Last Name | Username | 
-| --- | --- | --- | --- | 
-| 1 | Mark | Otto | @mdo | 
-| 2 | Jacob | Thornton | @fat | 
-| 3 | Larry | the Bird | @twitter | 
+| # | First Name | Last Name | Username |
+| --- | --- | --- | --- |
+| 1 | Mark | Otto | @mdo |
+| 2 | Jacob | Thornton | @fat |
+| 3 | Larry | the Bird | @twitter |
 
 ```html
 <table class="table table-hover">
@@ -1047,11 +1048,11 @@ Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
 Add `.table-condensed` to make tables more compact by cutting cell padding in half.
 
-| # | First Name | Last Name | Username | 
-| --- | --- | --- | --- | 
-| 1 | Mark | Otto | @mdo | 
-| 2 | Jacob | Thornton | @fat | 
-| 3 | Larry the Bird | @twitter | 
+| # | First Name | Last Name | Username |
+| --- | --- | --- | --- |
+| 1 | Mark | Otto | @mdo |
+| 2 | Jacob | Thornton | @fat |
+| 3 | Larry the Bird | @twitter |
 
 ```html
 <table class="table table-condensed">
@@ -1063,25 +1064,25 @@ Add `.table-condensed` to make tables more compact by cutting cell padding in ha
 
 Use contextual classes to color table rows or individual cells.
 
-| Class | Description | 
-| --- | --- | 
-| `.active` | Applies the hover color to a particular row or cell | 
-| `.success` | Indicates a successful or positive action | 
-| `.info` | Indicates a neutral informative change or action | 
-| `.warning` | Indicates a warning that might need attention | 
-| `.danger` | Indicates a dangerous or potentially negative action | 
+| Class | Description |
+| --- | --- |
+| `.active` | Applies the hover color to a particular row or cell |
+| `.success` | Indicates a successful or positive action |
+| `.info` | Indicates a neutral informative change or action |
+| `.warning` | Indicates a warning that might need attention |
+| `.danger` | Indicates a dangerous or potentially negative action |
 
-| # | Column heading | Column heading | Column heading | 
-| --- | --- | --- | --- | 
-| 1 | Column content | Column content | Column content | 
-| 2 | Column content | Column content | Column content | 
-| 3 | Column content | Column content | Column content | 
-| 4 | Column content | Column content | Column content | 
-| 5 | Column content | Column content | Column content | 
-| 6 | Column content | Column content | Column content | 
-| 7 | Column content | Column content | Column content | 
-| 8 | Column content | Column content | Column content | 
-| 9 | Column content | Column content | Column content | 
+| # | Column heading | Column heading | Column heading |
+| --- | --- | --- | --- |
+| 1 | Column content | Column content | Column content |
+| 2 | Column content | Column content | Column content |
+| 3 | Column content | Column content | Column content |
+| 4 | Column content | Column content | Column content |
+| 5 | Column content | Column content | Column content |
+| 6 | Column content | Column content | Column content |
+| 7 | Column content | Column content | Column content |
+| 8 | Column content | Column content | Column content |
+| 9 | Column content | Column content | Column content |
 
 ```html
 <!-- On rows -->
@@ -1125,17 +1126,17 @@ Firefox has some awkward fieldset styling involving `width` that interferes with
 
 For more information, read [this Stack Overflow answer](https://stackoverflow.com/questions/17408815/fieldset-resizes-wrong-appears-to-have-unremovable-min-width-min-content/17863685#17863685).
 
-| # | Table heading | Table heading | Table heading | Table heading | Table heading | Table heading | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| 1 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell | 
-| 2 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell | 
-| 3 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell | 
+| # | Table heading | Table heading | Table heading | Table heading | Table heading | Table heading |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell |
+| 2 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell |
+| 3 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell |
 
-| # | Table heading | Table heading | Table heading | Table heading | Table heading | Table heading | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| 1 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell | 
-| 2 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell | 
-| 3 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell | 
+| # | Table heading | Table heading | Table heading | Table heading | Table heading | Table heading |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell |
+| 2 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell |
+| 3 | Table cell | Table cell | Table cell | Table cell | Table cell | Table cell |
 
 ```html
 <div class="table-responsive">
@@ -1668,10 +1669,10 @@ Although the following examples already mention the validation state of their re
 </form>
 ```
 
-#### Optional icons with hidden `.sr-only`labels
+#### Optional icons with hidden `.sr-only` labels
 
 If you use the `.sr-only` class to hide a form control's `<label>` (rather than using other labelling options, such as the `aria-label` attribute), Bootstrap will automatically adjust the position of the icon once it's been added.
-Hidden label(success)Input group with success@(success)
+Hidden label (success) Input group with success @ (success)
 
 ```html
 <div class="form-group has-success has-feedback">
@@ -1888,7 +1889,7 @@ Add the `.disabled` class to `<a>` buttons.
 <a href="#" class="btn btn-default btn-lg disabled" role="button">Link</a>
 ```
 
- We use `.disabled` as a utility class here, similar to the common `.active` class, so no prefix is required. 
+We use `.disabled` as a utility class here, similar to the common `.active` class, so no prefix is required.
 
 #### Link functionality caveat
 
@@ -2014,7 +2015,7 @@ Float an element to the left or right with a class. `!important` is included to 
 <div class="pull-right">...</div>
 ```
 
-```sass
+```scss
 // Classes
 .pull-left {
   float: left !important;
@@ -2044,7 +2045,7 @@ Set an element to `display: block` and center via `margin`. Available as a mixin
 <div class="center-block">...</div>
 ```
 
-```sass
+```scss
 // Class
 .center-block {
   display: block;
@@ -2060,14 +2061,14 @@ Set an element to `display: block` and center via `margin`. Available as a mixin
 
 ### Clearfix
 
-Easily clear `float`s by adding `.clearfix`**to the parent element**. Utilizes [the micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) as popularized by Nicolas Gallagher. Can also be used as a mixin.
+Easily clear `float`s by adding `.clearfix` **to the parent element**. Utilizes [the micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) as popularized by Nicolas Gallagher. Can also be used as a mixin.
 
 ```html
 <!-- Usage as a class -->
 <div class="clearfix">...</div>
 ```
 
-```sass
+```scss
 // Mixin itself
 .clearfix() {
   &:before,
@@ -2099,7 +2100,7 @@ Furthermore, `.invisible` can be used to toggle only the visibility of an elemen
 <div class="hidden">...</div>
 ```
 
-```sass
+```scss
 // Classes
 .show {
   display: block !important;
@@ -2128,7 +2129,7 @@ Hide an element to all devices **except screen readers** with `.sr-only`. Combin
 <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 ```
 
-```sass
+```scss
 // Usage as a mixin
 .skip-navigation {
   .sr-only();
@@ -2144,7 +2145,7 @@ Utilize the `.text-hide` class or mixin to help replace an element's text conten
 <h1 class="text-hide">Custom heading</h1>
 ```
 
-```sass
+```scss
 // Usage as a mixin
 .heading {
   .text-hide();
@@ -2161,25 +2162,25 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 Use a single or combination of the available classes for toggling content across viewport breakpoints.
 
-|  | Extra small devices<small>Phones (<768px)</small> | Small devices<small>Tablets (≥768px)</small> | Medium devices<small>Desktops (≥992px)</small> | Large devices<small>Desktops (≥1200px)</small> | 
-| --- | --- | --- | --- | --- | 
-| `.visible-xs-*` | Visible | Hidden | Hidden | Hidden | 
-| `.visible-sm-*` | Hidden | Visible | Hidden | Hidden | 
-| `.visible-md-*` | Hidden | Hidden | Visible | Hidden | 
-| `.visible-lg-*` | Hidden | Hidden | Hidden | Visible | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| `.hidden-xs` | Hidden | Visible | Visible | Visible | 
-| `.hidden-sm` | Visible | Hidden | Visible | Visible | 
-| `.hidden-md` | Visible | Visible | Hidden | Visible | 
-| `.hidden-lg` | Visible | Visible | Visible | Hidden | 
+|  | Extra small devices<small>Phones (<768px)</small> | Small devices<small>Tablets (≥768px)</small> | Medium devices<small>Desktops (≥992px)</small> | Large devices<small>Desktops (≥1200px)</small> |
+| --- | --- | --- | --- | --- |
+| `.visible-xs-*` | Visible | Hidden | Hidden | Hidden |
+| `.visible-sm-*` | Hidden | Visible | Hidden | Hidden |
+| `.visible-md-*` | Hidden | Hidden | Visible | Hidden |
+| `.visible-lg-*` | Hidden | Hidden | Hidden | Visible |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `.hidden-xs` | Hidden | Visible | Visible | Visible |
+| `.hidden-sm` | Visible | Hidden | Visible | Visible |
+| `.hidden-md` | Visible | Visible | Hidden | Visible |
+| `.hidden-lg` | Visible | Visible | Visible | Hidden |
 
 As of v3.2.0, the `.visible-*-*` classes for each breakpoint come in three variations, one for each CSS `display` property value listed below.
 
-| Group of classes | CSS `display` | 
-| --- | --- | 
-| `.visible-*-block` | `display: block;` | 
-| `.visible-*-inline` | `display: inline;` | 
-| `.visible-*-inline-block` | `display: inline-block;` | 
+| Group of classes | CSS `display` |
+| --- | --- |
+| `.visible-*-block` | `display: block;` |
+| `.visible-*-inline` | `display: inline;` |
+| `.visible-*-inline-block` | `display: inline-block;` |
 
 So, for extra small ( `xs`) screens for example, the available `.visible-*-*` classes are: `.visible-xs-block`, `.visible-xs-inline`, and `.visible-xs-inline-block`.
 
@@ -2189,12 +2190,10 @@ The classes `.visible-xs`, `.visible-sm`, `.visible-md`, and `.visible-lg` also 
 
 Similar to the regular responsive classes, use these for toggling content for print.
 
-| Classes | Browser | Print | 
-| --- | --- | --- | 
-| `.visible-print-block`<br>
-`.visible-print-inline`<br>
-`.visible-print-inline-block` | Hidden | Visible | 
-| `.hidden-print` | Visible | Hidden | 
+| Classes | Browser | Print |
+| --- | --- | --- |
+| `.visible-print-block` `.visible-print-inline` `.visible-print-inline-block` | Hidden | Visible |
+| `.hidden-print` | Visible | Hidden |
 
 The class `.visible-print` also exists but is **deprecated** as of v3.2.0. It is approximately equivalent to `.visible-print-block`, except with additional special cases for `<table>`-related elements.
 
@@ -2205,12 +2204,12 @@ Resize your browser or load on different devices to test the responsive utility 
 ### Visible on...
 
 Green checkmarks indicate the element **is visible** in your current viewport.
-Extra small✔ Visible on x-smallSmall✔ Visible on smallMedium✔ Visible on mediumLarge✔ Visible on largeExtra small and small✔ Visible on x-small and smallMedium and large✔ Visible on medium and largeExtra small and medium✔ Visible on x-small and mediumSmall and large✔ Visible on small and largeExtra small and large✔ Visible on x-small and largeSmall and medium✔ Visible on small and medium
+Extra small ✔ Visible on x-small Small ✔ Visible on small Medium ✔ Visible on medium Large ✔ Visible on large Extra small and small ✔ Visible on x-small and small Medium and large ✔ Visible on medium and large Extra small and medium ✔ Visible on x-small and medium Small and large ✔ Visible on small and large Extra small and large ✔ Visible on x-small and large Small and medium ✔ Visible on small and medium
 
 ### Hidden on...
 
 Here, green checkmarks also indicate the element **is hidden** in your current viewport.
-Extra small✔ Hidden on x-smallSmall✔ Hidden on smallMedium✔ Hidden on mediumLarge✔ Hidden on largeExtra small and small✔ Hidden on x-small and smallMedium and large✔ Hidden on medium and largeExtra small and medium✔ Hidden on x-small and mediumSmall and large✔ Hidden on small and largeExtra small and large✔ Hidden on x-small and largeSmall and medium✔ Hidden on small and medium
+Extra small ✔ Hidden on x-small Small ✔ Hidden on small Medium ✔ Hidden on medium Large ✔ Hidden on large Extra small and small ✔ Hidden on x-small and small Medium and large ✔ Hidden on medium and large Extra small and medium ✔ Hidden on x-small and medium Small and large ✔ Hidden on small and large Extra small and large ✔ Hidden on x-small and large Small and medium ✔ Hidden on small and medium
 
 # Using Less
 
@@ -2232,7 +2231,7 @@ Variables are used throughout the entire project as a way to centralize and shar
 
 Easily make use of two color schemes: grayscale and semantic. Grayscale colors provide quick access to commonly used shades of black while semantic include various colors assigned to meaningful contextual values.
 
-```sass
+```scss
 @gray-darker:  lighten(#000, 13.5%); // #222
 @gray-dark:    lighten(#000, 20%);   // #333
 @gray:         lighten(#000, 33.5%); // #555
@@ -2240,7 +2239,7 @@ Easily make use of two color schemes: grayscale and semantic. Grayscale colors p
 @gray-lighter: lighten(#000, 93.5%); // #eee
 ```
 
-```sass
+```scss
 @brand-primary: darken(#428bca, 6.5%); // #337ab7
 @brand-success: #5cb85c;
 @brand-info:    #5bc0de;
@@ -2250,7 +2249,7 @@ Easily make use of two color schemes: grayscale and semantic. Grayscale colors p
 
 Use any of these color variables as they are or reassign them to more meaningful variables for your project.
 
-```sass
+```scss
 // Use as-is
 .masthead {
   background-color: @brand-primary;
@@ -2267,7 +2266,7 @@ Use any of these color variables as they are or reassign them to more meaningful
 
 A handful of variables for quickly customizing key elements of your site's skeleton.
 
-```sass
+```scss
 // Scaffolding
 @body-bg:    #fff;
 @text-color: @black-50;
@@ -2277,7 +2276,7 @@ A handful of variables for quickly customizing key elements of your site's skele
 
 Easily style your links with the right color with only one value.
 
-```sass
+```scss
 // Variables
 @link-color:       @brand-primary;
 @link-hover-color: darken(@link-color, 15%);
@@ -2300,7 +2299,7 @@ Note that the `@link-hover-color` uses a function, another awesome tool from Les
 
 Easily set your typeface, text size, leading, and more with a few quick variables. Bootstrap makes use of these as well to provide easy typographic mixins.
 
-```sass
+```scss
 @font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -2330,7 +2329,7 @@ Easily set your typeface, text size, leading, and more with a few quick variable
 
 Two quick variables for customizing the location and filename of your icons.
 
-```sass
+```scss
 @icon-font-path:          "../fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
 ```
@@ -2339,7 +2338,7 @@ Two quick variables for customizing the location and filename of your icons.
 
 Components throughout Bootstrap make use of some default variables for setting common values. Here are the most commonly used.
 
-```sass
+```scss
 @padding-base-vertical:          6px;
 @padding-base-horizontal:        12px;
 
@@ -2376,7 +2375,7 @@ Reset your components' box model with a single mixin. For context, see this [hel
 
 The mixin is **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.
 
-```sass
+```scss
 .box-sizing(@box-model) {
   -webkit-box-sizing: @box-model; // Safari <= 5
      -moz-box-sizing: @box-model; // Firefox <= 19
@@ -2388,7 +2387,7 @@ The mixin is **deprecated** as of v3.2.0, with the introduction of Autoprefixer.
 
 Today all modern browsers support the non-prefixed `border-radius` property. As such, there is no `.border-radius()` mixin, but Bootstrap does include shortcuts for quickly rounding two corners on a particular side of an object.
 
-```sass
+```scss
 .border-top-radius(@radius) {
   border-top-right-radius: @radius;
    border-top-left-radius: @radius;
@@ -2415,7 +2414,7 @@ The mixin is **deprecated** as of v3.1.0, since Bootstrap doesn't officially sup
 
 Be sure to use `rgba()` colors in your box shadows so they blend as seamlessly as possible with backgrounds.
 
-```sass
+```scss
 .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
           box-shadow: @shadow;
@@ -2428,7 +2427,7 @@ Multiple mixins for flexibility. Set all transition information with one, or spe
 
 The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
 
-```sass
+```scss
 .transition(@transition) {
   -webkit-transition: @transition;
           transition: @transition;
@@ -2463,7 +2462,7 @@ Rotate, scale, translate (move), or skew any object.
 
 The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
 
-```sass
+```scss
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
       -ms-transform: rotate(@degrees); // IE9 only
@@ -2523,7 +2522,7 @@ A single mixin for using all of CSS3's animation properties in one declaration a
 
 The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
 
-```sass
+```scss
 .animation(@animation) {
   -webkit-animation: @animation;
           animation: @animation;
@@ -2558,7 +2557,7 @@ The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixe
 
 Set the opacity for all browsers and provide a `filter` fallback for IE8.
 
-```sass
+```scss
 .opacity(@opacity) {
   opacity: @opacity;
   // IE8 filter
@@ -2571,7 +2570,7 @@ Set the opacity for all browsers and provide a `filter` fallback for IE8.
 
 Provide context for form controls within each field.
 
-```sass
+```scss
 .placeholder(@color: @input-color-placeholder) {
   &::-moz-placeholder           { color: @color; } // Firefox
   &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
@@ -2583,7 +2582,7 @@ Provide context for form controls within each field.
 
 Generate columns via CSS within a single element.
 
-```sass
+```scss
 .content-columns(@width; @count; @gap) {
   -webkit-column-width: @width;
      -moz-column-width: @width;
@@ -2601,7 +2600,7 @@ Generate columns via CSS within a single element.
 
 Easily turn any two colors into a background gradient. Get more advanced and set a direction, use three colors, or use a radial gradient. With a single mixin you get all the prefixed syntaxes you'll need.
 
-```sass
+```scss
 #gradient > .vertical(#333; #000);
 #gradient > .horizontal(#333; #000);
 #gradient > .radial(#333; #000);
@@ -2609,19 +2608,19 @@ Easily turn any two colors into a background gradient. Get more advanced and set
 
 You can also specify the angle of a standard two-color, linear gradient:
 
-```sass
+```scss
 #gradient > .directional(#333; #000; 45deg);
 ```
 
 If you need a barber-stripe style gradient, that's easy, too. Just specify a single color and we'll overlay a translucent white stripe.
 
-```sass
+```scss
 #gradient > .striped(#333; 45deg);
 ```
 
 Up the ante and use three colors instead. Set the first color, the second color, the second color's color stop (a percentage value like 25%), and the third color with these mixins:
 
-```sass
+```scss
 #gradient > .vertical-three-colors(#777; #333; 25%; #000);
 #gradient > .horizontal-three-colors(#777; #333; 25%; #000);
 ```
@@ -2636,7 +2635,7 @@ Utility mixins are mixins that combine otherwise unrelated CSS properties to ach
 
 Forget adding `class="clearfix"` to any element and instead add the `.clearfix()` mixin where appropriate. Uses the [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) from [Nicolas Gallagher](https://twitter.com/necolas).
 
-```sass
+```scss
 // Mixin
 .clearfix() {
   &:before,
@@ -2659,7 +2658,7 @@ Forget adding `class="clearfix"` to any element and instead add the `.clearfix()
 
 Quickly center any element within its parent. **Requires `width` or `max-width` to be set.**
 
-```sass
+```scss
 // Mixin
 .center-block() {
   display: block;
@@ -2678,7 +2677,7 @@ Quickly center any element within its parent. **Requires `width` or `max-width` 
 
 Specify the dimensions of an object more easily.
 
-```sass
+```scss
 // Mixins
 .size(@width; @height) {
   width: @width;
@@ -2697,7 +2696,7 @@ Specify the dimensions of an object more easily.
 
 Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior ( `both`).
 
-```sass
+```scss
 .resizable(@direction: both) {
   // Options: horizontal, vertical, both
   resize: @direction;
@@ -2710,7 +2709,7 @@ Easily configure the resize options for any textarea, or any other element. Defa
 
 Easily truncate text with an ellipsis with a single mixin. **Requires element to be `block` or `inline-block` level.**
 
-```sass
+```scss
 // Mixin
 .text-overflow() {
   overflow: hidden;
@@ -2730,7 +2729,7 @@ Easily truncate text with an ellipsis with a single mixin. **Requires element to
 
 Specify two image paths and the @1x image dimensions, and Bootstrap will provide an @2x media query. **If you have many images to serve, consider writing your retina image CSS manually in a single media query.**
 
-```sass
+```scss
 .img-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
   background-image: url("@{file-1x}");
 
@@ -2760,14 +2759,14 @@ While Bootstrap is built on Less, it also has an [official Sass port](https://gi
 
 Since the Sass port has a separate repo and serves a slightly different audience, the contents of the project differ greatly from the main Bootstrap project. This ensures the Sass port is as compatible with as many Sass-based systems as possible.
 
-| Path | Description | 
-| --- | --- | 
-| `lib/` | Ruby gem code (Sass configuration, Rails and Compass integrations) | 
-| `tasks/` | Converter scripts (turning upstream Less to Sass) | 
-| `test/` | Compilation tests | 
-| `templates/` | Compass package manifest | 
-| `vendor/assets/` | Sass, JavaScript, and font files | 
-| `Rakefile` | Internal tasks, such as rake and convert | 
+| Path | Description |
+| --- | --- |
+| `lib/` | Ruby gem code (Sass configuration, Rails and Compass integrations) |
+| `tasks/` | Converter scripts (turning upstream Less to Sass) |
+| `test/` | Compilation tests |
+| `templates/` | Compass package manifest |
+| `vendor/assets/` | Sass, JavaScript, and font files |
+| `Rakefile` | Internal tasks, such as rake and convert |
 
 Visit the [Sass port's GitHub repository](https://github.com/twbs/bootstrap-sass) to see these files in action.
 

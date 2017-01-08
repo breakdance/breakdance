@@ -1,5 +1,5 @@
 Table with colgroup and col
 
-| Lime | Lemon | Orange | 
-| --- | --- | --- | 
+| Lime | Lemon | Orange |
+| --- | --- | --- |
 | Green | Yellow | Orange |

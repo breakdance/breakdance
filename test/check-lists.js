@@ -50,6 +50,7 @@ describe('checklists', function() {
       expected: '* [ ] Make my profile visible\n'
     },
     {
+      only: true,
       it: 'should create a checked checkbox from the class on a parent div',
       fixture: [
         '<div class="ui checkbox checked">',
@@ -60,7 +61,7 @@ describe('checklists', function() {
       expected: '* [x] Make my profile visible\n'
     },
     {
-      only: true,
+      // only: true,
       it: 'should toggle state using the `checked` attribute',
       fixture: [
         '<ul class="contains-task-list">',
@@ -80,6 +81,7 @@ describe('checklists', function() {
   ];
 
   fixtures.forEach(function(unit) {
+    // if (unit.only !== true) return;
     it(unit.it || 'should convert a list item to markdown', function() {
       isEqual.inline(unit.fixture, unit.expected);
     });

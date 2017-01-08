@@ -1,6 +1,8 @@
 # Code · Bootstrap
 
-[Skip to main content](#content) [Bootstrap](/)
+[Skip to main content](#content)
+
+[Bootstrap](/)
 
 * [Bootstrap](/)
 * [Documentation](/getting-started/introduction/)
@@ -122,6 +124,7 @@ Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle
 ```
 <p>Sample text here...</p>
 <p>And another line of sample text here...</p>
+
 ```
 
 ```html
@@ -133,7 +136,7 @@ Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle
 ## Variables
 
 For indicating variables use the `<var>` tag.
-<var>y</var>=<var>m</var><var>x</var>+<var>b</var>
+<var>y</var> = <var>m</var><var>x</var> + <var>b</var>
 
 ```html
 <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
@@ -142,8 +145,8 @@ For indicating variables use the `<var>` tag.
 ## User input
 
 Use the `<kbd>` to indicate input that is typically entered via keyboard.
-To switch directories, type<kbd>cd</kbd> followed by the name of the directory.<br>
-To edit settings, press<kbd><kbd>ctrl</kbd>+<kbd>,</kbd></kbd>
+To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>
 
 ```html
 To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>

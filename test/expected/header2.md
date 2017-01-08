@@ -1,4 +1,6 @@
-[Skip to main content](#content) [Bootstrap](/)
+[Skip to main content](#content)
+
+[Bootstrap](/)
 
 * [Bootstrap](/)
 * [Documentation](/getting-started/introduction/)

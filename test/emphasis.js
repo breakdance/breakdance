@@ -18,7 +18,7 @@ describe('emphasis', function() {
       {
         it: '1. should render spaces correctly',
         fixture: '<p>A line with<strong> a bold statement </strong> in the middle.</p>',
-        expected: 'A line with**a bold statement** in the middle.\n'
+        expected: 'A line with **a bold statement** in the middle.\n'
       },
       {
         it: '2. should render spaces correctly',
@@ -36,6 +36,7 @@ describe('emphasis', function() {
         ].join('\n')
       },
       {
+        only: true,
         it: 'should correctly render in list items',
         fixture: [
           '<ul>',
@@ -57,7 +58,6 @@ describe('emphasis', function() {
         ].join('\n')
       },
       {
-        only: true,
         it: 'should render surrounding spaces correctly',
         fixture: [
           '<p>A line with<strong> a bold statement at the end and weird spacing. </strong></p>',
@@ -65,9 +65,12 @@ describe('emphasis', function() {
           '<p>A line with <strong> a bold statement at the end</strong></p>',
           '<p>A line with <strong> <strong> a nested bold statement </strong></strong></p>',
         ].join('\n'),
+
         expected: [
-          'A line with**a bold statement at the end and weird spacing.**',
+          'A line with **a bold statement at the end and weird spacing.**',
+          '',
           'some text',
+          '',
           'A line with **a bold statement at the end**',
           '',
           'A line with **a nested bold statement**\n',
@@ -75,8 +78,15 @@ describe('emphasis', function() {
       }
     ];
 
+    var hasOnly = fixtures.some(function(ele) {
+      return ele.only === true;
+    });
+
     fixtures.forEach(function(unit) {
-      if (!unit.only) return;
+      if (hasOnly && unit.only !== true) {
+        return;
+      }
+
       it(unit.it || 'should convert strong tags to markdown', function() {
         isEqual.inline(unit.fixture, unit.expected);
       });

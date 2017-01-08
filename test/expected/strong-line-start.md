@@ -1,5 +1,5 @@
 **bold** at the start of a line
 **bold** at the start of a line
 **bold** at the start of a line
-**bold**at the start of a line
-**nested**strong statement
+**bold** at the start of a line
+**nested** strong statement

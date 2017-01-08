@@ -1,16 +1,16 @@
 # Can I use... Support tables for HTML5, CSS3, etc
 
 * [Home](#home)
-* [News](#info_news)
+* [News](#info-news)
 
-[October 23, 2016 -New visualization: Date relative mode](/feed/157)
+[October 23, 2016 - New visualization: Date relative mode](/feed/157)
 
 * [Compare browsers](#comparison)
-* [Import stats](#stats_import)
+* [Import stats](#stats-import)
 * [Index](#index)
-* [About](#info_about)
+* [About](#info-about)
 
-[Can I use](#tables)?
+[Can I use](#tables) ?
 
 ### Index
 
@@ -498,13 +498,13 @@ Most features are added in priority order from [this list](http://caniuse.com/is
 
 #### How do you test support?
 
-I use a hand-crafted test suite to test features, which tests for basic support of each feature. 
+I use a hand-crafted test suite to test features, which tests for basic support of each feature.
 
 The test suite is publicly available at [tests.caniuse.com](http://tests.caniuse.com).
 
 #### Where do you get your information for upcoming versions?
 
-Most information comes directly from the latest developer/preview/nightly builds. 
+Most information comes directly from the latest developer/preview/nightly builds.
 
 #### When is a feature considered "supported"?
 
@@ -522,7 +522,7 @@ Created & maintained by [@Fyrd](http://twitter.com/Fyrd), design by [@Lensco](ht
 
 Support data contributions by the GitHub [community](https://github.com/Fyrd/caniuse/graphs/contributors).
 
-Usage share statistics by [StatCounter GlobalStats](http://gs.statcounter.com/) for September, 2016 
+Usage share statistics by [StatCounter GlobalStats](http://gs.statcounter.com/) for September, 2016
 
 Location detection provided by [ipinfo.io](http://ipinfo.io).
 

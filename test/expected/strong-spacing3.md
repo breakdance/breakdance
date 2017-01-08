@@ -1,4 +1,4 @@
-A line with**a bold statement at the end and weird spacing.**
+A line with **a bold statement at the end and weird spacing.**
 
  some text 
 A line with **a bold statement at the end**

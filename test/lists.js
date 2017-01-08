@@ -1,7 +1,6 @@
 'use strict';
 
 var isEqual = require('./support/is-equal');
-var plugins = require('../lib/plugins/');
 
 describe('lists', function() {
   describe('li', function() {
@@ -24,8 +23,14 @@ describe('lists', function() {
       isEqual('list-ul-anchor');
     });
 
-    it('should convert an unordered list item with an anchor and code tag', function() {
+    it('should convert an unordered list item with anchor and code tags', function() {
       isEqual('list-ul-anchor-code');
+      var fixture = `
+        <ul>
+          <li><a href="#foo">HTML <code> [hidden] </code> attribute</a></li>
+        </ul>`;
+
+      isEqual.inline(fixture, '* [HTML ` [hidden] ` attribute](#foo)');
     });
 
     it('should convert an unordered list with code', function() {
