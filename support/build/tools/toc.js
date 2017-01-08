@@ -15,7 +15,7 @@ module.exports = function(str, options) {
   var opts = extend({}, options);
   var tmpl = opts.template || require(path.join(__dirname, 'template.js'));
   var $ = cheerio.load(str);
-  var tags = opts.tags || 'h2,h3';
+  var tags = opts.tags || '.main-content h2,h3,h4';
 
   var stack = [];
   $(tags).each(function(idx, ele) {
@@ -23,7 +23,7 @@ module.exports = function(str, options) {
     var lvl = m[1];
     var text = $(ele).html();
     var slug = toc.slugify(text);
-    var tok = {slug: slug, text: text, lvl: lvl};
+    var tok = {slug: slug, text: text, lvl: lvl, prev: stack[stack.length - 1]};
 
     stack.push(tok);
     $(ele).append(tmpl(slug));
@@ -36,26 +36,31 @@ module.exports = function(str, options) {
 
   for (var i = 0; i < stack.length; i++) {
     var tok = stack[i];
-    var prev = stack[stack.length - 1];
     var next = stack[i + 1];
 
-    var li = `<li><a name="toc-${tok.slug}" href="#${tok.slug}">` + tok.text + `</a></li>\n`;
-    if (prev && prev.lvl < tok.lvl) {
-      var l = prefix + '<li>\n';
+    var li = `<li><a href="#${tok.slug}">` + tok.text + `</a>`;
+    if (tok.prev && (tok.prev.lvl < tok.lvl)) {
       prefix += '  ';
-      l += prefix + '<ul>\n';
-      prefix += '  '
+      var l = '\n' + prefix + '<ul>\n';
+      prefix += '  ';
       l += prefix + li;
+      if (next && next.lvl === tok.lvl) {
+        l += '</li>\n';
+      }
       li = l;
-    } else if (next && next.lvl < tok.lvl) {
-      li = prefix + li;
+    } else if (next && (next.lvl < tok.lvl)) {
+      li = prefix + li + '</li>\n';
       prefix = prefix.slice(2);
       li += prefix + '</ul>\n';
       prefix = prefix.slice(2);
       li += prefix + '</li>\n';
-    } else {
+    } else if (next && (next.lvl > tok.lvl)) {
       li = prefix + li;
+
+    } else {
+      li = prefix + li + '</li>\n';
     }
+
     prevLi = li;
     res += li;
   }
@@ -73,8 +78,10 @@ module.exports = function(str, options) {
     res = details;
   }
 
+  res += '<br>';
+
   if (/<!-- toc -->/.test(str)) {
-    return str.replace(/^\s*<!-- toc -->/gm, res);
+    return str.replace(/\s*<!-- toc -->/, res);
   }
 
   return res + str;

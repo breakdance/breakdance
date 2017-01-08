@@ -11,5 +11,11 @@
       background-image: {{geopattern (default @page.pattern @page.title)}};
       {{/if}}
     }
+    .main-content h1, 
+    .main-content h2, 
+    .main-content h3, 
+    .main-content h4 { 
+      color: {{geoColor (default @page.pattern @page.title)}};
+    }
   </style>
 </head>

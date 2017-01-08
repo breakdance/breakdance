@@ -25,8 +25,11 @@
 // @import "mixins/size";
 @import "mixins/tab-focus";
 
+// components
+@import "mixins/lists";
+
 // text
-// @import "mixins/reset-text";
+@import "mixins/reset-text";
 @import "mixins/text-emphasis";
 @import "mixins/text-hide";
 @import "mixins/text-truncate";

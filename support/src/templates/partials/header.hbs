@@ -7,7 +7,7 @@
     {{#is @page.stem "index"}}
       {{#if @site.description}}
         <h2 id="project-description" class="project-tagline">
-          {{@site.description}}
+          {{breakOn "Pluggable" @site.description}}
         </h2>
       {{/if}}
 

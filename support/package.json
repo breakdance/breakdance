@@ -36,7 +36,7 @@
     "gulp-uncss": "^1.0.6",
     "handlebars-helper-create-frame": "^0.1.0",
     "handlebars-helpers": "^0.7.5",
-    "helper-geopattern": "^0.1.0",
+    "helper-geopattern": "^0.2.0",
     "helper-octicon": "^0.1.0",
     "helper-uigradient": "^0.1.0",
     "highlight.js": "^9.9.0",

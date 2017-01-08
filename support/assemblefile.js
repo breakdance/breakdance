@@ -47,11 +47,8 @@ app.option('gradient', false);
 app.helpers(helpers());
 app.helpers(require('./build/helpers'));
 app.helper('octicon', require('helper-octicon'));
-app.helper('geopattern', function() {
-  // var helper = geopattern(this.app.option('geopatterns'));
-  var helper = geopattern();
-  return helper.apply(this, arguments);
-});
+app.helper('geopattern', geopattern(app.options));
+app.helper('geoColor', geopattern.color(app.options));
 
 /**
  * Options
@@ -85,10 +82,8 @@ app.task('render', function() {
     }))
     .pipe(app.renderFile({layout: 'default'}))
     .pipe(through.obj(function(file, enc, next) {
-      if (file.data.toc === true) {
-        var str = file.contents.toString();
-        file.contents = new Buffer(tools.toc(str, {details: true}));
-      }
+      var str = file.contents.toString();
+      file.contents = new Buffer(tools.toc(str, {details: true}));
       next(null, file);
     }))
     .pipe(app.dest('dist'));

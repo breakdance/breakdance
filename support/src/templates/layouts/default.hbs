@@ -13,6 +13,9 @@
 
     <div class="container">
       <section class="main-content">
+        {{#isnt @page.toc "false"}}
+        <!-- toc -->
+        {{/isnt}}
         {{#if @page.description}} {{@page.description}} {{/if}}
 
         {% body %}

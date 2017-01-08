@@ -527,6 +527,143 @@ output {
   display: none !important;
 }
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+h1, .h1 {
+  font-size: 2.5rem;
+}
+
+h2, .h2 {
+  font-size: 2rem;
+}
+
+h3, .h3 {
+  font-size: 1.75rem;
+}
+
+h4, .h4 {
+  font-size: 1.5rem;
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+h6, .h6 {
+  font-size: 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.display-1 {
+  font-size: 6rem;
+  font-weight: 300;
+}
+
+.display-2 {
+  font-size: 5.5rem;
+  font-weight: 300;
+}
+
+.display-3 {
+  font-size: 4.5rem;
+  font-weight: 300;
+}
+
+.display-4 {
+  font-size: 3.5rem;
+  font-weight: 300;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+small,
+.small {
+  font-size: 80%;
+  font-weight: 300;
+}
+
+mark,
+.mark {
+  padding: 0.2em;
+  background-color: #fcf8e3;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+  margin-right: 5px;
+}
+
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+.blockquote {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  border-left: 0.25rem solid #eceeef;
+}
+
+.blockquote-footer {
+  display: block;
+  font-size: 80%;
+  color: #636c72;
+}
+
+.blockquote-footer::before {
+  content: "\2014 \00A0";
+}
+
+.blockquote-reverse {
+  padding-right: 1rem;
+  padding-left: 0;
+  text-align: right;
+  border-right: 0.25rem solid #eceeef;
+  border-left: 0;
+}
+
+.blockquote-reverse .blockquote-footer::before {
+  content: "";
+}
+
+.blockquote-reverse .blockquote-footer::after {
+  content: "\00A0 \2014";
+}
+
+dl.row > dd + dt {
+  clear: left;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -1313,13 +1450,6 @@ a:hover {
   max-width: 100%;
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: normal;
-  color: #31b0d5;
-}
-
 .main-content p {
   margin-bottom: 1em;
 }
@@ -1490,6 +1620,17 @@ a:hover {
   color: #819198;
 }
 
+strong {
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+h1, h2, h3, h4 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
 summary,
 summary:focus,
 summary:hover {
@@ -1498,10 +1639,6 @@ summary:hover {
 
 summary:focus {
   outline: none;
-}
-
-h1, h2, h3, h4 {
-  position: relative;
 }
 
 .octicon {

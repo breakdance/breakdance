@@ -2,6 +2,8 @@
 title: Customize
 ---
 
+## Customizing {{@site.name}}
+
 **{{@site.name}}** is pretty hackable. You can override built-in renderers, create custom renderers for custom HTML tags, or create plugins that "bundle" together your commonly used customizations.
 
 ## Compilers

@@ -2,7 +2,7 @@
 title: Examples
 ---
 
-### ul
+## ul
 
 The following HTML list:
 
@@ -22,7 +22,7 @@ Would convert to the following markdown:
 * Baz
 ```
 
-### ol
+## ol
 
 The following HTML ordered list:
 
@@ -50,7 +50,7 @@ Otherwise the following is rendered:
 3. Baz
 ```
 
-### checkboxes
+## checkboxes
 
 An HTML `input` that has the `type="checkbox"` attribute:
 
@@ -78,7 +78,7 @@ Converts to:
 [x] Lorem ipsum dolor sit amet
 ```
 
-### a
+## a
 
 The following HTML anchor:
 
@@ -92,7 +92,7 @@ Would convert to the following markdown:
 [Foo](/some-link)
 ```
 
-### blockquote
+## blockquote
 
 The following HTML blockquote:
 
@@ -145,7 +145,7 @@ Is output in markdown as is:
 <br>
 ```
 
-### code
+## code
 
 The following HTML code tag:
 
@@ -174,7 +174,7 @@ Would convert to:
 ```
 
 
-### img
+## img
 
 The following HTML image tag:
 
@@ -216,7 +216,7 @@ Would convert to the following markdown:
 
 When the `<img>` tag has no `src` attribute (e.g. `<img alt="foo"/>`), it will not be rendered.
 
-### code
+## code
 
 Anchors inside `<code>` tags are not converted. The following HTML:
 

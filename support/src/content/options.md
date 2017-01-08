@@ -3,8 +3,6 @@ title: Options
 toc: true
 ---
 
-<!-- toc -->
-
 ## Setting options
 
 An options object may be passed to `breakdance` as the second argument.

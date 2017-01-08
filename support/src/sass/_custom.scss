@@ -1,5 +1,16 @@
 // Theme overrides
 
+strong {
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+h1, h2, h3, h4 {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
 // Summary/details
 summary,
 summary:focus,
@@ -10,9 +21,6 @@ summary:focus {
   outline: none;
 }
 
-h1, h2, h3, h4 {
-  position: relative;
-}
 
 // svg/icons
 .octicon {
