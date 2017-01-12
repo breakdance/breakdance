@@ -52,15 +52,15 @@ describe('lists', function() {
     });
 
     it('should convert an ordered list with attributes to markdown', function() {
-      isEqual('list-ol-attributes', 'list-ol-attributes');
+      isEqual('list-ol-attributes');
     });
 
     it('should convert nested lists to markdown', function() {
-      isEqual('list-nested', 'list-nested');
+      isEqual('list-nested');
     });
 
     it('should convert multiple nested lists separated by text to markdown', function() {
-      isEqual('list-nested-text', 'list-nested-text');
+      isEqual('list-nested-text');
     });
   });
 });

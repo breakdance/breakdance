@@ -10,7 +10,7 @@ describe('whitespace', function() {
 
     isEqual.inline('<div>foo <em>bar</em> baz</div>', 'foo _bar_ baz');
     isEqual.inline('<div>foo\n <em>bar</em> baz</div>', 'foo _bar_ baz');
-    isEqual.inline('<div>foo\n <em>bar</em> \nbaz</div>', 'foo _bar_ baz');
+    isEqual.inline('<div>foo\n <em>bar</em> \nbaz</div>', 'foo _bar_ \nbaz');
 
     isEqual.inline('<div>foo <strong>bar</strong> baz</div>', 'foo **bar** baz');
     isEqual.inline('<div>foo\n <strong>bar</strong> baz</div>', 'foo **bar** baz');

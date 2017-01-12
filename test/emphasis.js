@@ -9,6 +9,14 @@ describe('emphasis', function() {
     });
   });
 
+  describe('consecutive emphasis tags', function() {
+    it('should convert consecutive strong/em tags to markdown', function() {
+      isEqual('emphasis');
+      isEqual('em-em-em');
+      isEqual('strong-strong-strong');
+    });
+  });
+
   describe('strong', function() {
     var fixtures = [
       {
