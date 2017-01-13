@@ -12,13 +12,16 @@ var compilers = require('./lib/compilers');
 var defaults = {
   omitEmpty: [
     'b',
+    'del',
     'div',
     'em',
     'i',
     'li',
     'ol',
+    's',
     'span',
     'strong',
+    'section',
     'u',
     'ul'
   ]
@@ -163,11 +166,17 @@ Breakdance.prototype.compile = function(ast, options) {
 
   let opts = extend({}, this.options, options);
   let snapdragon = opts.snapdragon || new Snapdragon(options);
+  Object.defineProperty(snapdragon, 'parser', {
+    get: function() {
+      throw new Error('breakdance does not use the Snapdragon parser');
+    }
+  });
+
   snapdragon._plugins = this.plugins;
   snapdragon.use(compilers(opts));
 
   for (let i = 0; i < this.plugins.fns.length; i++) {
-    snapdragon.use(this.plugins.fns[i]);
+    this.plugins.fns[i].call(this, this);
   }
 
   for (let key in this.plugins.visitors) {
@@ -185,3 +194,6 @@ Breakdance.prototype.compile = function(ast, options) {
  */
 
 module.exports = Breakdance;
+module.exports.helpers = require('./lib/helpers');
+module.exports.utils = require('./lib/utils');
+
