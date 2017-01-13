@@ -7,6 +7,10 @@ describe('headings', function() {
     isEqual('headings-spacing');
   });
 
+  it('should strip newlines from headings', function() {
+    isEqual('headings-newlines');
+  });
+
   var fixtures = [
     ['<h1>AAA</h1>', '# AAA\n', 'should convert h1 headings to markdown'],
     ['<h2>BBB</h2>', '## BBB\n', 'should convert h2 headings to markdown'],

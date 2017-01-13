@@ -9,7 +9,7 @@ describe('q', function() {
     });
 
     it('should retain spacing in inline quotes', function() {
-      isEqual.inline('<div>This is another<q> inline quote </q>.</div>', 'This is another<q> inline quote </q>.\n');
+      isEqual.inline('<div>This is another<q> inline quote </q>.</div>', 'This is another <q> inline quote </q>.\n');
     });
   });
 });

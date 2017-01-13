@@ -7,7 +7,7 @@ describe('breaks', function() {
     isEqual.inline('<br>', '<br>\n');
   });
 
-  it('should convert multiple breaks to markdown', function() {
+  it('1. should convert multiple breaks to markdown', function() {
     var fixture = [
       '<br> foo <br>bar<br> baz',
       '',
@@ -19,11 +19,32 @@ describe('breaks', function() {
 
     isEqual.inline(fixture, [
       '<br>',
-      'foo<br>',
+      'foo <br>',
       'bar<br>',
       'baz',
       '',
       '<br>',
+      '',
+    ].join('\n'));
+  });
+
+  it('2. should convert multiple breaks to markdown', function() {
+    var fixture = [
+      '<br> foo <br>bar<br> baz',
+      '',
+      '',
+      '',
+      '',
+      ' <br>',
+    ].join('\n');
+
+    isEqual.inline(fixture, [
+      '<br>',
+      'foo <br>',
+      'bar<br>',
+      'baz',
+      '',
+      ' <br>',
       '',
     ].join('\n'));
   });

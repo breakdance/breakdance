@@ -130,7 +130,7 @@ We occasionally expand on these media queries to include a `max-width` to limit 
 
 See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
 
-|  | Extra small devices<small>Phones (<768px)</small> | Small devices<small>Tablets (≥768px)</small> | Medium devices<small>Desktops (≥992px)</small> | Large devices<small>Desktops (≥1200px)</small> |
+|  | Extra small devices <small>Phones (<768px)</small> | Small devices <small>Tablets (≥768px)</small> | Medium devices <small>Desktops (≥992px)</small> | Large devices <small>Desktops (≥1200px)</small> |
 | --- | --- | --- | --- | --- |
 | Grid behavior | Horizontal at all times | Collapsed to start, horizontal above breakpoints |
 | Container width | None (auto) | 750px | 970px | 1170px |
@@ -252,7 +252,7 @@ Subsequent columns continue along the new line.
 ## Responsive column resets
 
 With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a `.clearfix` and our [responsive utility classes](#responsive-utilities).
-.col-xs-6 .col-sm-3<br>
+.col-xs-6 .col-sm-3 <br>
 Resize your viewport or check it out on your phone for an example. .col-xs-6 .col-sm-3 .col-xs-6 .col-sm-3 .col-xs-6 .col-sm-3
 
 ```html
@@ -1453,7 +1453,7 @@ When you need to place plain text next to a form label within a form, use the `.
 
 We remove the default `outline` styles on some form controls and apply a `box-shadow` in its place for `:focus`.
 
-#### Demo `:focus`state
+#### Demo `:focus` state
 
 The above example input uses custom styles in our documentation to demonstrate the `:focus` state on a `.form-control`.
 
@@ -1471,7 +1471,7 @@ Add the `disabled` attribute to a `<fieldset>` to disable all the controls withi
 
 #### Caveat about link functionality of `<a>`
 
-By default, browsers will treat all native form controls ( `<input>`, `<select>` and `<button>` elements) inside a `<fieldset disabled>` as disabled, preventing both keyboard and mouse interactions on them. However, if your form also includes `<a ... class="btn btn-*">` elements, these will only be given a style of `pointer-events: none`. As noted in the section about [disabled state for buttons](#buttons-disabled) (and specifically in the sub-section for anchor elements), this CSS property is not yet standardized and isn't fully supported in Opera 18 and below, or in Internet Explorer 11, and won't prevent keyboard users from being able to focus or activate these links. So to be safe, use custom JavaScript to disable such links.
+By default, browsers will treat all native form controls (`<input>`, `<select>` and `<button>` elements) inside a `<fieldset disabled>` as disabled, preventing both keyboard and mouse interactions on them. However, if your form also includes `<a ... class="btn btn-*">` elements, these will only be given a style of `pointer-events: none`. As noted in the section about [disabled state for buttons](#buttons-disabled) (and specifically in the sub-section for anchor elements), this CSS property is not yet standardized and isn't fully supported in Opera 18 and below, or in Internet Explorer 11, and won't prevent keyboard users from being able to focus or activate these links. So to be safe, use custom JavaScript to disable such links.
 
 #### Cross-browser compatibility
 
@@ -1672,7 +1672,7 @@ Although the following examples already mention the validation state of their re
 #### Optional icons with hidden `.sr-only` labels
 
 If you use the `.sr-only` class to hide a form control's `<label>` (rather than using other labelling options, such as the `aria-label` attribute), Bootstrap will automatically adjust the position of the icon once it's been added.
-Hidden label (success) Input group with success @ (success)
+Hidden label (success) Input group with success @(success)
 
 ```html
 <div class="form-group has-success has-feedback">
@@ -2162,7 +2162,7 @@ Try to use these on a limited basis and avoid creating entirely different versio
 
 Use a single or combination of the available classes for toggling content across viewport breakpoints.
 
-|  | Extra small devices<small>Phones (<768px)</small> | Small devices<small>Tablets (≥768px)</small> | Medium devices<small>Desktops (≥992px)</small> | Large devices<small>Desktops (≥1200px)</small> |
+|  | Extra small devices <small>Phones (<768px)</small> | Small devices <small>Tablets (≥768px)</small> | Medium devices <small>Desktops (≥992px)</small> | Large devices <small>Desktops (≥1200px)</small> |
 | --- | --- | --- | --- | --- |
 | `.visible-xs-*` | Visible | Hidden | Hidden | Hidden |
 | `.visible-sm-*` | Hidden | Visible | Hidden | Hidden |
@@ -2182,7 +2182,7 @@ As of v3.2.0, the `.visible-*-*` classes for each breakpoint come in three varia
 | `.visible-*-inline` | `display: inline;` |
 | `.visible-*-inline-block` | `display: inline-block;` |
 
-So, for extra small ( `xs`) screens for example, the available `.visible-*-*` classes are: `.visible-xs-block`, `.visible-xs-inline`, and `.visible-xs-inline-block`.
+So, for extra small (`xs`) screens for example, the available `.visible-*-*` classes are: `.visible-xs-block`, `.visible-xs-inline`, and `.visible-xs-inline-block`.
 
 The classes `.visible-xs`, `.visible-sm`, `.visible-md`, and `.visible-lg` also exist, but are **deprecated as of v3.2.0**. They are approximately equivalent to `.visible-*-block`, except with additional special cases for toggling `<table>`-related elements.
 
@@ -2694,7 +2694,7 @@ Specify the dimensions of an object more easily.
 
 ### Resizable textareas
 
-Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior ( `both`).
+Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior (`both`).
 
 ```scss
 .resizable(@direction: both) {

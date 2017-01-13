@@ -12,19 +12,20 @@ module.exports = function(name, expectedName, options) {
     options = expectedName;
     expectedName = null;
   }
+
   var actual = breakdance(read(path.join('fixtures', name + '.html')), options);
-  // console.log(actual)
   var expected = read(path.join('expected', (expectedName || name) + '.md'));
-  if (actual !== expected) {
-    // process.stderr.write('\n\n');
-    // process.stderr.write(name);
-    // process.stderr.write('\n');
-    // process.stderr.write('----')
-    // process.stderr.write('\n');
-    stringDiff(actual, expected);
-    // process.exit();
-  }
-  // assert.strictEqual(actual, expected);
+  // if (actual !== expected) {
+    // console.log(actual)
+  //   process.stderr.write('\n\n');
+  //   process.stderr.write(name);
+  //   process.stderr.write('\n');
+  //   process.stderr.write('----')
+  //   process.stderr.write('\n');
+  //   stringDiff(actual, expected);
+  //   process.exit();
+  // }
+  assert.strictEqual(actual, expected);
 };
 
 module.exports.inline = function(html, markdown, options) {
@@ -33,8 +34,8 @@ module.exports.inline = function(html, markdown, options) {
 
 
 function stringDiff(a, b, method) {
-  diff[method || 'diffWords'](a, b).forEach(function(stat) {
-  // diff[method || 'diffWordsWithSpace'](a, b).forEach(function(stat) {
+  // diff[method || 'diffWords'](a, b).forEach(function(stat) {
+  diff[method || 'diffWordsWithSpace'](a, b).forEach(function(stat) {
     process.stderr.write(log.colors[color(stat)](stat.value));
   });
   console.error();

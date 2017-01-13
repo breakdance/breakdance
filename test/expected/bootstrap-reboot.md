@@ -187,7 +187,7 @@ Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem 
 
 ## Lists
 
-All lists— `<ul>`, `<ol>`, and `<dl>`—have their `margin-top` removed and a `margin-bottom: 1rem`. Nested lists have no `margin-bottom`.
+All lists—`<ul>`, `<ol>`, and `<dl>`—have their `margin-top` removed and a `margin-bottom: 1rem`. Nested lists have no `margin-bottom`.
 
 * Lorem ipsum dolor sit amet
 * Consectetur adipiscing elit

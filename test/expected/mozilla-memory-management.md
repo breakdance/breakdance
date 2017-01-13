@@ -273,14 +273,37 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
 
 ## Document Tags and Contributors
 
-**Tags:** 
+**Tags:**
 
 * [JavaScript](https://developer.mozilla.org/en-US/docs/tag/JavaScript)
 * [memory](https://developer.mozilla.org/en-US/docs/tag/memory)
 * [Performance](https://developer.mozilla.org/en-US/docs/tag/Performance)
 * [performance](https://developer.mozilla.org/en-US/docs/tag/performance)
 
-**Contributors to this page:**[lleaff](https://developer.mozilla.org/en-US/profiles/lleaff), [rudolfo](https://developer.mozilla.org/en-US/profiles/rudolfo), [beytek](https://developer.mozilla.org/en-US/profiles/beytek), [jontejada](https://developer.mozilla.org/en-US/profiles/jontejada), [mbjordan](https://developer.mozilla.org/en-US/profiles/mbjordan), [ronyeh](https://developer.mozilla.org/en-US/profiles/ronyeh), [fscholz](https://developer.mozilla.org/en-US/profiles/fscholz), [mishra](https://developer.mozilla.org/en-US/profiles/mishra), [macinnir](https://developer.mozilla.org/en-US/profiles/macinnir), [RogerPoon](https://developer.mozilla.org/en-US/profiles/RogerPoon), [xfq](https://developer.mozilla.org/en-US/profiles/xfq), [bigperm](https://developer.mozilla.org/en-US/profiles/bigperm), [anirudh_venkatesh](https://developer.mozilla.org/en-US/profiles/anirudh_venkatesh), [Agamemnus](https://developer.mozilla.org/en-US/profiles/Agamemnus), [velvel53](https://developer.mozilla.org/en-US/profiles/velvel53), [hectorsan68](https://developer.mozilla.org/en-US/profiles/hectorsan68), [Nick_Pershin](https://developer.mozilla.org/en-US/profiles/Nick_Pershin), [Sheppy](https://developer.mozilla.org/en-US/profiles/Sheppy), [RichardC](https://developer.mozilla.org/en-US/profiles/RichardC), [ethertank](https://developer.mozilla.org/en-US/profiles/ethertank), [maxatwork](https://developer.mozilla.org/en-US/profiles/maxatwork), [iskitz](https://developer.mozilla.org/en-US/profiles/iskitz), [dbruant](https://developer.mozilla.org/en-US/profiles/dbruant) **Last updated by:**[lleaff](https://developer.mozilla.org/en-US/profiles/lleaff), <time>Aug 1, 2016, 1:06:43 PM</time> See also
+**Contributors to this page:** [lleaff](https://developer.mozilla.org/en-US/profiles/lleaff),
+[rudolfo](https://developer.mozilla.org/en-US/profiles/rudolfo),
+[beytek](https://developer.mozilla.org/en-US/profiles/beytek),
+[jontejada](https://developer.mozilla.org/en-US/profiles/jontejada),
+[mbjordan](https://developer.mozilla.org/en-US/profiles/mbjordan),
+[ronyeh](https://developer.mozilla.org/en-US/profiles/ronyeh),
+[fscholz](https://developer.mozilla.org/en-US/profiles/fscholz),
+[mishra](https://developer.mozilla.org/en-US/profiles/mishra),
+[macinnir](https://developer.mozilla.org/en-US/profiles/macinnir),
+[RogerPoon](https://developer.mozilla.org/en-US/profiles/RogerPoon),
+[xfq](https://developer.mozilla.org/en-US/profiles/xfq),
+[bigperm](https://developer.mozilla.org/en-US/profiles/bigperm),
+[anirudh_venkatesh](https://developer.mozilla.org/en-US/profiles/anirudh_venkatesh),
+[Agamemnus](https://developer.mozilla.org/en-US/profiles/Agamemnus),
+[velvel53](https://developer.mozilla.org/en-US/profiles/velvel53),
+[hectorsan68](https://developer.mozilla.org/en-US/profiles/hectorsan68),
+[Nick_Pershin](https://developer.mozilla.org/en-US/profiles/Nick_Pershin),
+[Sheppy](https://developer.mozilla.org/en-US/profiles/Sheppy),
+[RichardC](https://developer.mozilla.org/en-US/profiles/RichardC),
+[ethertank](https://developer.mozilla.org/en-US/profiles/ethertank),
+[maxatwork](https://developer.mozilla.org/en-US/profiles/maxatwork),
+[iskitz](https://developer.mozilla.org/en-US/profiles/iskitz),
+[dbruant](https://developer.mozilla.org/en-US/profiles/dbruant) **Last updated by:** [lleaff](https://developer.mozilla.org/en-US/profiles/lleaff),
+<time>Aug 1, 2016, 1:06:43 PM</time> See also
 
 1. [**_JavaScript_**](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 2. [**Tutorials:**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Tutorials)

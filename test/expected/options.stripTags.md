@@ -10,7 +10,7 @@
 * [Index](#index)
 * [About](#info-about)
 
-[Can I use](#tables) ?
+[Can I use](#tables)?
 
 ##### Can I use...
 
