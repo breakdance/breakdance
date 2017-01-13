@@ -3,7 +3,7 @@
 var stripAttr = require('strip-attributes');
 var beautify = require('js-beautify').html;
 var define = require('define-property');
-var helpers = require('../helpers');
+var helpers = require('./helpers');
 
 module.exports = {
   domain: 'https://wikipedia.com/',

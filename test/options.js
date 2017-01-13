@@ -36,7 +36,13 @@ describe('options', function() {
 
   describe('.stripTags', function() {
     it('should strip the given elements from HTML before converting', function() {
-      isEqual('options.stripTags', 'options.stripTags', {stripTags: ['.ciu-panel-wrap'], title: true});
+      isEqual('options.stripTags', {stripTags: ['.ciu-panel-wrap'], title: true});
+    });
+  });
+
+  describe('.reflinks', function() {
+    it('should generate reference links', function() {
+      isEqual.inline('<a href="/some-link"></a>', '[][href-0]\n\n[href-0]: https://github.com/some-link', {domain: 'https://github.com', reflinks: true});
     });
   });
 

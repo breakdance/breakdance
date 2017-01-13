@@ -8,7 +8,7 @@ describe('<span>', function() {
       it: 'should strip attributes',
       fixtures: [
         {
-          fixture: `<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden=true></span><span class=sr-only id=inputSuccess5Status>(success)</span>`,
+          fixture: '<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden=true></span><span class=sr-only id=inputSuccess5Status>(success)</span>',
           expected: '(success)'
         }
       ]
@@ -17,11 +17,11 @@ describe('<span>', function() {
       it: 'should retain only necessary whitespace',
       fixtures: [
         {
-          fixture: `<span></span><span class=sr-only id=inputSuccess5Status> (success) </span>`,
+          fixture: '<span></span><span class=sr-only id=inputSuccess5Status> (success) </span>',
           expected: '(success)'
         },
         {
-          fixture: `<span> </span><span></span><span class=sr-only id=inputSuccess5Status> (success) </span>`,
+          fixture: '<span> </span><span></span><span class=sr-only id=inputSuccess5Status> (success) </span>',
           expected: '(success)'
         }
       ]
@@ -30,7 +30,7 @@ describe('<span>', function() {
       it: 'should convert text in nested <span> tags to markdown',
       fixtures: [
         {
-          fixture: `<span> </span><span>(success)</span>`,
+          fixture: '<span> </span><span>(success)</span>',
           expected: '(success)'
         },
         {

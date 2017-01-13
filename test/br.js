@@ -14,7 +14,7 @@ describe('breaks', function() {
       '',
       '',
       '',
-      '<br>',
+      '<br>'
     ].join('\n');
 
     isEqual.inline(fixture, [
@@ -24,7 +24,7 @@ describe('breaks', function() {
       'baz',
       '',
       '<br>',
-      '',
+      ''
     ].join('\n'));
   });
 
@@ -35,7 +35,7 @@ describe('breaks', function() {
       '',
       '',
       '',
-      ' <br>',
+      ' <br>'
     ].join('\n');
 
     isEqual.inline(fixture, [
@@ -45,7 +45,7 @@ describe('breaks', function() {
       'baz',
       '',
       ' <br>',
-      '',
+      ''
     ].join('\n'));
   });
 });

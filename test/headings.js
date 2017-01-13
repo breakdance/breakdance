@@ -34,7 +34,7 @@ describe('headings', function() {
         '  <p class="bar">',
         '    Bar baz.',
         '  </p>',
-        '</div>',
+        '</div>'
       ].join('\n'),
       expected: '[**Foo**](#qux)\n\nBar baz.\n'
     }

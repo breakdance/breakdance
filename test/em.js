@@ -22,7 +22,7 @@ describe('em', function() {
             '  <em>Italics text</em>',
             '  <em>Italics text</em>',
             '  <p>This is a paragraph</p>',
-            '</div>',
+            '</div>'
           ].join('\n'),
           expected: [
             '_Italics text_ _Italics text_ _Italics text_',
@@ -44,7 +44,7 @@ describe('em', function() {
       expected: [
         '**Bold text** _Italicized text_',
         '',
-        'This is a paragraph\n',
+        'This is a paragraph\n'
       ].join('\n')
     },
     {
@@ -59,7 +59,7 @@ describe('em', function() {
       expected: [
         '_Italicized text_ _Italicized text_ _Italicized text_',
         '',
-        'This is a paragraph\n',
+        'This is a paragraph\n'
       ].join('\n')
     },
     {

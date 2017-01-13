@@ -64,17 +64,22 @@
   <summary>Table of contents</summary>  
   <ul id="toc">
     <li><a href="#setting-options">Setting options</a></li>
-    <li><a href="#condense">condense</a></li>
-    <li><a href="#domain">domain</a></li>
-    <li><a href="#leadingnewline">leadingNewline</a></li>
-    <li><a href="#one">one</a></li>
-    <li><a href="#prettify">prettify</a></li>
-    <li><a href="#reflinks">reflinks</a></li>
-    <li><a href="#snapdragon">snapdragon</a></li>
-    <li><a href="#slugify">slugify</a></li>
-    <li><a href="#title">title</a></li>
-    <li><a href="#trailingnewline">trailingNewline</a></li>
-    <li><a href="#url">url</a></li>
+    <li><a href="#available-options">Available options</a>
+      <ul>
+        <li><a href="#optionscondense">options.condense</a></li>
+        <li><a href="#optionsdomain">options.domain</a></li>
+        <li><a href="#optionsleadingnewline">options.leadingNewline</a></li>
+        <li><a href="#optionsone">options.one</a></li>
+        <li><a href="#optionsprettify">options.prettify</a></li>
+        <li><a href="#optionsreflinks">options.reflinks</a></li>
+        <li><a href="#optionssnapdragon">options.snapdragon</a></li>
+        <li><a href="#optionsslugify">options.slugify</a></li>
+        <li><a href="#optionstitle">options.title</a></li>
+        <li><a href="#optionstrailingnewline">options.trailingNewline</a></li>
+        <li><a href="#optionsurl">options.url</a></li>
+      </ul>
+    </li>
+    <li><a href="#compilers">Compilers</a></li>
   </ul>
 </details><br>
         
@@ -84,39 +89,50 @@
       <span class="anchor-target" id="setting-options"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
     </a></h2>
-<p>An options object may be passed to <code>breakdance</code> as the second argument.</p>
-<pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
-breakdance(htmlString[, options]);
+<p>A number of different options are available for configuring breakdance. If you need more than what the options provide, see the docs for <a href="customize.html">customizing breakdance</a>.</p>
+<p>To set options, pass an object as the last argument to <code>breakdance</code>:</p>
+<pre><code class="language-js">breakdance(string[, options]);
 </code></pre>
-<h2>condense
-    <a href="#condense" name="condense" class="anchor">
-      <span class="anchor-target" id="condense"></span>
+<p><strong>Example</strong></p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
+<span class="hljs-keyword">var</span> options = {<span class="hljs-attr">domain</span>: <span class="hljs-string">&apos;https://github.com&apos;</span>};
+<span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;&lt;a href=&quot;/some-link&quot;&gt;&lt;/a&gt;&apos;</span>, options));
+<span class="hljs-comment">//=&gt; &apos;[]</span>
+</code></pre>
+<h2>Available options
+    <a href="#available-options" name="available-options" class="anchor">
+      <span class="anchor-target" id="available-options"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
     </a></h2>
+<h3>options.condense
+    <a href="#optionscondense" name="optionscondense" class="anchor">
+      <span class="anchor-target" id="optionscondense"></span>
+      <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>true</code></p>
 <p>Collapse more than two newlines to only two newlines. Enabled by default.</p>
-<h2>domain
-    <a href="#domain" name="domain" class="anchor">
-      <span class="anchor-target" id="domain"></span>
+<h3>options.domain
+    <a href="#optionsdomain" name="optionsdomain" class="anchor">
+      <span class="anchor-target" id="optionsdomain"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>string</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Specify the root domain name to prefix onto <code>href</code> or <code>src</code> paths that do not start with <code>#</code> or contain <code>://</code>.</p>
-<h2>leadingNewline
-    <a href="#leadingnewline" name="leadingnewline" class="anchor">
-      <span class="anchor-target" id="leadingnewline"></span>
+<h3>options.leadingNewline
+    <a href="#optionsleadingnewline" name="optionsleadingnewline" class="anchor">
+      <span class="anchor-target" id="optionsleadingnewline"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Add a newline at the beggining of the generated markdown string.</p>
-<h2>one
-    <a href="#one" name="one" class="anchor">
-      <span class="anchor-target" id="one"></span>
+<h3>options.one
+    <a href="#optionsone" name="optionsone" class="anchor">
+      <span class="anchor-target" id="optionsone"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Use <code>1.</code> for all ordered list items. Most markdown renderers automatically renumber lists. Using <code>1.</code> for all items is an easy way of not having to renumber list items when one is added or removed.</p>
@@ -143,42 +159,42 @@ breakdance(htmlString[, options]);
 <span class="hljs-bullet">1. </span>Bar
 <span class="hljs-bullet">1. </span>Baz
 </code></pre>
-<h2>prettify
-    <a href="#prettify" name="prettify" class="anchor">
-      <span class="anchor-target" id="prettify"></span>
+<h3>options.prettify
+    <a href="#optionsprettify" name="optionsprettify" class="anchor">
+      <span class="anchor-target" id="optionsprettify"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Format the generated markdown with <a href="https://github.com/jonschlinkert/pretty-remarkable">pretty-remarkable</a> to smooth out inconsistencies and ensure even formatting throughout the document.</p>
-<h2>reflinks
-    <a href="#reflinks" name="reflinks" class="anchor">
-      <span class="anchor-target" id="reflinks"></span>
+<h3>options.reflinks
+    <a href="#optionsreflinks" name="optionsreflinks" class="anchor">
+      <span class="anchor-target" id="optionsreflinks"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Move URLs to the bottom of the rendered markdown document, and replace them with &quot;placeholder&quot; references. The advantage is that this can make the markdown more readable, but the downside is that the &quot;placeholder&quot; URLs are numbered, so it won&apos;t be immediately clear what a URL is until you visit the actual link at the bottom of the document.</p>
-<h2>snapdragon
-    <a href="#snapdragon" name="snapdragon" class="anchor">
-      <span class="anchor-target" id="snapdragon"></span>
+<h3>options.snapdragon
+    <a href="#optionssnapdragon" name="optionssnapdragon" class="anchor">
+      <span class="anchor-target" id="optionssnapdragon"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>object</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Pass your own instance of <a href="https://github.com/jonschlinkert/snapdragon">snapdragon</a>. We&apos;re using <a href="https://github.com/jonschlinkert/snapdragon-cheerio">snapdragon-cheerio</a> to modify the <a href="https://github.com/cheeriojs/cheerio">cheerio</a> AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.</p>
-<h2>slugify
-    <a href="#slugify" name="slugify" class="anchor">
-      <span class="anchor-target" id="slugify"></span>
+<h3>options.slugify
+    <a href="#optionsslugify" name="optionsslugify" class="anchor">
+      <span class="anchor-target" id="optionsslugify"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>function</code></p>
 <p>Default: <code>undefined</code></p>
-<h2>title
-    <a href="#title" name="title" class="anchor">
-      <span class="anchor-target" id="title"></span>
+<h3>options.title
+    <a href="#optionstitle" name="optionstitle" class="anchor">
+      <span class="anchor-target" id="optionstitle"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>undefined</code></p>
 <p>Output the text in the <code>&lt;title&gt;</code> tag as an <code>h1</code> at the start of the generated markdown document.</p>
@@ -186,21 +202,45 @@ breakdance(htmlString[, options]);
 <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;&lt;title&gt;Foo&lt;/title&gt;&apos;</span>, {<span class="hljs-attr">title</span>: <span class="hljs-literal">true</span>}));
 <span class="hljs-comment">//=&gt; &apos;# Foo\n&apos;</span>
 </code></pre>
-<h2>trailingNewline
-    <a href="#trailingnewline" name="trailingnewline" class="anchor">
-      <span class="anchor-target" id="trailingnewline"></span>
+<h3>options.trailingNewline
+    <a href="#optionstrailingnewline" name="optionstrailingnewline" class="anchor">
+      <span class="anchor-target" id="optionstrailingnewline"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>boolean</code></p>
 <p>Default: <code>true</code></p>
 <p>Add a newline at the end of the generated markdown string.</p>
-<h2>url
-    <a href="#url" name="url" class="anchor">
-      <span class="anchor-target" id="url"></span>
+<h3>options.url
+    <a href="#optionsurl" name="optionsurl" class="anchor">
+      <span class="anchor-target" id="optionsurl"></span>
       <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-    </a></h2>
+    </a></h3>
 <p>Type: <code>function</code></p>
 <p>Default: <code>undefined</code></p>
+<h2>Compilers
+    <a href="#compilers" name="compilers" class="anchor">
+      <span class="anchor-target" id="compilers"></span>
+      <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+    </a></h2>
+<p>Disable a compiler by setting <code>options[compiler_name]</code> to <code>false</code>.</p>
+<p><strong>Examples</strong></p>
+<p>Disable the <code>strong</code> compiler:</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> options = {<span class="hljs-attr">compiler</span>: {<span class="hljs-attr">strong</span>: <span class="hljs-literal">false</span>}};
+breakdance(<span class="hljs-string">&apos;Foo &lt;strong&gt;Bar&lt;/strong&gt;&apos;</span>, options);
+<span class="hljs-comment">//=&gt; &apos;Foo &apos;</span>
+</code></pre>
+<p>Override the <code>text</code> compiler:</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> options = {<span class="hljs-attr">compiler</span>: {<span class="hljs-attr">strong</span>: <span class="hljs-literal">false</span>}};
+breakdance(<span class="hljs-string">&apos;Foo &lt;strong&gt;Bar&lt;/strong&gt;&apos;</span>, {
+  <span class="hljs-attr">compiler</span>: {
+    <span class="hljs-attr">text</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+      <span class="hljs-keyword">this</span>.emit(node.val.toUpperCase());
+    }
+  }
+});
+
+<span class="hljs-comment">//=&gt; &apos;FOO **BAR**&apos;</span>
+</code></pre>
 
 
         <footer class="site-footer">

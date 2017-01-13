@@ -9,10 +9,8 @@ var write = require('write');
 var cwd = path.resolve.bind(path, __dirname);
 var fp = cwd('../fixtures/mozilla-html-elements.html');
 var html = fs.readFileSync(fp, 'utf8');
-var arr = [];
 
 var $ = cheerio.load(html);
-var sections = {};
 var stack = [];
 
 $('h2,table').each(function(i, ele) {

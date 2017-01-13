@@ -8,7 +8,6 @@ module.exports = function(fixtures) {
 
   function run(units) {
     var arr = units.fixtures || units;
-    var msg = units.msg;
 
     arr.forEach(function(unit, i) {
       if (Array.isArray(unit.fixtures)) {

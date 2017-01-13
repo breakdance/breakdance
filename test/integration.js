@@ -5,7 +5,7 @@ var time = new Time();
 
 var extend = require('extend-shallow');
 var isEqual = require('./support/is-equal');
-var configs = require('../lib/configs/');
+var configs = require('./configs/');
 
 describe('integration tests (testing random complex HTML for coverage)', function() {
   this.timeout(20000);
@@ -93,8 +93,11 @@ describe('integration tests (testing random complex HTML for coverage)', functio
     diff('mozilla-table');
   });
 
-  it.only('mozilla > full documents', function() {
+  it('mozilla > full documents', function() {
     var diff = time.diff('mozilla:docs');
+    isEqual('mozilla-html-elements-attributes', {domain: 'https://developer.mozilla.org'});
+    diff('mozilla-html-elements-attributes');
+
     isEqual('mozilla-html-elements', {domain: 'https://developer.mozilla.org'});
     diff('mozilla-html-elements');
 
@@ -103,14 +106,6 @@ describe('integration tests (testing random complex HTML for coverage)', functio
 
     isEqual('mozilla-memory-management-toc', {domain: 'https://developer.mozilla.org'});
     diff('mozilla-memory-management-toc');
-  });
-
-  it.skip('mozilla > readable', function() {
-    var diff = time.diff('mozilla:docs');
-    var opts = {readable: true};
-
-    isEqual('mozilla-html-elements', 'options.readable-mozilla-html-elements', opts);
-    diff('mozilla-html-elements');
   });
 
   it('should convert bootstrap v3 HTML', function() {

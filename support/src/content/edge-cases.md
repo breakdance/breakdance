@@ -170,3 +170,11 @@ Renders to:
   </dd>
 </dl>
 ```
+
+## Unconverted HTML
+
+Some HTML tags are retained. In particular when there is no equivalent in markdown and it seems reasonable that you might want to retain the HTML. For example, `<button>` tags are not output since they're not usable in markdown, but `<address>` tags are retained since their contents would still render.
+
+When HTML tags are retained, most of the attributes are removed, with the acception of attributes on `img` and `a` tags.
+
+Please feel free to [open an issue]({{@site.bugs.url}}) and let us know if you find any bugs or you think we should change the defaults.

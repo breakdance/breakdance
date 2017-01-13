@@ -4,7 +4,7 @@ title: Examples
 
 ## ul
 
-The following HTML list:
+The following unordered list:
 
 ```html
 <ul>
@@ -14,7 +14,7 @@ The following HTML list:
 </ul>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 * Foo
@@ -24,7 +24,9 @@ Would convert to the following markdown:
 
 ## ol
 
-The following HTML ordered list:
+When [options.one](options.html#one) is true, all items in ordered lists are numbered `1.` when converted to markdown (most markdown renderers will automatically re-number ordered lists, so using `1.` for every item is a nice way of making lists easier to maintain).
+
+The following ordered list:
 
 ```html
 <ol>
@@ -34,7 +36,7 @@ The following HTML ordered list:
 </ol>
 ```
 
-When [options.one](#optionsone) is true, converts to the following markdown (in markdown, numbers are automatically incremented by the renderer when `1.` is used):
+Is rendered to the following when [options.one](options.html#one) is enabled:
 
 ```
 1. Foo
@@ -42,7 +44,7 @@ When [options.one](#optionsone) is true, converts to the following markdown (in 
 1. Baz
 ```
 
-Otherwise the following is rendered:
+Otherwise:
 
 ```
 1. Foo
@@ -52,13 +54,13 @@ Otherwise the following is rendered:
 
 ## checkboxes
 
-An HTML `input` that has the `type="checkbox"` attribute:
+An HTML `input` with the `type="checkbox"` attribute:
 
 ```html
 <input type="checkbox" />Lorem ipsum dolor sit amet
 ```
 
-Converts to the following markdown:
+Converts to:
 
 ```
 [ ] Lorem ipsum dolor sit amet
@@ -86,7 +88,7 @@ The following HTML anchor:
 <a href="/some-link">Foo</a>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 [Foo](/some-link)
@@ -100,7 +102,7 @@ The following HTML blockquote:
 <blockquote> Lorem ipsum. </blockquote>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 > Lorem ipsum.
@@ -122,7 +124,7 @@ The following nested HTML blockquotes:
 </blockquote>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
@@ -153,7 +155,7 @@ The following HTML code tag:
 <code>1em 40px</code>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 `1em 40px`
@@ -182,7 +184,7 @@ The following HTML image tag:
 <img src="hammer.gif"/>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 ![](hammer.gif)
@@ -194,7 +196,7 @@ Would convert to the following markdown:
 <img src="hammer.gif" alt="Can\'t touch this">
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 ![Can\'t touch this](hammer.gif)
@@ -206,7 +208,7 @@ Would convert to the following markdown:
 <img src="hammer.gif" title="Foo bar" alt="Can\'t touch this">
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 ![Can\'t touch this](hammer.gif "Foo bar")
@@ -224,7 +226,7 @@ Anchors inside `<code>` tags are not converted. The following HTML:
 <code><a href="/some-link">Foo</a></code>
 ```
 
-Would convert to the following markdown:
+Converts to:
 
 ```
 `<a href="/some-link">Foo</a></code>`

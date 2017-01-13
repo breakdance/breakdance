@@ -76,12 +76,13 @@
       </ul>
     </li>
     <li><a href="#definition-lists">Definition Lists</a></li>
+    <li><a href="#unconverted-html">Unconverted HTML</a></li>
   </ul>
 </details><br>
         
 
         <p>A number of edge cases are supported. In most cases these should be pretty easy to override with options, and if not options, you can register custom renderers to completely change the output to be whatever you want.</p>
-<p>Please feel free to <a href="https://github.com/jonschlinkert/breakdance/issues">create an issue</a> if you have questions or need guidance on customizations.</p>
+<p>Please feel free to <a href="https://github.com/breakdance/breakdance/issues">create an issue</a> if you have questions or need guidance on customizations.</p>
 <h2>Tables
     <a href="#tables" name="tables" class="anchor">
       <span class="anchor-target" id="tables"></span>
@@ -237,6 +238,14 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">dd</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dl</span>&gt;</span>
 </code></pre>
+<h2>Unconverted HTML
+    <a href="#unconverted-html" name="unconverted-html" class="anchor">
+      <span class="anchor-target" id="unconverted-html"></span>
+      <svg version="1.1" width="16" height="16" viewbox="0 0 16 16" class="octicon octicon-link" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+    </a></h2>
+<p>Some HTML tags are retained. In particular when there is no equivalent in markdown and it seems reasonable that you might want to retain the HTML. For example, <code>&lt;button&gt;</code> tags are not output since they&apos;re not usable in markdown, but <code>&lt;address&gt;</code> tags are retained since their contents would still render.</p>
+<p>When HTML tags are retained, most of the attributes are removed, with the acception of attributes on <code>img</code> and <code>a</code> tags.</p>
+<p>Please feel free to <a href="https://github.com/breakdance/breakdance/issues">open an issue</a> and let us know if you find any bugs or you think we should change the defaults.</p>
 
 
         <footer class="site-footer">

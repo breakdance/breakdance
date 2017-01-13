@@ -3,18 +3,14 @@ title: Options
 toc: true
 ---
 
-There are a number of different options available for configuring {{@site.name}}.
-
 ## Setting options
 
-```js
-var breakdance = require('breakdance');
-```
+A number of different options are available for configuring breakdance. If you need more than what the options provide, see the docs for [customizing breakdance](customize.html).
 
-Pass options to `breakdance` as the last argument.
+To set options, pass an object as the last argument to `breakdance`:
 
 ```js
-breakdance(htmlString[, options]);
+breakdance(string[, options]);
 ```
 
 **Example**
@@ -26,7 +22,7 @@ console.log(breakdance('<a href="/some-link"></a>', options));
 //=> '[](https://github.com/some-link)\n'
 ```
 
-## Options
+## Available options
 
 ### options.condense
 

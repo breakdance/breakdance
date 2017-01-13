@@ -14,7 +14,7 @@ describe('horizontal rules', function() {
       '',
       '',
       '',
-      '<hr>',
+      '<hr>'
     ].join('\n');
 
     isEqual.inline(fixture, [
@@ -30,7 +30,7 @@ describe('horizontal rules', function() {
       '',
       'baz',
       '',
-      '***\n',
+      '***\n'
     ].join('\n'));
   });
 });

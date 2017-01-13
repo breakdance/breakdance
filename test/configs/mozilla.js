@@ -1,6 +1,6 @@
 'use strict';
 
-var helpers = require('../helpers');
+var helpers = require('./helpers');
 
 module.exports = {
   preprocess: function(node, prev, $) {
