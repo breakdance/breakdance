@@ -5,9 +5,16 @@
     </h1>
 
     {{#is @page.stem "index"}}
+    <div class="breakdance-logo">
+      <img src="assets/img/breakdance-logo-white.png" alt="">
+    </div>
+    {{/is}}
+
+    {{#is @page.stem "index"}}
       {{#if @site.description}}
-        <h2 id="project-description" class="project-tagline">
-          {{breakOn "Pluggable" @site.description}}
+        <h2 class="project-tagline">
+          Convert HTML to markdown. Hackable and easy to customize.<br>
+          (Sometimes your markup needs to get down)
         </h2>
       {{/if}}
 

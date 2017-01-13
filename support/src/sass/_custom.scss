@@ -21,6 +21,22 @@ summary:focus {
   outline: none;
 }
 
+.project-name.breakdance {
+  visibility: hidden;
+}
+
+.project-description {
+  visibility: hidden;
+}
+
+.breakdance-logo {
+  display: block;
+
+  img {
+    width: 60%;
+  }
+}
+
 
 // svg/icons
 .octicon {
@@ -126,8 +142,4 @@ h1, h2, h3, h4 {
   .page-header-sm {
     padding: 0.5rem 1rem;
   }
-}
-
-.breakdance {
-  font-family: "Montserrat Subrayada", $font-family-base;
 }

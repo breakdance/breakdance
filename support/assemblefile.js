@@ -6,6 +6,7 @@ var clone = require('gh-clone');
 var through = require('through2');
 var extend = require('extend-shallow');
 var unescape = require('unescape');
+var reflinks = require('gulp-reflinks');
 var pageData = require('assemble-middleware-page-variable');
 var geopattern = require('helper-geopattern');
 var helpers = require('handlebars-helpers');
@@ -71,6 +72,7 @@ app.task('render', function() {
   app.layouts('src/templates/layouts/*.hbs');
   app.pages('src/content/*.md');
   return app.toStream('pages')
+    .pipe(reflinks(app.options))
     .pipe(md(utils.markdownOptions))
     .pipe(through.obj(function(file, enc, next) {
       var str = file.contents.toString();
@@ -86,7 +88,7 @@ app.task('render', function() {
       file.contents = new Buffer(tools.toc(str, {details: true}));
       next(null, file);
     }))
-    .pipe(app.dest('dist'));
+    .pipe(app.dest('dist'))
 });
 
 app.task('sass', function() {
