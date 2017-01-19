@@ -8,8 +8,8 @@ var resolve = require('resolve-dir');
 var argv = require('yargs-parser')(process.argv.slice(2));
 var name = argv._[0];
 
-var fp = path.resolve(resolve('~/dev/html'), name + '.html');
-var fp = path.resolve(argv.d || resolve('~/dev/html'), name + '.html');
+var fp = path.resolve(argv.f || resolve('~/dev/html'), name + '.html');
+// var fp = path.resolve(argv.d || resolve('~/dev/html'), name + '.html');
 var str = fs.readFileSync(fp, 'utf8');
 var opts = extend({}, argv);
 var res = '';

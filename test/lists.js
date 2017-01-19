@@ -5,7 +5,7 @@ var isEqual = require('./support/is-equal');
 describe('lists', function() {
   describe('li', function() {
     it('should convert a list item to markdown', function() {
-      isEqual.inline('<li>Lorem ipsum dolor sit amet</li>', 'Lorem ipsum dolor sit amet\n');
+      isEqual.inline('<li>Lorem ipsum dolor sit amet</li>', '* Lorem ipsum dolor sit amet\n');
     });
   });
 

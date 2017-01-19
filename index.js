@@ -1,31 +1,11 @@
 'use strict';
 
+var cheerio = require('cheerio');
 var Snapdragon = require('snapdragon');
 var extend = require('extend-shallow');
 var parse = require('snapdragon-cheerio');
 var compilers = require('./lib/compilers');
-
-/**
- * Default options
- */
-
-var defaults = {
-  omitEmpty: [
-    'b',
-    'del',
-    'div',
-    'em',
-    'i',
-    'li',
-    'ol',
-    's',
-    'span',
-    'strong',
-    'section',
-    'u',
-    'ul'
-  ]
-};
+var defaults = require('./lib/defaults');
 
 /**
  * Create an instance of `Breakdance` with the given `options`.
@@ -54,9 +34,12 @@ function Breakdance(options) {
     return proto;
   }
 
+  this.utils = Breakdance.utils;
+  this.helpers = Breakdance.helpers;
   this.options = extend({}, options);
   this.plugins = {
     fns: [],
+    preprocess: [],
     visitors: {},
     before: {},
     after: {}
@@ -87,7 +70,27 @@ Breakdance.prototype.use = function(fn) {
  */
 
 Breakdance.prototype.set = function(type, fn) {
-  this.plugins.visitors[type] = fn;
+  if (Array.isArray(type)) {
+    for (var i = 0; i < type.length; i++) {
+      this.set(type[i], fn);
+    }
+  } else {
+    this.plugins.visitors[type] = fn;
+  }
+  return this;
+};
+
+/**
+ * Register a plugin that will be called with an instance of the compiler
+ * when `.compile` or `.render` are run.
+ *
+ * @param {Function} `fn` Plugin function
+ * @return {Object} Returns the instance for chaining.
+ * @api public
+ */
+
+Breakdance.prototype.preprocess = function(fn) {
+  this.plugins.preprocess.push(fn);
   return this;
 };
 
@@ -100,7 +103,13 @@ Breakdance.prototype.set = function(type, fn) {
  */
 
 Breakdance.prototype.before = function(type, fn) {
-  this.plugins.before[type] = fn;
+  if (Array.isArray(type)) {
+    for (var i = 0; i < type.length; i++) {
+      this.before(type[i], fn);
+    }
+  } else {
+    this.plugins.before[type] = fn;
+  }
   return this;
 };
 
@@ -113,7 +122,13 @@ Breakdance.prototype.before = function(type, fn) {
  */
 
 Breakdance.prototype.after = function(type, fn) {
-  this.plugins.after[type] = fn;
+  if (Array.isArray(type)) {
+    for (var i = 0; i < type.length; i++) {
+      this.after(type[i], fn);
+    }
+  } else {
+    this.plugins.after[type] = fn;
+  }
   return this;
 };
 
@@ -127,7 +142,15 @@ Breakdance.prototype.after = function(type, fn) {
  */
 
 Breakdance.prototype.parse = function(html, options) {
-  return parse(html, extend(defaults, this.options, options));
+  var opts = extend(defaults, this.options, options);
+  var $ = cheerio.load(html, opts);
+
+  if (this.plugins.preprocess.length > 0) {
+    for (var i = 0; i < this.plugins.preprocess; i++) {
+      this.plugins.preprocess[i].call(this, $);
+    }
+  }
+  return parse($, opts);
 };
 
 /**
@@ -183,6 +206,10 @@ Breakdance.prototype.compile = function(ast, options) {
     if (this.plugins.visitors.hasOwnProperty(key)) {
       snapdragon.compiler.set(key, this.plugins.visitors[key]);
     }
+  }
+
+  if (typeof ast === 'string') {
+    ast = this.parse(ast, opts);
   }
 
   return snapdragon.compile(ast, opts);
