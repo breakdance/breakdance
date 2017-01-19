@@ -157,7 +157,9 @@ Type: `function`
 Default: `undefined`
 
 
-## Compilers
+## Compiler options
+
+### Disable compilers
 
 Disable a compiler by setting `options[compiler_name]` to `false`.
 
@@ -170,6 +172,8 @@ var options = {compiler: {strong: false}};
 breakdance('Foo <strong>Bar</strong>', options);
 //=> 'Foo '
 ```
+
+### Override compilers
 
 Override the `text` compiler:
 

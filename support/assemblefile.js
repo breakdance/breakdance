@@ -5,13 +5,11 @@ var Pkg = require('expand-pkg');
 var clone = require('gh-clone');
 var through = require('through2');
 var extend = require('extend-shallow');
-var unescape = require('unescape');
 var reflinks = require('gulp-reflinks');
 var pageData = require('assemble-middleware-page-variable');
 var geopattern = require('helper-geopattern');
 var helpers = require('handlebars-helpers');
 var assemble = require('assemble');
-var md = require('gulp-remarkable');
 var uncss = require('gulp-uncss');
 var sass = require('gulp-sass');
 var del = require('delete');
@@ -20,6 +18,7 @@ var del = require('delete');
  * Local dependencies
  */
 
+var pipeline = require('./build/pipeline');
 var tools = require('./build/tools');
 var utils = require('./build/utils');
 
@@ -38,7 +37,7 @@ app.data({site: pkg.expand(require('../package'))});
 app.data('site.title', app.data('site.name'));
 app.option('geopatterns.generator', 'sine_waves');
 app.option('geopatterns.color', '#13a1cc');
-app.option('nav', ['index', 'examples', 'options', 'customize', 'edge-cases', 'about']);
+app.option('nav', ['index', 'examples', 'options', 'customize', 'developers', 'api', 'edge-cases', 'about']);
 app.option('gradient', false);
 
 /**
@@ -70,24 +69,13 @@ app.onLoad(/\.md$/, pageData(app));
 app.task('render', function() {
   app.partials('src/templates/partials/*.hbs');
   app.layouts('src/templates/layouts/*.hbs');
-  app.pages('src/content/*.md');
+  app.pages('src/content/*toc.md');
   return app.toStream('pages')
     .pipe(reflinks(app.options))
-    .pipe(md(utils.markdownOptions))
-    .pipe(through.obj(function(file, enc, next) {
-      var str = file.contents.toString();
-      str = str.replace(/(\{{2,4})([^}]+)(\}{2,4})/g, function(m, open, inner, close) {
-        return open + unescape(inner) + close;
-      });
-      file.contents = new Buffer(str);
-      next(null, file);
-    }))
+    .pipe(pipeline.markdown(utils.markdownOptions))
+    .pipe(pipeline.unescape())
     .pipe(app.renderFile({layout: 'default'}))
-    .pipe(through.obj(function(file, enc, next) {
-      var str = file.contents.toString();
-      file.contents = new Buffer(tools.toc(str, {details: true}));
-      next(null, file);
-    }))
+    .pipe(pipeline.toc())
     .pipe(app.dest('dist'))
 });
 

@@ -193,25 +193,25 @@ Converts to:
 **alt**
 
 ```html
-<img src="hammer.gif" alt="Can\'t touch this">
+<img src="hammer.gif" alt="Can't touch this">
 ```
 
 Converts to:
 
 ```
-![Can\'t touch this](hammer.gif)
+![Can't touch this](hammer.gif)
 ```
 
 **Title**
 
 ```html
-<img src="hammer.gif" title="Foo bar" alt="Can\'t touch this">
+<img src="hammer.gif" title="Foo bar" alt="Can't touch this">
 ```
 
 Converts to:
 
 ```
-![Can\'t touch this](hammer.gif "Foo bar")
+![Can't touch this](hammer.gif "Foo bar")
 ```
 
 **No src**
@@ -220,13 +220,13 @@ When the `<img>` tag has no `src` attribute (e.g. `<img alt="foo"/>`), it will n
 
 ## code
 
-Anchors inside `<code>` tags are not converted. The following HTML:
+Everything inside `<code>` tags is left as-is. The following HTML:
 
 ```html
 <code><a href="/some-link">Foo</a></code>
 ```
 
-Converts to:
+Results in:
 
 ```
 `<a href="/some-link">Foo</a></code>`

@@ -9,13 +9,26 @@ pattern: breakdance
 
 ## What is breakdance?
 
-Breakdance is an API and CLI for converting HTML to markdown. Breakdance runs on node.js, and can be installed using [npm](https://www.npmjs.com/) or [yarn][].
+Breakdance is an API and CLI for converting HTML to markdown.
+
+<br>
+
+## Why would I use breakdance?
+
+- Migrate HTML blog posts to markdown
+- Convert wiki pages to markdown
+- Convert HTML documentation to markdown
+- Convert HTML presentations or slide decks to markdown
+
+<br>
 
 ## What's different about breakdance?
 
-Breakdance uses [cheerio][] to parse HTML, then uses [snapdragon-cheerio][] to convert the AST to be compatible with [snapdragon][], which makes rendering exceptionally easy to [control and customize](customize.html).
+Breakdance uses [cheerio][] to parse HTML, and [snapdragon][] for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](customize.html).
 
-## How can I get started?
+<br>
+
+## Getting started
 
 Install with [npm](https://www.npmjs.com/):
 
@@ -29,9 +42,20 @@ Install with [yarn][]:
 $ yarn add breakdance
 ```
 
+**Convert some HTML!**
+
+Add the following code to `foo.js`:
+
+```js
+var breakdance = require('breakdance');
+console.log(breakdance('<strong>The freaks come out at night!</strong>'));
+//=> '**The freaks come out at night!**'
+```
+
+<br>
 
 ## Next steps
 
-- Visit [breakdance.io](https://breakdance.io) for documentation
+- Learn how to [customize breakdance](customize.html)
 - Visit the breakdance [unit tests]({{@site.href}}/test) for more comprehensive and detailed usage examples.
 - [HTML-to-markdown examples](examples.html)

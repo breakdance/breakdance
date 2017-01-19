@@ -1,15 +1,22 @@
 ---
-title: Customize
+title: API
 ---
 
-Don't like the defaults used in breakdance? Need to convert custom HTML elements?
+## Under the hood
 
-With breakdance you can control how any HTML element is converted to markdown, or even how a specific element with certain attributes is converted. It's easy to override any defaults, or add support for custom elements, attributes or options.
+Get to know the code in breakdance.
 
+### Moving parts
 
-## Customizing breakdance
+- `Breakdance` constructor
+- compiler
+- parser
 
-**breakdance** is pretty hackable if you need more than the [provided options](options.html). You can override built-in renderers, create custom renderers for custom HTML tags, or create plugins that "bundle" together your commonly used customizations.
+### Core concepts
+
+- AST
+- nodes
+- visitors (compilers)
 
 ## AST
 
