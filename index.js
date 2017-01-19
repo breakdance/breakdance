@@ -2,8 +2,9 @@
 
 var cheerio = require('cheerio');
 var Snapdragon = require('snapdragon');
+var define = require('define-property');
 var extend = require('extend-shallow');
-var parse = require('snapdragon-cheerio');
+var parser = require('snapdragon-cheerio');
 var compilers = require('./lib/compilers');
 var defaults = require('./lib/defaults');
 
@@ -34,6 +35,7 @@ function Breakdance(options) {
     return proto;
   }
 
+  this.define('cache', {});
   this.utils = Breakdance.utils;
   this.helpers = Breakdance.helpers;
   this.options = extend({}, options);
@@ -45,6 +47,20 @@ function Breakdance(options) {
     after: {}
   };
 }
+
+/**
+ * Register a plugin that will be called with an instance of the compiler
+ * when `.compile` or `.render` are run.
+ *
+ * @param {Function} `fn` Plugin function
+ * @return {Object} Returns the instance for chaining.
+ * @api public
+ */
+
+Breakdance.prototype.define = function(name, val) {
+  define(this, name, val);
+  return this;
+};
 
 /**
  * Register a plugin that will be called with an instance of the compiler
@@ -150,7 +166,8 @@ Breakdance.prototype.parse = function(html, options) {
       this.plugins.preprocess[i].call(this, $);
     }
   }
-  return parse($, opts);
+
+  return this.snapdragon.parse($, opts);
 };
 
 /**
@@ -214,6 +231,26 @@ Breakdance.prototype.compile = function(ast, options) {
 
   return snapdragon.compile(ast, opts);
 };
+
+/**
+ * Getter for lazily instantiating Snapdragon when `.parse` or
+ * `.compile` is called.
+ */
+
+Object.defineProperty(Breakdance.prototype, 'snapdragon', {
+  set: function(val) {
+    this.cache.snapdragon = val;
+  },
+  get: function() {
+    if (this.cache.snapdragon) {
+      return this.cache.snapdragon;
+    }
+    var snapdragon = new Snapdragon(this.options);
+    snapdragon.use(parser());
+    this.cache.snapdragon = snapdragon;
+    return snapdragon;
+  }
+});
 
 /**
  * Expose `Breakdance`

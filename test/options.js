@@ -21,7 +21,7 @@ describe('options', function() {
       isEqual.inline('<strong>Foo</strong>', '@Foo@', {
         compiler: {
           strong: function(node) {
-            this.mapVisit(node.nodes);
+            this.mapVisit(node);
           },
           ['strong.open']: function(node) {
             this.emit('@', node);
