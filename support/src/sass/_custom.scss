@@ -1,5 +1,4 @@
 // Theme overrides
-
 strong {
   font-weight: bold;
   margin-top: 1em;
@@ -141,5 +140,72 @@ h1, h2, h3, h4 {
 @media screen and (max-width: 42em) {
   .page-header-sm {
     padding: 0.5rem 1rem;
+  }
+}
+
+/**
+ * Teaser
+ */
+
+// .teaser {
+//   background-color: #f7f7f7;
+//   text-align: center;
+//   .btn {
+//     background-color: #444;
+//   }
+// }
+
+.teaser {
+  display: block;
+  font-size: 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #dadada;
+  text-align: center;
+  line-height: 80px;
+  margin: 0;
+}
+
+.teaser em {
+  font-family: Georgia, serif;
+  color: #a2a8a8;
+}
+
+.teaser iframe {
+  margin: -7px 0 0 25px;
+  vertical-align: text-top;
+}
+
+a.teaser-link {
+  color: #33b5e5;
+  text-decoration: none;
+}
+
+/**
+ * Lists
+ */
+
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: disc;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+// Inline turns list items into inline-block
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline-item {
+  display: inline-block;
+
+  &:not(:last-child) {
+    margin-right: 5px;
   }
 }

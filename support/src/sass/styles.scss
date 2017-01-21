@@ -1,26 +1,3 @@
-// Bootstrap Reboot only
-// Includes only Normalize and our custom Reboot reset.
-
-// @import "variables";
-@import "variables-custom";
-// @import "mixins";
-
-// // Reset
-// @import "reset/normalize";
-// @import "reset/print";
-// @import "reset/reset";
-
-// // CSS
-// @import "type";
-
-// // Components
-// @import "container";
-// @import "nav";
-// @import "navbar";
-
-// Override classes
+@import "variables";
 @import "themes/cayman";
 @import "custom";
-
-// Utility classes
-// @import "utilities";
