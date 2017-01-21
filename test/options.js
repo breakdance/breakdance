@@ -34,9 +34,9 @@ describe('options', function() {
     });
   });
 
-  describe('.stripTags', function() {
+  describe('.omit', function() {
     it('should strip the given elements from HTML before converting', function() {
-      isEqual('options.stripTags', {stripTags: ['.ciu-panel-wrap'], title: true});
+      isEqual('options.omit', {omit: ['.ciu-panel-wrap'], title: true});
     });
   });
 

@@ -7,7 +7,7 @@ var helpers = require('./helpers');
 
 module.exports = {
   domain: 'https://wikipedia.com/',
-  preprocess: function fn(node, prev, $, ast, options) {
+  preprocess: function($, node, ast, options) {
     if (node.name === 'img') {
       node.attribs.src = getLink(node.attribs);
       delete node.attribs.width;
@@ -23,9 +23,6 @@ module.exports = {
           filter: function(n) {
             if (n.name === 'img') {
               n.attribs.src = getLink(n.attribs);
-              delete n.attribs.width;
-              delete n.attribs.height;
-              delete n.attribs.style;
               return n.attribs;
             }
             if (n.name === 'a') {
@@ -48,7 +45,8 @@ module.exports = {
       node.attribs.href = helpers.formatAnchor(href);
     }
   },
-  process: function fn(node, prev, $) {
+
+  postprocess: function(node, ast) {
     var attribs = node.attribs || {};
     var id = attribs.id;
 

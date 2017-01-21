@@ -69,7 +69,7 @@ app.onLoad(/\.md$/, pageData(app));
 app.task('render', function() {
   app.partials('src/templates/partials/*.hbs');
   app.layouts('src/templates/layouts/*.hbs');
-  app.pages('src/content/*toc.md');
+  app.pages('src/content/*.md');
   return app.toStream('pages')
     .pipe(reflinks(app.options))
     .pipe(pipeline.markdown(utils.markdownOptions))
