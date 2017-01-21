@@ -11,18 +11,19 @@
     <!-- jumbotron -->
     <div class="container-fluid">
       {{> header }}
-
-      {{#is @page.stem "index"}}
-        {{> teaser }}
-      {{/is}}
     </div>
 
     <!-- main content -->
     <div class="container">
       <div class="main-content">
         {{#isnt toc false}}
-        <div id="toc"></div>
+        <div id="toc" class="navigation"></div>
         {{/isnt}}
+
+        {{#is @page.stem "index"}} 
+          <h1>{{titleize @page.title}}</h1> 
+          <div id="toc" class="navigation"></div>
+        {{/is}}
 
         {{#if @page.description}} 
           {{@page.description}} 

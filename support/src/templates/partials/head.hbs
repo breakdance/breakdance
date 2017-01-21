@@ -4,20 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
   {{> bootstrap }}
-  <link rel="stylesheet" type="text/css" href="assets/css/breakdance.css" media="screen">
   <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
-  <style>
-    .page-header { 
-      {{#if options.gradient}}{{gradient options.gradient}}{{else}}
-      background-image: {{geopattern (default @page.pattern @page.title)}};
-      {{/if}}
-    }
-    .main-content h1, 
-    .main-content h2, 
-    .main-content h3, 
-    .main-content h4 { 
-      color: {{geoColor (default @page.pattern @page.title)}};
-    }
-  </style>
+  {{> geopattern }}
 </head>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Docs | breakdance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script-->
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <style>
+      .page-header {
+        
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoNzYsMTMxLDExMCkiPjwvcmVjdD48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjA4OTMzMzMzMzMzMzMzMzMzIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi42NjY2NjY2NjY2NjY2NjgsMCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjE0MTMzMzMzMzMzMzMzMzM0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1My4zMzMzMzMzMzMzMzMzMzYsMCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjA3MjAwMDAwMDAwMDAwMDAxIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MCwwKSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTE1MzMzMzMzMzMzMzMzMzQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNi42NjY2NjY2NjY2NjY2NywwKSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDQ2IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzMuMzMzMzMzMzMzMzMzMzQsMCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLDI2LjY2NjY2NjY2NjY2NjY2OCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjA1NDY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi42NjY2NjY2NjY2NjY2NjgsMjYuNjY2NjY2NjY2NjY2NjY4KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1My4zMzMzMzMzMzMzMzMzMzYsMjYuNjY2NjY2NjY2NjY2NjY4KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwLDI2LjY2NjY2NjY2NjY2NjY2OCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMDYuNjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzMuMzMzMzMzMzMzMzMzMzQsMjYuNjY2NjY2NjY2NjY2NjY4KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsNTMuMzMzMzMzMzMzMzMzMzM2KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDIiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2LjY2NjY2NjY2NjY2NjY2OCw1My4zMzMzMzMzMzMzMzMzMzYpIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wOTgiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzLjMzMzMzMzMzMzMzMzMzNiw1My4zMzMzMzMzMzMzMzMzMzYpIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wMiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAsNTMuMzMzMzMzMzMzMzMzMzM2KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNi42NjY2NjY2NjY2NjY2Nyw1My4zMzMzMzMzMzMzMzMzMzYpIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xNSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTMzLjMzMzMzMzMzMzMzMzM0LDUzLjMzMzMzMzMzMzMzMzMzNikiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLDgwKSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDcyMDAwMDAwMDAwMDAwMDEiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2LjY2NjY2NjY2NjY2NjY2OCw4MCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjAyIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1My4zMzMzMzMzMzMzMzMzMzYsODApIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wMzczMzMzMzMzMzMzMzMzMyIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODAsODApIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wOTgiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwNi42NjY2NjY2NjY2NjY2Nyw4MCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzMuMzMzMzMzMzMzMzMzMzQsODApIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xMzI2NjY2NjY2NjY2NjY2NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwxMDYuNjY2NjY2NjY2NjY2NjcpIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xMzI2NjY2NjY2NjY2NjY2NSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjYuNjY2NjY2NjY2NjY2NjY4LDEwNi42NjY2NjY2NjY2NjY2NykiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjAyIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1My4zMzMzMzMzMzMzMzMzMzYsMTA2LjY2NjY2NjY2NjY2NjY3KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDgwLDEwNi42NjY2NjY2NjY2NjY2NykiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA0NiIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA2LjY2NjY2NjY2NjY2NjY3LDEwNi42NjY2NjY2NjY2NjY2NykiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzMuMzMzMzMzMzMzMzMzMzQsMTA2LjY2NjY2NjY2NjY2NjY3KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsMTMzLjMzMzMzMzMzMzMzMzM0KSI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSI4LjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCwyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwxNy44NjY2NjY2NjY2NjY2NjcsMTcuODY2NjY2NjY2NjY2NjY3LDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsOC44LDguOCwwIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDI2LjY2NjY2NjY2NjY2NjY2OCwxMzMuMzMzMzMzMzMzMzMzMzQpIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNTMuMzMzMzMzMzMzMzMzMzM2LDEzMy4zMzMzMzMzMzMzMzMzNCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4MCwxMzMuMzMzMzMzMzMzMzMzMzQpIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjguOCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDI2LjY2NjY2NjY2NjY2NjY2OCw4LjgsMjYuNjY2NjY2NjY2NjY2NjY4LDE3Ljg2NjY2NjY2NjY2NjY2NywxNy44NjY2NjY2NjY2NjY2NjcsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMCwxNy44NjY2NjY2NjY2NjY2NjcsMCw4LjgsOC44LDAiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTA2LjY2NjY2NjY2NjY2NjY3LDEzMy4zMzMzMzMzMzMzMzMzNCkiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iOC44LDAsMTcuODY2NjY2NjY2NjY2NjY3LDAsMjYuNjY2NjY2NjY2NjY2NjY4LDguOCwyNi42NjY2NjY2NjY2NjY2NjgsMTcuODY2NjY2NjY2NjY2NjY3LDE3Ljg2NjY2NjY2NjY2NjY2NywyNi42NjY2NjY2NjY2NjY2NjgsOC44LDI2LjY2NjY2NjY2NjY2NjY2OCwwLDE3Ljg2NjY2NjY2NjY2NjY2NywwLDguOCw4LjgsMCIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMzMuMzMzMzMzMzMzMzMzMzQsMTMzLjMzMzMzMzMzMzMzMzM0KSI+PC9wb2x5bGluZT48L3N2Zz4=");
+  }
+      .main-content h1,
+      .main-content h2,
+      .main-content h3,
+      .main-content h4 {
+        color: #4c836e;
+      }
+    </style></head>  <body>
+    <!-- main navigation -->
+    <div class="container">
+      <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="index.html"> Breakdance </a>
+        <ul class="nav navbar-nav">
+              <li class="nav-item ">
+          <a class="nav-link" href="api.html">API</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="options.html">Options</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="examples.html">Examples</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="docs.html">Docs</a>
+        </li>
+  </ul>
+      </nav>
+    </div>
+  
+    <!-- jumbotron -->
+    <div class="container-fluid">
+      <div class="page-header page-header-sm">
+        <div class="container">
+      
+    <h1 id="project-name" class="project-name">
+      Docs
+    </h1>
+  </div>
+      </div>    </div>
+
+    <!-- main content -->
+    <div class="container">
+      <div class="main-content">
+        <div id="toc" class="navigation">
+<ol>
+  <li><a href="#what-is-breakdance">What is breakdance?</a></li>
+  <li><a href="#why-would-i-use-breakdance">Why would I use breakdance?</a></li>
+  <li><a href="#whats-different-about-breakdance">What&apos;s different about breakdance?</a></li>
+  <li><a href="#getting-started">Getting started</a></li>
+  <li><a href="#customizing-breakdance">Customizing breakdance</a></li>
+  <li><a href="#ast">AST</a></li>
+  <li><a href="#node">Node</a></li>
+  <li><a href="#compilers-visitors">Compilers (visitors)</a>
+<ol>
+  <li><a href="#set">.set</a></li>
+  <li><a href="#plugins">Plugins</a></li>
+</ol>
+</li>
+  <li><a href="#next-steps">Next steps</a></li>
+</ol>
+</div>
+
+
+
+        <p><a href="https://github.com/breakdance/breakdance">View on GitHub</a></p>
+<h2><a name="what-is-breakdance" aria-hidden="true"></a>What is breakdance?</h2>
+<p>Breakdance is an API and CLI for converting HTML to markdown.</p>
+<p><br></p>
+<h2><a name="why-would-i-use-breakdance" aria-hidden="true"></a>Why would I use breakdance?</h2>
+<ul>
+<li>Migrate HTML blog posts to markdown</li>
+<li>Convert wiki pages to markdown</li>
+<li>Convert HTML documentation to markdown</li>
+<li>Convert HTML presentations or slide decks to markdown</li>
+</ul>
+<p><br></p>
+<h2><a name="whats-different-about-breakdance" aria-hidden="true"></a>What&apos;s different about breakdance?</h2>
+<p>Breakdance uses <a href="https://github.com/cheeriojs/cheerio">cheerio</a> to parse HTML, and <a href="https://github.com/jonschlinkert/snapdragon">snapdragon</a> for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and <a href="customize.html">customize</a>.</p>
+<p><br></p>
+<h2><a name="getting-started" aria-hidden="true"></a>Getting started</h2>
+<p>Install with <a href="https://www.npmjs.com/">npm</a>:</p>
+<pre><code class="language-sh">$ npm install --save breakdance
+</code></pre>
+<p>Install with <a href="https://github.com/yarnpkg/yarn">yarn</a>:</p>
+<pre><code class="language-sh">$ yarn add breakdance
+</code></pre>
+<p><strong>Convert some HTML!</strong></p>
+<p>Add the following code to <code>foo.js</code>:</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
+<span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;&lt;strong&gt;The freaks come out at night!&lt;/strong&gt;&apos;</span>));
+<span class="hljs-comment">//=&gt; &apos;**The freaks come out at night!**&apos;</span>
+</code></pre>
+<p><br></p>
+<p>Don&apos;t like the defaults used in breakdance? Need to convert custom HTML elements?</p>
+<p>With breakdance you can control how any HTML element is converted to markdown, or even how a specific element with certain attributes is converted. It&apos;s easy to override any defaults, or add support for custom elements, attributes or options.</p>
+<h2><a name="customizing-breakdance" aria-hidden="true"></a>Customizing breakdance</h2>
+<p><strong>breakdance</strong> is pretty hackable if you need more than the <a href="options.html">provided options</a>. You can override built-in renderers, create custom renderers for custom HTML tags, or create plugins that &quot;bundle&quot; together your commonly used customizations.</p>
+<h2><a name="ast" aria-hidden="true"></a>AST</h2>
+<p>TODO</p>
+<h2><a name="node" aria-hidden="true"></a>Node</h2>
+<p>TODO</p>
+<h2><a name="compilers-visitors" aria-hidden="true"></a>Compilers (visitors)</h2>
+<p>Breakdance &quot;compilers&quot; are visitor functions that are called on specific AST nodes at render time. For example, the <code>text</code> compiler is called on nodes with the <code>text</code> type.</p>
+<p>Override built-in compilers.</p>
+<ul>
+<li><strong>bos</strong>:</li>
+<li><strong>html tags</strong>:
+<ul>
+<li>tag name:</li>
+<li><code>.open</code>:</li>
+<li><code>.close</code>:</li>
+</ul></li>
+<li><strong>eos</strong>:</li>
+</ul>
+<h3><a name="set" aria-hidden="true"></a>.set</h3>
+<p>Override an existing compiler, or register a new one.</p>
+<pre><code class="language-js">breakdance.set(<span class="hljs-string">&apos;html-tag-name&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+
+});
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="language-js">breakdance.set(<span class="hljs-string">&apos;pre&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+
+});
+breakdance.set(<span class="hljs-string">&apos;pre.open&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+
+});
+breakdance.set(<span class="hljs-string">&apos;pre.close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+
+});
+</code></pre>
+<h3><a name="plugins" aria-hidden="true"></a>Plugins</h3>
+<pre><code class="language-js">breakdance.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+});
+</code></pre>
+<h2><a name="next-steps" aria-hidden="true"></a>Next steps</h2>
+<ul>
+<li>Learn how to <a href="customize.html">customize breakdance</a></li>
+<li>Visit the breakdance <a href="https://github.com/breakdance/breakdance/test">unit tests</a> for more comprehensive and detailed usage examples.</li>
+<li><a href="examples.html">HTML-to-markdown examples</a></li>
+</ul>
+
+        <footer class="site-footer">
+          <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+          <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+        </footer>      </div>
+    </div>
+
+    <!-- github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  </body>
+</html>

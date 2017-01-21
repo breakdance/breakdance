@@ -34,7 +34,7 @@ var pkg = new Pkg();
 
 app.option('geopatterns.generator', 'sine_waves');
 app.option('geopatterns.color', '#13a1cc');
-app.option('nav', ['index', 'api', 'options', 'edge-cases', 'examples', 'about']);
+app.option('nav', ['api', 'options', 'edge-cases', 'examples', 'about', 'docs']);
 app.option('gradient', false);
 app.option('dest', 'dist');
 

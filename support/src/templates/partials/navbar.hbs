@@ -1,22 +1,12 @@
 <nav class="navbar navbar-light">
-  <a class="navbar-brand" href="#">Breakdance</a>
-
+  <a class="navbar-brand" href="index.html"> Breakdance </a>
   <ul class="nav navbar-nav">
     {{#pages}}
       {{#each (sort items ../options.nav) as | item |}}
         <li class="nav-item {{#is @root.page.stem item.stem}}active{{/is}}">
-          <a class="nav-link" href="{{item.relative}}">{{titleize item.data.title}}</a>
+          <a class="nav-link" href="{{item.relative}}">{{titleize (default item.data.link item.data.title)}}</a>
         </li>
       {{/each}}
     {{/pages}}
-  </ul>
-
-  <ul class="list-inline pull-right">
-    <li class="list-inline-item">
-      <iframe src="http://ghbtns.com/github-btn.html?user={{@site.name}}&amp;repo={{@site.name}}&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-    </li>
-    <li class="list-inline-item">
-      <iframe src="http://ghbtns.com/github-btn.html?user={{@site.name}}&amp;repo={{@site.name}}&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-    </li>
   </ul>
 </nav>
