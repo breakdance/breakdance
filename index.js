@@ -7,6 +7,7 @@ var extend = require('extend-shallow');
 var parser = require('snapdragon-cheerio');
 var compilers = require('./lib/compilers');
 var defaults = require('./lib/defaults');
+var html = require('./lib/html');
 
 /**
  * Create an instance of `Breakdance` with the given `options`.
@@ -157,9 +158,9 @@ Breakdance.prototype.after = function(type, fn) {
  * @api public
  */
 
-Breakdance.prototype.parse = function(html, options) {
-  var opts = extend(defaults, this.options, options);
-  var $ = cheerio.load(html, opts);
+Breakdance.prototype.parse = function(val, options) {
+  var opts = extend({}, defaults, this.options, options);
+  var $ = cheerio.load(val, opts);
 
   if (this.plugins.preprocess.length > 0) {
     for (var i = 0; i < this.plugins.preprocess; i++) {
@@ -167,6 +168,7 @@ Breakdance.prototype.parse = function(html, options) {
     }
   }
 
+  opts.preprocess = html.preprocess(extend({}, opts));
   return this.snapdragon.parse($, opts);
 };
 
@@ -260,4 +262,3 @@ Object.defineProperty(Breakdance.prototype, 'snapdragon', {
 module.exports = Breakdance;
 module.exports.helpers = require('./lib/helpers');
 module.exports.utils = require('./lib/utils');
-
