@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>  <link rel="stylesheet" type="text/css" href="assets/css/breakdance.css" media="screen">
+    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>  <link rel="stylesheet" type="text/css" href="assets/css/breakdance.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
     <style>
@@ -22,38 +23,44 @@
       }
     </style>
   </head>  <body>
+    <!-- main navigation -->
     <div class="container">
       <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="#">Breakdance</a>
+      
         <ul class="nav navbar-nav">
               <li class="nav-item ">
           <a class="nav-link" href="index.html">Breakdance</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="examples.html">Examples</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="options.html">Options</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="customize.html">Customize</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="developers.html">Developers</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="api.html">API</a>
         </li>
         <li class="nav-item ">
+          <a class="nav-link" href="options.html">Options</a>
+        </li>
+        <li class="nav-item ">
           <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="examples.html">Examples</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="about.html">About</a>
         </li>
   </ul>
-      </nav>
       
+        <ul class="list-inline pull-right">
+          <li class="list-inline-item">
+            <iframe src="http://ghbtns.com/github-btn.html?user=breakdance&amp;repo=breakdance&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          </li>
+          <li class="list-inline-item">
+            <iframe src="http://ghbtns.com/github-btn.html?user=breakdance&amp;repo=breakdance&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
+          </li>
+        </ul>
+      </nav>
     </div>
-
+  
+    <!-- jumbotron -->
     <div class="container-fluid">
       <div class="page-header page-header-sm">
         <div class="container">
@@ -63,17 +70,28 @@
       
       
         </div>
-      </div>    </div>
+      </div>
+    </div>
 
+    <!-- main content -->
     <div class="container">
-      <section class="main-content"><details>
-  <summary>Table of contents</summary>  
-  <ul id="toc">
-  </ul>
-</details><br>
-        
+      <div class="main-content">
+        <div id="toc">
+<ol>
+  <li><a href="#ul">ul</a></li>
+  <li><a href="#ol">ol</a></li>
+  <li><a href="#checkboxes">checkboxes</a></li>
+  <li><a href="#a">a</a></li>
+  <li><a href="#blockquote">blockquote</a></li>
+  <li><a href="#br">br</a></li>
+  <li><a href="#code">code</a></li>
+  <li><a href="#img">img</a></li>
+  <li><a href="#code-1">code</a></li>
+</ol>
+</div>
 
-        <h2>ul</h2>
+
+        <h2><a name="ul" aria-hidden="true"></a>ul</h2>
 <p>The following unordered list:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
@@ -86,7 +104,7 @@
 <span class="hljs-bullet">* </span>Bar
 <span class="hljs-bullet">* </span>Baz
 </code></pre>
-<h2>ol</h2>
+<h2><a name="ol" aria-hidden="true"></a>ol</h2>
 <p>When <a href="options.html#one">options.one</a> is true, all items in ordered lists are numbered <code>1.</code> when converted to markdown (most markdown renderers will automatically re-number ordered lists, so using <code>1.</code> for every item is a nice way of making lists easier to maintain).</p>
 <p>The following ordered list:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
@@ -105,7 +123,7 @@
 <span class="hljs-bullet">2. </span>Bar
 <span class="hljs-bullet">3. </span>Baz
 </code></pre>
-<h2>checkboxes</h2>
+<h2><a name="checkboxes" aria-hidden="true"></a>checkboxes</h2>
 <p>An HTML <code>input</code> with the <code>type=&quot;checkbox&quot;</code> attribute:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> /&gt;</span>Lorem ipsum dolor sit amet
 </code></pre>
@@ -119,14 +137,14 @@
 <p>Converts to:</p>
 <pre><code><span class="hljs-string">[x]</span> Lorem ipsum dolor sit amet
 </code></pre>
-<h2>a</h2>
+<h2><a name="a" aria-hidden="true"></a>a</h2>
 <p>The following HTML anchor:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/some-link&quot;</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 </code></pre>
 <p>Converts to:</p>
 <pre><code>[<span class="hljs-string">Foo</span>](<span class="hljs-link">/some-link</span>)
 </code></pre>
-<h2>blockquote</h2>
+<h2><a name="blockquote" aria-hidden="true"></a>blockquote</h2>
 <p>The following HTML blockquote:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span> Lorem ipsum. <span class="hljs-tag">&lt;/<span class="hljs-name">blockquote</span>&gt;</span>
 </code></pre>
@@ -151,14 +169,14 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
 &gt;&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat <span class="hljs-selector-tag">a</span> ante.
 Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;/cite&gt;
 </code></pre>
-<h2>br</h2>
+<h2><a name="br" aria-hidden="true"></a>br</h2>
 <p>Breaks are retained. Thus, the following HTML <code>br</code> tag:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
 </code></pre>
 <p>Is output in markdown as is:</p>
 <pre><code><span class="hljs-section">&lt;br&gt;</span>
 </code></pre>
-<h2>code</h2>
+<h2><a name="code" aria-hidden="true"></a>code</h2>
 <p>The following HTML code tag:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>1em 40px<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
 </code></pre>
@@ -172,7 +190,7 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
 <p>Would convert to:</p>
 <pre><code>``foo`a`b`bar``
 </code></pre>
-<h2>img</h2>
+<h2><a name="img" aria-hidden="true"></a>img</h2>
 <p>The following HTML image tag:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;hammer.gif&quot;</span>/&gt;</span>
 </code></pre>
@@ -193,7 +211,7 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
 </code></pre>
 <p><strong>No src</strong></p>
 <p>When the <code>&lt;img&gt;</code> tag has no <code>src</code> attribute (e.g. <code>&lt;img alt=&quot;foo&quot;/&gt;</code>), it will not be rendered.</p>
-<h2>code</h2>
+<h2><a name="code-1" aria-hidden="true"></a>code</h2>
 <p>Everything inside <code>&lt;code&gt;</code> tags is left as-is. The following HTML:</p>
 <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/some-link&quot;</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>
 </code></pre>
@@ -201,12 +219,14 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
 <pre><code>`<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/some-link&quot;</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span>`
 </code></pre>
 
-
         <footer class="site-footer">
           <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
 
           <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-        </footer>      </section>
+        </footer>      </div>
     </div>
+
+    <!-- github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>

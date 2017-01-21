@@ -7,7 +7,7 @@ a:hover {
   text-decoration: underline;
 }
 
-.btn {
+.btn-jumbotron {
   display: inline-block;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
@@ -19,38 +19,38 @@ a:hover {
   transition: color 0.2s, background-color 0.2s, border-color 0.2s;
 }
 
-.btn:hover {
+.btn-jumbotron:hover {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-.btn + .btn {
+.btn-jumbotron + .btn {
   margin-left: 1rem;
 }
 
 @media screen and (min-width: 64em) {
-  .btn {
+  .btn-jumbotron {
     padding: 0.75rem 1rem;
   }
 }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
-  .btn {
+  .btn-jumbotron {
     padding: 0.6rem 0.9rem;
     font-size: 0.9rem;
   }
 }
 
 @media screen and (max-width: 42em) {
-  .btn {
+  .btn-jumbotron {
     display: block;
     width: 100%;
     padding: 0.75rem;
     font-size: 0.9rem;
   }
-  .btn + .btn {
+  .btn-jumbotron + .btn {
     margin-top: 1rem;
     margin-left: 0;
   }
@@ -468,4 +468,60 @@ h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor {
   .page-header-sm {
     padding: 0.5rem 1rem;
   }
+}
+
+/**
+ * Teaser
+ */
+.teaser {
+  display: block;
+  font-size: 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #dadada;
+  text-align: center;
+  line-height: 80px;
+  margin: 0;
+}
+
+.teaser em {
+  font-family: Georgia, serif;
+  color: #a2a8a8;
+}
+
+.teaser iframe {
+  margin: -7px 0 0 25px;
+  vertical-align: text-top;
+}
+
+a.teaser-link {
+  color: #33b5e5;
+  text-decoration: none;
+}
+
+/**
+ * Lists
+ */
+ol {
+  list-style-type: decimal;
+}
+
+ol ol {
+  list-style-type: disc;
+}
+
+ol ol ol {
+  list-style-type: lower-roman;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.list-inline-item {
+  display: inline-block;
+}
+
+.list-inline-item:not(:last-child) {
+  margin-right: 5px;
 }

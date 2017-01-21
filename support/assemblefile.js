@@ -19,7 +19,6 @@ var del = require('delete');
  */
 
 var pipeline = require('./build/pipeline');
-var tools = require('./build/tools');
 var utils = require('./build/utils');
 
 /**
@@ -30,15 +29,14 @@ var app = assemble();
 var pkg = new Pkg();
 
 /**
- * Helpers and dta
+ * Options
  */
 
-app.data({site: pkg.expand(require('../package'))});
-app.data('site.title', app.data('site.name'));
 app.option('geopatterns.generator', 'sine_waves');
 app.option('geopatterns.color', '#13a1cc');
-app.option('nav', ['index', 'examples', 'options', 'customize', 'developers', 'api', 'edge-cases', 'about']);
+app.option('nav', ['index', 'api', 'options', 'edge-cases', 'examples', 'about']);
 app.option('gradient', false);
+app.option('dest', 'dist');
 
 /**
  * Helpers
@@ -51,10 +49,12 @@ app.helper('geopattern', geopattern(app.options));
 app.helper('geoColor', geopattern.color(app.options));
 
 /**
- * Options
+ * Data
  */
 
-app.option('dest', 'dist');
+app.data({site: pkg.expand(require('../package'))});
+app.data('site.title', app.data('site.name'));
+// app.data('site.repo', 'jonschlinkert/micromatch');
 
 /**
  * Middleware
@@ -75,7 +75,7 @@ app.task('render', function() {
     .pipe(pipeline.markdown(utils.markdownOptions))
     .pipe(pipeline.unescape())
     .pipe(app.renderFile({layout: 'default'}))
-    .pipe(pipeline.toc())
+    .pipe(pipeline.navigation({selectors: '.main-content h2,h3'}))
     .pipe(app.dest('dist'))
 });
 

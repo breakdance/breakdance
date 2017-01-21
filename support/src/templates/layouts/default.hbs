@@ -3,26 +3,38 @@
 <html lang="en-us">
   {{> head }}
   <body>
+    <!-- main navigation -->
     <div class="container">
       {{> navbar }}
     </div>
-
+  
+    <!-- jumbotron -->
     <div class="container-fluid">
       {{> header }}
+
+      {{#is @page.stem "index"}}
+        {{> teaser }}
+      {{/is}}
     </div>
 
+    <!-- main content -->
     <div class="container">
-      <section class="main-content">
-        {{#isnt @page.toc "false"}}
-        <!-- toc -->
+      <div class="main-content">
+        {{#isnt toc false}}
+        <div id="toc"></div>
         {{/isnt}}
-        {{#if @page.description}} {{@page.description}} {{/if}}
+
+        {{#if @page.description}} 
+          {{@page.description}} 
+        {{/if}}
 
         {% body %}
-
         {{> footer }}
-      </section>
+      </div>
     </div>
+
+    <!-- github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>
 {{/frame}}

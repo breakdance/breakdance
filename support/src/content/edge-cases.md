@@ -2,6 +2,7 @@
 title: Edge Cases
 ---
 
+
 A number of edge cases are supported. In most cases these should be pretty easy to override with options, and if not options, you can register custom renderers to completely change the output to be whatever you want.
 
 Please feel free to [create an issue]({{@site.bugs.url}}) if you have questions or need guidance on customizations.
