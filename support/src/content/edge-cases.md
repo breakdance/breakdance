@@ -9,7 +9,7 @@ Please feel free to [create an issue]({{@site.bugs.url}}) if you have questions 
 
 ## Tables
 
-### 1. Multiple rows in `thead`
+### Multiple rows in `thead`
 
 When multiple rows (`<tr>`) are in `<thead>`, the rows are collapsed to a single `<tr>`, and a `<br>` is added as a text separater to retain the visual appearance of multiple lines.
 
@@ -36,13 +36,13 @@ Renders to:
 | <br> | Name<br>(first) | Name<br>(last) |
 ```
 
-### 2. Nested tables
+### Nested tables
 
 When a table has nested tables within it, the table will be rendered as HTML.
 
 ## Headings
 
-### 1. List items containing `<h1-6>` tags
+### List items containing `<h1-6>` tags
 
 When a list item contains a [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), the item will be output as bold (in other words, the element's meaning as a list item takes precedence over its meaning as a heading).
 
@@ -62,7 +62,7 @@ Results in
 - **Item two**
 ```
 
-### 2. Table cells containing `<h1-6>` tags
+### Table cells containing `<h1-6>` tags
 
 When a table cell contains a [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), the entire table will be output as HTML with attributes stripped, and not converted to markdown. This is to ensure formatting is retained, since markdown tables do not render headings.
 
@@ -110,66 +110,6 @@ Renders to:
     </tr>
   </tbody>
 </table>
-```
-
-## Definition Lists
-
-Definition lists are not converted to markdown.
-
-**Example**
-
-The following `<dl>` (from Bootstrap's docs):
-
-```html
-<dl class="row">
-  <dt class="col-sm-3">Description lists</dt>
-  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
-
-  <dt class="col-sm-3">Euismod</dt>
-  <dd class="col-sm-9">Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-  <dd class="col-sm-9 offset-sm-3">Donec id elit non mi porta gravida at eget metus.</dd>
-
-  <dt class="col-sm-3">Malesuada porta</dt>
-  <dd class="col-sm-9">Etiam porta sem malesuada magna mollis euismod.</dd>
-
-  <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-  <dd class="col-sm-9">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-
-  <dt class="col-sm-3">Nesting</dt>
-  <dd class="col-sm-9">
-    <dl class="row">
-      <dt class="col-sm-4">Nested definition list</dt>
-      <dd class="col-sm-8">Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
-    </dl>
-  </dd>
-</dl>
-```
-
-Renders to:
-
-```html
-<dl>
-  <dt>Description lists</dt>
-  <dd>A description list is perfect for defining terms.</dd>
-
-  <dt>Euismod</dt>
-  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-
-  <dt>Malesuada porta</dt>
-  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-
-  <dt>Truncated term is truncated</dt>
-  <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-
-  <dt>Nesting</dt>
-  <dd>
-    <dl>
-      <dt>Nested definition list</dt>
-      <dd>Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.</dd>
-    </dl>
-  </dd>
-</dl>
 ```
 
 ## Unconverted HTML

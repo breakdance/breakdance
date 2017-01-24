@@ -4,110 +4,234 @@
     <meta charset="UTF-8">
     <title>API | breakdance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script-->
-    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    
+    <!-- css -->
+    <!-- bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    <!-- custom -->
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    
+    <!-- geopattern styles -->
     <style>
-      .page-header {
+      .jumbotron {
         
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMzkiIGhlaWdodD0iMjM5Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoMTU1LDUyLDEwMCkiPjwvcmVjdD48Y2lyY2xlIGN4PSIxOS45OTk5OTk5OTk5OTk5OTYiIGN5PSIxOS45OTk5OTk5OTk5OTk5OTYiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA4MDY2NjY2NjY2NjY2NjY2IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgY3k9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wNzIwMDAwMDAwMDAwMDAwMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNTkuOTk5OTk5OTk5OTk5OTg2IiBjeT0iMTkuOTk5OTk5OTk5OTk5OTk2IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMDY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI1OS45OTk5OTk5OTk5OTk5ODYiIGN5PSIxOS45OTk5OTk5OTk5OTk5OTYiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDgwNjY2NjY2NjY2NjY2NjYiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk5Ljk5OTk5OTk5OTk5OTk5IiBjeT0iMTkuOTk5OTk5OTk5OTk5OTk2IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5OS45OTk5OTk5OTk5OTk5OSIgY3k9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNDYiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzOS45OTk5OTk5OTk5OTk5NyIgY3k9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzOS45OTk5OTk5OTk5OTk5NyIgY3k9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTc5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iMTkuOTk5OTk5OTk5OTk5OTk2IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMDY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNzkuOTk5OTk5OTk5OTk5OTciIGN5PSIxOS45OTk5OTk5OTk5OTk5OTYiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIxOS45OTk5OTk5OTk5OTk5NCIgY3k9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjE5Ljk5OTk5OTk5OTk5OTk0IiBjeT0iMTkuOTk5OTk5OTk5OTk5OTk2IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA4MDY2NjY2NjY2NjY2NjY2Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxOS45OTk5OTk5OTk5OTk5OTYiIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA0NiIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxOS45OTk5OTk5OTk5OTk5OTYiIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjU5Ljk5OTk5OTk5OTk5OTk4NiIgY3k9IjU5Ljk5OTk5OTk5OTk5OTk4NiIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNTkuOTk5OTk5OTk5OTk5OTg2IiBjeT0iNTkuOTk5OTk5OTk5OTk5OTg2IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTkuOTk5OTk5OTk5OTk5OTkiIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk5Ljk5OTk5OTk5OTk5OTk5IiBjeT0iNTkuOTk5OTk5OTk5OTk5OTg2IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjA3MjAwMDAwMDAwMDAwMDAxIj48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMzkuOTk5OTk5OTk5OTk5OTciIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMzkuOTk5OTk5OTk5OTk5OTciIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDQ2Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNzkuOTk5OTk5OTk5OTk5OTciIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNzkuOTk5OTk5OTk5OTk5OTciIGN5PSI1OS45OTk5OTk5OTk5OTk5ODYiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIxOS45OTk5OTk5OTk5OTk5NCIgY3k9IjU5Ljk5OTk5OTk5OTk5OTk4NiIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjE5Ljk5OTk5OTk5OTk5OTk0IiBjeT0iNTkuOTk5OTk5OTk5OTk5OTg2IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIj48L2NpcmNsZT48Y2lyY2xlIGN4PSIxOS45OTk5OTk5OTk5OTk5OTYiIGN5PSI5OS45OTk5OTk5OTk5OTk5OSIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTI0MDAwMDAwMDAwMDAwMDEiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTkuOTk5OTk5OTk5OTk5OTk2IiBjeT0iOTkuOTk5OTk5OTk5OTk5OTkiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjU5Ljk5OTk5OTk5OTk5OTk4NiIgY3k9Ijk5Ljk5OTk5OTk5OTk5OTk5IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI1OS45OTk5OTk5OTk5OTk5ODYiIGN5PSI5OS45OTk5OTk5OTk5OTk5OSIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wNDYiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk5Ljk5OTk5OTk5OTk5OTk5IiBjeT0iOTkuOTk5OTk5OTk5OTk5OTkiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5OS45OTk5OTk5OTk5OTk5OSIgY3k9Ijk5Ljk5OTk5OTk5OTk5OTk5IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA5OCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTM5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iOTkuOTk5OTk5OTk5OTk5OTkiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA0NiIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMzkuOTk5OTk5OTk5OTk5OTciIGN5PSI5OS45OTk5OTk5OTk5OTk5OSIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4xNDEzMzMzMzMzMzMzMzMzNCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTc5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iOTkuOTk5OTk5OTk5OTk5OTkiIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjE1IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE3OS45OTk5OTk5OTk5OTk5NyIgY3k9Ijk5Ljk5OTk5OTk5OTk5OTk5IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjE1Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIyMTkuOTk5OTk5OTk5OTk5OTQiIGN5PSI5OS45OTk5OTk5OTk5OTk5OSIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDg5MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjE5Ljk5OTk5OTk5OTk5OTk0IiBjeT0iOTkuOTk5OTk5OTk5OTk5OTkiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE5Ljk5OTk5OTk5OTk5OTk5NiIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjU5Ljk5OTk5OTk5OTk5OTk4NiIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNTkuOTk5OTk5OTk5OTk5OTg2IiBjeT0iMTM5Ljk5OTk5OTk5OTk5OTk3IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5OS45OTk5OTk5OTk5OTk5OSIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTkuOTk5OTk5OTk5OTk5OTkiIGN5PSIxMzkuOTk5OTk5OTk5OTk5OTciIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzOS45OTk5OTk5OTk5OTk5NyIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzOS45OTk5OTk5OTk5OTk5NyIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE3OS45OTk5OTk5OTk5OTk5NyIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTc5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iMTM5Ljk5OTk5OTk5OTk5OTk3IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjA4OTMzMzMzMzMzMzMzMzMzIj48L2NpcmNsZT48Y2lyY2xlIGN4PSIyMTkuOTk5OTk5OTk5OTk5OTQiIGN5PSIxMzkuOTk5OTk5OTk5OTk5OTciIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjE1IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIxOS45OTk5OTk5OTk5OTk5NCIgY3k9IjEzOS45OTk5OTk5OTk5OTk5NyIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xNSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTkuOTk5OTk5OTk5OTk5OTk2IiBjeT0iMTc5Ljk5OTk5OTk5OTk5OTk3IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xNDEzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxOS45OTk5OTk5OTk5OTk5OTYiIGN5PSIxNzkuOTk5OTk5OTk5OTk5OTciIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDQ2Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI1OS45OTk5OTk5OTk5OTk5ODYiIGN5PSIxNzkuOTk5OTk5OTk5OTk5OTciIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI1OS45OTk5OTk5OTk5OTk5ODYiIGN5PSIxNzkuOTk5OTk5OTk5OTk5OTciIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5OS45OTk5OTk5OTk5OTk5OSIgY3k9IjE3OS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDQ2IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk5Ljk5OTk5OTk5OTk5OTk5IiBjeT0iMTc5Ljk5OTk5OTk5OTk5OTk3IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA4MDY2NjY2NjY2NjY2NjY2Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMzkuOTk5OTk5OTk5OTk5OTciIGN5PSIxNzkuOTk5OTk5OTk5OTk5OTciIHI9IjE2LjY2NjY2NjY2NjY2NjY2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjEzMjY2NjY2NjY2NjY2NjY1IiBzdHJva2Utd2lkdGg9IjYuNjY2NjY2NjY2NjY2NjY2cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzOS45OTk5OTk5OTk5OTk5NyIgY3k9IjE3OS45OTk5OTk5OTk5OTk5NyIgcj0iOC4zMzMzMzMzMzMzMzMzMzIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTc5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iMTc5Ljk5OTk5OTk5OTk5OTk3IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNzkuOTk5OTk5OTk5OTk5OTciIGN5PSIxNzkuOTk5OTk5OTk5OTk5OTciIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIxOS45OTk5OTk5OTk5OTk5NCIgY3k9IjE3OS45OTk5OTk5OTk5OTk5NyIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjE5Ljk5OTk5OTk5OTk5OTk0IiBjeT0iMTc5Ljk5OTk5OTk5OTk5OTk3IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTkuOTk5OTk5OTk5OTk5OTk2IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wNDYiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTkuOTk5OTk5OTk5OTk5OTk2IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA5OCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNTkuOTk5OTk5OTk5OTk5OTg2IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNzIwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI1OS45OTk5OTk5OTk5OTk5ODYiIGN5PSIyMTkuOTk5OTk5OTk5OTk5OTQiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiPjwvY2lyY2xlPjxjaXJjbGUgY3g9Ijk5Ljk5OTk5OTk5OTk5OTk5IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTkuOTk5OTk5OTk5OTk5OTkiIGN5PSIyMTkuOTk5OTk5OTk5OTk5OTQiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEzOS45OTk5OTk5OTk5OTk5NyIgY3k9IjIxOS45OTk5OTk5OTk5OTk5NCIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTM5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA0NiI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTc5Ljk5OTk5OTk5OTk5OTk3IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSIxNi42NjY2NjY2NjY2NjY2NjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgc3Ryb2tlLXdpZHRoPSI2LjY2NjY2NjY2NjY2NjY2NnB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNzkuOTk5OTk5OTk5OTk5OTciIGN5PSIyMTkuOTk5OTk5OTk5OTk5OTQiIHI9IjguMzMzMzMzMzMzMzMzMzMyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTUiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjIxOS45OTk5OTk5OTk5OTk5NCIgY3k9IjIxOS45OTk5OTk5OTk5OTk5NCIgcj0iMTYuNjY2NjY2NjY2NjY2NjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZS13aWR0aD0iNi42NjY2NjY2NjY2NjY2NjZweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjE5Ljk5OTk5OTk5OTk5OTk0IiBjeT0iMjE5Ljk5OTk5OTk5OTk5OTk0IiByPSI4LjMzMzMzMzMzMzMzMzMzMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3Ij48L2NpcmNsZT48L3N2Zz4=");
   }
-      .main-content h1,
-      .main-content h2,
-      .main-content h3,
-      .main-content h4 {
+      .page-content h1,
+      .page-content h2,
+      .page-content h3,
+      .page-content h4 {
         color: #9b3464;
       }
-    </style></head>  <body>
-    <!-- main navigation -->
+    </style>  </head>
+  <body>
+    <!-- site-wide navigation -->
     <div class="container">
-      <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="index.html"> Breakdance </a>
-        <ul class="nav navbar-nav">
-              <li class="nav-item active">
+      <nav class="navbar navbar-toggleable-md navbar-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <a class="navbar-brand" href="index.html">breakdance</a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item ">
+          <a class="nav-link" href="plugins.html">Plugins</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" href="api.html">API</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="options.html">Options</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="examples.html">Examples</a>
         </li>
-        <li class="nav-item ">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://github.com/breakdance/breakdance" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="nav-link" href="options.html">Options</a>
+          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
           <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="docs.html">Docs</a>
-        </li>
-  </ul>
-      </nav>
-    </div>
-  
-    <!-- jumbotron -->
-    <div class="container-fluid">
-      <div class="page-header page-header-sm">
-        <div class="container">
+        </div>
+            </li>
+          </ul>
       
-    <h1 id="project-name" class="project-name">
-      API
-    </h1>
-  </div>
-      </div>    </div>
-
-    <!-- main content -->
+          <ul class="navbar-nav gh-buttons pull-right">
+            <li class="nav-item">
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li class="nav-item">
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+          </ul>
+      
+          <!--form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form-->
+        </div>
+      </nav>    </div>
+  
+    <!-- page header -->
+      <div class="jumbotron jumbotron-sm">
+        <div class="container">
+          <h1 class="page-title"> API </h1>
+        </div>
+      </div>
+    <!-- page content -->
     <div class="container">
-      <div class="main-content">
-        <div id="toc" class="navigation">
-<ol>
-  <li><a href="#under-the-hood">Under the hood</a>
-<ol>
-  <li><a href="#moving-parts">Moving parts</a></li>
-  <li><a href="#core-concepts">Core concepts</a></li>
+      <div class="row">
+        <div class="col-12 col-md-3 push-md-9 sidebar">
+          <div class="sticky">
+            <form class="search hidden-sm-down">
+              <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
+              <div class="dropdown-menu search-results" id="search-results"></div>
+            </form>
+        
+            <nav class="page-toc" id="toc">
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#under-the-hood" class="toc-link">Under the hood</a></li>
+  <li class="toc-item"><a href="#api" class="toc-link">API</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#core-concepts" class="toc-link">Core concepts</a></li>
+  <li class="toc-item"><a href="#breakdance" class="toc-link">Breakdance</a></li>
+  <li class="toc-item"><a href="#define" class="toc-link">.define</a></li>
+  <li class="toc-item"><a href="#use" class="toc-link">.use</a></li>
+  <li class="toc-item"><a href="#visit" class="toc-link">.visit</a></li>
+  <li class="toc-item"><a href="#preprocess" class="toc-link">.preprocess</a></li>
+  <li class="toc-item"><a href="#before" class="toc-link">.before</a></li>
+  <li class="toc-item"><a href="#after" class="toc-link">.after</a></li>
+  <li class="toc-item"><a href="#parse" class="toc-link">.parse</a></li>
+  <li class="toc-item"><a href="#compile" class="toc-link">.compile</a></li>
+  <li class="toc-item"><a href="#render" class="toc-link">.render</a></li>
+  <li class="toc-item"><a href="#isinside" class="toc-link">.isInside</a></li>
 </ol>
 </li>
-  <li><a href="#ast">AST</a></li>
-  <li><a href="#node">Node</a></li>
-  <li><a href="#compilers-visitors">Compilers (visitors)</a>
-<ol>
-  <li><a href="#set">.set</a></li>
-  <li><a href="#plugins">Plugins</a></li>
-</ol>
-</li>
-  <li><a href="#api">API</a>
-<ol>
-  <li><a href="#isinside">.isInside</a></li>
+  <li class="toc-item"><a href="#compiler" class="toc-link">Compiler</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#visitors" class="toc-link">Visitors</a></li>
+  <li class="toc-item"><a href="#visit-1" class="toc-link">.visit</a></li>
 </ol>
 </li>
 </ol>
-</div>
+</nav>
+          </div>
+        </div>
 
+        <div class="col-12 col-md-9 pull-md-3">
+          <div class="page-content">
 
-
-        <h2><a name="under-the-hood" aria-hidden="true"></a>Under the hood</h2>
-<p>Get to know the code in breakdance.</p>
-<h3><a name="moving-parts" aria-hidden="true"></a>Moving parts</h3>
-<ul>
-<li><code>Breakdance</code> constructor</li>
-<li>compiler</li>
-<li>parser</li>
-</ul>
+          <h2><a name="under-the-hood" aria-hidden="true"></a>Under the hood</h2>
+<p>This document will help familiarize you with the breakdance API, as well as how the code works, to equip you with the information you need to customize the generated output or <a href="plugins.html">author plugins</a>.</p>
+<p>Please <a href="https://github.com/breakdance/breakdance/issues">let us know</a> if you have any suggestions for improving the docs.</p>
+<h2><a name="api" aria-hidden="true"></a>API</h2>
+<p>Before diving into methods, it&apos;s important to understand how the code is structured in breakdance.</p>
 <h3><a name="core-concepts" aria-hidden="true"></a>Core concepts</h3>
+<p>The breakdance API is organized around a few high-level concepts:</p>
+<ol>
+<li>Breakdance</li>
+<li>Parsing</li>
+<li>Compiling</li>
+</ol>
+<h3><a name="breakdance" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L26">Breakdance</a></h3>
+<p>The main export of breakdance is a constructor function that will return a string of markdown if passed a string of HTML, or you can use <code>new</code> to create instance of <code>Breakdance</code> with an optional <code>options</code> object.</p>
+<p><strong>Examples</strong></p>
+<p>Do this if you just need to convert a string of HTML to markdown:</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
+<span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;&lt;strong&gt;The Freaks Come Out at Night!&lt;/strong&gt;&apos;</span>));
+<span class="hljs-comment">//=&gt; &apos;The Freaks Come Out at Night!&apos;</span>
+</code></pre>
+<p>Or do this if you need to <a href="plugins.html">register plugins</a> or customize the instance before parsing and/or compiling:</p>
+<pre><code class="language-js"><span class="hljs-keyword">var</span> Breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
+<span class="hljs-keyword">var</span> bd = <span class="hljs-keyword">new</span> Breakdance(<span class="hljs-comment">/* options */</span>);
+<span class="hljs-keyword">var</span> ast = bd.parse(<span class="hljs-string">&apos;&lt;strong&gt;The Freaks Come Out at Night!&lt;/strong&gt;&apos;</span>);
+<span class="hljs-keyword">var</span> str = bd.compile(ast);
+<span class="hljs-built_in">console</span>.log(str);
+<span class="hljs-comment">//=&gt; &apos;The Freaks Come Out at Night!&apos;</span>
+</code></pre>
+<h3><a name="define" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L61">.define</a></h3>
+<p>Register a plugin that will be called with an instance of the compiler
+when <code>.compile</code> or <code>.render</code> are run.</p>
+<p><strong>Params</strong></p>
 <ul>
-<li>AST</li>
-<li>nodes</li>
-<li>visitors (compilers)</li>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
 </ul>
-<h2><a name="ast" aria-hidden="true"></a>AST</h2>
+<h3><a name="use" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L75">.use</a></h3>
+<p>Register a plugin that will be called with an instance of the compiler
+when <code>.compile</code> or <code>.render</code> are run.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3><a name="visit" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L89">.visit</a></h3>
+<p>Override a built-in node type <code>type</code>, or register a new type.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>type</code> <strong>{String}</strong>: The <code>node.type</code> to override or register.</li>
+<li><code>fn</code> <strong>{Function}</strong>: Visitor function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3><a name="preprocess" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L109">.preprocess</a></h3>
+<p>Register a plugin that will be called with an instance of the compiler
+when <code>.compile</code> or <code>.render</code> are run.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3><a name="before" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L122">.before</a></h3>
+<p>Register a plugin to use before calling one of the other methods.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3><a name="after" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L141">.after</a></h3>
+<p>Register a plugin to use before calling one of the other methods.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<h3><a name="parse" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L161">.parse</a></h3>
+<p>Parses a string of <code>html</code> and returns an AST.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>html</code> <strong>{String}</strong></li>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Abstract syntax tree</li>
+</ul>
+<h3><a name="compile" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L204">.compile</a></h3>
+<p>Convert the a breakdance AST from <a href="#parse">.parse</a> to markdown
+with the specified <code>options</code></p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>ast</code> <strong>{String}</strong></li>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the AST and compiled markdown string on the <code>.output</code> property, in case you need the object for post-processing.</li>
+</ul>
+<h3><a name="render" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/index.js#L184">.render</a></h3>
+<p>Wraps the <a href="#parse">.parse</a> and <a href="#compile">.compile</a> methods to enable converting HTML to markdown in a single function call.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>html</code> <strong>{String}</strong></li>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{String}</strong>: Returns a markdown string.</li>
+</ul>
+<h3><a name="isinside" aria-hidden="true"></a>.isInside</h3>
 <p>TODO</p>
-<h2><a name="node" aria-hidden="true"></a>Node</h2>
-<p>TODO</p>
-<h2><a name="compilers-visitors" aria-hidden="true"></a>Compilers (visitors)</h2>
-<p>Breakdance &quot;compilers&quot; are visitor functions that are called on specific AST nodes at render time. For example, the <code>text</code> compiler is called on nodes with the <code>text</code> type.</p>
+<h2><a name="compiler" aria-hidden="true"></a>Compiler</h2>
+<h3><a name="visitors" aria-hidden="true"></a>Visitors</h3>
+<p>The breakdance compiler calls a specific visitor function on each AST node. For example, the <code>text</code> visitor is called on nodes with the <code>text</code> node <code>type</code>, and the <code>h1</code> visitor is called on nodes with the <code>h1</code> node <code>type</code>.</p>
 <p>Override built-in compilers.</p>
 <ul>
 <li><strong>bos</strong>:</li>
@@ -119,39 +243,53 @@
 </ul></li>
 <li><strong>eos</strong>:</li>
 </ul>
-<h3><a name="set" aria-hidden="true"></a>.set</h3>
+<h3><a name="visit-1" aria-hidden="true"></a>.visit</h3>
 <p>Override an existing compiler, or register a new one.</p>
-<pre><code class="language-js">breakdance.set(<span class="hljs-string">&apos;html-tag-name&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+<pre><code class="language-js">breakdance.visit(<span class="hljs-string">&apos;html-tag-name&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
 
 });
 </code></pre>
 <p><strong>Example</strong></p>
-<pre><code class="language-js">breakdance.set(<span class="hljs-string">&apos;pre&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+<pre><code class="language-js">breakdance.visit(<span class="hljs-string">&apos;pre&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
 
 });
-breakdance.set(<span class="hljs-string">&apos;pre.open&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
+breakdance.visit(<span class="hljs-string">&apos;pre.open&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
 
 });
-breakdance.set(<span class="hljs-string">&apos;pre.close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
-
-});
-</code></pre>
-<h3><a name="plugins" aria-hidden="true"></a>Plugins</h3>
-<pre><code class="language-js">breakdance.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+breakdance.visit(<span class="hljs-string">&apos;pre.close&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node, nodes, i</span>) </span>{
 
 });
 </code></pre>
-<h2><a name="api" aria-hidden="true"></a>API</h2>
-<h3><a name="isinside" aria-hidden="true"></a>.isInside</h3>
 
-        <footer class="site-footer">
-          <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+          </div>
+        </div>
+      </div>
 
-          <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-        </footer>      </div>
+      <div class="row">
+        <div class="container">
+          <!-- site-wide footer -->
+          <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+            <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a>.</span>
+          </footer>
+        </div>
+      </div>
     </div>
-
+  
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <script src="assets/js/vendor/tether.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    <script src="assets/js/vendor/clipboard.js"></script>
+    <script src="assets/js/vendor/sticky-kit.js"></script>
+    <script>
+      $(".sticky").stick_in_parent();
+    </script>
+    <script src="assets/js/application.js"></script>
+    
     <!-- github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>  </body>
 </html>

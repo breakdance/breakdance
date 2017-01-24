@@ -2,6 +2,10 @@
 
 var utils = require('./utils');
 
+/**
+ * Not used
+ */
+
 module.exports = function(pattern, data) {
   if (utils.isObject(pattern)) {
     data = pattern;

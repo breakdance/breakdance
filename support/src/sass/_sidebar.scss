@@ -1,0 +1,71 @@
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+//
+// Side navigation
+//
+
+.sidebar {
+  @include media-breakpoint-up(md) {
+    padding-left: 1rem;
+  }
+}
+
+.search {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  .form-control {
+    height: 2.45rem;
+    padding-top: .4rem;
+    padding-bottom: .4rem;
+    background-color: #fafafa;
+
+    &:focus {
+      background-color: #fff;
+    }
+  }
+}
+
+.search-results {
+  right: 0;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  font-size: .9rem;
+
+  &:empty {
+    display: none;
+  }
+
+  .dropdown-item {
+    padding-right: .75rem;
+    padding-left: .75rem;
+
+    &:first-child {
+      margin-top: .25rem;
+    }
+    &:last-child {
+      margin-bottom: .25rem;
+    }
+  }
+
+  .no-results {
+    padding: .75rem 1rem;
+    color: #7a7a7a;
+    text-align: center;
+    white-space: normal; // Undo .dropdown-item defaults
+  }
+}
+

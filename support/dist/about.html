@@ -4,84 +4,181 @@
     <meta charset="UTF-8">
     <title>About | breakdance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script-->
-    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    
+    <!-- css -->
+    <!-- bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    <!-- custom -->
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    
+    <!-- geopattern styles -->
     <style>
-      .page-header {
+      .jumbotron {
         
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoNjksMTEyLDEzOCkiPjwvcmVjdD48Y2lyY2xlIGN4PSIwIiBjeT0iMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNzIwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTgwIiBjeT0iMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNzIwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMCIgY3k9IjE4MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNzIwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTgwIiBjeT0iMTgwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjA3MjAwMDAwMDAwMDAwMDAxIiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIzMCIgY3k9IjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTE1MzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMwIiBjeT0iMTgwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjExNTMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI2MCIgY3k9IjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDM3MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjYwIiBjeT0iMTgwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAzNzMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5MCIgY3k9IjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI5MCIgY3k9IjE4MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTUiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjE4MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTUwIiBjeT0iMTgwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjExNTMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIwIiBjeT0iMzAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDgwNjY2NjY2NjY2NjY2NjYiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjMwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA4MDY2NjY2NjY2NjY2NjY2IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNjAiIGN5PSIzMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjkwIiBjeT0iMzAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjMwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNTAiIGN5PSIzMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wMiIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMCIgY3k9IjYwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxODAiIGN5PSI2MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wNjMzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzAiIGN5PSI2MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDgwNjY2NjY2NjY2NjY2NjYiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjkwIiBjeT0iNjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjYwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjA4OTMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxNTAiIGN5PSI2MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjAiIGN5PSI5MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wNDYiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE4MCIgY3k9IjkwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA0NiIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMzAiIGN5PSI5MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNjAiIGN5PSI5MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNzIwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTAiIGN5PSI5MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wMiIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTIwIiBjeT0iOTAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTI0MDAwMDAwMDAwMDAwMDEiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjkwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAzNzMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIwIiBjeT0iMTIwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjA1NDY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxODAiIGN5PSIxMjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjMwIiBjeT0iMTIwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjA4OTMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSI2MCIgY3k9IjEyMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNTQ2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iOTAiIGN5PSIxMjAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEyMCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMCIgY3k9IjE1MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xMzI2NjY2NjY2NjY2NjY2NSIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTgwIiBjeT0iMTUwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjEzMjY2NjY2NjY2NjY2NjY1IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIzMCIgY3k9IjE1MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wMzczMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSI3LjVweCI+PC9jaXJjbGU+PGNpcmNsZSBjeD0iNjAiIGN5PSIxNTAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjkwIiBjeT0iMTUwIiByPSIyNi4yNSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjcuNXB4Ij48L2NpcmNsZT48Y2lyY2xlIGN4PSIxMjAiIGN5PSIxNTAiIHI9IjI2LjI1IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjE1MCIgcj0iMjYuMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iNy41cHgiPjwvY2lyY2xlPjwvc3ZnPg==");
   }
-      .main-content h1,
-      .main-content h2,
-      .main-content h3,
-      .main-content h4 {
+      .page-content h1,
+      .page-content h2,
+      .page-content h3,
+      .page-content h4 {
         color: #45708a;
       }
-    </style></head>  <body>
-    <!-- main navigation -->
+    </style>  </head>
+  <body>
+    <!-- site-wide navigation -->
     <div class="container">
-      <nav class="navbar navbar-light">
-        <a class="navbar-brand" href="index.html"> Breakdance </a>
-        <ul class="nav navbar-nav">
+      <nav class="navbar navbar-toggleable-md navbar-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <a class="navbar-brand" href="index.html">breakdance</a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
+          <a class="nav-link" href="plugins.html">Plugins</a>
+        </li>
+        <li class="nav-item ">
           <a class="nav-link" href="api.html">API</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="options.html">Options</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link" href="examples.html">Examples</a>
         </li>
-        <li class="nav-item active">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://github.com/breakdance/breakdance" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="nav-link" href="options.html">Options</a>
+          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
           <a class="nav-link" href="about.html">About</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="docs.html">Docs</a>
-        </li>
-  </ul>
-      </nav>
+        </div>
+            </li>
+          </ul>
+      
+          <ul class="navbar-nav gh-buttons pull-right">
+            <li class="nav-item">
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li class="nav-item">
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+          </ul>
+      
+          <!--form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form-->
+        </div>
+      </nav>    </div>
+  
+    <!-- page header -->
+      <div class="jumbotron jumbotron-sm">
+        <div class="container">
+          <h1 class="page-title"> About </h1>
+        </div>
+      </div>
+    <!-- page content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-3 push-md-9 sidebar">
+          <div class="sticky">
+            <form class="search hidden-sm-down">
+              <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
+              <div class="dropdown-menu search-results" id="search-results"></div>
+            </form>
+        
+            <nav class="page-toc" id="toc">
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#how-was-this-site-created" class="toc-link">How was this site created?</a></li>
+  <li class="toc-item"><a href="#who-created-breakdance" class="toc-link">Who created breakdance?</a></li>
+  <li class="toc-item"><a href="#reporting-issues" class="toc-link">Reporting issues</a></li>
+  <li class="toc-item"><a href="#contributing-to-breakdance" class="toc-link">Contributing to breakdance</a></li>
+  <li class="toc-item"><a href="#building-the-documentation" class="toc-link">Building the documentation</a></li>
+</ol>
+</nav>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9 pull-md-3">
+          <div class="page-content">
+
+          <h2><a name="how-was-this-site-created" aria-hidden="true"></a>How was this site created?</h2>
+<p>This site was created using <a href="https://github.com/assemble/assemble">assemble</a>, along with a couple of custom plugins and helpers. All or most of these will likely be externalized to libraries.</p>
+<p><strong>Custom plugins</strong></p>
+<p>Custom assemble plugins were created for:</p>
+<ul>
+<li>generating the table of contents on each page (side navigation, on wide screens)</li>
+<li>converting markdown to html</li>
+<li>unescaping template characters that were escaped during markdown rendering</li>
+</ul>
+<p><strong>Custom helpers</strong></p>
+<p>Custom helpers were created for:</p>
+<ul>
+<li>sorting links to pages in the main navigation</li>
+<li>debugging (<code>log</code> helper)</li>
+</ul>
+<h2><a name="who-created-breakdance" aria-hidden="true"></a>Who created breakdance?</h2>
+<p>Breakdance was created by <a href="https://github.com/jonschlinkert">Jon Schlinkert</a>.</p>
+<h2><a name="reporting-issues" aria-hidden="true"></a>Reporting issues</h2>
+<p>Please report documentation or usage issues to the breakdance <a href="https://github.com/breakdance/breakdance/issues">issues tracker</a> on GitHub.</p>
+<h2><a name="contributing-to-breakdance" aria-hidden="true"></a>Contributing to breakdance</h2>
+<p>All contributions are welcome. Please review the project&apos;s <a href="https://github.com/breakdance/breakdance/.github/contributing.md">contributing guide</a> to learn everything you need to know about contributing.</p>
+<h2><a name="building-the-documentation" aria-hidden="true"></a>Building the documentation</h2>
+<p>The breakdance documentation site is hosted on gh-pages and is built with Assemble. Follow these steps to build the documentation:</p>
+<ol>
+<li>clone the project</li>
+<li>install the necessary dependencies</li>
+<li>build the docs</li>
+</ol>
+<p><strong>1. Clone the project</strong></p>
+<p>From an empty directory, run the following command:</p>
+<pre><code class="language-sh">$ git <span class="hljs-built_in">clone</span> .git
+</code></pre>
+<p><strong>2. install the necessary dependencies</strong></p>
+<pre><code class="language-sh">$ npm install --global assemble &amp;&amp; npm install
+</code></pre>
+<p><strong>3. build the docs</strong></p>
+<p>Run <a href="https://github.com/assemble/assemble">assemble</a> to generate the docs:</p>
+<pre><code class="language-sh">$ assemble
+</code></pre>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <!-- site-wide footer -->
+          <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+            <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a>.</span>
+          </footer>
+        </div>
+      </div>
     </div>
   
-    <!-- jumbotron -->
-    <div class="container-fluid">
-      <div class="page-header page-header-sm">
-        <div class="container">
-      
-    <h1 id="project-name" class="project-name">
-      About
-    </h1>
-  </div>
-      </div>    </div>
-
-    <!-- main content -->
-    <div class="container">
-      <div class="main-content">
-        <div id="toc" class="navigation">
-<ol>
-  <li><a href="#section">Section</a></li>
-</ol>
-</div>
-
-
-          About this site. 
-
-        <h2><a name="section" aria-hidden="true"></a>Section</h2>
-<p>TODO</p>
-
-        <footer class="site-footer">
-          <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
-
-          <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a> using a modified version of the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-        </footer>      </div>
-    </div>
-
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <script src="assets/js/vendor/tether.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    <script src="assets/js/vendor/clipboard.js"></script>
+    <script src="assets/js/vendor/sticky-kit.js"></script>
+    <script>
+      $(".sticky").stick_in_parent();
+    </script>
+    <script src="assets/js/application.js"></script>
+    
     <!-- github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>  </body>
 </html>

@@ -24,9 +24,9 @@
   "devDependencies": {
     "assemble": "^0.17.1",
     "assemble-middleware-page-variable": "^0.1.0",
+    "async-each": "^1.0.1",
     "camel-case": "^3.0.0",
     "cheerio": "^0.22.0",
-    "define-property": "^0.2.5",
     "delete": "^0.3.2",
     "expand-pkg": "^0.1.8",
     "export-files": "^2.1.1",
@@ -37,15 +37,17 @@
     "gulp-uncss": "^1.0.6",
     "handlebars-helper-create-frame": "^0.1.0",
     "handlebars-helpers": "^0.7.5",
+    "helper-apidocs": "^0.5.1",
     "helper-geopattern": "^0.2.0",
+    "helper-link-to": "^0.1.4",
     "helper-octicon": "^0.1.0",
     "helper-uigradient": "^0.1.0",
     "highlight.js": "^9.9.0",
     "markdown-toc": "^1.0.3",
     "plugin-error": "^0.1.2",
     "remarkable": "^1.7.1",
-    "repeat-string": "^1.6.1",
     "through2": "^2.0.3",
-    "unescape": "^0.2.0"
+    "unescape": "^0.2.0",
+    "year": "^0.2.1"
   }
 }

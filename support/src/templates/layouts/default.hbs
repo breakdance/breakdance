@@ -1,41 +1,46 @@
 {{#frame site=site page=page}}
 <!DOCTYPE html>
 <html lang="en-us">
-  {{> head }}
+  <head>
+    {{> site-head }}
+  </head>
   <body>
-    <!-- main navigation -->
+    <!-- site-wide navigation -->
     <div class="container">
-      {{> navbar }}
+      {{> site-navigation }}
     </div>
   
-    <!-- jumbotron -->
-    <div class="container-fluid">
-      {{> header }}
-    </div>
+    <!-- page header -->
+    {{#is @page.stem "index"}}
+      {{> page-header }}
+    {{else}}
+      {{> page-header-sm }}
+    {{/is}}
 
-    <!-- main content -->
+    <!-- page content -->
     <div class="container">
-      <div class="main-content">
-        {{#isnt toc false}}
-        <div id="toc" class="navigation"></div>
-        {{/isnt}}
+      <div class="row">
+        {{> page-navigation }}
 
-        {{#is @page.stem "index"}} 
-          <h1>{{titleize @page.title}}</h1> 
-          <div id="toc" class="navigation"></div>
-        {{/is}}
+        <div class="col-12 col-md-9 pull-md-3">
+          <div class="{{@site.content}}">
+          {{#if @page.description}} 
+            {{ @page.description }} 
+          {{/if}}
 
-        {{#if @page.description}} 
-          {{@page.description}} 
-        {{/if}}
+          {% body %}
+          </div>
+        </div>
+      </div>
 
-        {% body %}
-        {{> footer }}
+      <div class="row">
+        <div class="container">
+          {{> site-footer }}
+        </div>
       </div>
     </div>
-
-    <!-- github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+    {{> site-javascripts }}
   </body>
 </html>
 {{/frame}}

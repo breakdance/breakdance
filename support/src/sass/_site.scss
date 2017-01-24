@@ -1,0 +1,19 @@
+/**
+ * Site footer
+ */
+
+.site-footer {
+  padding: 2rem 0 4rem;
+  margin-top: 2rem;
+  border-top: solid 1px $hr-border-color;
+}
+
+.site-footer-owner {
+  display: block;
+  font-weight: bold;
+}
+
+.site-footer-credits {
+  color: $blockquote-text-color;
+}
+

@@ -2,6 +2,10 @@
 
 var camelcase = require('camel-case');
 
+/**
+ * Helper for sorting pages before rendering
+ */
+
 module.exports = function(items, order, options) {
   if (!Array.isArray(order)) {
     return items;

@@ -3,6 +3,10 @@
 var through = require('through2');
 var unescape = require('unescape');
 
+/**
+ * Unescape template delimiters that were escaped when markdown was converted
+ */
+
 module.exports = function(options) {
   return through.obj(function(file, enc, next) {
     file.extname = '.html';

@@ -1,7 +1,67 @@
+// Start with assigning color names to specific hex values.
+$white:  #fff !default;
+$black:  #000 !default;
+$red:    #d9534f !default;
+$orange: #f0ad4e !default;
+$yellow: #ffd500 !default;
+$green:  #5cb85c !default;
+$blue:   #0275d8 !default;
+$teal:   #5bc0de !default;
+$pink:   #ff5b77 !default;
+$purple: #613d7c !default;
+
+// Create grayscale
+$gray-dark:      #292b2c !default;
+$gray:           #464a4c !default;
+$gray-light:     #636c72 !default;
+$gray-lighter:   #eceeef !default;
+$gray-lightest:  #f7f7f9 !default;
+
+// Reassign color vars to semantic color scheme
+$brand-primary:  $blue !default;
+$brand-success:  $green !default;
+$brand-info:     $teal !default;
+$brand-warning:  $orange !default;
+$brand-danger:   $red !default;
+$brand-inverse:  $gray-dark !default;
+
+// Breakpoints
+$large-breakpoint: 64em;
+$medium-breakpoint: 42em;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
 
 // Headers
+$header-heading-color: #fff;
 $header-bg-color: #31b0d5;
 $header-bg-color-secondary: darken($header-bg-color, 15%);
 
 // Text
 $section-headings-color: $header-bg-color;
+$body-text-color: #606c71;
+$blockquote-text-color: #819198;
+
+// Fonts
+$font-family-sans-serif: "PT Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-headings: "Montserrat Subrayada", $font-family-sans-serif;
+
+
+// Links
+$body-link-color: #2b7cb9;
+
+// Code
+$code-bg-color: #f3f6fa;
+$code-text-color: #567482;
+
+// Borders
+$border-color: #dce6f0;
+$table-border-color: #e9ebec;
+$hr-border-color: #eff0f1;

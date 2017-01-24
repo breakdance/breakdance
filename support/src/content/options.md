@@ -1,6 +1,6 @@
 ---
 title: Options
-toc: true
+geopattern: s
 ---
 
 ## Setting options
@@ -95,6 +95,7 @@ The result is:
 1. Baz
 ```
 
+
 ### options.prettify
 
 Type: `boolean`
@@ -102,6 +103,7 @@ Type: `boolean`
 Default: `undefined`
 
 Format the generated markdown with [pretty-remarkable][] to smooth out inconsistencies and ensure even formatting throughout the document.
+
 
 ### options.reflinks
 
@@ -111,6 +113,7 @@ Default: `undefined`
 
 Move URLs to the bottom of the rendered markdown document, and replace them with "placeholder" references. The advantage is that this can make the markdown more readable, but the downside is that the "placeholder" URLs are numbered, so it won't be immediately clear what a URL is until you visit the actual link at the bottom of the document.
 
+
 ### options.snapdragon
 
 Type: `object`
@@ -118,6 +121,7 @@ Type: `object`
 Default: `undefined`
 
 Pass your own instance of [snapdragon][]. We're using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.
+
 
 ### options.slugify
 
@@ -157,7 +161,92 @@ Type: `function`
 Default: `undefined`
 
 
+### options.whitespace
+
+Type: `boolean`
+
+Default: `true`
+
+Normalize whitespace. If you don't like the default normalization, you can disable or override it via options, or write a custom plugin.
+
+**Disable whitespace handling**
+
+```js
+breakdance('<title>Foo</title>', {whitespace: false});
+```
+
+Or customize whitespace handling by passing a function on the [override](#override) options:
+
+```js
+breakdance('<title>Foo</title>', {
+  override: {
+    text: function(node) {
+      // do stuff to text node
+    }
+  }
+});
+```
+
+_(you can override how any node type is handled, just pass the name of the node type to override)_
+
+**Custom plugin**
+
+Or you can [write a plugin](plugins.html#example-normalizing-whitespace) to handle whitespace.
+
+
 ## Compiler options
+
+
+### options.override
+
+Type: `boolean`
+
+Default: `undefined`
+
+Format the generated markdown with [pretty-remarkable][] to smooth out inconsistencies and ensure even formatting throughout the document.
+
+### options.after
+
+TODO
+
+
+### options.before
+
+TODO
+
+
+
+### options.preprocess
+
+TODO
+
+
+
+### options.postprocess
+
+TODO
+
+
+**Example: Render bootstrap's examples**
+
+
+```js
+preprocess: function($, node) {
+  var attr = node.attribs || {};
+  if (/show-grid/.test(attr.class)) {
+    node.html = $.html(node);
+    node.isGrid = true;
+  }
+},
+before: {
+  div: function(node) {
+    if (node.isGrid) {
+      this.emit(node.html, node);
+      node.nodes = [];
+    }
+  }
+}
+```
 
 ### Disable compilers
 
@@ -189,3 +278,10 @@ breakdance('Foo <strong>Bar</strong>', {
 
 //=> 'FOO **BAR**'
 ```
+
+## Customizing breakdance
+
+If you don't like the defaults used in breakdance, or you need something different or beyond what the options provide:
+
+- visit the [API docs](api.html) to learn how to hack on breakdance,
+- visit the [plugin docs](plugins.html) to learn how to find or write plugins.
