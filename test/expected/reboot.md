@@ -265,7 +265,7 @@ The `<address>` element is updated to reset the browser default `font-style` fro
 
 <br>
 
-<abbr>P:</abbr> (123) 456-7890
+<abbr title="Phone">P:</abbr> (123) 456-7890
 
 </address>
 

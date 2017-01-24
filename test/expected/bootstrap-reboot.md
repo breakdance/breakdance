@@ -267,7 +267,7 @@ The `<address>` element is updated to reset the browser default `font-style` fro
 **Twitter, Inc.**<br>
 1355 Market St, Suite 900<br>
 San Francisco, CA 94103<br>
-<abbr>P:</abbr> (123) 456-7890
+<abbr title="Phone">P:</abbr> (123) 456-7890
 </address>
 
 <address>
@@ -285,7 +285,7 @@ Someone famous in <cite>Source Title</cite>
 ### Inline elements
 
 The `<abbr>` element receives basic styling to make it stand out amongst paragraph text.
-Nulla <abbr>attr</abbr> vitae elit libero, a pharetra augue.
+Nulla <abbr title="attribute">attr</abbr> vitae elit libero, a pharetra augue.
 
 ## HTML5 `[hidden]` attribute
 

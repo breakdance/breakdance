@@ -715,7 +715,7 @@ Stylized implementation of HTML's `<abbr>` element for abbreviations and acronym
 
 ### Basic abbreviation
 
-An abbreviation of the word attribute is <abbr>attr</abbr>.
+An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.
 
 ```html
 <abbr title="attribute">attr</abbr>
@@ -725,7 +725,7 @@ An abbreviation of the word attribute is <abbr>attr</abbr>.
 
 Add `.initialism` to an abbreviation for a slightly smaller font-size.
 
-<abbr>HTML</abbr> is the best thing since sliced bread.
+<abbr title="HyperText Markup Language">HTML</abbr> is the best thing since sliced bread.
 
 ```html
 <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
@@ -739,7 +739,7 @@ Present contact information for the nearest ancestor or the entire body of work.
 **Twitter, Inc.**<br>
 1355 Market Street, Suite 900<br>
 San Francisco, CA 94103<br>
-<abbr>P:</abbr> (123) 456-7890
+<abbr title="Phone">P:</abbr> (123) 456-7890
 </address>
 
 <address>
@@ -767,7 +767,7 @@ For quoting blocks of content from another source within your document.
 
 ### Default blockquote
 
-Wrap `<blockquote>` around any <abbr>HTML</abbr> as the quote. For straight quotes, we recommend a `<p>`.
+Wrap `<blockquote>` around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a `<p>`.
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
 

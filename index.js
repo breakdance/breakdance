@@ -38,7 +38,6 @@ function Breakdance(options) {
 
   this.define('cache', {});
   this.utils = Breakdance.utils;
-  this.helpers = Breakdance.helpers;
   this.options = extend({}, options);
   this.plugins = {
     fns: [],
@@ -50,10 +49,56 @@ function Breakdance(options) {
 }
 
 /**
- * Register a plugin that will be called with an instance of the compiler
- * when `.compile` or `.render` are run.
+ * Register a compiler plugin.
  *
- * @param {Function} `fn` Plugin function
+ * ```js
+ * // plugin example
+ * function yourPlugin(options) {
+ *   return function(breakdance) {
+ *     // do stuff
+ *   };
+ * }
+ * // usage
+ * breakdance.use(yourPlugin());
+ * ```
+ *
+ * @param {Function} `fn` Plugin function that takes an options object and returns a function that takes an instance of breakdance.
+ * @return {Object} Returns the breakdance instance for chaining.
+ * @api public
+ */
+
+Breakdance.prototype.use = function(fn) {
+  if (Array.isArray(fn)) {
+    this.plugins.fns = this.fns.concat(fn);
+  } else {
+    this.plugins.fns.push(fn);
+  }
+  return this;
+};
+
+/**
+ * Set a non-enumerable property or method on the breakdance instance.
+ * Useful in plugins for defining methods or properties to be made
+ * available inside visitor functions.
+ *
+ * ```js
+ * // plugin example
+ * breakdance.use(function() {
+ *   this.define('appendFoo', function(node) {
+ *     node.val += 'Foo';
+ *   });
+ * });
+ *
+ * // then, in a compiler function
+ * breakdance.visit('text', function(node) {
+ *   if (node.something === true) {
+ *     this.appendFoo(node);
+ *   }
+ *   this.emit(node.val);
+ * });
+ * ```
+ * @param {String} `name` Name of the property or method being defined
+ * @param {any} `val` Property value
  * @return {Object} Returns the instance for chaining.
  * @api public
  */
@@ -64,32 +109,24 @@ Breakdance.prototype.define = function(name, val) {
 };
 
 /**
- * Register a plugin that will be called with an instance of the compiler
- * when `.compile` or `.render` are run.
+ * Register a visitor function to be called on a node of the given `type`.
+ * Override a built-in visitor `type`, or register a new type.
  *
- * @param {Function} `fn` Plugin function
+ * ```js
+ * breakdance.visit('div', function(node) {
+ *   // do stuff to node
+ * });
+ * ```
+ * @param {String} `type` The `node.type` to call the visitor on. You can override built-in visitors by registering a visitor of the same name, or register a visitor for rendering a new type.
+ * @param {Function} `fn` The visitor function
  * @return {Object} Returns the instance for chaining.
  * @api public
  */
 
-Breakdance.prototype.use = function(fn) {
-  this.plugins.fns.push(fn);
-  return this;
-};
-
-/**
- * Override a built-in node type `type`, or register a new type.
- *
- * @param {String} `type` The `node.type` to override or register.
- * @param {Function} `fn` Visitor function
- * @return {Object} Returns the instance for chaining.
- * @api public
- */
-
-Breakdance.prototype.set = function(type, fn) {
+Breakdance.prototype.visit = function(type, fn) {
   if (Array.isArray(type)) {
     for (var i = 0; i < type.length; i++) {
-      this.set(type[i], fn);
+      this.visit(type[i], fn);
     }
   } else {
     this.plugins.visitors[type] = fn;
@@ -107,12 +144,17 @@ Breakdance.prototype.set = function(type, fn) {
  */
 
 Breakdance.prototype.preprocess = function(fn) {
-  this.plugins.preprocess.push(fn);
+  if (Array.isArray(fn)) {
+    this.plugins.preprocess = this.preprocess.concat(fn);
+  } else {
+    this.plugins.preprocess.push(fn);
+  }
   return this;
 };
 
 /**
- * Register a plugin to use before calling one of the other methods.
+ * Register a function to be called on nodes of the given `type`
+ * before _before_ calling the visitor registered for the type.
  *
  * @param {Function} `fn` Plugin function
  * @return {Object} Returns the instance for chaining.
@@ -160,35 +202,16 @@ Breakdance.prototype.after = function(type, fn) {
 
 Breakdance.prototype.parse = function(val, options) {
   var opts = extend({}, defaults, this.options, options);
-  var $ = cheerio.load(val, opts);
+  this.$ = cheerio.load(val, opts);
 
   if (this.plugins.preprocess.length > 0) {
     for (var i = 0; i < this.plugins.preprocess; i++) {
-      this.plugins.preprocess[i].call(this, $);
+      this.plugins.preprocess[i].call(this, this.$);
     }
   }
 
   opts.preprocess = html.preprocess(extend({}, opts));
-  return this.snapdragon.parse($, opts);
-};
-
-/**
- * Converts a string of HTML to markdown with the specified `options`
- *
- * @param {String} `html`
- * @param {Object} `options`
- * @return {String} Returns a markdown string.
- * @api public
- */
-
-Breakdance.prototype.render = function(html, options) {
-  if (typeof html !== 'string') {
-    throw new TypeError('expected a string of HTML');
-  }
-
-  var ast = this.parse(html, options);
-  var res = this.compile(ast, options);
-  return res.output;
+  return this.snapdragon.parse(this.$, opts);
 };
 
 /**
@@ -221,9 +244,10 @@ Breakdance.prototype.compile = function(ast, options) {
     this.plugins.fns[i].call(this, this);
   }
 
-  for (let key in this.plugins.visitors) {
-    if (this.plugins.visitors.hasOwnProperty(key)) {
-      snapdragon.compiler.set(key, this.plugins.visitors[key]);
+  var visitors = extend({}, this.plugins.visitors, opts.override);
+  for (let key in visitors) {
+    if (visitors.hasOwnProperty(key)) {
+      snapdragon.compiler.set(key, visitors[key]);
     }
   }
 
@@ -232,6 +256,25 @@ Breakdance.prototype.compile = function(ast, options) {
   }
 
   return snapdragon.compile(ast, opts);
+};
+
+/**
+ * Converts a string of HTML to markdown with the specified `options`
+ *
+ * @param {String} `html`
+ * @param {Object} `options`
+ * @return {String} Returns a markdown string.
+ * @api public
+ */
+
+Breakdance.prototype.render = function(html, options) {
+  if (typeof html !== 'string') {
+    throw new TypeError('expected a string of HTML');
+  }
+
+  var ast = this.parse(html, options);
+  var res = this.compile(ast, options);
+  return res.output;
 };
 
 /**
@@ -260,5 +303,4 @@ Object.defineProperty(Breakdance.prototype, 'snapdragon', {
  */
 
 module.exports = Breakdance;
-module.exports.helpers = require('./lib/helpers');
 module.exports.utils = require('./lib/utils');

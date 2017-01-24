@@ -40,6 +40,34 @@ describe('options', function() {
     });
   });
 
+  describe('.override', function() {
+    it('should override a visitor', function() {
+      isEqual.inline('<title>This is a title</title>', '', {
+        override: {
+          title: function(node) {
+            this.emit('');
+          }
+        }
+      });
+
+      isEqual.inline('<title>This is a title</title>', 'foo', {
+        override: {
+          title: function(node) {
+            this.emit('foo');
+          }
+        }
+      });
+
+      isEqual.inline('<title>This is a title</title>', '# This is a title', {
+        override: {
+          title: function(node) {
+            this.emit('# ' + node.val);
+          }
+        }
+      });
+    });
+  });
+
   describe('.reflinks', function() {
     it('should generate reference links', function() {
       isEqual.inline('<a href="/some-link"></a>', '[][href-0]\n\n[href-0]: https://github.com/some-link', {domain: 'https://github.com', reflinks: true});

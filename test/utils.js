@@ -1,8 +1,8 @@
 'use strict';
 
-var helpers = require('../lib/helpers');
+var utils = require('../lib/utils');
 
-describe('helpers', function() {
+describe('utils', function() {
   describe('.isInside', function() {
     var state = {
       inside: {

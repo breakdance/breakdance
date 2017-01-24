@@ -196,9 +196,9 @@ Stylized implementation of HTML's `<abbr>` element for abbreviations and acronym
 
 Add `.initialism` to an abbreviation for a slightly smaller font-size.
 
-<abbr>attr</abbr>
+<abbr title="attribute">attr</abbr>
 
-<abbr>HTML</abbr>
+<abbr title="HyperText Markup Language">HTML</abbr>
 
 ```html
 <p><abbr title="attribute">attr</abbr></p>
@@ -207,7 +207,7 @@ Add `.initialism` to an abbreviation for a slightly smaller font-size.
 
 ## Blockquotes
 
-For quoting blocks of content from another source within your document. Wrap `<blockquote class="blockquote">` around any <abbr>HTML</abbr> as the quote.
+For quoting blocks of content from another source within your document. Wrap `<blockquote class="blockquote">` around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote.
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
 
