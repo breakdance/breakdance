@@ -17,3 +17,15 @@
   color: $blockquote-text-color;
 }
 
+/**
+ * Logo
+ */
+
+.site-logo-lg {
+  display: block;
+
+  img {
+    width: 60%;
+  }
+}
+

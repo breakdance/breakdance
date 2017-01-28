@@ -1,6 +1,6 @@
 {
   "name": "breakdance",
-  "description": "Convert HTML to markdown. API and CLI. Pluggable, fast and flexible. (Sometimes your markup just needs to get down.)",
+  "description": "Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It's time for your markup to get down.",
   "version": "0.1.0",
   "homepage": "https://breakdance.io",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
@@ -31,22 +31,20 @@
     "diacritics-map": "^0.1.0",
     "export-files": "^2.1.1",
     "extend-shallow": "^2.0.1",
-    "is-punctuation": "^0.2.0",
+    "is-self-closing": "^1.0.0",
+    "isobject": "^3.0.0",
     "kind-of": "^3.1.0",
     "mixin-deep": "^1.1.3",
-    "pretty-remarkable": "^0.4.0",
-    "remarkable": "^1.7.1",
     "repeat-string": "^1.6.1",
     "resolve-dir": "^1.0.0",
-    "snapdragon": "^0.8.1",
-    "snapdragon-cheerio": "^0.1.0",
-    "snapdragon-util": "^0.1.1",
+    "snapdragon": "^0.9.0",
+    "snapdragon-cheerio": "^1.0.0",
+    "snapdragon-util": "^1.0.2",
     "strip-attributes": "^0.2.0",
     "strip-color": "^0.1.0",
     "trim-leading-lines": "^0.1.1",
     "trim-trailing-lines": "^1.1.0",
     "unescape": "^0.2.0",
-    "void-elements": "^3.1.0",
     "word-regex": "^0.1.1",
     "yargs-parser": "^4.2.1"
   },
@@ -60,7 +58,9 @@
     "gulp-unused": "^0.2.0",
     "js-beautify": "^1.6.8",
     "mocha": "^3.2.0",
+    "through2": "^2.0.3",
     "time-diff": "^0.3.1",
+    "verb-generate-readme": "^0.4.2",
     "write": "^0.3.2"
   },
   "keywords": [
@@ -76,8 +76,12 @@
     "text"
   ],
   "verb": {
-    "toc": false,
-    "layout": "default",
+    "toc": {
+      "method": "preWrite",
+      "maxdepth": 2,
+      "footer": false
+    },
+    "layout": null,
     "tasks": [
       "readme"
     ],

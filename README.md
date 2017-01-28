@@ -1,42 +1,71 @@
 # breakdance [![NPM version](https://img.shields.io/npm/v/breakdance.svg?style=flat)](https://www.npmjs.com/package/breakdance) [![NPM monthly downloads](https://img.shields.io/npm/dm/breakdance.svg?style=flat)](https://npmjs.org/package/breakdance)  [![NPM total downloads](https://img.shields.io/npm/dt/breakdance.svg?style=flat)](https://npmjs.org/package/breakdance) [![Linux Build Status](https://img.shields.io/travis/breakdance/breakdance.svg?style=flat&label=Travis)](https://travis-ci.org/breakdance/breakdance)
 
-> Convert HTML to markdown. API and CLI. Pluggable, fast and flexible. (Sometimes your markup just needs to get down.)
+> Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It's time for your markup to get down.
 
-## Install
+Visit [breakdance.io](https://breakdance.io) for detailed documentation, examples, and advice on [authoring and finding plugins](https://breakdance.io/plugins.html).
 
-Install with [npm](https://www.npmjs.com/):
+- [What is breakdance?](#what-is-breakdance)
+- [Quickstart](#quickstart)
+- [Highlights](#highlights)
+- [Examples](#examples)
+- [About](#about)
+
+## What is breakdance?
+
+Breakdance is a node.js library for converting HTML to markdown.
+
+**What's different about breakdance?**
+
+Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](https://breakdance.io/plugins.html).
+
+**Why would I use breakdance?**
+
+* Migrate HTML blog posts to markdown
+* Convert wiki pages to markdown
+* Convert HTML documentation to markdown
+* Convert HTML presentations or slide decks to markdown
+
+## Quickstart
+
+Breakdance is a node.js application, you can download it from [npm](npmjs.com) with the following command:
 
 ```sh
-$ npm install --save breakdance
+$ npm install breakdance
 ```
 
-Visit [breakdance.io](https://breakdance.io) for documentation.
-
-## Highlights
-
-* Generates well-formatted markdown
-* Easy to customize: uses [cheerio](https://github.com/cheeriojs/cheerio) for parsing HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering markdown, which makes breakdance easy to customize and extend
-* Even converts HTML tables to markdown! (nested tables are still output as HTML, since markdown doesn't support nested tables)
-* Comprehensive HTML tag coverage. [Renderers](lib/renderers.js) are easy to understand, implement and customize.
-
-Please create [an issue](../../issues/new) if you have a request, find a bug or have suggestions! thanks!
-
-**Edge cases**
-
-There will always be edge cases, the good news is that breakdance makes it really easy to implement options or change how any element is rendered. Please create [an issue](../../issues/new) to let us know if you find something that doesn't seem right.
-
-See [docs/edge-cases.md](docs/edge-cases.md) for more documentation about edge cases.
-
-## Usage
+Then add the following code to `example.js`, and run `$ node example` to see the generated output:
 
 ```js
 var breakdance = require('breakdance');
-breakdance(htmlString[, options]);
+console.log(breakdance('<strong>The freaks come out at night!</strong>'));
+//=> '**The freaks come out at night!**'
 ```
+
+Additional documentation can be found at [breakdance.io](https://breakdance.io).
+
+## Highlights
+
+**Generates well-formatted markdown**
+
+* Comprehensive [HTML tag coverage](lib/compilers.js).
+* Granular control over every HTML element and attributes
+* Even **converts HTML tables** to markdown!
+
+**Extremely pluggable**
+
+Every part of the conversion is customizable:
+
+* [options](https://breakdance.io/plugins.html) are available for customizing output if you don't like the defaults
+* [plugins](https://breakdance.io/plugins.html) are easy to write if you need to change how any element is rendered.
+
+**Built upon solid libraries**
+
+* Uses [cheerio](https://github.com/cheeriojs/cheerio) for fast, efficient and reliable HTML parsing.
+* Uses [snapdragon](https://github.com/jonschlinkert/snapdragon) for powerful, pluggable and easy-to-understand rendering
 
 ## Examples
 
-breakdance has fairly extensive table support. Below are a few examples (see [the docs](#the docs) for more extensive examples):
+Most of the other markdown-to-HTML converters struggle with tables. Breakdance has solid support for well-formed tables, and even some sub-optimal tables. Here are a few examples:
 
 **Tables**
 
@@ -78,49 +107,7 @@ Would render to the following markdown:
 | Table cell | Table cell | Table cell | Table cell | 
 ```
 
-And an HTML table with a `<caption>` and aligned columns, like this:
-
-```html
-<table>
-  <caption>
-    This is an example table, and this is its caption to describe the contents.
-  </caption>
-  <thead>
-    <tr>
-      <th>Table heading</th>
-      <th align="right">Table heading</th>
-      <th align="center">Table heading</th>
-      <th align="left">Table heading</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-    <tr>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-      <td>Table cell</td>
-    </tr>
-  </tbody>
-</table>
-```
-
-Would be converted to the following markdown:
-
-```html
-<caption>This is an example table, and this is its caption to describe the contents.</caption>
-| Table heading | Table heading | Table heading | Table heading | 
-| --- | ---: | :---: | :--- | 
-| Table cell | Table cell | Table cell | Table cell | 
-| Table cell | Table cell | Table cell | Table cell | 
-```
-
-See [the documentation](#the documentation) for more examples.
+See [the documentation](https://breakdance.io/examples.html) for more examples.
 
 ## About
 
@@ -130,22 +117,12 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 
 Please read the [contributing guide](.github/contributing.md) for advice on opening issues, pull requests, and coding standards.
 
-### Building docs
-
-_(This document was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme) (a [verb](https://github.com/verbose/verb) generator), please don't edit the readme directly. Any changes to the readme must be made in [.verb.md](.verb.md).)_
-
-To generate the readme and API documentation with [verb](https://github.com/verbose/verb):
-
-```sh
-$ npm install -g verb verb-generate-readme && verb
-```
-
 ### Running tests
 
 Install dev dependencies:
 
 ```sh
-$ npm install -d && npm test
+$ npm install && npm test
 ```
 
 ### Author
@@ -162,4 +139,4 @@ Released under the [MIT license](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.1, on January 15, 2017._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.2, on January 28, 2017._

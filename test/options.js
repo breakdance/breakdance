@@ -68,12 +68,6 @@ describe('options', function() {
     });
   });
 
-  describe('.reflinks', function() {
-    it('should generate reference links', function() {
-      isEqual.inline('<a href="/some-link"></a>', '[][href-0]\n\n[href-0]: https://github.com/some-link', {domain: 'https://github.com', reflinks: true});
-    });
-  });
-
   describe('domain', function() {
     it('should prepend the given domain name to non-anchor hrefs', function() {
       isEqual.inline('<a href="/some-link"></a>', '[](https://github.com/some-link)\n', {domain: 'https://github.com'});

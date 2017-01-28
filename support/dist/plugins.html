@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700|Roboto|Roboto+Mono" rel="stylesheet">
     
     <!-- css -->
     <!-- bootstrap -->
@@ -41,14 +41,11 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item ">
+          <a class="nav-link" href="docs.html">Docs</a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" href="plugins.html">Plugins</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="api.html">API</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="examples.html">Examples</a>
         </li>
 
             <li class="nav-item dropdown">
@@ -56,8 +53,8 @@
                 More
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="nav-link" href="options.html">Options</a>
-          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+                <a class="nav-link" href="recipes.html">Recipes</a>
+          <a class="nav-link" href="contributing.html">Contributing</a>
           <a class="nav-link" href="about.html">About</a>
         </div>
             </li>
@@ -90,21 +87,20 @@
       <div class="row">
         <div class="col-12 col-md-3 push-md-9 sidebar">
           <div class="sticky">
-            <form class="search hidden-sm-down">
+            <!--form class="search hidden-sm-down">
               <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
               <div class="dropdown-menu search-results" id="search-results"></div>
-            </form>
+            </form-->
         
             <nav class="page-toc" id="toc">
 <ol class="nav sidenav flex-column">
-  <li class="toc-item"><a href="#customizing-breakdance" class="toc-link">Customizing breakdance</a></li>
   <li class="toc-item"><a href="#finding-plugins" class="toc-link">Finding plugins</a></li>
   <li class="toc-item"><a href="#authoring-plugins" class="toc-link">Authoring plugins</a>
 <ol class="nav sidenav flex-column">
   <li class="toc-item"><a href="#writing-your-first-plugin" class="toc-link">Writing your first plugin</a></li>
-  <li class="toc-item"><a href="#example-normalizing-whitespace" class="toc-link">Example: Normalizing whitespace</a></li>
 </ol>
 </li>
+  <li class="toc-item"><a href="#the-code" class="toc-link">The code</a></li>
   <li class="toc-item"><a href="#publishing-your-plugin" class="toc-link">Publishing your plugin</a></li>
   <li class="toc-item"><a href="#next-steps" class="toc-link">Next steps</a></li>
 </ol>
@@ -115,15 +111,17 @@
         <div class="col-12 col-md-9 pull-md-3">
           <div class="page-content">
 
-          <h2><a name="customizing-breakdance" aria-hidden="true"></a>Customizing breakdance</h2>
-<p>Breakdance ships with a <a href="options.html">number of options</a> for customizing how markdown is converted to HTML. But if you need more than the provided options, breakdance is also pretty hackable.</p>
-<p><strong>Hacking on breakdance</strong></p>
-<p>It&apos;s easy to override any defaults, or add support for custom elements, attributes or options.</p>
-<p>For example, you can control how <em>any HTML element</em> is converted to markdown, or even how a certain element <em>with specific attributes</em> is converted. You can override built-in renderers, create custom renderers <em>for custom HTML tags</em>, or create plugins that &quot;bundle&quot; together your commonly used customizations or preferences.</p>
+          <p><strong>TODO</strong></p>
+<ul>
+<li>[ ] finding</li>
+<li>[ ] authoring</li>
+<li>[ ] publishing</li>
+</ul>
 <h2><a name="finding-plugins" aria-hidden="true"></a>Finding plugins</h2>
 <p>You can find <a href="https://www.npmjs.com/browse/keyword/breakdance">community plugins</a> on npm (<code>https://www.npmjs.com/browse/keyword/breakdance</code>).</p>
 <p>If you author a breakdance plugin, be sure to add the keyword <code>breakdance</code> to your project&apos;s package.json.</p>
 <h2><a name="authoring-plugins" aria-hidden="true"></a>Authoring plugins</h2>
+<p><strong>Why create a plugin for breakdance?</strong></p>
 <p>Plugins are easy to write, and can be used to:</p>
 <ul>
 <li>override existing functionality or options</li>
@@ -133,6 +131,7 @@
 <p><strong>Learn the basics</strong></p>
 <p>Before moving on to authoring plugins, it might help to understand how the parser/compiler works. Visit the <a href="https://github.com/jonschlinkert/snapdragon">snapddragon documentation</a> to learn more.</p>
 <h3><a name="writing-your-first-plugin" aria-hidden="true"></a>Writing your first plugin</h3>
+<h2><a name="the-code" aria-hidden="true"></a>The code</h2>
 <p>A breakdance plugin is a function that takes an instance of breakdance.</p>
 <p><strong>Example</strong></p>
 <pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">yourPlugin</span>(<span class="hljs-params">breakdance</span>) </span>{
@@ -147,7 +146,7 @@
   };
 };
 </code></pre>
-<p><em>Even if your plugin doesn&apos;t take options, following this convention will prevent users from losing their minds when your plugin doesn&apos;t follow the same format as other plugins.</em></p>
+<p><em>Even if your plugin doesn&apos;t take options, following this convention will provide users with a consistent experience across all plugins.</em></p>
 <p><strong>Usage example</strong></p>
 <p>Users can now require in and use your plugin, like this:</p>
 <pre><code class="language-js"><span class="hljs-keyword">var</span> foo = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance-foo&apos;</span>);
@@ -155,17 +154,6 @@
 
 breakdance.use(foo(options));
 </code></pre>
-<h3><a name="example-normalizing-whitespace" aria-hidden="true"></a>Example: Normalizing whitespace</h3>
-<p>This plugin would normalize all consecutive whitepaces in a string to a single whitespace (including newlines):</p>
-<pre><code class="language-js"><span class="hljs-built_in">module</span>.exports = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">breakdance</span>) </span>{
-    breakdance.set(<span class="hljs-string">&apos;text&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
-      <span class="hljs-keyword">this</span>.emit(node.val.replace(<span class="hljs-regexp">/\s+/g</span>, <span class="hljs-string">&apos; &apos;</span>));
-    });
-  };
-};
-</code></pre>
-<p>And we&apos;re done! Really, that&apos;s all you need to do to create a basic whitespace normalization plugin.</p>
 <h2><a name="publishing-your-plugin" aria-hidden="true"></a>Publishing your plugin</h2>
 <p>Once you&apos;re ready to publish your plugin to <a href="https://www.npmjs.com/">npm</a>, you can do that now with the following command from the root of the project:</p>
 <p><em>(Are you ready?!)</em></p>

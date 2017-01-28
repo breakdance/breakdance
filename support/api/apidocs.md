@@ -1,0 +1,1 @@
+{%= apidocs("index.js") %}

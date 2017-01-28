@@ -25,10 +25,8 @@ gulp.task('lint', function() {
 });
 
 gulp.task('unused', function() {
-  var keys = Object.keys(require('./lib/utils.js'));
-  keys = keys.concat(Object.keys(require('./lib/helpers.js')));
   return gulp.src(['index.js', 'lib/**/*.js'])
-    .pipe(unused({keys: keys}));
+    .pipe(unused({keys: Object.keys(require('./lib/utils.js'))}))
 });
 
 gulp.task('default', ['test', 'lint']);

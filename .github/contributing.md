@@ -32,6 +32,7 @@ Try to follow these guidelines
 - **Investigate the issue**:
 - **Check the readme** - oftentimes you will find notes about creating issues, and where to go depending on the type of issue.
 - Create the issue in the appropriate repository.
+- Don't create issues for help with implementation. It's much better for discoverability, SEO, and semantics (to keep the issue tracker focused on bugs and feature requests) to ask implementation-related questions on [stackoverflow.com][so]
 
 ### Creating an issue
 
@@ -51,7 +52,4 @@ Here are some tips for creating idiomatic issues. Taking just a little bit extra
 - use backticks to wrap code. This ensures that code will retain its format, making it much more readable to others
 - use syntax highlighting by adding the correct language name after the first "code fence"
 
-
-[node-glob]: https://github.com/isaacs/node-glob
-[micromatch]: https://github.com/jonschlinkert/micromatch
 [so]: http://stackoverflow.com/questions/tagged/breakdance

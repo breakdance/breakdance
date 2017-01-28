@@ -2,11 +2,11 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Getting started | breakdance</title>
+    <title>breakdance | breakdance</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat+Subrayada:400,700|PT+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700|Roboto|Roboto+Mono" rel="stylesheet">
     
     <!-- css -->
     <!-- bootstrap -->
@@ -42,13 +42,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
+          <a class="nav-link" href="docs.html">Docs</a>
+        </li>
+        <li class="nav-item ">
           <a class="nav-link" href="plugins.html">Plugins</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="api.html">API</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="examples.html">Examples</a>
         </li>
 
             <li class="nav-item dropdown">
@@ -56,8 +53,8 @@
                 More
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="nav-link" href="options.html">Options</a>
-          <a class="nav-link" href="edge-cases.html">Edge Cases</a>
+                <a class="nav-link" href="recipes.html">Recipes</a>
+          <a class="nav-link" href="contributing.html">Contributing</a>
           <a class="nav-link" href="about.html">About</a>
         </div>
             </li>
@@ -96,10 +93,10 @@
       <div class="row">
         <div class="col-12 col-md-3 push-md-9 sidebar">
           <div class="sticky">
-            <form class="search hidden-sm-down">
+            <!--form class="search hidden-sm-down">
               <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
               <div class="dropdown-menu search-results" id="search-results"></div>
-            </form>
+            </form-->
         
             <nav class="page-toc" id="toc">
 <ol class="nav sidenav flex-column">
@@ -117,8 +114,8 @@
           <h2><a name="what-is-breakdance" aria-hidden="true"></a>What is breakdance?</h2>
 <p>Breakdance is a node.js library for converting HTML to markdown.</p>
 <p><strong>What&apos;s different about breakdance?</strong></p>
-<p>Breakdance uses <a href="https://github.com/cheeriojs/cheerio">cheerio</a> to parse HTML, and <a href="https://github.com/jonschlinkert/snapdragon">snapdragon</a> for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and <a href="customize.html">customize</a>.</p>
-<p><strong>Why would I use breakdance?</strong></p>
+<p>Breakdance uses <a href="https://github.com/cheeriojs/cheerio">cheerio</a> to parse HTML, and <a href="https://github.com/jonschlinkert/snapdragon">snapdragon</a> for rendering, which provides comprehensive coverage of HTML 4 and 5 elements, and granular control over the entire conversion process in a way that is easy to understand, reason about, and <a href="plugins.html">customize</a>.</p>
+<p><strong>Why use breakdance?</strong></p>
 <ul>
 <li>Migrate HTML blog posts to markdown</li>
 <li>Convert wiki pages to markdown</li>
@@ -143,7 +140,7 @@
 <ul>
 <li>Learn how to <a href="api.html">customize breakdance</a></li>
 <li>Visit the breakdance <a href="https://github.com/breakdance/breakdance/test">unit tests</a>, this is a great way to see comprehensive and detailed usage examples.</li>
-<li>There are a number of <a href="examples.html">HTML-to-markdown examples</a> in the documentation as well</li>
+<li>There are a number of <a href="docs.html#examples">HTML-to-markdown examples</a> in the documentation as well</li>
 </ul>
 
           </div>

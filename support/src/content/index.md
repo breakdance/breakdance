@@ -1,7 +1,6 @@
 ---
-title: Getting started
+title: breakdance
 slug: index
-id: breakdance
 geopattern: s
 ---
 
@@ -11,9 +10,9 @@ Breakdance is a node.js library for converting HTML to markdown.
 
 **What's different about breakdance?**
 
-Breakdance uses [cheerio][] to parse HTML, and [snapdragon][] for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](customize.html).
+Breakdance uses [cheerio][] to parse HTML, and [snapdragon][] for rendering, which provides comprehensive coverage of HTML 4 and 5 elements, and granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](plugins.html).
 
-**Why would I use breakdance?**
+**Why use breakdance?**
 
 - Migrate HTML blog posts to markdown
 - Convert wiki pages to markdown
@@ -50,4 +49,4 @@ console.log(breakdance('<strong>The freaks come out at night!</strong>'));
 
 - Learn how to [customize breakdance](api.html)
 - Visit the breakdance [unit tests]({{@site.href}}/test), this is a great way to see comprehensive and detailed usage examples.
-- There are a number of [HTML-to-markdown examples](examples.html) in the documentation as well
+- There are a number of [HTML-to-markdown examples](docs.html#examples) in the documentation as well

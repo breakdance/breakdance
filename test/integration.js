@@ -7,6 +7,13 @@ var extend = require('extend-shallow');
 var isEqual = require('./support/is-equal');
 var configs = require('./configs/');
 
+/**
+ * the purpose of these tests is to ensure that breakdance has coverage for
+ * a reasonable range of real-world use cases. The tests convert HTML from
+ * bootstrap, caniuse, wikipedia, and mozilla's developer docs (yikes their HTML
+ * is badly formed), and some of the fixtures are massive
+ */
+
 describe('integration tests (testing random complex HTML for coverage)', function() {
   this.timeout(20000);
 

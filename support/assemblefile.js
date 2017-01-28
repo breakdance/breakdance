@@ -2,14 +2,11 @@
 
 var path = require('path');
 var Pkg = require('expand-pkg');
-var clone = require('gh-clone');
-var through = require('through2');
-var extend = require('extend-shallow');
 var reflinks = require('gulp-reflinks');
 var apidocs = require('helper-apidocs');
 var pageData = require('assemble-middleware-page-variable');
 var geopattern = require('helper-geopattern');
-var helpers = require('handlebars-helpers');
+var helpers = require('handlebars-helpers')();
 var assemble = require('assemble');
 var uncss = require('gulp-uncss');
 var sass = require('gulp-sass');
@@ -43,6 +40,7 @@ var pkg = new Pkg();
  * Options
  */
 
+app.option(defaults());
 app.option('geopatterns.generator', 'sine_waves');
 app.option('geopatterns.color', '#13a1cc');
 app.option('gradient', false);
@@ -52,13 +50,14 @@ app.option('dest', 'dist');
  * Helpers
  */
 
-app.helpers(helpers());
+app.helpers(helpers);
 app.helpers(require('./build/helpers'));
 app.helper('octicon', require('helper-octicon'));
 app.helper('geopattern', geopattern(app.options));
 app.helper('geoColor', geopattern.color(app.options));
 app.helper('link-to', require('helper-link-to'));
 app.helper('apidocs', apidocs(app));
+app.helper('md', helpers.md.sync);
 
 /**
  * Data
@@ -66,10 +65,10 @@ app.helper('apidocs', apidocs(app));
 
 app.data({site: pkg.expand(require('../package'))});
 app.data('site.title', app.data('site.name'));
-app.data('site.repo', 'jonschlinkert/micromatch');
 app.data('site.content', 'page-content');
-app.data('site.nav.links', ['docs', 'plugins', 'api', 'examples']);
-app.data('site.nav.dropdown', ['options', 'edge-cases', 'about']);
+app.data('site.repo', 'breakdance/breakdance');
+app.data('site.nav.main', ['docs', 'plugins']);
+app.data('site.nav.dropdown', ['recipes', 'contributing', 'about']);
 
 /**
  * Middleware
@@ -103,7 +102,7 @@ app.task('render', ['preload-templates'], function() {
         ol: 'nav sidenav flex-column'
       }
     }))
-    .pipe(app.dest('dist'))
+    .pipe(app.dest('dist'));
 });
 
 /**
@@ -113,14 +112,7 @@ app.task('render', ['preload-templates'], function() {
 app.task('sass', function() {
   return app.src('src/sass/**/*.scss')
     .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-    .pipe(app.dest(css()))
-});
-
-app.task('sass-lint', function() {
-  return app.src('src/sass/*.scss')
-    .pipe(lint({configFile: 'src/sass/.sass-lint.yml'}))
-    .pipe(lint.format())
-    .pipe(lint.failOnError())
+    .pipe(app.dest(css()));
 });
 
 app.task('uncss', function() {

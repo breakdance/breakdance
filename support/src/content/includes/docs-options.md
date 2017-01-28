@@ -3,7 +3,7 @@ title: Options
 geopattern: s
 ---
 
-## Setting options
+**Setting options**
 
 A number of different options are available for configuring breakdance. If you need more than what the options provide, see the docs for [customizing breakdance](customize.html).
 
@@ -22,7 +22,21 @@ console.log(breakdance('<a href="/some-link"></a>', options));
 //=> '[](https://github.com/some-link)\n'
 ```
 
-## Available options
+## Breakdance options
+
+### options.snapdragon
+
+Type: `object`
+
+Default: `undefined`
+
+Pass your own instance of [snapdragon][]. We're using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.
+
+
+
+## Compiler options
+
+The following options effect the compiler only.
 
 ### options.condense
 
@@ -96,39 +110,13 @@ The result is:
 ```
 
 
-### options.prettify
-
-Type: `boolean`
-
-Default: `undefined`
-
-Format the generated markdown with [pretty-remarkable][] to smooth out inconsistencies and ensure even formatting throughout the document.
-
-
-### options.reflinks
-
-Type: `boolean`
-
-Default: `undefined`
-
-Move URLs to the bottom of the rendered markdown document, and replace them with "placeholder" references. The advantage is that this can make the markdown more readable, but the downside is that the "placeholder" URLs are numbered, so it won't be immediately clear what a URL is until you visit the actual link at the bottom of the document.
-
-
-### options.snapdragon
-
-Type: `object`
-
-Default: `undefined`
-
-Pass your own instance of [snapdragon][]. We're using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.
-
-
 ### options.slugify
 
 Type: `function`
 
 Default: `undefined`
 
+Pass a custom function for slugifying the url in anchors. By default, anchor urls are formatted to be consistent with how GitHub slugifies anchors.
 
 ### options.title
 
@@ -167,7 +155,7 @@ Type: `boolean`
 
 Default: `true`
 
-Normalize whitespace. If you don't like the default normalization, you can disable or override it via options, or write a custom plugin.
+Normalize whitespace, courtesy of the [breakdance-whitespace][] plugin. If you don't like the default normalization, you can disable or override this via options, or write a [custom plugin](plugins.html).
 
 **Disable whitespace handling**
 
@@ -175,7 +163,17 @@ Normalize whitespace. If you don't like the default normalization, you can disab
 breakdance('<title>Foo</title>', {whitespace: false});
 ```
 
-Or customize whitespace handling by passing a function on the [override](#override) options:
+### options.override
+
+Type: `object`
+
+Default: `undefined`
+
+Pass a function with the name of the node type to `options.override`, to override the built-in handler for any `node.type`.
+
+**Example**
+
+Customize whitespace handling by overriding the built-in `text` handler:
 
 ```js
 breakdance('<title>Foo</title>', {
@@ -187,39 +185,50 @@ breakdance('<title>Foo</title>', {
 });
 ```
 
-_(you can override how any node type is handled, just pass the name of the node type to override)_
+Note that you could also [write a plugin](plugins.html#example-normalizing-whitespace) for this.
 
-**Custom plugin**
-
-Or you can [write a plugin](plugins.html#example-normalizing-whitespace) to handle whitespace.
-
-
-## Compiler options
-
-
-### options.override
-
-Type: `boolean`
-
-Default: `undefined`
-
-Format the generated markdown with [pretty-remarkable][] to smooth out inconsistencies and ensure even formatting throughout the document.
 
 ### options.after
 
 TODO
 
+```js
+var md = breakdance(html, {
+  after: {
+    eos: function(node) {
+      // do stuff after end-of-string
+    }
+  }
+});
+```
 
 ### options.before
 
 TODO
 
-
+```js
+var md = breakdance(html, {
+  before: {
+    div: function(node) {
+      if (node.isGrid) {
+        this.emit(node.html, node);
+        node.nodes = [];
+      }
+    }
+  }
+});
+```
 
 ### options.preprocess
 
 TODO
 
+```js
+var md = breakdance(html, {
+  preprocess: function($, node) {
+  }
+});
+```
 
 
 ### options.postprocess
@@ -227,26 +236,6 @@ TODO
 TODO
 
 
-**Example: Render bootstrap's examples**
-
-
-```js
-preprocess: function($, node) {
-  var attr = node.attribs || {};
-  if (/show-grid/.test(attr.class)) {
-    node.html = $.html(node);
-    node.isGrid = true;
-  }
-},
-before: {
-  div: function(node) {
-    if (node.isGrid) {
-      this.emit(node.html, node);
-      node.nodes = [];
-    }
-  }
-}
-```
 
 ### Disable compilers
 

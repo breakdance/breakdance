@@ -18,6 +18,10 @@ strong {
   margin-top: 1em;
 }
 
+a {
+  color: $body-link-color;
+}
+
 /**
  * Navbar
  */
@@ -29,18 +33,6 @@ strong {
 .navbar .gh-buttons .nav-item {
   margin-top: 10px;
   text-align: right;
-}
-
-/**
- * Logo
- */
-
-.site-logo-lg {
-  display: block;
-
-  img {
-    width: 60%;
-  }
 }
 
 /**

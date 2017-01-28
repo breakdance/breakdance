@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Docs | breakdance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700|Roboto|Roboto+Mono" rel="stylesheet">
+    
+    <!-- css -->
+    <!-- bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    
+    <!-- custom -->
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="assets/css/github-light.css" media="screen">
+    
+    <!-- geopattern styles -->
+    <style>
+      .jumbotron {
+        
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyODAiIGhlaWdodD0iMTg0Ij48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJyZ2IoNjEsMTQ2LDEzMCkiPjwvcmVjdD48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwtMjMuMzMzMzMzMzMzMzMzMzM2KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMDYzMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwxNjEuNDY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0Ni42NjY2NjY2NjY2NjY2NywtMjMuMzMzMzMzMzMzMzMzMzM2KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTI0MDAwMDAwMDAwMDAwMDEiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDYuNjY2NjY2NjY2NjY2NjcsMTYxLjQ2NjY2NjY2NjY2NjY3KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDM3MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTMuMzMzMzMzMzMzMzMzMzQsLTIzLjMzMzMzMzMzMzMzMzMzNikiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjAzNzMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzLjMzMzMzMzMzMzMzMzM0LDE2MS40NjY2NjY2NjY2NjY2NykiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjEzMjY2NjY2NjY2NjY2NjY1IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0MCwtMjMuMzMzMzMzMzMzMzMzMzM2KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTQwLDE2MS40NjY2NjY2NjY2NjY2NykiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjEzMjY2NjY2NjY2NjY2NjY1IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE4Ni42NjY2NjY2NjY2NjY2OSwtMjMuMzMzMzMzMzMzMzMzMzM2KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg2LjY2NjY2NjY2NjY2NjY5LDE2MS40NjY2NjY2NjY2NjY2NykiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzMuMzMzMzMzMzMzMzMzMzcsLTIzLjMzMzMzMzMzMzMzMzMzNikiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzMuMzMzMzMzMzMzMzMzMzcsMTYxLjQ2NjY2NjY2NjY2NjY3KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCw3LjQ2NjY2NjY2NjY2NjY2OSkiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjA1NDY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2LjY2NjY2NjY2NjY2NjY3LDcuNDY2NjY2NjY2NjY2NjY5KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTMuMzMzMzMzMzMzMzMzMzQsNy40NjY2NjY2NjY2NjY2NjkpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xMzI2NjY2NjY2NjY2NjY2NSIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAsNy40NjY2NjY2NjY2NjY2NjkpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4xNDEzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODYuNjY2NjY2NjY2NjY2NjksNy40NjY2NjY2NjY2NjY2NjkpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMzLjMzMzMzMzMzMzMzMzM3LDcuNDY2NjY2NjY2NjY2NjY5KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwzOC4yNjY2NjY2NjY2NjY2NykiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjAyIiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2LjY2NjY2NjY2NjY2NjY3LDM4LjI2NjY2NjY2NjY2NjY3KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDg5MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTMuMzMzMzMzMzMzMzMzMzQsMzguMjY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAsMzguMjY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODYuNjY2NjY2NjY2NjY2NjksMzguMjY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMzLjMzMzMzMzMzMzMzMzM3LDM4LjI2NjY2NjY2NjY2NjY3KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTE1MzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCw2OS4wNjY2NjY2NjY2NjY2NikiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjE0MTMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2LjY2NjY2NjY2NjY2NjY3LDY5LjA2NjY2NjY2NjY2NjY2KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjMjIyIiBmaWxsLW9wYWNpdHk9IjAuMTUiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTMuMzMzMzMzMzMzMzMzMzQsNjkuMDY2NjY2NjY2NjY2NjYpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wMiIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAsNjkuMDY2NjY2NjY2NjY2NjYpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wODkzMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODYuNjY2NjY2NjY2NjY2NjksNjkuMDY2NjY2NjY2NjY2NjYpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMjMzLjMzMzMzMzMzMzMzMzM3LDY5LjA2NjY2NjY2NjY2NjY2KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCw5OS44NjY2NjY2NjY2NjY2NykiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjE1IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2LjY2NjY2NjY2NjY2NjY3LDk5Ljg2NjY2NjY2NjY2NjY3KSI+PHBvbHlsaW5lIHBvaW50cz0iMCwwLDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDAsMzAuODAwMDAwMDAwMDAwMDA0LDAsMCI+PC9wb2x5bGluZT48cG9seWxpbmUgcG9pbnRzPSIyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDQ2LjY2NjY2NjY2NjY2NjY3LDAsNDYuNjY2NjY2NjY2NjY2NjcsMzAuODAwMDAwMDAwMDAwMDA0LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3Ij48L3BvbHlsaW5lPjwvZz48ZyBzdHJva2U9IiMwMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjAyIiBmaWxsPSIjZGRkIiBmaWxsLW9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoOTMuMzMzMzMzMzMzMzMzMzQsOTkuODY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDAsOTkuODY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxODYuNjY2NjY2NjY2NjY2NjksOTkuODY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wMzczMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyMzMuMzMzMzMzMzMzMzMzMzcsOTkuODY2NjY2NjY2NjY2NjcpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiNkZGQiIGZpbGwtb3BhY2l0eT0iMC4wMzczMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLDEzMC42NjY2NjY2NjY2NjY2OSkiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ2LjY2NjY2NjY2NjY2NjY3LDEzMC42NjY2NjY2NjY2NjY2OSkiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iIzIyMiIgZmlsbC1vcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDkzLjMzMzMzMzMzMzMzMzM0LDEzMC42NjY2NjY2NjY2NjY2OSkiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE0MCwxMzAuNjY2NjY2NjY2NjY2NjkpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjxnIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDIiIGZpbGw9IiMyMjIiIGZpbGwtb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iMSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTg2LjY2NjY2NjY2NjY2NjY5LDEzMC42NjY2NjY2NjY2NjY2OSkiPjxwb2x5bGluZSBwb2ludHM9IjAsMCwyMy4zMzMzMzMzMzMzMzMzMzYsMTUuODY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiw0Ni42NjY2NjY2NjY2NjY2NywwLDMwLjgwMDAwMDAwMDAwMDAwNCwwLDAiPjwvcG9seWxpbmU+PHBvbHlsaW5lIHBvaW50cz0iMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2Nyw0Ni42NjY2NjY2NjY2NjY2NywwLDQ2LjY2NjY2NjY2NjY2NjY3LDMwLjgwMDAwMDAwMDAwMDAwNCwyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NyI+PC9wb2x5bGluZT48L2c+PGcgc3Ryb2tlPSIjMDAwIiBzdHJva2Utb3BhY2l0eT0iMC4wMiIgZmlsbD0iI2RkZCIgZmlsbC1vcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIiBzdHJva2Utd2lkdGg9IjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIzMy4zMzMzMzMzMzMzMzMzNywxMzAuNjY2NjY2NjY2NjY2NjkpIj48cG9seWxpbmUgcG9pbnRzPSIwLDAsMjMuMzMzMzMzMzMzMzMzMzM2LDE1Ljg2NjY2NjY2NjY2NjY2NywyMy4zMzMzMzMzMzMzMzMzMzYsNDYuNjY2NjY2NjY2NjY2NjcsMCwzMC44MDAwMDAwMDAwMDAwMDQsMCwwIj48L3BvbHlsaW5lPjxwb2x5bGluZSBwb2ludHM9IjIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjcsNDYuNjY2NjY2NjY2NjY2NjcsMCw0Ni42NjY2NjY2NjY2NjY2NywzMC44MDAwMDAwMDAwMDAwMDQsMjMuMzMzMzMzMzMzMzMzMzM2LDQ2LjY2NjY2NjY2NjY2NjY3LDIzLjMzMzMzMzMzMzMzMzMzNiwxNS44NjY2NjY2NjY2NjY2NjciPjwvcG9seWxpbmU+PC9nPjwvc3ZnPg==");
+  }
+      .page-content h1,
+      .page-content h2,
+      .page-content h3,
+      .page-content h4 {
+        color: #3d9282;
+      }
+    </style>  </head>
+  <body>
+    <!-- site-wide navigation -->
+    <div class="container">
+      <nav class="navbar navbar-toggleable-md navbar-light">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <a class="navbar-brand" href="index.html">breakdance</a>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+          <a class="nav-link" href="docs.html">Docs</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="plugins.html">Plugins</a>
+        </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://github.com/breakdance/breakdance" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="nav-link" href="recipes.html">Recipes</a>
+          <a class="nav-link" href="contributing.html">Contributing</a>
+          <a class="nav-link" href="about.html">About</a>
+        </div>
+            </li>
+          </ul>
+      
+          <ul class="navbar-nav gh-buttons pull-right">
+            <li class="nav-item">
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=watch&amp;count=true&amp;" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li class="nav-item">
+              <iframe src="http://ghbtns.com/github-btn.html?user=assemble&amp;repo=assemble&amp;type=fork&amp;count=true&amp;" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+          </ul>
+      
+          <!--form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form-->
+        </div>
+      </nav>    </div>
+  
+    <!-- page header -->
+      <div class="jumbotron jumbotron-sm">
+        <div class="container">
+          <h1 class="page-title"> Docs </h1>
+        </div>
+      </div>
+    <!-- page content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-3 push-md-9 sidebar">
+          <div class="sticky">
+            <!--form class="search hidden-sm-down">
+              <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">
+              <div class="dropdown-menu search-results" id="search-results"></div>
+            </form-->
+        
+            <nav class="page-toc" id="toc">
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#getting-started" class="toc-link">Getting started</a></li>
+  <li class="toc-item"><a href="#options" class="toc-link">Options</a></li>
+  <li class="toc-item"><a href="#breakdance-options" class="toc-link">Breakdance options</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#optionssnapdragon" class="toc-link">options.snapdragon</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#compiler-options" class="toc-link">Compiler options</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#optionscondense" class="toc-link">options.condense</a></li>
+  <li class="toc-item"><a href="#optionsdomain" class="toc-link">options.domain</a></li>
+  <li class="toc-item"><a href="#optionsleadingnewline" class="toc-link">options.leadingNewline</a></li>
+  <li class="toc-item"><a href="#optionsone" class="toc-link">options.one</a></li>
+  <li class="toc-item"><a href="#optionsslugify" class="toc-link">options.slugify</a></li>
+  <li class="toc-item"><a href="#optionstitle" class="toc-link">options.title</a></li>
+  <li class="toc-item"><a href="#optionstrailingnewline" class="toc-link">options.trailingNewline</a></li>
+  <li class="toc-item"><a href="#optionsurl" class="toc-link">options.url</a></li>
+  <li class="toc-item"><a href="#optionswhitespace" class="toc-link">options.whitespace</a></li>
+  <li class="toc-item"><a href="#optionsoverride" class="toc-link">options.override</a></li>
+  <li class="toc-item"><a href="#optionsafter" class="toc-link">options.after</a></li>
+  <li class="toc-item"><a href="#optionsbefore" class="toc-link">options.before</a></li>
+  <li class="toc-item"><a href="#optionspreprocess" class="toc-link">options.preprocess</a></li>
+  <li class="toc-item"><a href="#optionspostprocess" class="toc-link">options.postprocess</a></li>
+  <li class="toc-item"><a href="#disable-compilers" class="toc-link">Disable compilers</a></li>
+  <li class="toc-item"><a href="#override-compilers" class="toc-link">Override compilers</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#customizing-breakdance" class="toc-link">Customizing breakdance</a></li>
+  <li class="toc-item"><a href="#examples" class="toc-link">Examples</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#ul" class="toc-link">ul</a></li>
+  <li class="toc-item"><a href="#ol" class="toc-link">ol</a></li>
+  <li class="toc-item"><a href="#a" class="toc-link">a</a></li>
+  <li class="toc-item"><a href="#blockquote" class="toc-link">blockquote</a></li>
+  <li class="toc-item"><a href="#br" class="toc-link">br</a></li>
+  <li class="toc-item"><a href="#hr" class="toc-link">hr</a></li>
+  <li class="toc-item"><a href="#code" class="toc-link">code</a></li>
+  <li class="toc-item"><a href="#del" class="toc-link">del</a></li>
+  <li class="toc-item"><a href="#dl" class="toc-link">dl</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#em" class="toc-link">em</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#headings" class="toc-link">headings</a></li>
+  <li class="toc-item"><a href="#img" class="toc-link">img</a></li>
+  <li class="toc-item"><a href="#q" class="toc-link">q</a></li>
+  <li class="toc-item"><a href="#strong" class="toc-link">strong</a></li>
+  <li class="toc-item"><a href="#table" class="toc-link">table</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#edge-cases" class="toc-link">Edge cases</a></li>
+  <li class="toc-item"><a href="#tables" class="toc-link">Tables</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#multiple-rows-in-thead" class="toc-link">Multiple rows in thead</a></li>
+  <li class="toc-item"><a href="#nested-tables" class="toc-link">Nested tables</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#headings-1" class="toc-link">Headings</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#list-items-containing--tags" class="toc-link">List items containing  tags</a></li>
+  <li class="toc-item"><a href="#table-cells-containing--tags" class="toc-link">Table cells containing  tags</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#unconverted-html" class="toc-link">Unconverted HTML</a></li>
+  <li class="toc-item"><a href="#customizing-breakdance-1" class="toc-link">Customizing breakdance</a></li>
+  <li class="toc-item"><a href="#api" class="toc-link">API</a>
+<ol class="nav sidenav flex-column">
+  <li class="toc-item"><a href="#breakdance" class="toc-link">Breakdance</a></li>
+  <li class="toc-item"><a href="#use" class="toc-link">.use</a></li>
+  <li class="toc-item"><a href="#preprocess" class="toc-link">.preprocess</a></li>
+  <li class="toc-item"><a href="#define" class="toc-link">.define</a></li>
+  <li class="toc-item"><a href="#set" class="toc-link">.set</a></li>
+  <li class="toc-item"><a href="#before" class="toc-link">.before</a></li>
+  <li class="toc-item"><a href="#after" class="toc-link">.after</a></li>
+  <li class="toc-item"><a href="#parse" class="toc-link">.parse</a></li>
+  <li class="toc-item"><a href="#compile" class="toc-link">.compile</a></li>
+  <li class="toc-item"><a href="#render" class="toc-link">.render</a></li>
+</ol>
+</li>
+  <li class="toc-item"><a href="#related" class="toc-link">Related</a></li>
+  <li class="toc-item"><a href="#next-steps" class="toc-link">Next steps</a></li>
+</ol>
+</nav>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-9 pull-md-3">
+          <div class="page-content">
+
+          <p><strong>TODO</strong>:</p>
+<ul>
+<li>[x] getting started (link to getting-started.html)</li>
+<li>[ ] usage</li>
+<li>[x] options</li>
+<li>[x] conversion examples</li>
+<li>[ ] next steps</li>
+</ul>
+<h2><a name="getting-started" aria-hidden="true"></a>Getting started</h2>
+<p><strong>Welcome to the breakdance docs!</strong></p>
+<ul>
+<li>[ ] download / install</li>
+<li>[ ] next steps</li>
+</ul>
+<h2><a name="options" aria-hidden="true"></a>Options</h2>
+<p><hr>
+</p><p>title: Options
+geopattern: s</p>
+<hr>
+<p><strong>Setting options</strong></p>
+<p>A number of different options are available for configuring breakdance. If you need more than what the options provide, see the docs for <a href="customize.html">customizing breakdance</a>.</p>
+<p>To set options, pass an object as the last argument to <code>breakdance</code>:</p>
+<pre><code class="lang-js">breakdance(string[, options]);
+</code></pre>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
+<span class="hljs-keyword">var</span> options = {<span class="hljs-attr">domain</span>: <span class="hljs-string">&apos;https://github.com&apos;</span>};
+<span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;<a href="/some-link"></a>&apos;</span>, options));
+<span class="hljs-comment">//=&gt; &apos;[](https://github.com/some-link)\n&apos;</span>
+</code></pre>
+<h2><a name="breakdance-options" aria-hidden="true"></a>Breakdance options</h2>
+<h3><a name="optionssnapdragon" aria-hidden="true"></a>options.snapdragon</h3>
+<p>Type: <code>object</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Pass your own instance of [snapdragon][]. We&apos;re using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.</p>
+<h2><a name="compiler-options" aria-hidden="true"></a>Compiler options</h2>
+<p>The following options effect the compiler only.</p>
+<h3><a name="optionscondense" aria-hidden="true"></a>options.condense</h3>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>true</code></p>
+<p>Collapse more than two newlines to only two newlines. Enabled by default.</p>
+<h3><a name="optionsdomain" aria-hidden="true"></a>options.domain</h3>
+<p>Type: <code>string</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Specify the root domain name to prefix onto <code>href</code> or <code>src</code> paths that do not start with <code>#</code> or contain <code>://</code>.</p>
+<h3><a name="optionsleadingnewline" aria-hidden="true"></a>options.leadingNewline</h3>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Add a newline at the beggining of the generated markdown string.</p>
+<h3><a name="optionsone" aria-hidden="true"></a>options.one</h3>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Use <code>1.</code> for all ordered list items. Most markdown renderers automatically renumber lists. Using <code>1.</code> for all items is an easy way of not having to renumber list items when one is added or removed.</p>
+<p><strong>Examples</strong></p>
+<p>Given the following HTML ordered list:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bar<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Baz<span class="hljs-tag">li</span>&gt;
+<span class="hljs-tag">ol</span>&gt;
+</code></pre>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(breakdance(list));
+</code></pre>
+<p>Renders to:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">2. </span>Bar
+<span class="hljs-bullet">3. </span>Baz
+</code></pre>
+<p>And if <code>options.one</code> is true:</p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(breakdance(list));
+</code></pre>
+<p>The result is:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">1. </span>Bar
+<span class="hljs-bullet">1. </span>Baz
+</code></pre>
+<h3><a name="optionsslugify" aria-hidden="true"></a>options.slugify</h3>
+<p>Type: <code>function</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Pass a custom function for slugifying the url in anchors. By default, anchor urls are formatted to be consistent with how GitHub slugifies anchors.</p>
+<h3><a name="optionstitle" aria-hidden="true"></a>options.title</h3>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Output the text in the <code><title></title></code> tag as an <code>h1</code> at the start of the generated markdown document.</p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;<title>Foo</title>&apos;</span>, {<span class="hljs-attr">title</span>: <span class="hljs-literal">true</span>}));
+<span class="hljs-comment">//=&gt; &apos;# Foo\n&apos;</span>
+</code></pre>
+<h3><a name="optionstrailingnewline" aria-hidden="true"></a>options.trailingNewline</h3>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>true</code></p>
+<p>Add a newline at the end of the generated markdown string.</p>
+<h3><a name="optionsurl" aria-hidden="true"></a>options.url</h3>
+<p>Type: <code>function</code></p>
+<p>Default: <code>undefined</code></p>
+<h3><a name="optionswhitespace" aria-hidden="true"></a>options.whitespace</h3>
+<p>Type: <code>boolean</code></p>
+<p>Default: <code>true</code></p>
+<p>Normalize whitespace, courtesy of the [breakdance-whitespace][] plugin. If you don&apos;t like the default normalization, you can disable or override this via options, or write a <a href="plugins.html">custom plugin</a>.</p>
+<p><strong>Disable whitespace handling</strong></p>
+<pre><code class="lang-js">breakdance(<span class="hljs-string">&apos;<title>Foo</title>&apos;</span>, {<span class="hljs-attr">whitespace</span>: <span class="hljs-literal">false</span>});
+</code></pre>
+<h3><a name="optionsoverride" aria-hidden="true"></a>options.override</h3>
+<p>Type: <code>object</code></p>
+<p>Default: <code>undefined</code></p>
+<p>Pass a function with the name of the node type to <code>options.override</code>, to override the built-in handler for any <code>node.type</code>.</p>
+<p><strong>Example</strong></p>
+<p>Customize whitespace handling by overriding the built-in <code>text</code> handler:</p>
+<pre><code class="lang-js">breakdance(<span class="hljs-string">&apos;<title>Foo</title>&apos;</span>, {
+  <span class="hljs-attr">override</span>: {
+    <span class="hljs-attr">text</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+      <span class="hljs-comment">// do stuff to text node</span>
+    }
+  }
+});
+</code></pre>
+<p>Note that you could also <a href="plugins.html#example-normalizing-whitespace">write a plugin</a> for this.</p>
+<h3><a name="optionsafter" aria-hidden="true"></a>options.after</h3>
+<p>TODO</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> md = breakdance(html, {
+  <span class="hljs-attr">after</span>: {
+    <span class="hljs-attr">eos</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+      <span class="hljs-comment">// do stuff after end-of-string</span>
+    }
+  }
+});
+</code></pre>
+<h3><a name="optionsbefore" aria-hidden="true"></a>options.before</h3>
+<p>TODO</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> md = breakdance(html, {
+  <span class="hljs-attr">before</span>: {
+    <span class="hljs-attr">div</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+      <span class="hljs-keyword">if</span> (node.isGrid) {
+        <span class="hljs-keyword">this</span>.emit(node.html, node);
+        node.nodes = [];
+      }
+    }
+  }
+});
+</code></pre>
+<h3><a name="optionspreprocess" aria-hidden="true"></a>options.preprocess</h3>
+<p>TODO</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> md = breakdance(html, {
+  <span class="hljs-attr">preprocess</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$, node</span>) </span>{
+  }
+});
+</code></pre>
+<h3><a name="optionspostprocess" aria-hidden="true"></a>options.postprocess</h3>
+<p>TODO</p>
+<h3><a name="disable-compilers" aria-hidden="true"></a>Disable compilers</h3>
+<p>Disable a compiler by setting <code>options[compiler_name]</code> to <code>false</code>.</p>
+<p><strong>Examples</strong></p>
+<p>Disable the <code>strong</code> compiler:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> options = {<span class="hljs-attr">compiler</span>: {<span class="hljs-attr">strong</span>: <span class="hljs-literal">false</span>}};
+breakdance(<span class="hljs-string">&apos;Foo <strong>Bar</strong>&apos;</span>, options);
+<span class="hljs-comment">//=&gt; &apos;Foo &apos;</span>
+</code></pre>
+<h3><a name="override-compilers" aria-hidden="true"></a>Override compilers</h3>
+<p>Override the <code>text</code> compiler:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> options = {<span class="hljs-attr">compiler</span>: {<span class="hljs-attr">strong</span>: <span class="hljs-literal">false</span>}};
+breakdance(<span class="hljs-string">&apos;Foo <strong>Bar</strong>&apos;</span>, {
+  <span class="hljs-attr">compiler</span>: {
+    <span class="hljs-attr">text</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+      <span class="hljs-keyword">this</span>.emit(node.val.toUpperCase());
+    }
+  }
+});
+
+<span class="hljs-comment">//=&gt; &apos;FOO **BAR**&apos;</span>
+</code></pre>
+<h2><a name="customizing-breakdance" aria-hidden="true"></a>Customizing breakdance</h2>
+<p>If you don&apos;t like the defaults used in breakdance, or you need something different or beyond what the options provide:</p>
+<ul>
+<li>visit the <a href="api.html">API docs</a> to learn how to hack on breakdance,</li>
+<li>visit the <a href="plugins.html">plugin docs</a> to learn how to find or write plugins.</li>
+</ul>
+<p></p>
+<h2><a name="examples" aria-hidden="true"></a>Examples</h2>
+<p>HTML-to-markdown examples.</p>
+<p></p><p>These examples on this page are not comprehensive. See the <a href="{{@site.href}}/blob/master/test">breakdance unit tests</a> for more examples. Requests (or pull requests) <a href="{{@site.bugs.url}}/new">are welcome</a> to add other examples.</p>
+<p>It&apos;s also very easy to change the output with <a href="options.html">options</a> or <a href="plugions.htlm">plugins</a>, if you don&apos;t like the defaults.</p>
+<h3><a name="ul" aria-hidden="true"></a>ul</h3>
+<p>The following unordered list:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bar<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Baz<span class="hljs-tag">li</span>&gt;
+<span class="hljs-tag">ul</span>&gt;
+</code></pre>
+<p>Converts to:</p>
+<pre><code><span class="hljs-bullet">* </span>Foo
+<span class="hljs-bullet">* </span>Bar
+<span class="hljs-bullet">* </span>Baz
+</code></pre>
+<h3><a name="ol" aria-hidden="true"></a>ol</h3>
+<p>When <a href="options.html#optionsone">options.one</a> is true, all items in ordered lists are numbered <code>1.</code> when converted to markdown (most markdown renderers will automatically re-number ordered lists, so using <code>1.</code> for every item is a nice way of making lists easier to maintain).</p>
+<p>The following ordered list:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Foo<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Bar<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Baz<span class="hljs-tag">li</span>&gt;
+<span class="hljs-tag">ol</span>&gt;
+</code></pre>
+<p>Is rendered to the following when <a href="options.html#optionsone">options.one</a> is enabled:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">1. </span>Bar
+<span class="hljs-bullet">1. </span>Baz
+</code></pre>
+<p>Otherwise:</p>
+<pre><code><span class="hljs-bullet">1. </span>Foo
+<span class="hljs-bullet">2. </span>Bar
+<span class="hljs-bullet">3. </span>Baz
+</code></pre>
+<h3><a name="a" aria-hidden="true"></a>a</h3>
+<p>The following HTML anchor:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/some-link&quot;</span>&gt;</span>Foo<span class="hljs-tag">a</span>&gt;
+</code></pre>
+<p>Converts to:</p>
+<pre><code>[<span class="hljs-string">Foo</span>](<span class="hljs-link">/some-link</span>)
+</code></pre>
+<h3><a name="blockquote" aria-hidden="true"></a>blockquote</h3>
+<p>The following HTML blockquote:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span>&gt;</span> Lorem ipsum. <span class="hljs-tag">blockquote</span>&gt;
+</code></pre>
+<p>Converts to:</p>
+<pre><code><span class="hljs-quote">&gt; Lorem ipsum.</span>
+</code></pre>
+<p><strong>Nested blockquotes</strong></p>
+<p>The following nested HTML blockquotes:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blockquote&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="hljs-tag">p</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>Someone famous in <span class="hljs-tag">&lt;<span class="hljs-name">cite</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Source Title&quot;</span>&gt;</span>Source Title<span class="hljs-tag">cite</span>&gt;<span class="hljs-tag">footer</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">blockquote</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;blockquote&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.<span class="hljs-tag">p</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">footer</span>&gt;</span>Someone famous in <span class="hljs-tag">&lt;<span class="hljs-name">cite</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Source Title&quot;</span>&gt;</span>Source Title<span class="hljs-tag">cite</span>&gt;<span class="hljs-tag">footer</span>&gt;
+  <span class="hljs-tag">blockquote</span>&gt;
+<span class="hljs-tag">blockquote</span>&gt;
+</code></pre>
+<p>Converts to:</p>
+<pre><code>&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat <span class="hljs-selector-tag">a</span> ante.
+Someone famous <span class="hljs-keyword">in</span> <cite>Source Title</cite>
+&gt;&gt; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat <span class="hljs-selector-tag">a</span> ante.
+Someone famous <span class="hljs-keyword">in</span> <cite>Source Title</cite>
+</code></pre>
+<h3><a name="br" aria-hidden="true"></a>br</h3>
+<p>Breaks are passed through unchanged. Thus:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+</code></pre>
+<p>Is rendered to:</p>
+<pre><code><span class="hljs-section"><br></span>
+</code></pre>
+<h3><a name="hr" aria-hidden="true"></a>hr</h3>
+<p>A horizontal rule:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span>&gt;</span>
+</code></pre>
+<p>Is converted to:</p>
+<pre><code><span class="hljs-bullet">***
+</span></code></pre>
+<h3><a name="code" aria-hidden="true"></a>code</h3>
+<p>Everything inside <code><code></code> tags is left as-is. The following HTML:</code></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/some-link&quot;</span>&gt;</span>Foo<span class="hljs-tag">a</span>&gt;<span class="hljs-tag">code</span>&gt;
+</code></pre>
+<p>Results in:</p>
+<pre><code>`<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/some-link&quot;</span>&gt;</span>Foo<span class="hljs-tag">a</span>&gt;<span class="hljs-tag">code</span>&gt;`
+</code></pre>
+<p>and:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>1em 40px<span class="hljs-tag">code</span>&gt;
+</code></pre>
+<p>Results in:</p>
+<pre><code>`1em <span class="hljs-number">40</span>px`
+</code></pre>
+<p><strong>Nested backticks</strong></p>
+<p>When a <code>code</code> tag contains backticks, it will be wrapped with double backticks. The following:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>foo`a`b`bar<span class="hljs-tag">code</span>&gt;
+</code></pre>
+<p>Would convert to:</p>
+<pre><code>``foo`a`b`bar``
+</code></pre>
+<h3><a name="del" aria-hidden="true"></a>del</h3>
+<p>HTML deleted text:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">del</span>&gt;</span>This line of text is meant to be treated as deleted text.<span class="hljs-tag">del</span>&gt;
+</code></pre>
+<p>Renders to the following markdown:</p>
+<pre><code>~~This line <span class="hljs-keyword">of</span> <span class="hljs-built_in">text</span> <span class="hljs-keyword">is</span> meant <span class="hljs-keyword">to</span> be treated <span class="hljs-keyword">as</span> deleted <span class="hljs-built_in">text</span>.~~
+</code></pre>
+<h3><a name="dl" aria-hidden="true"></a>dl</h3>
+<p>Definition lists are not converted to markdown. HTML is rendered, but attributes are stripped.</p>
+<p><strong>Example</strong></p>
+<p>The following <code><dl></dl></code> (from Bootstrap&apos;s docs):</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-3&quot;</span>&gt;</span>Description lists<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-9&quot;</span>&gt;</span>A description list is perfect for defining terms.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-3&quot;</span>&gt;</span>Euismod<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-9&quot;</span>&gt;</span>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<span class="hljs-tag">dd</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-9 offset-sm-3&quot;</span>&gt;</span>Donec id elit non mi porta gravida at eget metus.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-3&quot;</span>&gt;</span>Malesuada porta<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-9&quot;</span>&gt;</span>Etiam porta sem malesuada magna mollis euismod.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-3 text-truncate&quot;</span>&gt;</span>Truncated term is truncated<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-9&quot;</span>&gt;</span>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-3&quot;</span>&gt;</span>Nesting<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-9&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dl</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">dt</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-4&quot;</span>&gt;</span>Nested definition list<span class="hljs-tag">dt</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">dd</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-sm-8&quot;</span>&gt;</span>Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.<span class="hljs-tag">dd</span>&gt;
+    <span class="hljs-tag">dl</span>&gt;
+  <span class="hljs-tag">dd</span>&gt;
+<span class="hljs-tag">dl</span>&gt;
+</code></pre>
+<p>Renders to:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Description lists<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>A description list is perfect for defining terms.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Euismod<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.<span class="hljs-tag">dd</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Donec id elit non mi porta gravida at eget metus.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Malesuada porta<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Etiam porta sem malesuada magna mollis euismod.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Truncated term is truncated<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.<span class="hljs-tag">dd</span>&gt;
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Nesting<span class="hljs-tag">dt</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dl</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">dt</span>&gt;</span>Nested definition list<span class="hljs-tag">dt</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">dd</span>&gt;</span>Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc.<span class="hljs-tag">dd</span>&gt;
+    <span class="hljs-tag">dl</span>&gt;
+  <span class="hljs-tag">dd</span>&gt;
+<span class="hljs-tag">dl</span>&gt;
+</code></pre>
+<h2><a name="em" aria-hidden="true"></a>em</h2>
+<p>The following HTML <code>em</code>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>This is italicized!<span class="hljs-tag">em</span>&gt;
+</code></pre>
+<p>Is rendered to the following markdown:</p>
+<pre><code>_This <span class="hljs-built_in">is</span> italicized!<span class="hljs-symbol">_</span>
+</code></pre>
+<p><strong>Nested tags</strong></p>
+<p>Nested <code>em</code> tags are &quot;flattened&quot; into a single statement:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>This <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>is<span class="hljs-tag">em</span>&gt; worth hearing!<span class="hljs-tag">em</span>&gt;
+</code></pre>
+<p>Converts to the following markdown:</p>
+<pre><code>_This <span class="hljs-built_in">is</span> worth hearing!<span class="hljs-symbol">_</span>
+</code></pre>
+<h3><a name="headings" aria-hidden="true"></a>headings</h3>
+<p>The following HTML headings:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>AAA<span class="hljs-tag">h1</span>&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>BBB<span class="hljs-tag">h2</span>&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>CCC<span class="hljs-tag">h3</span>&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>DDD<span class="hljs-tag">h4</span>&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">h5</span>&gt;</span>EEE<span class="hljs-tag">h5</span>&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">h6</span>&gt;</span>FFF<span class="hljs-tag">h6</span>&gt;
+</code></pre>
+<p>Convert to the following markdown, respectively:</p>
+<pre><code># AAA
+## BBB
+### CCC
+#### DDD
+##### EEE
+###### FFF
+</code></pre>
+<h3><a name="img" aria-hidden="true"></a>img</h3>
+<p>The following HTML <code>img</code>:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;hammer.gif&quot;</span>/&gt;</span>
+</code></pre>
+<p>Converts to:</p>
+<pre><code>!<span class="hljs-selector-attr">[]</span>(<span class="hljs-selector-tag">hammer</span><span class="hljs-selector-class">.gif</span>)
+</code></pre>
+<p><strong>alt</strong></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;hammer.gif&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Can&apos;t touch this&quot;</span>&gt;</span>
+</code></pre>
+<p>Converts to:</p>
+<pre><code>![<span class="hljs-string">Can&apos;t touch this</span>](<span class="hljs-link">hammer.gif</span>)
+</code></pre>
+<p><strong>Title</strong></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;hammer.gif&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;Foo bar&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;Can&apos;t touch this&quot;</span>&gt;</span>
+</code></pre>
+<p>Converts to:</p>
+<pre><code>![<span class="hljs-string">Can&apos;t touch this</span>](<span class="hljs-link">hammer.gif &quot;Foo bar&quot;</span>)
+</code></pre>
+<p><strong>No src</strong></p>
+<p>When the <code><img></code> tag has no <code>src</code> attribute (e.g. <code><img alt="foo"></code>), it will not be rendered.</p>
+<h3><a name="q" aria-hidden="true"></a>q</h3>
+<p>HTML inline quotes:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>This is an <span class="hljs-tag">&lt;<span class="hljs-name">q</span>&gt;</span>inline quote<span class="hljs-tag">q</span>&gt;.<span class="hljs-tag">div</span>&gt;
+</code></pre>
+<p>Are passed through unchanged:</p>
+<pre><code class="lang-html">This is an <span class="hljs-tag">&lt;<span class="hljs-name">q</span>&gt;</span>inline quote<span class="hljs-tag">q</span>&gt;.
+</code></pre>
+<h3><a name="strong" aria-hidden="true"></a>strong</h3>
+<p>HTML <code>strong</code> tags like the following:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>This is loud!<span class="hljs-tag">strong</span>&gt;
+</code></pre>
+<p>Would convert to the following markdown:</p>
+<pre><code>**This <span class="hljs-keyword">is</span> loud!**
+</code></pre>
+<p><strong>Nested tags</strong></p>
+<p>Nested <code>strong</code> tags are &quot;flattened&quot; into a single statement:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>This <span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>is<span class="hljs-tag">strong</span>&gt; loud!<span class="hljs-tag">strong</span>&gt;
+</code></pre>
+<p>Converts to the following markdown:</p>
+<pre><code>**This <span class="hljs-keyword">is</span> loud!**
+</code></pre>
+<h3><a name="table" aria-hidden="true"></a>table</h3>
+<p>Most of the other markdown-to-HTML converters struggle with tables. Breakdance has solid support for well-formed tables, and even some sub-optimal tables.</p>
+<p><strong>Examples</strong></p>
+<p>The following HTML table:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Heading 1<span class="hljs-tag">th</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Heading 2<span class="hljs-tag">th</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Heading 3<span class="hljs-tag">th</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Heading 4<span class="hljs-tag">th</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+  <span class="hljs-tag">thead</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+  <span class="hljs-tag">tbody</span>&gt;
+<span class="hljs-tag">table</span>&gt;
+</code></pre>
+<p>Would render to the following markdown:</p>
+<pre><code class="lang-html">| Heading 1 | Heading 2 | Heading 3 | Heading 4 |
+| --- | --- | --- | --- |
+| Table cell | Table cell | Table cell | Table cell |
+| Table cell | Table cell | Table cell | Table cell |
+</code></pre>
+<p><strong>captions</strong></p>
+<p>And an HTML table with a <code><caption></caption></code> and aligned columns, like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>
+    This is an example table, and this is its caption to describe the contents.
+  <span class="hljs-tag">caption</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Table heading<span class="hljs-tag">th</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;right&quot;</span>&gt;</span>Table heading<span class="hljs-tag">th</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>Table heading<span class="hljs-tag">th</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;left&quot;</span>&gt;</span>Table heading<span class="hljs-tag">th</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+  <span class="hljs-tag">thead</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>Table cell<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+  <span class="hljs-tag">tbody</span>&gt;
+<span class="hljs-tag">table</span>&gt;
+</code></pre>
+<p>Renders to the following markdown:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">caption</span>&gt;</span>This is an example table, and this is its caption to describe the contents.<span class="hljs-tag">caption</span>&gt;
+
+| Table heading | Table heading | Table heading | Table heading |
+| --- | ---: | :---: | :--- |
+| Table cell | Table cell | Table cell | Table cell |
+| Table cell | Table cell | Table cell | Table cell |
+</code></pre>
+<p>Note that nested tables are still output as HTML, since the <a href="spec.commonmark.org">commonmark</a> specification does not support nested tables).</p>
+<h2><a name="edge-cases" aria-hidden="true"></a>Edge cases</h2>
+<p>There will always be edge cases. I attempted to implement reasonable solutions to a few <a href="{{@site.homepage}}/edge-cases.html">edge-cases</a> described in the docs. If you disagree with how they&apos;re being handled, or you&apos;d like to suggest other edge cases to be handled, please create <a href="{{@site.bugs.url}}/new">an issue</a> to discuss.</p>
+<p>A number of edge cases are supported. In most cases these should be pretty easy to override with <a href="options.html">options</a>, or you can completely change the output to be whatever you want using <a href="plugins.html">plugins</a>.</p>
+<p>Please feel free to <a href="{{@site.bugs.url}}">create an issue</a> if you have questions or need guidance on customizations.</p>
+<h2><a name="tables" aria-hidden="true"></a>Tables</h2>
+<h3><a name="multiple-rows-in-thead" aria-hidden="true"></a>Multiple rows in <code>thead</code></h3>
+<p>When multiple rows (<code><tr></tr></code>) are in <code><thead></thead></code>, the rows are collapsed to a single <code><tr></tr></code>, and a <code><br></code> is added as a text separater to retain the visual appearance of multiple lines.</p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">th</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Name<span class="hljs-tag">th</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Name<span class="hljs-tag">th</span>&gt;
+  <span class="hljs-tag">tr</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">th</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>(first)<span class="hljs-tag">th</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>(last)<span class="hljs-tag">th</span>&gt;
+  <span class="hljs-tag">tr</span>&gt;
+<span class="hljs-tag">thead</span>&gt;
+</code></pre>
+<p>Renders to:</p>
+<pre><code>| <span class="hljs-symbol"><br></span> | Name<span class="hljs-symbol"><br></span>(<span class="hljs-keyword">first</span>) | Name<span class="hljs-symbol"><br></span>(<span class="hljs-keyword">last</span>) |
+</code></pre>
+<h3><a name="nested-tables" aria-hidden="true"></a>Nested tables</h3>
+<p>When a table has nested tables within it, the table will be rendered as HTML.</p>
+<h2><a name="headings-1" aria-hidden="true"></a>Headings</h2>
+<h3><a name="list-items-containing--tags" aria-hidden="true"></a>List items containing <code><h1-6></h1-6></code> tags</h3>
+<p>When a list item contains a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading element</a>, the item will be output as bold (in other words, the element&apos;s meaning as a list item takes precedence over its meaning as a heading).</p>
+<p><strong>Example</strong></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Item one<span class="hljs-tag">h3</span>&gt;<span class="hljs-tag">li</span>&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Item two<span class="hljs-tag">h3</span>&gt;<span class="hljs-tag">li</span>&gt;
+<span class="hljs-tag">ul</span>&gt;
+</code></pre>
+<p>Results in</p>
+<pre><code><span class="hljs-bullet">- </span>*<span class="hljs-strong">*Item one*</span>*
+<span class="hljs-bullet">- </span>*<span class="hljs-strong">*Item two*</span>*
+</code></pre>
+<h3><a name="table-cells-containing--tags" aria-hidden="true"></a>Table cells containing <code><h1-6></h1-6></code> tags</h3>
+<p>When a table cell contains a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading element</a>, the entire table will be output as HTML with attributes stripped, and not converted to markdown. This is to ensure formatting is retained, since markdown tables do not render headings.</p>
+<p><strong>Example</strong></p>
+<p>The following table (from Bootstrap&apos;s docs):</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;bd-example bd-example-type&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;table&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;display-1&quot;</span>&gt;</span>Display 1<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">tr</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;display-2&quot;</span>&gt;</span>Display 2<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">tr</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;display-3&quot;</span>&gt;</span>Display 3<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">tr</span>&gt;
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;display-4&quot;</span>&gt;</span>Display 4<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+      <span class="hljs-tag">tr</span>&gt;
+    <span class="hljs-tag">tbody</span>&gt;
+  <span class="hljs-tag">table</span>&gt;
+<span class="hljs-tag">div</span>&gt;
+</code></pre>
+<p>Renders to:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 1<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 2<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 3<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Display 4<span class="hljs-tag">h1</span>&gt;<span class="hljs-tag">td</span>&gt;
+    <span class="hljs-tag">tr</span>&gt;
+  <span class="hljs-tag">tbody</span>&gt;
+<span class="hljs-tag">table</span>&gt;
+</code></pre>
+<h2><a name="unconverted-html" aria-hidden="true"></a>Unconverted HTML</h2>
+<p>Some HTML tags are retained. In particular when there is no equivalent in markdown and it seems reasonable that you might want to retain the HTML. For example, <code><button></button></code> tags are not output since they&apos;re not usable in markdown, but <code><address></address></code> tags are retained since their contents would still render.</p>
+<p>When HTML tags are retained, most of the attributes are removed, with the acception of attributes on <code>img</code> and <code>a</code> tags.</p>
+<p>Please feel free to <a href="{{@site.bugs.url}}">open an issue</a> and let us know if you find any bugs or you think we should change the defaults.</p>
+<p></p>
+<h2><a name="customizing-breakdance-1" aria-hidden="true"></a>Customizing breakdance</h2>
+<p>As you&apos;ve already seen, Breakdance ships with a <a href="options.html">number of options</a> for customizing how markdown is converted to HTML. But if you need more than the provided options, breakdance is also pretty hackable.</p>
+<p><strong>Hacking on breakdance</strong></p>
+<p>It&apos;s easy to override any defaults, or add support for custom elements, attributes or options.</p>
+<p>For example, you can control how <em>any HTML element</em> is converted to markdown, or even how a certain element <em>with specific attributes</em> is converted. You can override built-in renderers, create custom renderers <em>for custom HTML tags</em>, or create plugins that &quot;bundle&quot; together your commonly used customizations or preferences.</p>
+<p><strong>Next steps</strong></p>
+<p>Depending on the type of customization you want to do</p>
+<ul>
+<li><a href="#api">API documentation</a></li>
+<li><a href="plugins.html#finding-plugins">Finding Plugins</a></li>
+<li><a href="plugins.html#authoring-plugins">Authoring Plugins</a></li>
+</ul>
+<h2><a name="api" aria-hidden="true"></a>API</h2>
+<p>This section describes the API methods exposed by breakdance. For you to get the most of out the documentation in this section, it might help to take a moment to learn about the <a href="contributing.html#core-concepts">core concepts</a> around which these API methods are designed.</p>
+<p></p><h3><a name="breakdance" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L25">Breakdance</a></h3>
+<p>Create an instance of <code>Breakdance</code> with the given <code>options</code>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>options</code> <strong>{Object}</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> Breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
+<span class="hljs-keyword">var</span> breakdance = <span class="hljs-keyword">new</span> Breakdance();
+</code></pre>
+<h3><a name="use" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L70">.use</a></h3>
+<p>Register a compiler plugin <code>fn</code>. Plugin functions should take an options object, and return a function that takes an instance of breakdance.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the breakdance instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-comment">// plugin example</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">yourPlugin</span>(<span class="hljs-params">options</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">breakdance</span>) </span>{
+    <span class="hljs-comment">// do stuff</span>
+  };
+}
+<span class="hljs-comment">// usage</span>
+breakdance.use(yourPlugin());
+</code></pre>
+<h3><a name="preprocess" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L92">.preprocess</a></h3>
+<p>Register a plugin to be called when <code>.parse</code> is run, after the AST is created by [cheerio][], but before the AST is converted to a breakdance AST. <code>preprocess</code> functions are passed an instance of breakdance and the cheerio instance that was created to parse the HTML.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>fn</code> <strong>{Function}</strong>: Plugin function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> md = breakdance(html, {
+  <span class="hljs-attr">preprocess</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">$, node</span>) </span>{
+  }
+});
+</code></pre>
+<h3><a name="define" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L124">.define</a></h3>
+<p>Set a non-enumerable property or method on the breakdance instance. Useful in plugins for defining methods or properties for to be used inside compiler visitor functions.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>name</code> <strong>{String}</strong>: Name of the property or method being defined</li>
+<li><code>val</code> <strong>{any}</strong>: Property value</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-comment">// plugin example</span>
+breakdance.use(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">this</span>.define(<span class="hljs-string">&apos;appendFoo&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+    node.val += <span class="hljs-string">&apos;Foo&apos;</span>;
+  });
+});
+
+<span class="hljs-comment">// then, in a compiler &quot;visitor&quot; function</span>
+breakdance.set(<span class="hljs-string">&apos;text&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+  <span class="hljs-keyword">if</span> (node.something === <span class="hljs-literal">true</span>) {
+    <span class="hljs-keyword">this</span>.appendFoo(node);
+  }
+  <span class="hljs-keyword">this</span>.emit(node.val);
+});
+</code></pre>
+<h3><a name="set" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L144">.set</a></h3>
+<p>Register a visitor function to be called on a node of the given <code>type</code>. Override a built-in visitor <code>type</code>, or register a new type.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>type</code> <strong>{String}</strong>: The <code>node.type</code> to call the visitor on. You can override built-in visitors by registering a visitor of the same name, or register a visitor for rendering a new type.</li>
+<li><code>fn</code> <strong>{Function}</strong>: The visitor function</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js">breakdance.set(<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+  <span class="hljs-comment">// do stuff to node</span>
+});
+</code></pre>
+<h3><a name="before" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L185">.before</a></h3>
+<p>Register a handler that will be called by the compiler on every node of the given <code>type</code>, <em>before other handlers are called</em> on that node.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>type</code> <strong>{String|Object|Array}</strong>: Handler name(s), or an object of handlers</li>
+<li><code>fn</code> <strong>{Function}</strong>: Handler function, if <code>type</code> is a string or array. Otherwise this argument is ignored.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js">breakdance.before(<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+  <span class="hljs-comment">// do stuff to node</span>
+});
+
+<span class="hljs-comment">// or</span>
+breakdance.before([<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-string">&apos;span&apos;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+  <span class="hljs-comment">// do stuff to node</span>
+});
+
+<span class="hljs-comment">// or</span>
+breakdance.before({
+  <span class="hljs-attr">div</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+    <span class="hljs-comment">// do stuff to node</span>
+  },
+  <span class="hljs-attr">span</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+    <span class="hljs-comment">// do stuff to node</span>
+  }
+});
+</code></pre>
+<h3><a name="after" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L232">.after</a></h3>
+<p>Register a handler that will be called by the compiler on every node of the given <code>type</code>, <em>after other handlers are called</em> on that node.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>type</code> <strong>{String|Object|Array}</strong>: Handler name(s), or an object of handlers</li>
+<li><code>fn</code> <strong>{Function}</strong>: Handler function, if <code>type</code> is a string or array. Otherwise this argument is ignored.</li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the instance for chaining.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js">breakdance.after(<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+  <span class="hljs-comment">// do stuff to node</span>
+});
+
+<span class="hljs-comment">// or</span>
+breakdance.after([<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-string">&apos;span&apos;</span>], <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+  <span class="hljs-comment">// do stuff to node</span>
+});
+
+<span class="hljs-comment">// or</span>
+breakdance.after({
+  <span class="hljs-attr">div</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+    <span class="hljs-comment">// do stuff to node</span>
+  },
+  <span class="hljs-attr">span</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
+    <span class="hljs-comment">// do stuff to node</span>
+  }
+});
+</code></pre>
+<h3><a name="parse" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L289">.parse</a></h3>
+<p>Parses a string of <code>html</code> and returns an AST.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>html</code> <strong>{String}</strong></li>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Abstract syntax tree</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-keyword">new</span> Breakdance();
+<span class="hljs-keyword">var</span> ast = breakdance.parse(<span class="hljs-string">&apos;<strong>The Freaks Come Out at Night!</strong>&apos;</span>);
+</code></pre>
+<h3><a name="compile" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L318">.compile</a></h3>
+<p>Convert the a breakdance AST from <a href="#parse">.parse</a> to markdown with the specified <code>options</code></p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>ast</code> <strong>{String}</strong></li>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{Object}</strong>: Returns the AST and compiled markdown string on the <code>.output</code> property, in case you need the object for post-processing.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-keyword">new</span> Breakdance();
+<span class="hljs-keyword">var</span> ast = breakdance.parse(<span class="hljs-string">&apos;<strong>The Freaks Come Out at Night!</strong>&apos;</span>);
+<span class="hljs-keyword">var</span> str = breakdance.compile(ast);
+<span class="hljs-built_in">console</span>.log(str);
+<span class="hljs-comment">//=&gt; &apos;The Freaks Come Out at Night!&apos;</span>
+</code></pre>
+<h3><a name="render" aria-hidden="true"></a><a href="https://github.com/breakdance/breakdance/blob/master/index.js#L373">.render</a></h3>
+<p>Converts a string of HTML to markdown with the specified <code>options</code>. Wraps the <a href="#parse">parse</a> and <a href="#compile">compile</a>.</p>
+<p><strong>Params</strong></p>
+<ul>
+<li><code>html</code> <strong>{String}</strong></li>
+<li><code>options</code> <strong>{Object}</strong></li>
+<li><code>returns</code> <strong>{String}</strong>: Returns a markdown string.</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-keyword">new</span> Breakdance();
+<span class="hljs-keyword">var</span> str = breakdance.render(<span class="hljs-string">&apos;<strong>The Freaks Come Out at Night!</strong>&apos;</span>);
+<span class="hljs-built_in">console</span>.log(str);
+<span class="hljs-comment">//=&gt; &apos;The Freaks Come Out at Night!&apos;</span>
+</code></pre>
+<p></p>
+<h2><a name="related" aria-hidden="true"></a>Related</h2>
+<ul>
+<li><strong>checklists</strong>: Get GitHub-style task list support with [breakdance-checklist][].</li>
+<li><strong>reflinks</strong>: Use [breakdance-reflinks][] if you want to aggregate the urls from hrefs and src attributes at the bottom of the file as reference links</li>
+</ul>
+<h2><a name="next-steps" aria-hidden="true"></a>Next steps</h2>
+<ul>
+<li>[ ] customization?</li>
+<li>[ ] find or author plugins?</li>
+<li>[ ] issue?</li>
+<li>[ ] request?</li>
+<li>[ ] contribute?</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container">
+          <!-- site-wide footer -->
+          <footer class="site-footer">
+            <span class="site-footer-owner"><a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+
+            <span class="site-footer-credits">This page was generated by <a href="https://assemble.io">Assemble</a>.</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+  
+    <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    
+    <script src="assets/js/vendor/tether.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    
+    <script src="assets/js/vendor/clipboard.js"></script>
+    <script src="assets/js/vendor/sticky-kit.js"></script>
+    <script>
+      $(".sticky").stick_in_parent();
+    </script>
+    <script src="assets/js/application.js"></script>
+    
+    <!-- github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>  </body>
+</html>
