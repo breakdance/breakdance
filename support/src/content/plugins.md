@@ -32,12 +32,6 @@ Before moving on to authoring plugins, it might help to understand how the parse
 
 ### Writing your first plugin
 
-
-
-
-
-## The code
-
 A breakdance plugin is a function that takes an instance of breakdance.
 
 **Example**

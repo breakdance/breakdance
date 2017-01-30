@@ -5,6 +5,7 @@
 // base styles
 @import "site";
 @import "page";
+@import "type";
 
 // components
 @import "components/anchors";
@@ -13,6 +14,7 @@
 @import "components/highlight";
 @import "components/jumbotron";
 @import "components/sidebar";
+@import "components/sidenav";
 
 // custom styles
 @import "overrides";

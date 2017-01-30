@@ -9,8 +9,8 @@ var utils = require('markdown-toc');
  */
 
 module.exports = function(str, options) {
-  var opts = extend({id: 'toc', selectors: 'h2,h3'}, options);
-  var classes = extend({ol: '', li: '', a: ''}, opts.classes);
+  var opts = extend({id: 'toc', selectors: 'h2'}, options);
+  var classes = extend({ol: '', li: '', a: 'toc-link'}, opts.classes);
   var $ = cheerio.load(str);
   var headings = $(opts.selectors);
   var navigation = [];
@@ -31,19 +31,18 @@ module.exports = function(str, options) {
 
     var node = {
       text: text.trim(),
+      level: +ele.name.slice(1),
       slug: slug,
       $ele: $ele
     };
 
-    var level = +ele.name.slice(1);
-    var list = normalize(navigation, level, opts);
-    node.level = level;
+    var list = normalize(navigation, node.level, opts);
     list.push(node);
-    $(this).prepend(anchor(slug));
+    $(this).before(anchor(node));
   });
 
-  var id = opts.id.charAt(0) !== '#' ? ('#' + opts.id) : opts.id;
-  $(id).html(renderList(navigation, classes));
+  // var id = opts.id.charAt(0) !== '#' ? ('#' + opts.id) : opts.id;
+  // $(id).html(renderList(navigation, classes));
   return $.html();
 };
 
@@ -85,6 +84,6 @@ function link(node, classes) {
   return `<a href="#${node.slug}" class="${classes.a}">${node.text}</a>`;
 }
 
-function anchor(slug) {
-  return `<a name="${slug}" aria-hidden="true"></a>`;
+function anchor(node, active) {
+  return `<a class="toc-item" id="${node.slug}" title="${node.text}"></a>`;
 }

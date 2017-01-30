@@ -1,14 +1,14 @@
 ---
 title: Recipes
+geopattern: o
 ---
 
 Examples and code snippets to help you get up and running with breakdance as quickly as possible. [pull requests](contributing.html) to add more recipes are very welcome!
 
 
+## Bootstrap's examples
 
-## Retain HTML in bootstrap's examples
-
-This recipe demonstrates how to customize output in breakdance.
+_Customize output in breakdance to retain HTML in bootstrap's documentation examples_.
 
 In [bootstrap's documentation](https://github.com/twbs/bootstrap), most `code` blocks are preceded by an example of some kind. By default, breakdance doesn't retain `div`s or other HTML that doesn't convert to a markdown equivalent (like `button` etc), so we would effectively lose these examples when converting to markdown.
 
@@ -40,7 +40,7 @@ var md = breakdance(html, {
 ```
 
 
-### Normalize whitespace
+## Normalize whitespace
 
 This plugin would overwrite the built-in `text` handler and normalize all consecutive whitepaces in a string to a single whitespace (including newlines):
 
@@ -57,7 +57,7 @@ module.exports = function() {
 And we're done! Really, that's all you need to do to create a basic whitespace normalization plugin.
 
 
-### Override an existing handler
+## Override an existing handler
 
 TODO
 
@@ -85,7 +85,7 @@ breakdance.set('img', function(node) {
 ```
 
 
-### Register a new handler
+## Register a new handler
 
 TODO
 

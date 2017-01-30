@@ -1,0 +1,25 @@
+{
+  "name": "breakdance-docs",
+  "description": "Documentation for breakdance.",
+  "main": "",
+  "authors": [
+    "Jon Schlinkert (https://github.com/jonschlinkert)"
+  ],
+  "license": "CC",
+  "homepage": "https://github.com/breakdance/breakdance",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "support/src/vendor",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "clipboard": "^1.5.16",
+    "anchor-js": "^3.2.2",
+    "normalize-css": "normalize.css#^5.0.0",
+    "bootstrap": "https://github.com/twbs/bootstrap.git#v4-dev"
+  }
+}

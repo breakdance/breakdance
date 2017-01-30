@@ -3,7 +3,7 @@
 var path = require('path');
 var Pkg = require('expand-pkg');
 var reflinks = require('gulp-reflinks');
-var apidocs = require('helper-apidocs');
+var prettify = require('gulp-prettify');
 var pageData = require('assemble-middleware-page-variable');
 var geopattern = require('helper-geopattern');
 var helpers = require('handlebars-helpers')();
@@ -28,6 +28,7 @@ var dest = path.join.bind(path, 'dist');
 var css = path.join.bind(path, dest('assets/css'));
 var src = path.join.bind(path, __dirname, 'src');
 var tmpl = path.join.bind(path, src('templates'));
+var assets = path.join.bind(path, dest('assets'));
 
 /**
  * App
@@ -37,6 +38,14 @@ var app = module.exports = assemble();
 var pkg = new Pkg();
 
 /**
+ * Listen for errors
+ */
+
+app.on('error', function(err) {
+  console.log(err);
+});
+
+/**
  * Options
  */
 
@@ -44,7 +53,8 @@ app.option(defaults());
 app.option('geopatterns.generator', 'sine_waves');
 app.option('geopatterns.color', '#13a1cc');
 app.option('gradient', false);
-app.option('dest', 'dist');
+app.option('assets', assets());
+app.option('dest', dest());
 
 /**
  * Helpers
@@ -56,7 +66,6 @@ app.helper('octicon', require('helper-octicon'));
 app.helper('geopattern', geopattern(app.options));
 app.helper('geoColor', geopattern.color(app.options));
 app.helper('link-to', require('helper-link-to'));
-app.helper('apidocs', apidocs(app));
 app.helper('md', helpers.md.sync);
 
 /**
@@ -75,6 +84,10 @@ app.data('site.nav.dropdown', ['recipes', 'contributing', 'about']);
  */
 
 app.onLoad(/\.md$/, pageData(app));
+app.onLoad(/\.md$/, function(file, next) {
+  file.extname = '.html';
+  next();
+});
 
 /**
  * Generate HTML
@@ -94,14 +107,9 @@ app.task('render', ['preload-templates'], function() {
     .pipe(pipeline.markdown(defaults()))
     .pipe(pipeline.unescape())
     .pipe(app.renderFile({layout: 'default'}))
-    .pipe(pipeline.toc({
-      selectors: `.${app.data('site.content')} h2,h3`,
-      classes: {
-        a: 'toc-link',
-        li: 'toc-item',
-        ol: 'nav sidenav flex-column'
-      }
-    }))
+    .pipe(pipeline.sidenav({selectors: 'h2,h3'}))
+    // .pipe(pipeline.toc({selectors: 'h2,h3'}))
+    .pipe(prettify())
     .pipe(app.dest('dist'));
 });
 
@@ -125,16 +133,28 @@ app.task('uncss', function() {
  * Copy
  */
 
-app.task('copy', ['vendor-scripts'], function() {
-  return app.copy('src/assets/**/*', 'dist/assets');
+app.task('copy-root', function() {
+  return app.copy(src('root/*'), dest());
 });
 
+app.task('copy-assets', function() {
+  return app.copy(src('assets/**/*'), assets());
+});
+
+
+var config = {
+  vendors: ['bryanbraun/anchorjs', 'leafo/sticky-kit', 'zenorocha/clipboard.js', 'HubSpot/tether'],
+  scripts: ['anchorjs/anchor.min.js', 'sticky-kit/dist/sticky-kit.min.js', 'clipboard.js/dist/clipboard.min.js', 'tether/dist/js/tether.min.js'],
+};
+
 app.task('vendor-scripts', function() {
-  return app.copy(['src/vendor/sticky-kit/dist/sticky-kit.js'], 'dist/assets/js/vendor');
+  return app.copy(config.scripts, path.resolve(assets('js/vendor')), {
+    cwd: 'src/vendor'
+  });
 });
 
 app.task('clone', function(cb) {
-  tools.clone(['ghosh/uiGradients', 'leafo/sticky-kit'], 'src/vendor', cb);
+  tools.clone(config.vendors, 'src/vendor', cb);
 });
 
 /**
@@ -149,4 +169,4 @@ app.task('clean', function(cb) {
  * Default task
  */
 
-app.task('default', ['clean', 'copy', 'render', 'sass']);
+app.task('default', ['clean', 'copy-*', 'render', 'sass']);

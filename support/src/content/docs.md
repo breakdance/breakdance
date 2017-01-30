@@ -1,5 +1,4 @@
 ---
-# o
 title: Docs
 geopattern: j
 ---

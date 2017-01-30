@@ -2,52 +2,23 @@
 
 > Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It's time for your markup to get down.
 
-Visit [breakdance.io](https://breakdance.io) for detailed documentation, examples, and advice on [authoring and finding plugins](https://breakdance.io/plugins.html).
-
-- [What is breakdance?](#what-is-breakdance)
-- [Quickstart](#quickstart)
-- [Highlights](#highlights)
-- [Examples](#examples)
-- [About](#about)
-
-## What is breakdance?
-
-Breakdance is a node.js library for converting HTML to markdown.
-
-**What's different about breakdance?**
-
-Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](https://breakdance.io/plugins.html).
-
-**Why would I use breakdance?**
+Breakdance is a node.js library for converting HTML to markdown. You can use breakdance to:
 
 * Migrate HTML blog posts to markdown
 * Convert wiki pages to markdown
 * Convert HTML documentation to markdown
 * Convert HTML presentations or slide decks to markdown
+* Convert busy web pages into readable markdown documents.
 
-## Quickstart
+Visit [breakdance.io](https://breakdance.io) for detailed documentation, examples, and advice on [authoring and finding plugins](https://breakdance.io/plugins.html).
 
-Breakdance is a node.js application, you can download it from [npm](npmjs.com) with the following command:
+## What's different about breakdance?
 
-```sh
-$ npm install breakdance
-```
-
-Then add the following code to `example.js`, and run `$ node example` to see the generated output:
-
-```js
-var breakdance = require('breakdance');
-console.log(breakdance('<strong>The freaks come out at night!</strong>'));
-//=> '**The freaks come out at night!**'
-```
-
-Additional documentation can be found at [breakdance.io](https://breakdance.io).
-
-## Highlights
+Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](https://breakdance.io/plugins.html).
 
 **Generates well-formatted markdown**
 
-* Comprehensive [HTML tag coverage](lib/compilers.js).
+* Comprehensive [HTML tag coverage](lib/compile.js).
 * Granular control over every HTML element and attributes
 * Even **converts HTML tables** to markdown!
 
@@ -55,17 +26,10 @@ Additional documentation can be found at [breakdance.io](https://breakdance.io).
 
 Every part of the conversion is customizable:
 
-* [options](https://breakdance.io/plugins.html) are available for customizing output if you don't like the defaults
-* [plugins](https://breakdance.io/plugins.html) are easy to write if you need to change how any element is rendered.
+* [options](https://breakdance.io/plugins.html) are available for customizing output of any HTML tag if you don't like the defaults
+* [plugins](https://breakdance.io/plugins.html) are easy to write if you'd like to share your customizations with the world
 
-**Built upon solid libraries**
-
-* Uses [cheerio](https://github.com/cheeriojs/cheerio) for fast, efficient and reliable HTML parsing.
-* Uses [snapdragon](https://github.com/jonschlinkert/snapdragon) for powerful, pluggable and easy-to-understand rendering
-
-## Examples
-
-Most of the other markdown-to-HTML converters struggle with tables. Breakdance has solid support for well-formed tables, and even some sub-optimal tables. Here are a few examples:
+## HTML-to-markdown example
 
 **Tables**
 
@@ -111,6 +75,17 @@ See [the documentation](https://breakdance.io/examples.html) for more examples.
 
 ## About
 
+### Community
+
+Get updates on Breakdance's development and chat with the project maintainers and community members.
+
+* Follow [@breakdancejs on Twitter](https://twitter.com/breakdancejs).
+* Read and subscribe to [The Official Breakdance Blog](https://breakdance.io/blog).
+* Join [the official Slack room](https://breakdance-slack.herokuapp.com).
+* Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##breakdance` channel.
+* Implementation help may be found at Stack Overflow (please use the tag [breakdance](https://stackoverflow.com/questions/tagged/breakdance)`breakdance`).
+* For maximum discoverability, plugin developers should use the keyword `breakdance` on packages which modify or add to the functionality of Breakdance when distributing through [npm](https://www.npmjs.com/browse/keyword/breakdance) or similar delivery mechanisms.
+
 ### Contributing
 
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](../../issues/new).
@@ -139,4 +114,4 @@ Released under the [MIT license](LICENSE).
 
 ***
 
-_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.2, on January 28, 2017._
+_This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.4.2, on January 29, 2017._

@@ -1,5 +1,5 @@
 ---
-title: breakdance
+title: Breakdance
 slug: index
 geopattern: s
 ---
@@ -47,6 +47,6 @@ console.log(breakdance('<strong>The freaks come out at night!</strong>'));
 
 ## Next steps
 
-- Learn how to [customize breakdance](api.html)
+- Learn more about [using breakdance](docs.html)
+- See [HTML-to-markdown examples](docs.html#examples)
 - Visit the breakdance [unit tests]({{@site.href}}/test), this is a great way to see comprehensive and detailed usage examples.
-- There are a number of [HTML-to-markdown examples](docs.html#examples) in the documentation as well

@@ -24,7 +24,9 @@ $pink:   #ff5b77 !default;
 $purple: #613d7c !default;
 
 // grayscale
-$gray-dark:      #292b2c !default;
+$gray-darkest:   darken(#292b2c, 10%) !default;
+$gray-darker:    #292b2c !default;
+$gray-dark:      lighten(#292b2c, 10%) !default;
 $gray:           #464a4c !default;
 $gray-light:     #636c72 !default;
 $gray-lighter:   #eceeef !default;
@@ -47,41 +49,11 @@ $link-decoration:       none !default;
 $link-hover-color:      darken($link-color, 15%) !default;
 $link-hover-decoration: underline !default;
 
-
-// breakpoints
-$large-breakpoint:  64em;
-$medium-breakpoint: 42em;
-
-//
-// grid
-//
-$grid-columns:               12 !default;
-$grid-gutter-width-base:     30px !default;
-$grid-gutter-widths: (
-  xs: $grid-gutter-width-base,
-  sm: $grid-gutter-width-base,
-  md: $grid-gutter-width-base,
-  lg: $grid-gutter-width-base,
-  xl: $grid-gutter-width-base
-) !default;
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px
-) !default;
-
 // headers
 $header-heading-color: #fff;
 $header-bg-color: #31b0d5;
 $header-bg-color-secondary: darken($header-bg-color, 15%);
-
-// text
 $section-headings-color: $header-bg-color;
-$blockquote-text-color: #819198;
-$body-text-color: #606c71;
 
 // font families
 $font-family-sans-serif: "Railway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
@@ -90,25 +62,43 @@ $font-family-monospace: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono
 $font-family-headings:  "Roboto", $font-family-sans-serif;
 
 // font sizes
-$font-weight-normal: normal !default;
-$font-weight-bold:   bold !default;
+$font-size-base: 1rem    !default; // Assumes the browser default, typically `16px`
+$font-size-lg:   1.25rem !default;
+$font-size-sm:   .875rem !default;
+$font-size-xs:   .75rem  !default;
 
-// links
-$body-link-color:    #2b7cb9;
+// font weights
+$font-weight-normal: normal !default;
+$font-weight-bold:   bold   !default;
+$font-weight-base:   $font-weight-normal !default;
 
 // borders
 $border-color:       #dce6f0;
-$table-border-color: #e9ebec;
-$hr-border-color:    #eff0f1;
-
-// border radius
+$border-width:       1px !default;
 $border-radius:      .25rem !default;
 $border-radius-lg:   .3rem  !default;
 $border-radius-sm:   .2rem  !default;
 
-// jumbotron
-$jumbotron-padding:  2rem !default;
-$jumbotron-bg:       $gray-lighter !default;
+// vertical padding
+$vertical-spacing: 1rem;
+
+//
+// Elements
+//
+
+// body
+$body-text-color: #606c71;
+$body-link-color:    #2b7cb9;
+
+// tables
+$table-border-color: #e9ebec;
+
+// Blockquotes
+$blockquote-text-color: #819198;
+$blockquote-small-color:  $gray-light !default;
+$blockquote-font-size:    ($font-size-base * 1.25) !default;
+$blockquote-border-color: $gray-lighter !default;
+$blockquote-border-width: .25rem !default;
 
 // code
 $code-font-size:     .9rem          !default;
@@ -131,3 +121,43 @@ $kbd-box-shadow:              inset 0 -.1rem 0 rgba($black, .25) !default;
 $pre-color:                   $gray-dark     !default;
 $pre-scrollable-max-height:   340px          !default;
 $pre-border-color:            340px          !default;
+
+// hr
+$hr-border-color: rgba($black,.1) !default;
+$hr-border-width: $border-width   !default;
+
+
+//
+// grid
+//
+
+// breakpoints
+$large-breakpoint:  64em;
+$medium-breakpoint: 42em;
+
+$grid-columns:               12 !default;
+$grid-gutter-width-base:     30px !default;
+$grid-gutter-widths: (
+  xs: $grid-gutter-width-base,
+  sm: $grid-gutter-width-base,
+  md: $grid-gutter-width-base,
+  lg: $grid-gutter-width-base,
+  xl: $grid-gutter-width-base
+) !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+
+//
+// components
+//
+
+// jumbotron
+$jumbotron-padding:  2rem !default;
+$jumbotron-bg:       $gray-lighter !default;

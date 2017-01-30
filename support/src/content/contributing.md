@@ -1,5 +1,6 @@
 ---
 title: Contributing
+geopattern: t
 ---
 
 **TODO**

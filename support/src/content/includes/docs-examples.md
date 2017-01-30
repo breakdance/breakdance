@@ -1,4 +1,3 @@
-
 These examples on this page are not comprehensive. See the [breakdance unit tests]({{@site.href}}/blob/master/test) for more examples. Requests (or pull requests) [are welcome]({{@site.bugs.url}}/new) to add other examples.
 
 It's also very easy to change the output with [options](options.html) or [plugins](plugions.htlm), if you don't like the defaults.

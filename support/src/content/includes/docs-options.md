@@ -1,8 +1,3 @@
----
-title: Options
-geopattern: s
----
-
 **Setting options**
 
 A number of different options are available for configuring breakdance. If you need more than what the options provide, see the docs for [customizing breakdance](customize.html).
