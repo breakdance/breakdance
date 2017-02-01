@@ -10,7 +10,7 @@ Breakdance is a node.js library for converting HTML to markdown. You can use bre
 * Convert HTML presentations or slide decks to markdown
 * Convert busy web pages into readable markdown documents.
 
-Visit [breakdance.io](http://breakdance.io) for detailed documentation, [examples](https://breakdance.io/examples), [recipes](https://breakdance.io/recipes), and advice on [authoring and finding plugins](http://breakdance.io/plugins.html).
+Visit [breakdance.io](http://breakdance.io) for detailed documentation, [examples](http://breakdance.io/examples), [recipes](http://breakdance.io/recipes), and advice on [authoring and finding plugins](http://breakdance.io/plugins.html).
 
 ## What's different about breakdance?
 
@@ -79,10 +79,6 @@ See [the documentation](http://breakdance.io/examples.html) for more examples.
 
 Get updates on Breakdance's development and chat with the project maintainers and community members.
 
-* Follow [@breakdancejs on Twitter](https://twitter.com/breakdancejs).
-* Read and subscribe to [The Official Breakdance Blog](https://breakdance.io/blog).
-* Join [the official Slack room](https://breakdance-slack.herokuapp.com).
-* Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##breakdance` channel.
 * Implementation help may be found at Stack Overflow (please use the tag [breakdance](https://stackoverflow.com/questions/tagged/breakdance)`breakdance`).
 * For maximum discoverability, plugin developers should use the keyword `breakdance` on packages which modify or add to the functionality of Breakdance when distributing through [npm](https://www.npmjs.com/browse/keyword/breakdance) or similar delivery mechanisms.
 
