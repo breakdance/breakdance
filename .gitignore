@@ -21,7 +21,6 @@ _gh_pages
 _draft
 _drafts
 bower_components
-support/**/vendor
 temp
 tmp
 TODO.md
