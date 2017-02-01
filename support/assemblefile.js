@@ -117,14 +117,14 @@ app.task('render', ['preload-templates'], function() {
   app.emit('render');
   return app.toStream('pages')
     .pipe(pipeline.isBinary())
-    // .pipe(pipeline.reflinks(app.options))
+    .pipe(pipeline.reflinks(app.options))
     .pipe(pipeline.markdown(defaults))
     .pipe(pipeline.unescape())
     .pipe(app.renderFile({layout: 'default'}))
     .pipe(pipeline.cheerio())
     .pipe(pipeline.sidenav({selectors: 'h2,h3'}))
     .pipe(pipeline.prettify())
-    .pipe(app.dest('dist'));
+    .pipe(app.dest(dest()));
 });
 
 /**
@@ -184,7 +184,7 @@ app.task('clone', function(cb) {
  */
 
 app.task('clean', function(cb) {
-  del('dist/', cb);
+  del(dest(), cb);
 });
 
 /**

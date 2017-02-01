@@ -132,8 +132,9 @@
             <p>However, if we wanted to retain the examples for some reason, we can easily modify breakdance&apos;s behavior with only a few lines of code.</p>
             <p>More specifically, we&apos;re going to pass the following options to breakdance:</p>
             <ul>
-              <li><code>preprocess</code>: The proprocess option gives us access to the [cheerio][] AST before passing it to breakdance for compiling. We&apos;ll use this to 1) check for bootstrap&apos;s examples, 2) when found, use cheerio&apos;s API to
-                get the outer HTML for the example, and 3) set the HTML string on the node, so we can grab it later on when we&apos;re compiling.</li>
+              <li><code>preprocess</code>: The proprocess option gives us access to the
+                <a href="https://github.com/cheeriojs/cheerio">cheerio</a> AST before passing it to breakdance for compiling. We&apos;ll use this to 1) check for bootstrap&apos;s examples, 2) when found, use cheerio&apos;s API to get the outer HTML for the example, and 3) set the HTML string on the
+                node, so we can grab it later on when we&apos;re compiling.</li>
               <li><code>before.div</code>: this registers a handler that will be called by the compiler on every <code>div</code> node,
                 <em>before other handlers are called</em> on that node. This allows us to check the node to see if it&apos;s one of our &quot;example&quot; nodes, and if so we want to add the <code>node.html</code> string to the <code>compiler.output</code>                string by calling <code>.emit()</code>, instead of recursing down into the child nodes of the <code>div</code>. Since we&apos;ve already rendered the contents of the <code>div</code> as literal HTML, we&apos;ve done all we can do with
                 this node, and we need to prevent any other handlers that might be called on the node from recursing over child nodes on the <code>div</code> and emittering their contents. We can do this by simply setting <code>node.nodes</code> to an
@@ -150,7 +151,7 @@
     <span class="hljs-attr">div</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">node</span>) </span>{
       <span class="hljs-keyword">if</span> (node.isBootstrapExample) {
         <span class="hljs-keyword">this</span>.emit(node.html);
-        node.nodes = [];
+        node.nodes = []
       }
     }
   }
