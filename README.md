@@ -18,7 +18,7 @@ Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, a
 
 **Generates well-formatted markdown**
 
-* Comprehensive [HTML tag coverage](lib/compile.js).
+* Comprehensive [HTML tag coverage](lib/compiler.js).
 * Granular control over every HTML element and attributes
 * Even **converts HTML tables** to markdown!
 
