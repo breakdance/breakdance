@@ -12,6 +12,12 @@ Breakdance was created by [{{@site.author.name}}]({{@site.author.url}}).
 As they say, all the good names were taken. Besides, I tend to always use literal, concrete words to describe projects, sometimes it's fun to change it up. This name makes me smile.
 
 
+## Why did you create breakdance?
+
+We have thousands of old wiki pages that need to be converted to markdown, and every HTML-to-markdown converter we tried was inadequate at best. We needed a converter that would reliably produce the results we needed, whilst also being pluggable enough that we could patch functionality when something unexpected cropped up.
+
+As a side benefit, breakdance really demonstrates the power of [snapdragon][], the library that breakdance depends on for rendering (also created by [jonschlinkert](https://github.com/jonschlinkert)).
+
 ## How was this site created?
 
 This site was created using [assemble][], along with some plugins and helpers. 
