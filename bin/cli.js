@@ -2,28 +2,42 @@
 
 var fs = require('fs');
 var path = require('path');
+var ok = require('log-ok');
+var mkdirp = require('mkdirp');
 var breakdance = require('..');
-var extend = require('extend-shallow');
-var resolve = require('resolve-dir');
-var argv = require('yargs-parser')(process.argv.slice(2));
-var name = argv._[0];
+var argv = require('yargs')
+  .option('file', {
+    alias: 'f',
+    describe: 'HTML file to convert (with or without .html extension)',
+    demand: true
+  })
+  .option('dest', {
+    alias: 'd',
+    describe: 'Destination directory. Defaults to process.cwd().',
+    default: process.cwd()
+  })
+  .argv
 
-var fp = argv.f ? path.resolve(argv.f) : path.resolve(resolve('~/dev/html'), name + '.html');
-var str = fs.readFileSync(fp, 'utf8');
-var opts = extend({}, argv);
-var res = '';
+fs.readFile(path.resolve(process.cwd(), argv.file), function(err, buf) {
+  handleError(err);
 
-if (argv.wiki) {
-  opts = extend({}, require('../lib/plugins/wikipedia'), argv);
-  res = breakdance(str, opts);
-} else if (argv.moz) {
-  opts = extend({}, require('../lib/plugins/mozilla'), argv);
-  res = breakdance(str, opts);
-} else {
-  res = breakdance(str, extend({}, {
-    prettify: true,
-    reflinks: true
-  }, argv));
+  var str = breakdance(buf.toString(), argv);
+  var name = path.basename(argv.file, path.extname(argv.file));
+  var destPath = path.resolve(argv.dest, name + '.md');
+
+  mkdirp(argv.dest, function(err) {
+    handleError(err);
+
+    fs.writeFile(destPath, str, function(err) {
+      handleError(err);
+      ok('Markdown file written to', destPath);
+    })
+  });
+});
+
+function handleError(err) {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
 }
-
-console.log(res);

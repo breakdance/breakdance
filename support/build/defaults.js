@@ -1,28 +1,30 @@
 'use strict';
 
-var extend = require('extend-shallow');
 var hljs = require('highlight.js');
 
 /**
  * Defaults for the markdown plugin
  */
 
-module.exports = function(options) {
-  return extend({}, {
-    html: true,
-    escapeText: false,
-    highlight: function(str, lang) {
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          return hljs.highlight(lang, str).value;
-        } catch (err) {}
-      }
-
+module.exports = {
+  html: true,
+  escapeText: false,
+  highlight: function(code, lang) {
+    if (lang && hljs.getLanguage(lang)) {
       try {
-        return hljs.highlightAuto(str).value;
-      } catch (err) {}
+        return hljs.highlight(lang, code).value;
+      } catch (err) {
 
-      return ''; // use external default escaping
+        if (!/Unknown language/i.test(err.message)) {
+          throw err;
+        }
+      }
     }
-  }, options);
+
+    try {
+      return hljs.highlightAuto(code).value;
+    } catch (err) {}
+
+    return code;
+  }
 };

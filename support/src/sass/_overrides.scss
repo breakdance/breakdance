@@ -22,6 +22,12 @@ a {
   color: $body-link-color;
 }
 
+// when `<p>` is the first element after the masthead, add
+// 30px top margin, to even up the paragraph with the sidenav
+p:first-child {
+  margin-top: 30px;
+}
+
 /**
  * Navbar
  */
@@ -29,10 +35,8 @@ a {
 .navbar-brand {
   margin-left: -15px;
 }
-
-.navbar .gh-buttons .nav-item {
-  margin-top: 10px;
-  text-align: right;
+.navbar-nav.gh-buttons {
+  padding-top: 10px;
 }
 
 /**
@@ -42,4 +46,28 @@ a {
 .lead {
   font-size: 1.5rem;
   margin-top: 50px;
+}
+
+
+// Special popover styles
+// ---------------------------------------------
+
+.popover-source {
+  max-width: 60%; // prevent inner text from wrapping in source links
+
+  // Specific styling for new-window icon in popovers
+  .glyphicon-new-window {
+    font-size: 12px;
+    padding-left: 6px;
+  }
+
+  &.left {
+    margin-top: 2px; // tweak margin to align vertically
+    margin-left: 60px;
+  }
+  &, .glyphicon-new-window {
+    &, &:hover {
+      color: #849396; // medium gray-blue
+    }
+  }
 }

@@ -83,10 +83,6 @@
       $body.scrollspy('refresh');
     });
 
-    $('.bs-docs-container [href=#]').click(function(e) {
-      e.preventDefault();
-    });
-
     // Keep popovers open when hovered
     $('.source-link').popover({
       trigger: 'manual',
@@ -116,29 +112,6 @@
       }, 100);
     });
 
-    // Dock the content navbar as it arrives just below the navbar. This arrangement
-    // allows a different navbar to be defined for each content section, but for now
-    // we're only using one.
-    var contentNav = $('.navbar-wrap');
-    contentNav.each(function(i) {
-      var navbar = $(contentNav[i]);
-      var next = contentNav[i + 1];
-
-      navbar.scrollToFixed({
-        marginTop: $('.main-nav').outerHeight(true),
-        limit: function() {
-          var limit = 0;
-          if (next) {
-            limit = $(next).offset().top - $(this).outerHeight(true) - 10;
-          } else {
-            limit = $('.footer').offset().top - $(this).outerHeight(true) - 10;
-          }
-          return limit;
-        },
-        zIndex: 999
-      });
-    });
-
     // back to top
     setTimeout(function() {
       var $sideBar = $('.sidebar');
@@ -148,12 +121,12 @@
           top: function() {
             var offsetTop      = $sideBar.offset().top;
             var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10);
-            var navOuterHeight = $('.main-nav').height();
+            var navOuterHeight = $('.site-navigation').height() + $('.masthead').height();
 
             return (this.top = offsetTop - navOuterHeight - sideBarMargin);
           },
           bottom: function() {
-            return (this.bottom = $('.footer').outerHeight(true));
+            return (this.bottom = $('.site-footer').outerHeight(true));
           }
         }
       });

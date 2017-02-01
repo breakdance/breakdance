@@ -2,6 +2,9 @@
  * Variables
  */
 
+// site variables
+$page-gutter: 60px;
+
 // options
 $enable-rounded:            true !default;
 $enable-shadows:            false !default;
@@ -82,6 +85,9 @@ $border-radius-sm:   .2rem  !default;
 // vertical padding
 $vertical-spacing: 1rem;
 
+// list padding
+$list-inline-padding: 5px !default;
+
 //
 // Elements
 //
@@ -158,6 +164,6 @@ $grid-breakpoints: (
 // components
 //
 
-// jumbotron
-$jumbotron-padding:  2rem !default;
-$jumbotron-bg:       $gray-lighter !default;
+// masthead
+$masthead-padding:  2rem !default;
+$masthead-bg:       $gray-lighter !default;

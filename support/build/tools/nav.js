@@ -9,7 +9,7 @@ var utils = require('markdown-toc');
  */
 
 module.exports = function(str, options) {
-  var opts = extend({id: 'toc', selectors: 'h2'}, options);
+  var opts = extend({id: 'toc', selectors: 'h1,h2'}, options);
   var classes = extend({ol: '', li: '', a: 'toc-link'}, opts.classes);
   var $ = cheerio.load(str);
   var headings = $(opts.selectors);

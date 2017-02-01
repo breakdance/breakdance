@@ -2,14 +2,18 @@
 
 var log = require('log-utils');
 var cheerio = require('cheerio');
+var isObject = require('isobject');
 var extend = require('extend-shallow');
 var utils = require('markdown-toc');
 
-module.exports = function(str, options) {
+module.exports = function(file, options) {
   var opts = extend({selectors: 'h1,h2'}, options);
 
-  // load current page content
-  var $ = cheerio.load(str);
+  if (typeof file.$ === 'undefined') {
+    file.$ = cheerio.load(file.contents.toString());
+  }
+
+  var $ = file.$;
 
   // get all the anchor tags from inside the headers
   var headings = $(opts.selectors);
@@ -80,7 +84,6 @@ module.exports = function(str, options) {
 
     // Anchor template
     $(this).append(anchorTemplate(id));
-
     if ($(this).prev().children().hasClass('source-link')) {
       var sourceLink = $(this).prev().children('.source-link');
       $(this).append(sourceLink);
@@ -91,8 +94,8 @@ module.exports = function(str, options) {
 };
 
 function anchorTemplate(id) {
-  return `<a href="#${id}" name="${id}" class="anchor">,
-  <span class="anchor-target" id="${id}"></span>,
-  <span class="glyphicon glyphicon-link"></span>,
+  return `<a href="#${id}" name="${id}" class="anchor">
+  <span class="anchor-target" id="${id}"></span>
+  <span class="glyphicon glyphicon-link"></span>
 </a>`;
 }

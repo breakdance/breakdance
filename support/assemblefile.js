@@ -1,12 +1,13 @@
 'use strict';
 
 var path = require('path');
+var verb = require('verb');
 var Pkg = require('expand-pkg');
-var reflinks = require('gulp-reflinks');
-var prettify = require('gulp-prettify');
+var pkg = new Pkg();
 var pageData = require('assemble-middleware-page-variable');
 var geopattern = require('helper-geopattern');
-var helpers = require('handlebars-helpers')();
+var reflinks = require('verb-reflinks');
+var helpers = require('handlebars-helpers');
 var assemble = require('assemble');
 var uncss = require('gulp-uncss');
 var sass = require('gulp-sass');
@@ -16,6 +17,7 @@ var del = require('delete');
  * Local dependencies
  */
 
+var verbfile = require('./verbfile');
 var pipeline = require('./build/pipeline');
 var defaults = require('./build/defaults');
 var tools = require('./build/tools');
@@ -35,7 +37,13 @@ var assets = path.join.bind(path, dest('assets'));
  */
 
 var app = module.exports = assemble();
-var pkg = new Pkg();
+
+/**
+ * Custom collections
+ */
+
+app.create('includes', {viewType: 'partial'});
+app.create('examples', {viewType: 'partial'});
 
 /**
  * Listen for errors
@@ -49,7 +57,7 @@ app.on('error', function(err) {
  * Options
  */
 
-app.option(defaults());
+app.option('helper.remarkable', defaults);
 app.option('geopatterns.generator', 'sine_waves');
 app.option('geopatterns.color', '#13a1cc');
 app.option('gradient', false);
@@ -60,13 +68,11 @@ app.option('dest', dest());
  * Helpers
  */
 
-app.helpers(helpers);
+app.helpers(helpers());
 app.helpers(require('./build/helpers'));
-app.helper('octicon', require('helper-octicon'));
+app.asyncHelpers(require('./build/helpers/async'));
 app.helper('geopattern', geopattern(app.options));
 app.helper('geoColor', geopattern.color(app.options));
-app.helper('link-to', require('helper-link-to'));
-app.helper('md', helpers.md.sync);
 
 /**
  * Data
@@ -74,15 +80,15 @@ app.helper('md', helpers.md.sync);
 
 app.data({site: pkg.expand(require('../package'))});
 app.data('site.title', app.data('site.name'));
-app.data('site.content', 'page-content');
 app.data('site.repo', 'breakdance/breakdance');
 app.data('site.nav.main', ['docs', 'plugins']);
-app.data('site.nav.dropdown', ['recipes', 'contributing', 'about']);
+app.data('site.nav.dropdown', ['examples', 'recipes', 'contributing', 'about']);
 
 /**
  * Middleware
  */
 
+app.preRender(/(api|options)/, reflinks(app.options));
 app.onLoad(/\.md$/, pageData(app));
 app.onLoad(/\.md$/, function(file, next) {
   file.extname = '.html';
@@ -90,27 +96,43 @@ app.onLoad(/\.md$/, function(file, next) {
 });
 
 /**
- * Generate HTML
+ * Pre-load templates
  */
 
 app.task('preload-templates', function(cb) {
   app.partials(tmpl('partials/*.hbs'));
   app.layouts(tmpl('layouts/*.hbs'));
-  app.pages('src/content/*.md');
+  app.includes('../.github/contributing.md');
+  app.includes(tmpl('includes/*.md'));
+  app.examples(tmpl('examples/*.md'));
+  app.pages(tmpl('pages/*.md'));
   cb();
 });
+
+/**
+ * Generate HTML
+ */
 
 app.task('render', ['preload-templates'], function() {
   app.emit('render');
   return app.toStream('pages')
-    .pipe(reflinks(app.options))
-    .pipe(pipeline.markdown(defaults()))
+    .pipe(pipeline.isBinary())
+    // .pipe(pipeline.reflinks(app.options))
+    .pipe(pipeline.markdown(defaults))
     .pipe(pipeline.unescape())
     .pipe(app.renderFile({layout: 'default'}))
+    .pipe(pipeline.cheerio())
     .pipe(pipeline.sidenav({selectors: 'h2,h3'}))
-    // .pipe(pipeline.toc({selectors: 'h2,h3'}))
-    .pipe(prettify())
+    .pipe(pipeline.prettify())
     .pipe(app.dest('dist'));
+});
+
+/**
+ * Generate API documentation using Verb
+ */
+
+app.task('verb', function(cb) {
+  verbfile(verb(), cb);
 });
 
 /**
@@ -134,11 +156,11 @@ app.task('uncss', function() {
  */
 
 app.task('copy-root', function() {
-  return app.copy(src('root/*'), dest());
+  return app.copy(src('root/*'), dest(), {dot: true});
 });
 
 app.task('copy-assets', function() {
-  return app.copy(src('assets/**/*'), assets());
+  return app.copy(src('assets/**/*'), assets(), {dot: true});
 });
 
 
@@ -169,4 +191,4 @@ app.task('clean', function(cb) {
  * Default task
  */
 
-app.task('default', ['clean', 'copy-*', 'render', 'sass']);
+app.task('default', ['clean', 'copy-*', 'verb', 'render', 'sass']);

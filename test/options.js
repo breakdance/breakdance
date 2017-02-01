@@ -40,10 +40,10 @@ describe('options', function() {
     });
   });
 
-  describe('.override', function() {
-    it('should override a visitor', function() {
+  describe('.handlers', function() {
+    it('should override a handler', function() {
       isEqual.inline('<title>This is a title</title>', '', {
-        override: {
+        handlers: {
           title: function(node) {
             this.emit('');
           }
@@ -51,7 +51,7 @@ describe('options', function() {
       });
 
       isEqual.inline('<title>This is a title</title>', 'foo', {
-        override: {
+        handlers: {
           title: function(node) {
             this.emit('foo');
           }
@@ -59,7 +59,7 @@ describe('options', function() {
       });
 
       isEqual.inline('<title>This is a title</title>', '# This is a title', {
-        override: {
+        handlers: {
           title: function(node) {
             this.emit('# ' + node.val);
           }

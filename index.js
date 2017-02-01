@@ -6,7 +6,6 @@ var Snapdragon = require('snapdragon');
 var define = require('define-property');
 var extend = require('extend-shallow');
 var parser = require('snapdragon-cheerio');
-var util = require('snapdragon-util');
 var defaults = require('./lib/defaults');
 var compiler = require('./lib/compiler');
 var html = require('./lib/html');
@@ -14,23 +13,21 @@ var html = require('./lib/html');
 /**
  * Create an instance of `Breakdance` with the given `options`.
  *
- * ```js
- * var Breakdance = require('breakdance');
- * var breakdance = new Breakdance();
- * ```
- * @param {Object} `options`
+ * {{example "Breakdance"}}
+ *
+ * @param {Object|String} `options` Pass options if you need to instantiate Breakdance, or a string to convert HTML to markdown.
  * @api public
  */
 
 function Breakdance(options) {
   if (typeof options === 'string') {
-    var proto = Object.create(Breakdance.prototype);
+    let proto = Object.create(Breakdance.prototype);
     Breakdance.call(proto);
     return proto.render.apply(proto, arguments);
   }
 
   if (!(this instanceof Breakdance)) {
-    var proto = Object.create(Breakdance.prototype);
+    let proto = Object.create(Breakdance.prototype);
     Breakdance.call(proto);
     return proto;
   }
@@ -40,7 +37,7 @@ function Breakdance(options) {
   this.plugins = {
     fns: [],
     preprocess: [],
-    visitors: {},
+    handlers: {},
     before: {},
     after: {}
   };
@@ -79,9 +76,11 @@ Breakdance.prototype.use = function(fn) {
  * and the cheerio instance that was created to parse the HTML.
  *
  * ```js
- * var md = breakdance(html, {
- *   preprocess: function($, node) {
- *   }
+ * var Breakdance = require('breakdance');
+ * var breakdance = new Breakdance();
+ *
+ * breakdance.preprocess(function($) {
+ *   // do stuff with cheerio AST
  * });
  * ```
  * @param {Function} `fn` Plugin function
@@ -97,7 +96,7 @@ Breakdance.prototype.preprocess = function(fn) {
 /**
  * Set a non-enumerable property or method on the breakdance instance.
  * Useful in plugins for defining methods or properties for to be used
- * inside compiler visitor functions.
+ * inside compiler handler functions.
  *
  * ```js
  * // plugin example
@@ -107,7 +106,7 @@ Breakdance.prototype.preprocess = function(fn) {
  *   });
  * });
  *
- * // then, in a compiler "visitor" function
+ * // then, in a compiler "handler" function
  * breakdance.set('text', function(node) {
  *   if (node.something === true) {
  *     this.appendFoo(node);
@@ -127,16 +126,16 @@ Breakdance.prototype.define = function(name, val) {
 };
 
 /**
- * Register a visitor function to be called on a node of the given `type`.
- * Override a built-in visitor `type`, or register a new type.
+ * Register a handler function to be called on a node of the given `type`.
+ * Override a built-in handler `type`, or register a new type.
  *
  * ```js
  * breakdance.set('div', function(node) {
  *   // do stuff to node
  * });
  * ```
- * @param {String} `type` The `node.type` to call the visitor on. You can override built-in visitors by registering a visitor of the same name, or register a visitor for rendering a new type.
- * @param {Function} `fn` The visitor function
+ * @param {String} `type` The `node.type` to call the handler on. You can override built-in handlers by registering a handler of the same name, or register a handler for rendering a new type.
+ * @param {Function} `fn` The handler function
  * @return {Object} Returns the instance for chaining.
  * @api public
  */
@@ -147,7 +146,7 @@ Breakdance.prototype.set = function(type, fn) {
       this.set(type[i], fn);
     }
   } else {
-    this.plugins.visitors[type] = fn;
+    this.plugins.handlers[type] = fn;
   }
   return this;
 };
@@ -247,7 +246,8 @@ Breakdance.prototype.after = function(type, fn) {
 };
 
 /**
- * Run plugin functions of the given `type`.
+ * Private method for running plugin functions on a node of the
+ * given `type`.
  *
  * @param {String} `type` Either `before` or `after`
  * @param {Object} `compiler` Snapdragon compiler instance
@@ -270,7 +270,7 @@ Breakdance.prototype.run = function(type, compiler) {
       node = plugin.call(compiler, node) || node;
     }
     return node;
-  }
+  };
 };
 
 /**
@@ -344,10 +344,10 @@ Breakdance.prototype.compile = function(ast, options) {
     this.plugins.fns[i].call(this, this);
   }
 
-  var visitors = extend({}, this.plugins.visitors, opts.override);
-  for (var key in visitors) {
-    if (visitors.hasOwnProperty(key)) {
-      snapdragon.compiler.set(key, visitors[key]);
+  var handlers = extend({}, this.plugins.handlers, opts.handlers);
+  for (var key in handlers) {
+    if (handlers.hasOwnProperty(key)) {
+      snapdragon.compiler.set(key, handlers[key]);
     }
   }
 
@@ -356,7 +356,8 @@ Breakdance.prototype.compile = function(ast, options) {
 
 /**
  * Converts a string of HTML to markdown with the specified `options`. Wraps
- * the [parse](#parse) and [compile](#compile).
+ * the [parse](#parse) and [compile](#compile) to simplify converting HTML to markdown
+ * with a single function call.
  *
  * ```js
  * var breakdance = new Breakdance();
