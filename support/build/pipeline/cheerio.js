@@ -10,11 +10,6 @@ module.exports = function(options) {
       return;
     }
 
-    if (file.isBinary()) {
-      next(null, file);
-      return;
-    }
-
     file.$ = cheerio.load(file.contents.toString(), options);
     next(null, file);
   });

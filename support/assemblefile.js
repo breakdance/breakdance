@@ -116,7 +116,6 @@ app.task('preload-templates', function(cb) {
 app.task('render', ['preload-templates'], function() {
   app.emit('render');
   return app.toStream('pages')
-    .pipe(pipeline.isBinary())
     .pipe(pipeline.reflinks(app.options))
     .pipe(pipeline.markdown(defaults))
     .pipe(pipeline.unescape())
