@@ -26,7 +26,7 @@ var tools = require('./build/tools');
  * Build variables
  */
 
-var dest = path.join.bind(path, 'dist');
+var dest = path.join.bind(path, __dirname, '../docs');
 var css = path.join.bind(path, dest('assets/css'));
 var src = path.join.bind(path, __dirname, 'src');
 var tmpl = path.join.bind(path, src('templates'));
