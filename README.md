@@ -1,5 +1,7 @@
 # breakdance [![NPM version](https://img.shields.io/npm/v/breakdance.svg?style=flat)](https://www.npmjs.com/package/breakdance) [![NPM monthly downloads](https://img.shields.io/npm/dm/breakdance.svg?style=flat)](https://npmjs.org/package/breakdance)  [![NPM total downloads](https://img.shields.io/npm/dt/breakdance.svg?style=flat)](https://npmjs.org/package/breakdance) [![Linux Build Status](https://img.shields.io/travis/breakdance/breakdance.svg?style=flat&label=Travis)](https://travis-ci.org/breakdance/breakdance)  [![Build Status](https://img.shields.io/travis/breakdance/breakdance.svg?style=flat)](https://travis-ci.org/breakdance/breakdance)
 
+[![Join the chat at https://gitter.im/breakdance/breakdance](https://badges.gitter.im/breakdance/breakdance.svg)](https://gitter.im/breakdance/breakdance?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It's time for your markup to get down.
 
 Breakdance is a node.js library for converting HTML to markdown. You can use breakdance to:
