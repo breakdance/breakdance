@@ -184,7 +184,7 @@ app.task('clone', function(cb) {
  */
 
 app.task('clean', function(cb) {
-  del(dest(), cb);
+  del(dest(), {force: true}, cb);
 });
 
 /**

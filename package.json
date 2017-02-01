@@ -2,7 +2,7 @@
   "name": "breakdance",
   "description": "Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It's time for your markup to get down.",
   "version": "0.1.0",
-  "homepage": "https://breakdance.io",
+  "homepage": "http://breakdance.io",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "breakdance/breakdance",
   "bugs": {

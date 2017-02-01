@@ -52,7 +52,7 @@ If you're contributing docs to breakdance.io, you will want to modify or add a f
 
 Building the actual site isn't necessary for our purposes, but you are welcome to do so if you'd like to see how your documentation renders before doing your pull request.
 
-breakdance.io is a static site that is generated using [assemble][]. Assuming you've already [cloned breakdance](https://breakdance.io#getting-started), <kbd>cd</kbd> into the `support` directory of the breakdance project, then run the following command to install dependencies and build the site:
+breakdance.io is a static site that is generated using [assemble][]. Assuming you've already [cloned breakdance](http://breakdance.io#getting-started), <kbd>cd</kbd> into the `support` directory of the breakdance project, then run the following command to install dependencies and build the site:
 
 ```sh
 $ npm install -g assemble && npm install
