@@ -497,9 +497,9 @@ A number of edge cases are supported. In most cases these should be pretty easy 
 
 Please feel free to [create an issue]({{@site.bugs.url}}) if you have questions or need guidance on customizations.
 
-## Tables
+### Tables
 
-### Multiple rows in `thead`
+#### Multiple rows in `thead`
 
 When multiple rows (`<tr>`) are in `<thead>`, the rows are collapsed to a single `<tr>`, and a `<br>` is added as a text separater to retain the visual appearance of multiple lines.
 
@@ -526,13 +526,13 @@ Renders to:
 | <br> | Name<br>(first) | Name<br>(last) |
 ```
 
-### Nested tables
+#### Nested tables
 
 When a table has nested tables within it, the table will be rendered as HTML.
 
-## Headings
+### Headings
 
-### List items containing `<h1-6>` tags
+#### List items containing `<h1-6>` tags
 
 When a list item contains a [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), the item will be output as bold (in other words, the element's meaning as a list item takes precedence over its meaning as a heading).
 
@@ -552,7 +552,7 @@ Results in
 - **Item two**
 ```
 
-### Table cells containing `<h1-6>` tags
+#### Table cells containing `<h1-6>` tags
 
 When a table cell contains a [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements), the entire table will be output as HTML with attributes stripped, and not converted to markdown. This is to ensure formatting is retained, since markdown tables do not render headings.
 

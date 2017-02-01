@@ -149,30 +149,12 @@
                 </li>
                 <li>
                   <a href="#edge-cases">Edge cases</a>
-                </li>
-                <li>
-                  <a href="#tables">Tables</a>
                   <ul class="nav">
                     <li>
-                      <a href="#tables-multiple-rows-in-thead">Multiple rows in thead</a>
+                      <a href="#edge-cases-tables">Tables</a>
                     </li>
                     <li>
-                      <a href="#tables-nested-tables">Nested tables</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#headings-1">Headings</a>
-                  <ul class="nav">
-                    <li>
-                      <a href="#headings-1-list-items-containing--tags">List items containing
-                        <h1-6> tags</h1-6>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#headings-1-table-cells-containing--tags">Table cells containing
-                        <h1-6> tags</h1-6>
-                      </a>
+                      <a href="#edge-cases-headings-1">Headings</a>
                     </li>
                   </ul>
                 </li>
@@ -567,18 +549,13 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
               <a href="plugins.html">plugins</a>.</p>
             <p>Please feel free to
               <a href="https://github.com/breakdance/breakdance/issues">create an issue</a> if you have questions or need guidance on customizations.</p>
-            <h2 id="tables">Tables
-              <a href="#tables" name="tables" class="anchor">
-                <span class="anchor-target" id="tables"></span>
-                <span class="glyphicon glyphicon-link"></span>
-              </a>
-            </h2>
-            <h3 id="tables-multiple-rows-in-thead">Multiple rows in <code>thead</code>
-              <a href="#tables-multiple-rows-in-thead" name="tables-multiple-rows-in-thead" class="anchor">
-                <span class="anchor-target" id="tables-multiple-rows-in-thead"></span>
+            <h3 id="edge-cases-tables">Tables
+              <a href="#edge-cases-tables" name="edge-cases-tables" class="anchor">
+                <span class="anchor-target" id="edge-cases-tables"></span>
                 <span class="glyphicon glyphicon-link"></span>
               </a>
             </h3>
+            <h4>Multiple rows in <code>thead</code></h4>
             <p>When multiple rows (<code>&lt;tr&gt;</code>) are in <code>&lt;thead&gt;</code>, the rows are collapsed to a single <code>&lt;tr&gt;</code>, and a <code>&lt;br&gt;</code> is added as a text separater to retain the visual appearance of multiple
               lines.</p>
             <p>
@@ -598,25 +575,15 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
 </code></pre>
             <p>Renders to:</p> <pre><code>| <span class="hljs-symbol">&lt;br&gt;</span> | Name<span class="hljs-symbol">&lt;br&gt;</span>(<span class="hljs-keyword">first</span>) | Name<span class="hljs-symbol">&lt;br&gt;</span>(<span class="hljs-keyword">last</span>) |
 </code></pre>
-            <h3 id="tables-nested-tables">Nested tables
-              <a href="#tables-nested-tables" name="tables-nested-tables" class="anchor">
-                <span class="anchor-target" id="tables-nested-tables"></span>
-                <span class="glyphicon glyphicon-link"></span>
-              </a>
-            </h3>
+            <h4>Nested tables</h4>
             <p>When a table has nested tables within it, the table will be rendered as HTML.</p>
-            <h2 id="headings-1">Headings
-              <a href="#headings-1" name="headings-1" class="anchor">
-                <span class="anchor-target" id="headings-1"></span>
-                <span class="glyphicon glyphicon-link"></span>
-              </a>
-            </h2>
-            <h3 id="headings-1-list-items-containing--tags">List items containing <code>&lt;h1-6&gt;</code> tags
-              <a href="#headings-1-list-items-containing--tags" name="headings-1-list-items-containing--tags" class="anchor">
-                <span class="anchor-target" id="headings-1-list-items-containing--tags"></span>
+            <h3 id="edge-cases-headings-1">Headings
+              <a href="#edge-cases-headings-1" name="edge-cases-headings-1" class="anchor">
+                <span class="anchor-target" id="edge-cases-headings-1"></span>
                 <span class="glyphicon glyphicon-link"></span>
               </a>
             </h3>
+            <h4>List items containing <code>&lt;h1-6&gt;</code> tags</h4>
             <p>When a list item contains a
               <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading element</a>, the item will be output as bold (in other words, the element&apos;s meaning as a list item takes precedence over its meaning as a heading).</p>
             <p>
@@ -629,12 +596,7 @@ Someone famous <span class="hljs-keyword">in</span> &lt;cite&gt;Source Title&lt;
             <p>Results in</p> <pre><code><span class="hljs-bullet">- </span>*<span class="hljs-strong">*Item one*</span>*
 <span class="hljs-bullet">- </span>*<span class="hljs-strong">*Item two*</span>*
 </code></pre>
-            <h3 id="headings-1-table-cells-containing--tags">Table cells containing <code>&lt;h1-6&gt;</code> tags
-              <a href="#headings-1-table-cells-containing--tags" name="headings-1-table-cells-containing--tags" class="anchor">
-                <span class="anchor-target" id="headings-1-table-cells-containing--tags"></span>
-                <span class="glyphicon glyphicon-link"></span>
-              </a>
-            </h3>
+            <h4>Table cells containing <code>&lt;h1-6&gt;</code> tags</h4>
             <p>When a table cell contains a
               <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements">heading element</a>, the entire table will be output as HTML with attributes stripped, and not converted to markdown. This is to ensure formatting is retained, since markdown tables do not render headings.</p>
             <p>
