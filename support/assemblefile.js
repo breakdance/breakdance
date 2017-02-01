@@ -83,6 +83,7 @@ app.data('site.title', app.data('site.name'));
 app.data('site.repo', 'breakdance/breakdance');
 app.data('site.nav.main', ['docs', 'plugins']);
 app.data('site.nav.dropdown', ['examples', 'recipes', 'contributing', 'about']);
+app.data('site.google_analytics', 'UA-33358518-18');
 
 /**
  * Middleware
