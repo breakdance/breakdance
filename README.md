@@ -10,11 +10,11 @@ Breakdance is a node.js library for converting HTML to markdown. You can use bre
 * Convert HTML presentations or slide decks to markdown
 * Convert busy web pages into readable markdown documents.
 
-Visit [breakdance.io](https://breakdance.io) for detailed documentation, examples, and advice on [authoring and finding plugins](https://breakdance.io/plugins.html).
+Visit [breakdance.io](http://breakdance.io) for detailed documentation, [examples](https://breakdance.io/examples), [recipes](https://breakdance.io/recipes), and advice on [authoring and finding plugins](http://breakdance.io/plugins.html).
 
 ## What's different about breakdance?
 
-Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](https://breakdance.io/plugins.html).
+Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](http://breakdance.io/plugins.html).
 
 **Generates well-formatted markdown**
 
@@ -26,8 +26,8 @@ Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, a
 
 Every part of the conversion is customizable:
 
-* [options](https://breakdance.io/plugins.html) are available for customizing output of any HTML tag if you don't like the defaults
-* [plugins](https://breakdance.io/plugins.html) are easy to write if you'd like to share your customizations with the world
+* [options](http://breakdance.io/plugins.html) are available for customizing output of any HTML tag if you don't like the defaults
+* [plugins](http://breakdance.io/plugins.html) are easy to write if you'd like to share your customizations with the world
 
 ## HTML-to-markdown example
 
@@ -71,7 +71,7 @@ Would render to the following markdown:
 | Table cell | Table cell | Table cell | Table cell | 
 ```
 
-See [the documentation](https://breakdance.io/examples.html) for more examples.
+See [the documentation](http://breakdance.io/examples.html) for more examples.
 
 ## About
 
