@@ -287,7 +287,7 @@
             </p> <pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;breakdance&apos;</span>);
 <span class="hljs-keyword">var</span> options = {<span class="hljs-attr">domain</span>: <span class="hljs-string">&apos;https://github.com&apos;</span>};
 <span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;&lt;a href=&quot;/some-link&quot;&gt;&lt;/a&gt;&apos;</span>, options));
-<span class="hljs-comment">//=&gt; &apos;[](https://github.com/some-link)\n&apos;</span>
+<span class="hljs-comment">//=&gt; &apos;[]</span>
 </code></pre>
             <h2 id="options">Options
               <a href="#options" name="options" class="anchor">
@@ -1129,7 +1129,8 @@ compile(ast);
             </h2>
             <ul>
               <li>
-                <strong>checklists</strong>: Get GitHub-style task list support with [breakdance-checklist][].</li>
+                <strong>checklists</strong>: Get GitHub-style task list support with
+                <a href="https://github.com/jonschlinkert/breakdance-checklist">breakdance-checklist</a>.</li>
               <li>
                 <strong>reflinks</strong>: Use [breakdance-reflinks][] if you want to aggregate the urls from hrefs and src attributes at the bottom of the file as reference links</li>
             </ul>

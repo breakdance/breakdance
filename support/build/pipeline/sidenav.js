@@ -17,7 +17,6 @@ module.exports = function(options) {
 
     try {
       file.contents = new Buffer(sidenav(file, options));
-      // file.contents = new Buffer(sidenav(file.contents.toString(), options));
     } catch (err) {
       this.emit('error', new PluginError('navigation', err, {fileName: file.path}));
       return;

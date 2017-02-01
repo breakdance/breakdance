@@ -8,23 +8,16 @@ var hljs = require('highlight.js');
 
 module.exports = {
   html: true,
-  escapeText: false,
   highlight: function(code, lang) {
     if (lang && hljs.getLanguage(lang)) {
       try {
         return hljs.highlight(lang, code).value;
-      } catch (err) {
-
-        if (!/Unknown language/i.test(err.message)) {
-          throw err;
-        }
-      }
+      } catch (err) {}
     }
 
     try {
       return hljs.highlightAuto(code).value;
     } catch (err) {}
-
     return code;
   }
 };
