@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var extend = require('extend-shallow');
 var PluginError = require('plugin-error');
 var Remarkable = require('remarkable');
@@ -16,6 +17,12 @@ module.exports = function(options) {
       next(null, file);
       return;
     }
+
+    if (path.extname(file.history[0]) !== '.md') {
+      next(null, file);
+      return;
+    }
+
     try {
       var md = new Remarkable(opts);
       file.contents = new Buffer(md.render(file.contents.toString()));

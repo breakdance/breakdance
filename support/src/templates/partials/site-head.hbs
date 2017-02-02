@@ -1,6 +1,9 @@
 <meta charset="UTF-8">
-<title>{{#if @page.title}}{{@page.title}} | {{@site.name}}{{else}}{{@site.name}}{{/if}}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{@site.description}}">
+<meta name="keywords" content="{{join @site.keywords}}">
+<meta name="author" content="Jon Schlinkert (https://github.com/jonschlinkert)">
+<title>{{@page.title}}{{#if @page.description}} | {{@page.description}}{{/if}}</title>
 
 <!-- fonts -->
 {{> site-fonts}}

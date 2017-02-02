@@ -2,5 +2,5 @@
 
 # Allow crawling of all content
 User-agent: *
-{{#if site.disallow}}Disallow: {{site.disallow}}{{/if}}
-Sitemap: {{ site.href }}/sitemap.xml
+
+Sitemap: https://breakdance.io/sitemap.xml

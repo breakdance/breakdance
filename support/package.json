@@ -43,8 +43,6 @@
     "export-files": "^2.1.1",
     "extend-shallow": "^2.0.1",
     "gh-clone": "^0.5.0",
-    "gulp-format-md": "^0.1.11",
-    "gulp-is-binary": "^0.1.1",
     "gulp-prettify": "^0.5.0",
     "gulp-reflinks": "^0.2.0",
     "gulp-sass": "^3.0.0",
@@ -57,13 +55,12 @@
     "isobject": "^3.0.0",
     "log-utils": "^0.2.1",
     "markdown-toc": "^1.0.3",
+    "middleware-rename-file": "^1.0.0",
     "plugin-error": "^0.1.2",
     "remarkable": "^1.7.1",
-    "repo-utils": "^0.4.1",
     "through2": "^2.0.3",
     "unescape": "^0.2.0",
     "verb": "verbose/verb#dev",
-    "verb-generate-readme": "^0.4.2",
     "verb-reflinks": "^0.1.6",
     "year": "^0.2.1"
   }

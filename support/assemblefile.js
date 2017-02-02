@@ -2,8 +2,7 @@
 
 var path = require('path');
 var verb = require('verb');
-var Pkg = require('expand-pkg');
-var pkg = new Pkg();
+var rename = require('middleware-rename-file');
 var pageData = require('assemble-middleware-page-variable');
 var geopattern = require('helper-geopattern');
 var reflinks = require('verb-reflinks');
@@ -12,6 +11,8 @@ var assemble = require('assemble');
 var uncss = require('gulp-uncss');
 var sass = require('gulp-sass');
 var del = require('delete');
+var Pkg = require('expand-pkg');
+var pkg = new Pkg();
 
 /**
  * Local dependencies
@@ -36,7 +37,9 @@ var assets = path.join.bind(path, dest('assets'));
  * App
  */
 
-var app = module.exports = assemble();
+var app = module.exports = assemble({
+  exts: ['md', 'hbs', 'html', 'xml', 'txt']
+});
 
 /**
  * Custom collections
@@ -44,6 +47,7 @@ var app = module.exports = assemble();
 
 app.create('includes', {viewType: 'partial'});
 app.create('examples', {viewType: 'partial'});
+app.create('files');
 
 /**
  * Listen for errors
@@ -90,8 +94,9 @@ app.data('site.google_analytics', 'UA-33358518-18');
  */
 
 app.preRender(/(api|options)/, reflinks(app.options));
-app.onLoad(/\.md$/, pageData(app));
-app.onLoad(/\.md$/, function(file, next) {
+app.onLoad(/\.(md|hbs)$/, rename());
+app.onLoad(/\.(md|hbs)$/, pageData(app));
+app.onLoad(/\.(md|hbs)$/, function(file, next) {
   file.extname = '.html';
   next();
 });
@@ -114,13 +119,12 @@ app.task('preload-templates', function(cb) {
  * Generate HTML
  */
 
-app.task('render', ['preload-templates'], function() {
-  app.emit('render');
+app.task('site', ['preload-templates'], function() {
   return app.toStream('pages')
     .pipe(pipeline.reflinks(app.options))
     .pipe(pipeline.markdown(defaults))
     .pipe(pipeline.unescape())
-    .pipe(app.renderFile({layout: 'default'}))
+    .pipe(app.renderFile('hbs', {layout: 'default'}))
     .pipe(pipeline.cheerio())
     .pipe(pipeline.sidenav({selectors: 'h2,h3'}))
     .pipe(pipeline.prettify())
@@ -163,10 +167,9 @@ app.task('copy-assets', function() {
   return app.copy(src('assets/**/*'), assets(), {dot: true});
 });
 
-
 var config = {
   vendors: ['bryanbraun/anchorjs', 'leafo/sticky-kit', 'zenorocha/clipboard.js', 'HubSpot/tether'],
-  scripts: ['anchorjs/anchor.min.js', 'sticky-kit/dist/sticky-kit.min.js', 'clipboard.js/dist/clipboard.min.js', 'tether/dist/js/tether.min.js'],
+  scripts: ['anchorjs/anchor.min.js', 'sticky-kit/dist/sticky-kit.min.js', 'clipboard.js/dist/clipboard.min.js', 'tether/dist/js/tether.min.js']
 };
 
 app.task('vendor-scripts', function() {
@@ -191,4 +194,4 @@ app.task('clean', function(cb) {
  * Default task
  */
 
-app.task('default', ['clean', 'copy-*', 'verb', 'render', 'sass']);
+app.task('default', ['clean', 'copy-*', 'verb', 'site', 'sass']);
