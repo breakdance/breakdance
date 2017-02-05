@@ -92,7 +92,7 @@
       "reflinks": true
     },
     "related": {
-      "list": []
+      "list": ["breakdance-util", "breakdance-checklist", "breakdance-reflinks"]
     },
     "reflinks": [
       "assemble",
