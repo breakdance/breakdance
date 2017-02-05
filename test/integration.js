@@ -17,6 +17,10 @@ var configs = require('./configs/');
 describe('integration tests (testing random complex HTML for coverage)', function() {
   this.timeout(20000);
 
+  it('should convert the breakdance.io homepage back to markdown', function() {
+    isEqual('breakdance', {omit: ['[class="navbar"]', '[class="bd-clipboard"]']});
+  });
+
   it('should use canonical link in <img> src in wikipedia HTML', function() {
     var opts = extend({reflinks: false}, configs.wikipedia);
     isEqual('wikipedia-img-src', opts);

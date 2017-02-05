@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://breakdance.io/#quickstart -->
+<html lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It&#39;s time for your markup to get down.">
+    <meta name="keywords" content="breakdance, convert, format, html, markdown, parse, plain text, re-format, render, text">
+    <meta name="author" content="Jon Schlinkert (https://github.com/jonschlinkert)">
+    <title>Breakdance</title>
+    <!-- fonts -->
+    <link href="./breakdance_files/css" rel="stylesheet">
+    <!-- css -->
+    <!-- bootstrap -->
+    <link href="./breakdance_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- custom -->
+    <link rel="stylesheet" type="text/css" href="./breakdance_files/styles.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./breakdance_files/github-light.css" media="screen">
+    <!-- geopattern styles -->
+    <style>
+      .masthead {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMTA4MCI+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmdiKDEzOCw2OSwxMTUpIj48L3JlY3Q+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMDY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsLTQ1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDEwMzUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wMiIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsLTE1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDEwNjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xNSIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTA5NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDExMjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNTQ2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNzUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNTQ2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTE1NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTA1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDk4IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMTg1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDEzNSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAyIiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMjE1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE2NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjEwNjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMjQ1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDM3MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE5NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAzNzMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMjc1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDIyNSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAyIiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMzA1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDI1NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjEzMjY2NjY2NjY2NjY2NjY1IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMzM1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDIiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDI4NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAyIiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMzY1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDM3MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDMxNSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjAzNzMzMzMzMzMzMzMzMzMzIiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxMzk1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwzNDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE0MjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wMjg2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDM3NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTQ1NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjEyNDAwMDAwMDAwMDAwMDAxIiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSw0MDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTQ4NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA5OCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNDM1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDk4IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxNTE1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDk4IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSw0NjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE1NDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNDk1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDgwNjY2NjY2NjY2NjY2NjYiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE1NzUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNTI1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTE1MzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE2MDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNTQ2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNTU1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE2MzUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wNTQ2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNTg1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDU0NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE2NjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNjE1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTE1MzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE2OTUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMjQwMDAwMDAwMDAwMDAwMSIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNjQ1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTI0MDAwMDAwMDAwMDAwMDEiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE3MjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wNDYiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDY3NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA0NiIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTc1NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA2MzMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSw3MDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wNjMzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTc4NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjA4MDY2NjY2NjY2NjY2NjY2IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSw3MzUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTgxNSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZGRkIiBvcGFjaXR5PSIwLjE0MTMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSw3NjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xNDEzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTg0NSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjAyODY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsNzk1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDI4NjY2NjY2NjY2NjY2NjY3IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwxODc1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDk4IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSw4MjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wOTgiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE5MDUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4wODA2NjY2NjY2NjY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsODU1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMDgwNjY2NjY2NjY2NjY2NjYiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE5MzUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4wMzczMzMzMzMzMzMzMzMzMyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsODg1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMDM3MzMzMzMzMzMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE5NjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xMzI2NjY2NjY2NjY2NjY2NSIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsOTE1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9IjAuMTMyNjY2NjY2NjY2NjY2NjUiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDE5OTUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xNDEzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsOTQ1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTQxMzMzMzMzMzMzMzMzMzQiIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDIwMjUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RkZCIgb3BhY2l0eT0iMC4xMDY2NjY2NjY2NjY2NjY2NyIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsOTc1KSI+PC9wYXRoPjxwYXRoIGQ9Ik0wIDMwIEMgNTIuNSAwLCA5Ny41IDAsIDE1MCAzMCBTIDI0Ny41IDYwLCAzMDAgMzAgUyAzOTcuNSAwLCA0NTAsIDMwIiBmaWxsPSJub25lIiBzdHJva2U9IiNkZGQiIG9wYWNpdHk9IjAuMTA2NjY2NjY2NjY2NjY2NjciIHN0cm9rZS13aWR0aD0iMzBweCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LDIwNTUpIj48L3BhdGg+PHBhdGggZD0iTTAgMzAgQyA1Mi41IDAsIDk3LjUgMCwgMTUwIDMwIFMgMjQ3LjUgNjAsIDMwMCAzMCBTIDM5Ny41IDAsIDQ1MCwgMzAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzIyMiIgb3BhY2l0eT0iMC4xMTUzMzMzMzMzMzMzMzMzNCIgc3Ryb2tlLXdpZHRoPSIzMHB4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUsMTAwNSkiPjwvcGF0aD48cGF0aCBkPSJNMCAzMCBDIDUyLjUgMCwgOTcuNSAwLCAxNTAgMzAgUyAyNDcuNSA2MCwgMzAwIDMwIFMgMzk3LjUgMCwgNDUwLCAzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMjIyIiBvcGFjaXR5PSIwLjExNTMzMzMzMzMzMzMzMzM0IiBzdHJva2Utd2lkdGg9IjMwcHgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NSwyMDg1KSI+PC9wYXRoPjwvc3ZnPg==");
+      }
+      
+      . h1,
+      . h2,
+      . h3,
+      . h4 {
+        color: #8a4573;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- site-wide navigation -->
+    <div class="container">
+      <nav class="navbar navbar-toggleable-md navbar-light site-navigation">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="http://breakdance.io/index.html">Breakdance</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="http://breakdance.io/docs.html">Documentation</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="http://breakdance.io/plugins.html">Plugins</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="https://github.com/breakdance/breakdance" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> More </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="nav-link" href="http://breakdance.io/examples.html">Examples</a>
+                <a class="nav-link" href="http://breakdance.io/recipes.html">Recipes</a>
+                <a class="nav-link" href="http://breakdance.io/contributing.html">Contributing</a>
+                <a class="nav-link" href="http://breakdance.io/about.html">About</a>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav gh-buttons pull-right">
+            <li class="nav-item">
+              <iframe src="./breakdance_files/github-btn.html" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li class="nav-item">
+              <iframe src="./breakdance_files/github-btn(1).html" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+          </ul>
+          <!--form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form-->
+        </div>
+      </nav>
+    </div>
+    <!-- page header -->
+    <div class="masthead">
+      <div class="container">
+        <div class="site-logo-lg">
+          <img src="./breakdance_files/breakdance-logo-white.png" alt=""> </div>
+        <br>
+        <div class="lead">
+          <em>It's time for your markup get down.</em>
+        </div>
+      </div>
+    </div>
+    <!-- page content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-3 push-md-9" role="complementary">
+          <!--ol class="toc js-toc" id="toc"></ol-->
+          <div class="sidebar hidden-print hidden-xs hidden-sm affix">
+            <div id="navigation">
+              <!-- automatically generated from headings -->
+              <ul class="nav sidenav">
+                <li class="">
+                  <a href="http://breakdance.io/#what-is-breakdance">What is breakdance?</a>
+                </li>
+                <li class="active">
+                  <a href="http://breakdance.io/#quickstart">Quickstart</a>
+                </li>
+                <li>
+                  <a href="http://breakdance.io/#next-steps">Next steps</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-9 pull-md-3">
+          <div class="main-content">
+            <h2 id="what-is-breakdance">What is breakdance?
+              <a href="http://breakdance.io/#what-is-breakdance" name="what-is-breakdance" class="anchor">
+                <span class="anchor-target" id="what-is-breakdance"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h2>
+            <p>Breakdance is a node.js library for converting HTML to markdown.</p>
+            <p>
+              <strong>What's different about breakdance?</strong>
+            </p>
+            <p>Breakdance uses
+              <a href="https://github.com/cheeriojs/cheerio">cheerio</a> to parse HTML, and
+              <a href="https://github.com/jonschlinkert/snapdragon">snapdragon</a> for rendering, which provides comprehensive coverage of HTML 4 and 5 elements, and granular control over the entire conversion process in a way that is easy to understand, reason about, and
+              <a href="http://breakdance.io/plugins.html">customize</a>.</p>
+            <p>
+              <strong>Why use breakdance?</strong>
+            </p>
+            <ul>
+              <li>Migrate HTML blog posts to markdown</li>
+              <li>Convert wiki pages to markdown</li>
+              <li>Convert HTML documentation to markdown</li>
+              <li>Convert HTML presentations or slide decks to markdown</li>
+            </ul>
+            <h2 id="quickstart">Quickstart
+              <a href="http://breakdance.io/#quickstart" name="quickstart" class="anchor">
+                <span class="anchor-target" id="quickstart"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h2>
+            <p>
+              <strong>1. Install</strong>
+            </p>
+            <p>Install with
+              <a href="https://www.npmjs.com/">npm</a>:</p> <div class="bd-clipboard"><span class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</span></div><pre><code class="language-sh">$ npm install --save breakdance
+</code></pre>
+            <p>Or install with
+              <a href="https://github.com/yarnpkg/yarn">yarn</a>:</p> <div class="bd-clipboard"><span class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</span></div><pre><code class="language-sh">$ yarn add breakdance
+</code></pre>
+            <p>
+              <strong>2. Convert some HTML!</strong>
+            </p>
+            <p>Add the following code to <code>example.js</code> then run <code>$ node example</code>:</p> <div class="bd-clipboard"><span class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</span></div><pre><code class="language-js"><span class="hljs-keyword">var</span> breakdance = <span class="hljs-built_in">require</span>(<span class="hljs-string">'breakdance'</span>);
+<span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">'&lt;strong&gt;The freaks come out at night!&lt;/strong&gt;'</span>));
+<span class="hljs-comment">//=&gt; '**The freaks come out at night!**'</span>
+</code></pre>
+            <h2 id="next-steps">Next steps
+              <a href="http://breakdance.io/#next-steps" name="next-steps" class="anchor">
+                <span class="anchor-target" id="next-steps"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h2>
+            <ul>
+              <li>Learn more about
+                <a href="http://breakdance.io/docs.html">using breakdance</a>
+              </li>
+              <li>See
+                <a href="http://breakdance.io/docs.html#examples">HTML-to-markdown examples</a>
+              </li>
+              <li>Visit the breakdance
+                <a href="https://github.com/breakdance/breakdance/test">unit tests</a>, this is a great way to see comprehensive and detailed usage examples.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <!-- site-wide footer -->
+          <footer class="site-footer">
+            <span class="site-footer-owner">
+              <a href="https://github.com/jonschlinkert/test">breakdance</a> is maintained by
+              <a href="https://github.com/jonschlinkert">jonschlinkert</a>.</span>
+            <span class="site-footer-credits">This site was generated by
+              <a href="https://assemble.io/">Assemble</a>.</span>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <!-- scripts -->
+    <script async="" src="./breakdance_files/analytics.js"></script><script src="./breakdance_files/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="./breakdance_files/tether.min.js"></script>
+    <script src="./breakdance_files/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="./breakdance_files/scrollspy.js"></script>
+    <script src="./breakdance_files/affix.js"></script>
+    <script src="./breakdance_files/clipboard.min.js"></script>
+    <script src="./breakdance_files/application.js"></script>
+    <!-- github buttons -->
+    <script async="" defer="" src="./breakdance_files/buttons.js"></script>
+    <script>
+      (function(i, s, o, g, r, a, m)
+      {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function()
+        {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-33358518-18', 'auto');
+      ga('send', 'pageview');
+    </script>
+  
+<div id="diigo-chrome-installed" style="display: none;"></div></body></html>
