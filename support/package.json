@@ -61,6 +61,7 @@
     "through2": "^2.0.3",
     "unescape": "^0.2.0",
     "verb": "verbose/verb#dev",
+    "verb-generate-readme": "^0.4.2",
     "verb-reflinks": "^0.1.6",
     "year": "^0.2.1"
   }

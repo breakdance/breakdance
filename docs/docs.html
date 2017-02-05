@@ -419,6 +419,14 @@
             </h3>
             <p>Type: <code>function</code></p>
             <p>Default: <code>undefined</code></p>
+            <p>Pass a function to use on all URLs that are process for the <code>href</code> attribute in <code>&lt;a&gt;</code> tags and the <code>src</code> attribute in <code>&lt;img&gt;</code> tags.</p> <pre><code class="language-js"><span class="hljs-keyword">var</span> markdown = breakdance(html, {
+  <span class="hljs-attr">url</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str</span>) </span>{
+    <span class="hljs-comment">// do stuff to URL string</span>
+    <span class="hljs-keyword">return</span> str;
+  }
+});
+<span class="hljs-built_in">console</span>.log(markdown);
+</code></pre>
             <h3 id="options-whitespace">whitespace
               <a href="#options-whitespace" name="options-whitespace" class="anchor">
                 <span class="anchor-target" id="options-whitespace"></span>
@@ -784,8 +792,7 @@ breakdance.after({
             </p>
             <ul>
               <li><code>html</code>
-                <strong>{String}</strong>
-              </li>
+                <strong>{String}</strong>: HTML string</li>
               <li><code>options</code>
                 <strong>{Object}</strong>
               </li>
@@ -1135,7 +1142,8 @@ compile(ast);
                 <strong>checklists</strong>: Get GitHub-style task list support with
                 <a href="https://github.com/jonschlinkert/breakdance-checklist">breakdance-checklist</a>.</li>
               <li>
-                <strong>reflinks</strong>: Use [breakdance-reflinks][] if you want to aggregate the urls from hrefs and src attributes at the bottom of the file as reference links</li>
+                <strong>reflinks</strong>: Use
+                <a href="https://github.com/jonschlinkert/breakdance-reflinks">breakdance-reflinks</a> if you want to aggregate the urls from hrefs and src attributes at the bottom of the file as reference links</li>
             </ul>
             <h2 id="next-steps">Next steps
               <a href="#next-steps" name="next-steps" class="anchor">

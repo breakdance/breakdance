@@ -174,7 +174,7 @@ Parses a string of `html` and returns an AST.
 
 **Params**
 
-* `html` **{String}**
+* `html` **{String}**: HTML string
 * `options` **{Object}**
 * `returns` **{Object}**: Abstract syntax tree
 
