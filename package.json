@@ -54,12 +54,15 @@
     "gulp-istanbul": "^1.1.1",
     "gulp-mocha": "^3.0.1",
     "gulp-unused": "^0.2.0",
+    "helper-changelog": "^0.3.0",
     "js-beautify": "^1.6.8",
     "kind-of": "^3.1.0",
     "mocha": "^3.2.0",
     "strip-color": "^0.1.0",
     "time-diff": "^0.3.1",
-    "write": "^0.3.2"
+    "verb-generate-readme": "^0.4.2",
+    "write": "^0.3.2",
+    "yargs-parser": "^4.2.1"
   },
   "keywords": [
     "breakdance",
@@ -86,6 +89,9 @@
     "plugins": [
       "gulp-format-md"
     ],
+    "helpers": [
+      "helper-changelog"
+    ],
     "lint": {
       "reflinks": true
     },
@@ -103,7 +109,10 @@
       "remarkable",
       "snapdragon",
       "verb",
-      "verb-generate-readme"
+      "verb-generate-readme",
+      "breakdance-util",
+      "helper-changelog",
+      "keep-a-changelog"
     ]
   }
 }
