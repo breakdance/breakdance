@@ -40,7 +40,7 @@
   - <bdi>[Italiano (it)](https://developer.mozilla.org/it/docs/Web/JavaScript/Gestione_della_Memoria "Italian")</bdi>
   - <bdi>[日本語 (ja)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management "Japanese")</bdi>
   - <bdi>[한국어 (ko)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management "Korean")</bdi>
-  - <bdi>[Português (do Brasil) (pt-BR)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Memory_Management "Portuguese (Brazilian)")</bdi>
+  - <bdi>[Português (do Brasil) (pt-BR)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Memory_Management "Portuguese (Brazilian)")</bdi>
   - <bdi>[Русский (ru)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_Management "Russian")</bdi>
   - <bdi>[中文 (简体) (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management "Chinese (Simplified)")</bdi>
   - [Add a translation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$locales)
