@@ -25,30 +25,26 @@
     "test": "mocha"
   },
   "dependencies": {
+    "breakdance-util": "^0.1.2",
     "cheerio": "^0.22.0",
     "define-property": "^0.2.5",
     "detect-indent": "^5.0.0",
-    "diacritics-map": "^0.1.0",
     "export-files": "^2.1.1",
     "extend-shallow": "^2.0.1",
     "is-self-closing": "^1.0.0",
     "isobject": "^3.0.0",
-    "kind-of": "^3.1.0",
     "log-ok": "^0.1.1",
     "mixin-deep": "^1.1.3",
     "mkdirp": "^0.5.1",
     "repeat-string": "^1.6.1",
-    "snapdragon": "^0.9.0",
-    "snapdragon-cheerio": "^1.0.0",
-    "snapdragon-util": "^1.0.2",
+    "snapdragon": "^0.9.1",
+    "snapdragon-cheerio": "^1.0.1",
+    "snapdragon-util": "^1.0.3",
     "strip-attributes": "^0.2.0",
-    "strip-color": "^0.1.0",
     "trim-leading-lines": "^0.1.1",
     "trim-trailing-lines": "^1.1.0",
     "unescape": "^0.2.0",
-    "word-regex": "^0.1.1",
-    "yargs": "^6.6.0",
-    "yargs-parser": "^4.2.1"
+    "yargs": "^6.6.0"
   },
   "devDependencies": {
     "dashify": "^0.2.2",
@@ -59,7 +55,9 @@
     "gulp-mocha": "^3.0.1",
     "gulp-unused": "^0.2.0",
     "js-beautify": "^1.6.8",
+    "kind-of": "^3.1.0",
     "mocha": "^3.2.0",
+    "strip-color": "^0.1.0",
     "time-diff": "^0.3.1",
     "write": "^0.3.2"
   },
@@ -92,7 +90,11 @@
       "reflinks": true
     },
     "related": {
-      "list": ["breakdance-util", "breakdance-checklist", "breakdance-reflinks"]
+      "list": [
+        "breakdance-checklist",
+        "breakdance-reflinks",
+        "breakdance-util"
+      ]
     },
     "reflinks": [
       "assemble",
