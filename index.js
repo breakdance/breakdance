@@ -287,7 +287,7 @@ Breakdance.prototype.run = function(type, compiler) {
  */
 
 Breakdance.prototype.parse = function(str, options) {
-  var opts = extend({}, defaults, this.options, options);
+  var opts = defaults(extend({}, this.options, options));
   this.$ = cheerio.load(str, opts);
   if (this.plugins.preprocess.length > 0) {
     for (var i = 0; i < this.plugins.preprocess; i++) {
@@ -321,13 +321,7 @@ Breakdance.prototype.compile = function(ast, options) {
   }
 
   this.ast = typeof ast === 'string' ? this.parse(ast, opts) : ast;
-  var opts = extend({}, this.options, options);
-  var snapdragon = opts.snapdragon || new Snapdragon(options);
-  Object.defineProperty(snapdragon, 'parser', {
-    get: function() {
-      throw new Error('breakdance does not use the Snapdragon parser');
-    }
-  });
+  var opts = this.compiler.options = extend({}, this.options, options);
 
   if (opts.before) {
     this.before(opts.before);
@@ -337,8 +331,8 @@ Breakdance.prototype.compile = function(ast, options) {
     this.after(opts.after);
   }
 
-  snapdragon.compiler.plugins = this.plugins;
-  snapdragon.use(compiler(this, opts));
+  this.compiler.plugins = this.plugins;
+  this.compiler.use(compiler(this, opts));
 
   for (var i = 0; i < this.plugins.fns.length; i++) {
     this.plugins.fns[i].call(this, this);
@@ -347,11 +341,11 @@ Breakdance.prototype.compile = function(ast, options) {
   var handlers = extend({}, this.plugins.handlers, opts.handlers);
   for (var key in handlers) {
     if (handlers.hasOwnProperty(key)) {
-      snapdragon.compiler.set(key, handlers[key]);
+      this.compiler.set(key, handlers[key]);
     }
   }
 
-  return snapdragon.compile(this.ast, opts);
+  return this.compiler.compile(this.ast, opts);
 };
 
 /**
@@ -397,6 +391,41 @@ Object.defineProperty(Breakdance.prototype, 'snapdragon', {
     snapdragon.use(parser());
     this.cache.snapdragon = snapdragon;
     return snapdragon;
+  }
+});
+
+/**
+ * Getter for getting the `breakdance.compiler`.
+ */
+
+Object.defineProperty(Breakdance.prototype, 'compiler', {
+  configurable: true,
+  set: function(val) {
+    this.cache.compiler = val;
+  },
+  get: function() {
+    var compiler = this.cache.compiler || this.snapdragon.compiler;
+
+    /**
+     * Prime the state
+     */
+
+    compiler.state = {
+      blockquotes: 0,
+      title: '',
+      indent: '',
+      tags: {},
+      links: {},
+      inside: {},
+      tables: [],
+      lists: [],
+      nodes: [],
+      types: [],
+      pre: [],
+      ol: []
+    };
+
+    return compiler;
   }
 });
 

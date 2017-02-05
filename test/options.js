@@ -40,6 +40,14 @@ describe('options', function() {
     });
   });
 
+  describe('.keepEmpty', function() {
+    it('should keep the given tags when empty', function() {
+      isEqual.inline('<a href="/some-link"></a>', '[](/some-link)\n', {keepEmpty: 'a'});
+      isEqual.inline('<a href="/some-link"></a>', '[](https://github.com/some-link)\n', {domain: 'https://github.com', keepEmpty: 'a'});
+      isEqual.inline('<a href="https://some-link.com"></a>', '[](https://some-link.com)\n', {keepEmpty: 'a'});
+    });
+  });
+
   describe('.handlers', function() {
     it('should override a handler', function() {
       isEqual.inline('<title>This is a title</title>', '', {

@@ -13,10 +13,9 @@ describe('anchors', function() {
     isEqual.inline('<a href="https://some-link.com">Foo</a>', '[Foo](https://some-link.com)\n');
   });
 
-  it('should convert links without text to markdown', function() {
-    isEqual.inline('<a href="/some-link"></a>', '[](/some-link)\n');
-    isEqual.inline('<a href="/some-link"></a>', '[](https://github.com/some-link)\n', {domain: 'https://github.com'});
-    isEqual.inline('<a href="https://some-link.com"></a>', '[](https://some-link.com)\n');
+  it('should not convert links without text to markdown', function() {
+    isEqual.inline('<a href="/some-link"></a>', '');
+    isEqual.inline('<a href="https://some-link.com"></a>', '');
   });
 
   it('should retain text spacing', function() {
