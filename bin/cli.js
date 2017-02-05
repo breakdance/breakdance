@@ -16,7 +16,7 @@ var argv = require('yargs')
     describe: 'Destination directory. Defaults to process.cwd().',
     default: process.cwd()
   })
-  .argv
+  .argv;
 
 fs.readFile(path.resolve(process.cwd(), argv.file), function(err, buf) {
   handleError(err);
@@ -31,7 +31,7 @@ fs.readFile(path.resolve(process.cwd(), argv.file), function(err, buf) {
     fs.writeFile(destPath, str, function(err) {
       handleError(err);
       ok('Markdown file written to', destPath);
-    })
+    });
   });
 });
 

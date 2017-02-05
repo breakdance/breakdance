@@ -280,15 +280,15 @@ Breakdance.prototype.run = function(type, compiler) {
  * var breakdance = new Breakdance();
  * var ast = breakdance.parse('<strong>The Freaks Come Out at Night!</strong>');
  * ```
- * @param {String} `html`
+ * @param {String} `html` HTML string
  * @param {Object} `options`
  * @return {Object} Abstract syntax tree
  * @api public
  */
 
-Breakdance.prototype.parse = function(val, options) {
+Breakdance.prototype.parse = function(str, options) {
   var opts = extend({}, defaults, this.options, options);
-  this.$ = cheerio.load(val, opts);
+  this.$ = cheerio.load(str, opts);
   if (this.plugins.preprocess.length > 0) {
     for (var i = 0; i < this.plugins.preprocess; i++) {
       this.plugins.preprocess[i].call(this, this.$);
