@@ -124,7 +124,6 @@ Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle
 ```
 <p>Sample text here...</p>
 <p>And another line of sample text here...</p>
-
 ```
 
 ```html
