@@ -205,7 +205,7 @@ console.log(str);
 //=> 'The Freaks Come Out at Night!'
 ```
 
-### [.render](https://github.com/breakdance/breakdance/blob/master/index.js#L374)
+### [.render](https://github.com/breakdance/breakdance/blob/master/index.js#L368)
 
 Converts a string of HTML to markdown with the specified `options`. Wraps the [parse](#parse) and [compile](#compile) to simplify converting HTML to markdown with a single function call.
 

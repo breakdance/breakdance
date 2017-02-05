@@ -29,6 +29,14 @@ Default: `undefined`
 Specify the root domain name to prefix onto `href` or `src` paths that do not start with `#` or contain `://`.
 
 
+### keepEmpty
+
+Type: `string|array`
+
+Default: `undefined`
+
+Selective keep tags that are omitted by [omitEmpty](#omitempty), so you don't need to redefine all of the omitted tags.
+
 ### knownOnly
 
 Type: `boolean`
@@ -47,6 +55,79 @@ Type: `boolean`
 Default: `undefined`
 
 Add a newline at the beggining of the generated markdown string.
+
+
+### omit
+
+Type: `array|string`
+
+Default: One or more tags to omit entirely from the HTML before converting to markdown.
+
+**Example**
+
+Given the following HTML:
+
+```html
+<em>Foo</em> <strong class="xyz">Bar</strong> <em class="xyz">Baz</em>
+```
+
+You can do the following to selectively omit tags:
+
+```js
+console.log(breakdance(html))
+//=> '_Foo_ **Bar** _Baz_'
+console.log(breakdance(html, {omit: 'em'}))
+//=> '**Bar**'
+console.log(breakdance(html, {omit: 'em[class="xyz"]'}))
+//=> '_Foo_ **Bar**'
+console.log(breakdance(html, {omit: '[class="xyz"]'}))
+//=> '_Foo_'
+console.log(breakdance(html, {omit: 'em,strong'}))
+//=> ''
+console.log(breakdance(html, {omit: ['em', 'strong']}))
+//=> ''
+```
+
+### pick
+
+Type: `array|string`
+
+Default: One or more tags to pick entirely from the HTML before converting to markdown.
+
+**Example**
+
+Given the following HTML:
+
+```html
+<em>Foo</em> <strong class="xyz">Bar</strong> <em class="xyz">Baz</em>
+```
+
+You can do the following to selectively pick tags:
+
+```js
+console.log(breakdance(html, {pick: 'em'}))
+//=> '_Foo_ _Baz_'
+console.log(breakdance(html, {pick: 'em[class="xyz"]'}))
+//=> '_Baz_'
+console.log(breakdance(html, {pick: '[class="xyz"]'}))
+//=> '**Bar** _Baz_'
+console.log(breakdance(html, {pick: 'em,strong'}))
+//=> '_Foo_ **Bar** _Baz_'
+console.log(breakdance(html, {pick: ['em', 'strong']}))
+//=> '_Foo_ **Bar** _Baz_'
+```
+
+### omitEmpty
+
+Type: `array`
+
+Default: `b`, `del`, `div`, `em`, `i`, `li`, `ol`, `s`, `span`, `strong`, `section`, `u`, `ul`.
+
+Array of tags to strip from the HTML when they contain only whitespace or nothing at all. Note then this option is defined, the parser must recurse over every child node to determine if the tag is empty, which can make parsing much slower (and is the reason an array of tag names is required, versus checking all nodes).
+
+```js
+console.log(breakdance('...', {omitEmpty: ['div', 'span']}));
+```
 
 
 ### one

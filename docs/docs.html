@@ -121,10 +121,22 @@
                       <a href="#options-domain">domain</a>
                     </li>
                     <li>
+                      <a href="#options-keepempty">keepEmpty</a>
+                    </li>
+                    <li>
                       <a href="#options-knownonly">knownOnly</a>
                     </li>
                     <li>
                       <a href="#options-leadingnewline">leadingNewline</a>
+                    </li>
+                    <li>
+                      <a href="#options-omit">omit</a>
+                    </li>
+                    <li>
+                      <a href="#options-pick">pick</a>
+                    </li>
+                    <li>
+                      <a href="#options-omitempty">omitEmpty</a>
                     </li>
                     <li>
                       <a href="#options-one">one</a>
@@ -329,6 +341,16 @@
             <p>Type: <code>string</code></p>
             <p>Default: <code>undefined</code></p>
             <p>Specify the root domain name to prefix onto <code>href</code> or <code>src</code> paths that do not start with <code>#</code> or contain <code>://</code>.</p>
+            <h3 id="options-keepempty">keepEmpty
+              <a href="#options-keepempty" name="options-keepempty" class="anchor">
+                <span class="anchor-target" id="options-keepempty"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h3>
+            <p>Type: <code>string|array</code></p>
+            <p>Default: <code>undefined</code></p>
+            <p>Selective keep tags that are omitted by
+              <a href="#omitempty">omitEmpty</a>, so you don&apos;t need to redefine all of the omitted tags.</p>
             <h3 id="options-knownonly">knownOnly
               <a href="#options-knownonly" name="options-knownonly" class="anchor">
                 <span class="anchor-target" id="options-knownonly"></span>
@@ -350,6 +372,67 @@
             <p>Type: <code>boolean</code></p>
             <p>Default: <code>undefined</code></p>
             <p>Add a newline at the beggining of the generated markdown string.</p>
+            <h3 id="options-omit">omit
+              <a href="#options-omit" name="options-omit" class="anchor">
+                <span class="anchor-target" id="options-omit"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h3>
+            <p>Type: <code>array|string</code></p>
+            <p>Default: One or more tags to omit entirely from the HTML before converting to markdown.</p>
+            <p>
+              <strong>Example</strong>
+            </p>
+            <p>Given the following HTML:</p> <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;xyz&quot;</span>&gt;</span>Bar<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">em</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;xyz&quot;</span>&gt;</span>Baz<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+</code></pre>
+            <p>You can do the following to selectively omit tags:</p> <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(html))
+<span class="hljs-comment">//=&gt; &apos;_Foo_ **Bar** _Baz_&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">omit</span>: <span class="hljs-string">&apos;em&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;**Bar**&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">omit</span>: <span class="hljs-string">&apos;em[class=&quot;xyz&quot;]&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;_Foo_ **Bar**&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">omit</span>: <span class="hljs-string">&apos;[class=&quot;xyz&quot;]&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;_Foo_&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">omit</span>: <span class="hljs-string">&apos;em,strong&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">omit</span>: [<span class="hljs-string">&apos;em&apos;</span>, <span class="hljs-string">&apos;strong&apos;</span>]}))
+<span class="hljs-comment">//=&gt; &apos;&apos;</span>
+</code></pre>
+            <h3 id="options-pick">pick
+              <a href="#options-pick" name="options-pick" class="anchor">
+                <span class="anchor-target" id="options-pick"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h3>
+            <p>Type: <code>array|string</code></p>
+            <p>Default: One or more tags to pick entirely from the HTML before converting to markdown.</p>
+            <p>
+              <strong>Example</strong>
+            </p>
+            <p>Given the following HTML:</p> <pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>Foo<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;xyz&quot;</span>&gt;</span>Bar<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">em</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;xyz&quot;</span>&gt;</span>Baz<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>
+</code></pre>
+            <p>You can do the following to selectively pick tags:</p> <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">pick</span>: <span class="hljs-string">&apos;em&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;_Foo_ _Baz_&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">pick</span>: <span class="hljs-string">&apos;em[class=&quot;xyz&quot;]&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;_Baz_&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">pick</span>: <span class="hljs-string">&apos;[class=&quot;xyz&quot;]&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;**Bar** _Baz_&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">pick</span>: <span class="hljs-string">&apos;em,strong&apos;</span>}))
+<span class="hljs-comment">//=&gt; &apos;_Foo_ **Bar** _Baz_&apos;</span>
+<span class="hljs-built_in">console</span>.log(breakdance(html, {<span class="hljs-attr">pick</span>: [<span class="hljs-string">&apos;em&apos;</span>, <span class="hljs-string">&apos;strong&apos;</span>]}))
+<span class="hljs-comment">//=&gt; &apos;_Foo_ **Bar** _Baz_&apos;</span>
+</code></pre>
+            <h3 id="options-omitempty">omitEmpty
+              <a href="#options-omitempty" name="options-omitempty" class="anchor">
+                <span class="anchor-target" id="options-omitempty"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h3>
+            <p>Type: <code>array</code></p>
+            <p>Default: <code>b</code>, <code>del</code>, <code>div</code>, <code>em</code>, <code>i</code>, <code>li</code>, <code>ol</code>, <code>s</code>, <code>span</code>, <code>strong</code>, <code>section</code>, <code>u</code>, <code>ul</code>.</p>
+            <p>Array of tags to strip from the HTML when they contain only whitespace or nothing at all. Note then this option is defined, the parser must recurse over every child node to determine if the tag is empty, which can make parsing much slower
+              (and is the reason an array of tag names is required, versus checking all nodes).</p> <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(breakdance(<span class="hljs-string">&apos;...&apos;</span>, {<span class="hljs-attr">omitEmpty</span>: [<span class="hljs-string">&apos;div&apos;</span>, <span class="hljs-string">&apos;span&apos;</span>]}));
+</code></pre>
             <h3 id="options-one">one
               <a href="#options-one" name="options-one" class="anchor">
                 <span class="anchor-target" id="options-one"></span>
@@ -835,7 +918,7 @@ breakdance.after({
 <span class="hljs-comment">//=&gt; &apos;The Freaks Come Out at Night!&apos;</span>
 </code></pre>
             <h3 id="api-render">
-              <a href="https://github.com/breakdance/breakdance/blob/master/index.js#L374">.render</a>
+              <a href="https://github.com/breakdance/breakdance/blob/master/index.js#L368">.render</a>
               <a href="#api-render" name="api-render" class="anchor">
                 <span class="anchor-target" id="api-render"></span>
                 <span class="glyphicon glyphicon-link"></span>
