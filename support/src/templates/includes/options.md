@@ -136,6 +136,17 @@ Type: `function`
 
 Default: `undefined`
 
+Pass a function to use on all URLs that are process for the `href` attribute in `<a>` tags and the `src` attribute in `<img>` tags.
+
+```js
+var markdown = breakdance(html, {
+  url: function(str) {
+    // do stuff to URL string
+    return str;
+  }
+});
+console.log(markdown);
+```
 
 ### whitespace
 
