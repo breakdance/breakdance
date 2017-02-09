@@ -1,3 +1,16 @@
+//
+// ~ Declaration order ~
+// ---------------------
+//
+// Related property declarations should be grouped
+// together following the order:
+//
+// - Positioning
+// - Box model
+// - Typographic
+// - Visual
+//
+
 // core variables and mixins
 @import "variables";
 @import "mixins";
