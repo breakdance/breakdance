@@ -98,6 +98,9 @@ app.onLoad(/\.(md|hbs)$/, rename());
 app.onLoad(/\.(md|hbs)$/, pageData(app));
 app.onLoad(/\.(md|hbs)$/, function(file, next) {
   file.extname = '.html';
+  if (file.isRenderable) {
+    file.layout = 'default';
+  }
   next();
 });
 
@@ -124,7 +127,7 @@ app.task('site', ['preload-templates'], function() {
     .pipe(pipeline.reflinks(app.options))
     .pipe(pipeline.markdown(defaults))
     .pipe(pipeline.unescape())
-    .pipe(app.renderFile('hbs', {layout: 'default'}))
+    .pipe(app.renderFile('hbs'))
     .pipe(pipeline.cheerio())
     .pipe(pipeline.sidenav({selectors: 'h2,h3'}))
     .pipe(pipeline.prettify())
