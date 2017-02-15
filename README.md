@@ -100,7 +100,7 @@ Please read the [contributing guide](.github/contributing.md) for advice on open
 
 | **Commits** | **Contributor** | 
 | --- | --- |
-| 87 | [jonschlinkert](https://github.com/jonschlinkert) |
+| 91 | [jonschlinkert](https://github.com/jonschlinkert) |
 | 1 | [davidbgk](https://github.com/davidbgk) |
 
 ### Release history
