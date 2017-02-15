@@ -6,7 +6,7 @@ language: node_js
 node_js:
   - node
   - '6'
-  - '4'
+  - '4.7'
 matrix:
   allow_failures:
-    - node_js: '4'
+    - node_js: '4.7'

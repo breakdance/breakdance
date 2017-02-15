@@ -23,13 +23,13 @@
     "tomd": "bin/cli.js"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": ">=4.7"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "breakdance-util": "^0.1.4",
+    "breakdance-util": "^0.1.5",
     "cheerio": "^0.22.0",
     "define-property": "^0.2.5",
     "detect-indent": "^5.0.0",
@@ -42,8 +42,9 @@
     "mkdirp": "^0.5.1",
     "repeat-string": "^1.6.1",
     "snapdragon": "^0.10.1",
-    "snapdragon-cheerio": "^1.0.1",
-    "snapdragon-util": "^1.0.5",
+    "snapdragon-cheerio": "^1.1.0",
+    "snapdragon-node": "^1.0.6",
+    "snapdragon-util": "^2.0.0",
     "strip-attributes": "^0.2.0",
     "trim-leading-lines": "^0.1.1",
     "trim-trailing-lines": "^1.1.0",
