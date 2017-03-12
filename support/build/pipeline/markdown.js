@@ -4,6 +4,7 @@ var path = require('path');
 var extend = require('extend-shallow');
 var PluginError = require('plugin-error');
 var Remarkable = require('remarkable');
+var unescape = require('unescape');
 var through = require('through2');
 
 /**
@@ -25,7 +26,11 @@ module.exports = function(options) {
 
     try {
       var md = new Remarkable(opts);
-      file.contents = new Buffer(md.render(file.contents.toString()));
+      var str = md.render(file.contents.toString());
+      str = str.replace(/(\{{2,4})([^}]+)(\}{2,4})/g, function(m, open, inner, close) {
+        return open + unescape(inner) + close;
+      });
+      file.contents = new Buffer(str);
       file.extname = '.html';
     } catch (err) {
       this.emit('error', new PluginError('remarkable', err, {fileName: file.path}));
