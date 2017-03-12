@@ -13,6 +13,16 @@ Custom labels used in this changelog:
 * `dependencies`: bumps dependencies
 * `housekeeping`: code re-organization, minor edits, or other changes that don't fit in one of the other categories.
 
+### [1.0.0]
+
+**Added**
+
+- Adds support for `<base>`, closes [issue #3](https://github.com/breakdance/breakdance/issues/3)
+
+**Changed**
+
+- Changed the CLI command from `tomd` to either `br`. As a fallback, you can also use `breakdance` if there is a conflict. The CLI has not yet been documented, so hopefully this doesn't cause any issues for anyone. 
+
 ### [0.1.5]
 
 **Fixed**
