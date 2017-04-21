@@ -288,7 +288,7 @@ Breakdance.prototype.run = function(type, compiler) {
 
 Breakdance.prototype.parse = function(str, options) {
   var opts = defaults(extend({}, this.options, options));
-  this.$ = cheerio.load(str, opts);
+  this.$ = cheerio.load(str.trim(), opts);
   if (this.plugins.preprocess.length > 0) {
     for (var i = 0; i < this.plugins.preprocess; i++) {
       this.plugins.preprocess[i].call(this, this.$);
