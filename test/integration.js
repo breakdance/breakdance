@@ -21,6 +21,10 @@ describe('integration tests (testing random complex HTML for coverage)', functio
     isEqual('breakdance', {omit: ['[class="navbar"]', '[class="bd-clipboard"]']});
   });
 
+  it.skip('should convert javadoc.html', function() {
+    isEqual('javadoc');
+  });
+
   it('should use canonical link in <img> src in wikipedia HTML', function() {
     var opts = extend({reflinks: false}, configs.wikipedia);
     isEqual('wikipedia-img-src', opts);

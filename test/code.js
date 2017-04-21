@@ -12,6 +12,10 @@ describe('code', function() {
       isEqual.inline('<code>foo`bar</code>', '``foo`bar``\n');
       isEqual.inline('<code>foo`a`b`bar</code>', '``foo`a`b`bar``\n');
     });
+
+    it('should not render empty code tags', function() {
+      isEqual.inline('foo<code></code> bar', 'foo bar\n');
+    });
   });
 
   describe('gfm', function() {
