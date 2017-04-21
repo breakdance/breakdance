@@ -3,7 +3,7 @@
 var isEqual = require('./support/is-equal');
 
 describe('options', function() {
-  describe('compilers', function() {
+  describe('.compilers', function() {
     it('should disable the given compiler', function() {
       isEqual.inline('<strong>Foo</strong>', '****', {compiler: {text: false}});
       isEqual.inline('<strong>Foo</strong>', '', {compiler: {strong: false}});
@@ -31,6 +31,13 @@ describe('options', function() {
           }
         }
       });
+    });
+  });
+
+  describe('.comments', function() {
+    it('should include code comments in generated markdown', function() {
+      isEqual.inline('<div>Foo</div><!-- bar -->', 'Foo<!-- bar -->', {comments: true});
+      isEqual.inline('<strong>Foo</strong> <!-- bar -->', '**Foo** <!-- bar -->', {comments: true});
     });
   });
 

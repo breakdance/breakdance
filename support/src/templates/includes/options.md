@@ -2,14 +2,18 @@
 # please add two newlines before each consecutive heading
 ---
 
-### snapdragon
+### comments
 
-Type: `object`
+Type: `boolean`
 
 Default: `undefined`
 
-Pass your own instance of [snapdragon][]. We're using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.
+Include HTML code comments in the generated markdown string. Disabled by default. 
 
+```js
+console.log(breakdance('<strong>Foo</strong> <!-- bar -->', {comments: true}));
+//=> '**Foo** <!-- bar -->'
+```
 
 ### condense
 
@@ -36,6 +40,7 @@ Type: `string|array`
 Default: `undefined`
 
 Selective keep tags that are omitted by [omitEmpty](#omitempty), so you don't need to redefine all of the omitted tags.
+
 
 ### knownOnly
 
@@ -150,11 +155,13 @@ Given the following HTML ordered list:
 </ol>
 ```
 
+When rendered:
+
 ```js
 console.log(breakdance(list));
 ```
 
-Renders to:
+Results in:
 
 ```
 1. Foo
@@ -165,7 +172,7 @@ Renders to:
 And if `options.one` is true:
 
 ```js
-console.log(breakdance(list));
+console.log(breakdance(list, {one: true}));
 ```
 
 The result is:
@@ -175,6 +182,24 @@ The result is:
 1. Bar
 1. Baz
 ```
+
+
+### unsmarty
+
+Type: `boolean`
+
+Default: `undefined`
+
+Convert smart quotes to regular quotes.
+
+
+### snapdragon
+
+Type: `object`
+
+Default: `undefined`
+
+Pass your own instance of [snapdragon][]. We're using [snapdragon-cheerio][] to modify the [cheerio][] AST to be compatible with Snapdragon, which consumes the AST and renders to markdown.
 
 
 ### slugify
@@ -209,6 +234,24 @@ Type: `boolean`
 Default: `true`
 
 Add a newline at the end of the generated markdown string.
+
+
+### trailingWhitespace
+
+Type: `boolean`
+
+Default: `true`
+
+Trim trailing _non-newline_ whitespace from the string.
+
+
+### trim
+
+Type: `boolean`
+
+Default: `true`
+
+Trim leading and trailing whitespace from the string. 
 
 
 ### url
