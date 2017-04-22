@@ -92,18 +92,11 @@ Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 | 3 | Larry | the Bird | @twitter |
 ```
 
-**Pro tip**
+### CLI options
 
 Most of the [breakdance options](http://breakdance.io/docs.html#options) can be set from the command line. Play around with the options on the following help menu to customize output. 
 
-For example, run the following on the same `foo.html` file to only generate the table, and no other tags:
-
-```
-$ bd foo.html --pick table
-```
-
 **Help menu**
-
 
 ```
 Usage: $ breakdance [options] <file> <dest>
@@ -125,6 +118,18 @@ Options:
 --comments     Include HTML code comments in the generated
                markdown string. Disabled by default
 ```
+
+**Example**
+
+Tell breakdance to only render specific HTML elements by passing CSS selectors to the `--pick` flag (powered by [cheerio][]).
+
+For example, to only generate the `<table>` from the [HTML in the previous example](#using-the-cli), you would run:
+
+```sh
+$ bd foo.html --pick table
+```
+
+Try it! It's addictive!
 
 ### API Usage
 

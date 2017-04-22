@@ -125,6 +125,9 @@
                       <a href="#getting-started-using-the-cli">Using the CLI</a>
                     </li>
                     <li>
+                      <a href="#getting-started-cli-options">CLI options</a>
+                    </li>
+                    <li>
                       <a href="#getting-started-api-usage">API Usage</a>
                     </li>
                     <li>
@@ -349,13 +352,14 @@ Add `.table-hover` to enable a hover state on table rows within a `<span class="
 |<span class="hljs-string"> 2 </span>|<span class="hljs-string"> Jacob </span>|<span class="hljs-string"> Thornton </span>|<span class="hljs-string"> @fat </span>|
 |<span class="hljs-string"> 3 </span>|<span class="hljs-string"> Larry </span>|<span class="hljs-string"> the Bird </span>|<span class="hljs-string"> @twitter </span>|
 </code></pre>
-            <p>
-              <strong>Pro tip</strong>
-            </p>
+            <h3 id="getting-started-cli-options">CLI options
+              <a href="#getting-started-cli-options" name="getting-started-cli-options" class="anchor">
+                <span class="anchor-target" id="getting-started-cli-options"></span>
+                <span class="glyphicon glyphicon-link"></span>
+              </a>
+            </h3>
             <p>Most of the
               <a href="http://breakdance.io/docs.html#options">breakdance options</a> can be set from the command line. Play around with the options on the following help menu to customize output.</p>
-            <p>For example, run the following on the same <code>foo.html</code> file to only generate the table, and no other tags:</p> <pre><code>$ bd foo<span class="hljs-selector-class">.html</span> --pick <span class="hljs-selector-tag">table</span>
-</code></pre>
             <p>
               <strong>Help menu</strong>
             </p> <pre><code><span class="hljs-attribute">Usage</span>: $ breakdance [options] &lt;file&gt; &lt;dest&gt;
@@ -377,6 +381,15 @@ Options:
 <span class="hljs-comment">--comments     Include HTML code comments in the generated</span>
                markdown <span class="hljs-keyword">string</span>. Disabled <span class="hljs-keyword">by</span> default
 </span></code></pre>
+            <p>
+              <strong>Example</strong>
+            </p>
+            <p>Tell breakdance to only render specific HTML elements by passing CSS selectors to the <code>--pick</code> flag (powered by
+              <a href="https://github.com/cheeriojs/cheerio">cheerio</a>).</p>
+            <p>For example, to only generate the <code>&lt;table&gt;</code> from the
+              <a href="#using-the-cli">HTML in the previous example</a>, you would run:</p> <pre><code class="language-sh">$ bd foo.html --pick table
+</code></pre>
+            <p>Try it! It&apos;s addictive!</p>
             <h3 id="getting-started-api-usage">API Usage
               <a href="#getting-started-api-usage" name="getting-started-api-usage" class="anchor">
                 <span class="anchor-target" id="getting-started-api-usage"></span>
