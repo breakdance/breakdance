@@ -5,6 +5,7 @@
   "homepage": "http://breakdance.io",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
+    "Brian Woodward <brian.woodward@gmail.com> (https://twitter.com/doowb)",
     "David Larlet <david@larlet.fr> (https://larlet.fr/david/code)",
     "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
   ],
@@ -32,15 +33,16 @@
   "dependencies": {
     "breakdance-util": "^0.1.5",
     "cheerio": "^0.22.0",
-    "define-property": "^0.2.5",
+    "condense-newlines": "^0.2.1",
+    "define-property": "^1.0.0",
     "detect-indent": "^5.0.0",
     "export-files": "^2.1.1",
     "extend-shallow": "^2.0.1",
     "is-self-closing": "^1.0.0",
     "isobject": "^3.0.0",
     "log-ok": "^0.1.1",
+    "minimist": "^1.2.0",
     "mixin-deep": "^1.2.0",
-    "mkdirp": "^0.5.1",
     "repeat-string": "^1.6.1",
     "snapdragon": "^0.11.0",
     "snapdragon-cheerio": "^1.1.0",
@@ -50,24 +52,23 @@
     "trim-leading-lines": "^0.1.1",
     "trim-trailing-lines": "^1.1.0",
     "unescape": "^0.2.0",
-    "write": "^0.3.2",
-    "yargs": "^7.0.2"
+    "write": "^0.3.3"
   },
   "devDependencies": {
     "dashify": "^0.2.2",
     "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-format-md": "^0.1.11",
+    "gulp-format-md": "^0.1.12",
     "gulp-istanbul": "^1.1.1",
     "gulp-mocha": "^3.0.0",
     "gulp-unused": "^0.2.1",
     "helper-changelog": "^0.3.0",
-    "js-beautify": "^1.6.11",
+    "js-beautify": "^1.6.12",
     "kind-of": "^3.1.0",
     "mocha": "^3.2.0",
     "strip-color": "^0.1.0",
     "time-diff": "^0.3.1",
-    "verb-generate-readme": "^0.4.3",
+    "verb-generate-readme": "^0.5.0",
     "yargs-parser": "^5.0.0"
   },
   "keywords": [
@@ -99,7 +100,6 @@
       "maxdepth": 2,
       "footer": false
     },
-    "layout": null,
     "tasks": [
       "readme"
     ],
@@ -120,16 +120,10 @@
       ]
     },
     "reflinks": [
-      "assemble",
       "breakdance-util",
       "cheerio",
       "helper-changelog",
-      "keep-a-changelog",
-      "micromatch",
-      "remarkable",
-      "snapdragon",
-      "verb",
-      "verb-generate-readme"
+      "snapdragon"
     ]
   }
 }
