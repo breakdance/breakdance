@@ -13,7 +13,20 @@ Custom labels used in this changelog:
 * `dependencies`: bumps dependencies
 * `housekeeping`: code re-organization, minor edits, or other changes that don't fit in one of the other categories.
 
-### [1.0.0]
+### [1.1.0] - 2017-04-21
+
+**Fixed**
+
+- `<code>`: improvements to whitespace handling
+- `<code>`: no longer renders empty tags
+- `<p>`: normalize Unicode `U+00A0` non-breaking spaces to "normal" Unicode `U+0020` spaces. Non-breaking spaces are useful in HTML, but cause flow problems in markdown.
+
+**Added**
+
+- documentation for `options.comments`, `options.unsmarty`, `options.trailingWhitespace`, all previously undocumented options. See [breakdance.io/options](http://breakdance.io/docs.html#options)
+
+
+### [1.0.0] - 2017-03-12
 
 **Added**
 
