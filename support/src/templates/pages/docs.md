@@ -11,6 +11,123 @@ geopattern: j
 
 ## Getting started
 
+If you want to see how breakdance works, the CLI is the fastest way to get started. 
+
+### Installing the CLI
+
+Install the breakdance CLI with [npm](https://www.npmjs.com/):
+
+```sh
+$ npm install  --global breakdance
+```
+
+This adds the `bd` command to your system path, allowing you to run the breakdance CLI from any directory. 
+
+```sh
+$ bd
+# aliased as "breakdance" in case of conflicts
+$ breakdance
+```
+
+### Using the CLI
+
+If you want to do a quick test-drive, add the following content to `foo.html`:
+
+```html
+<h2 id=tables-hover-rows>Hover rows</h2>
+<p>Add <code>.table-hover</code> to enable a hover state on table rows within a <code>&lt;tbody&gt;</code>.</p>
+<div class=bs-example data-example-id=hoverable-table>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope=row>1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope=row>2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope=row>3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+**Run breakdance**
+
+Next, from the command line run:
+
+```sh
+$ bd foo.html
+```
+
+If everything is installed properly, you should now see a `foo.md` file in the current working directory with something like following:
+
+```
+## Hover rows
+
+Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
+
+| # | First Name | Last Name | Username |
+| --- | --- | --- | --- |
+| 1 | Mark | Otto | @mdo |
+| 2 | Jacob | Thornton | @fat |
+| 3 | Larry | the Bird | @twitter |
+```
+
+**Pro tip**
+
+Most of the [breakdance options](http://breakdance.io/docs.html#options) can be set from the command line. Play around with the options on the following help menu to customize output. 
+
+For example, run the following on the same `foo.html` file to only generate the table, and no other tags:
+
+```
+$ bd foo.html --pick table
+```
+
+**Help menu**
+
+
+```
+Usage: $ breakdance [options] <file> <dest>
+
+  file:  The HTML file to convert to markdown
+  dest:  Name of the markdown file to create. By default
+         the HTML filename is used with a .md extension
+
+Options:
+
+-c, --condense Collapse more than two newlines to only
+               two newlines. Enabled by default
+-d, --domain   Specify the root domain name to prefix onto
+               "href" or "src" paths that do not star
+-o, --omit     One or more tags to omit entirely from
+               the HTML before converting to markdown.
+-p, --pick     One or more tags to pick entirely from the
+               HTML before converting to markdown.
+--comments     Include HTML code comments in the generated
+               markdown string. Disabled by default
+```
+
+### API Usage
+
 Breakdance is a JavaScript-based node.js module that, [once installed](index.html#quickstart), can be added to any `.js` file using [node's](https://nodejs.org/api/modules.html) `require()` system by adding the following line of code:
 
 ```js
