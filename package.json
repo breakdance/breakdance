@@ -5,9 +5,9 @@
   "homepage": "http://breakdance.io",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
-    "Brian Woodward <brian.woodward@gmail.com> (https://twitter.com/doowb)",
-    "David Larlet <david@larlet.fr> (https://larlet.fr/david/code)",
-    "Jon Schlinkert <jon.schlinkert@sellside.com> (http://twitter.com/jonschlinkert)"
+    "Brian Woodward (https://twitter.com/doowb)",
+    "David Larlet (https://larlet.fr/david/code)",
+    "Jon Schlinkert (http://twitter.com/jonschlinkert)"
   ],
   "repository": "breakdance/breakdance",
   "bugs": {
@@ -15,15 +15,10 @@
   },
   "license": "MIT",
   "files": [
-    "bin",
     "index.js",
     "lib"
   ],
   "main": "index.js",
-  "bin": {
-    "breakdance": "bin/cli.js",
-    "bd": "bin/cli.js"
-  },
   "engines": {
     "node": ">=0.10.0"
   },
@@ -40,8 +35,6 @@
     "extend-shallow": "^2.0.1",
     "is-self-closing": "^1.0.0",
     "isobject": "^3.0.0",
-    "log-ok": "^0.1.1",
-    "minimist": "^1.2.0",
     "mixin-deep": "^1.2.0",
     "repeat-string": "^1.6.1",
     "snapdragon": "^0.11.0",
@@ -51,8 +44,7 @@
     "strip-attributes": "^0.2.0",
     "trim-leading-lines": "^0.1.1",
     "trim-trailing-lines": "^1.1.0",
-    "unescape": "^0.2.0",
-    "write": "^0.3.3"
+    "unescape": "^0.2.0"
   },
   "devDependencies": {
     "dashify": "^0.2.2",
@@ -69,6 +61,7 @@
     "strip-color": "^0.1.0",
     "time-diff": "^0.3.1",
     "verb-generate-readme": "^0.5.0",
+    "write": "^0.3.3",
     "yargs-parser": "^5.0.0"
   },
   "keywords": [
