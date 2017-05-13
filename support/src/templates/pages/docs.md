@@ -18,14 +18,14 @@ If you want to see how breakdance works, the CLI is the fastest way to get start
 Install the breakdance CLI with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install  --global breakdance
+$ npm install  --global breakdance-cli
 ```
 
 This adds the `bd` command to your system path, allowing you to run the breakdance CLI from any directory. 
 
 ```sh
 $ bd
-# aliased as "breakdance" in case of conflicts
+# also aliased as "breakdance" in case of conflicts
 $ breakdance
 ```
 
