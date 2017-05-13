@@ -10,8 +10,12 @@ var name = argv._[0];
 var fp = path.join(process.cwd(), 'test/fixtures', name + '.html');
 var str = fs.readFileSync(fp, 'utf8');
 
+/**
+ * Convert MS Word documents to markdown (this is not finished,
+ * but it works)
+ */
+
 var res = breakdance(str, {
-  domain: 'http://www.xe.com/',
   preprocess: function fn(node, prev, $) {
     if (node.name === 'html' && node.attribs) {
       if (/office:word$/.test(node.attribs['xmlns:w'])) {
