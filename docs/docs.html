@@ -745,7 +745,7 @@ Options:
   }
 });
 
-<span class="hljs-comment">//=&gt; &apos;FOO **BAR**&apos;</span>
+<span class="hljs-comment">//=&gt; &apos;Foo **BAR**&apos;</span>
 </code></pre>
             <p>Disable the <code>strong</code> handler (note that breakdance would throw an error if you encounter a <code>&lt;strong&gt;</code> tag and no handlers are registered for it):</p> <pre><code class="language-js">breakdance(<span class="hljs-string">&apos;Foo &lt;strong&gt;Bar&lt;/strong&gt;&apos;</span>, {<span class="hljs-attr">handlers</span>: {<span class="hljs-attr">strong</span>: <span class="hljs-literal">false</span>}});
 <span class="hljs-comment">//=&gt; &apos;Foo &apos;</span>

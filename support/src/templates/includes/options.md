@@ -320,7 +320,7 @@ breakdance('Foo <strong>Bar</strong>', {
   }
 });
 
-//=> 'FOO **BAR**'
+//=> 'Foo **BAR**'
 ```
 
 Disable the `strong` handler (note that breakdance would throw an error if you encounter a `<strong>` tag and no handlers are registered for it):
