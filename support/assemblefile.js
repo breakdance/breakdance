@@ -69,17 +69,22 @@ app.option('assets', assets());
 app.option('dest', dest());
 
 /**
- * Helpers
+ * Async helpers
+ */
+
+app.asyncHelpers(require('./build/helpers/async'));
+
+/**
+ * Sync helpers
  */
 
 app.helpers(helpers());
 app.helpers(require('./build/helpers'));
-app.asyncHelpers(require('./build/helpers/async'));
 app.helper('geopattern', geopattern(app.options));
 app.helper('geoColor', geopattern.color(app.options));
 
 /**
- * Data
+ * Site data
  */
 
 app.data({site: pkg.expand(require('../package'))});
