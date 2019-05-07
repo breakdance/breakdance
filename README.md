@@ -10,11 +10,11 @@ Breakdance is a node.js library for converting HTML to markdown. You can use bre
 * Convert HTML presentations or slide decks to markdown
 * Convert busy web pages into readable markdown documents.
 
-Visit [breakdance.io](http://breakdance.io) for detailed documentation, [examples](http://breakdance.io/examples), [recipes](http://breakdance.io/recipes), and advice on [authoring and finding plugins](http://breakdance.io/plugins.html).
+Visit [our website](https://breakdance.github.io/breakdance/index.html) for [detailed documentation](https://breakdance.github.io/breakdance/docs.html), [examples](https://breakdance.github.io/breakdance/examples.html), [recipes](https://breakdance.github.io/breakdance/recipes.html), and advice on [authoring and finding plugins](https://breakdance.github.io/breakdance/plugins.html).
 
 ## Why should I use breakdance?
 
-Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](http://breakdance.io/plugins.html). If you see something you don't like, it's easy to change!
+Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](https://breakdance.github.io/breakdance/plugins.html). If you see something you don't like, it's easy to change!
 
 **Generates well-formatted markdown**
 
@@ -26,8 +26,8 @@ Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, a
 
 Every part of the conversion is customizable:
 
-* [options](http://breakdance.io/plugins.html) are available for customizing output of any HTML tag if you don't like the defaults
-* [plugins](http://breakdance.io/plugins.html) are easy to write if you'd like to share your customizations with the world
+* [options](https://breakdance.github.io/breakdance/plugins.html) are available for customizing output of any HTML tag if you don't like the defaults
+* [plugins](https://breakdance.github.io/breakdance/plugins.html) are easy to write if you'd like to share your customizations with the world
 
 ## HTML-to-markdown example
 
@@ -86,7 +86,7 @@ Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 | 3 | Larry | the Bird | @twitter |
 ```
 
-See [the documentation](http://breakdance.io/examples.html) for more examples.
+See [the documentation](https://breakdance.github.io/breakdance/examples.html) for more examples.
 
 ## About
 
@@ -157,7 +157,7 @@ Custom labels used in this changelog:
 
 **Added**
 
-* documentation for `options.comments`, `options.unsmarty`, `options.trailingWhitespace`, all previously undocumented options. See [breakdance.io/options](http://breakdance.io/docs.html#options)
+* documentation for `options.comments`, `options.unsmarty`, `options.trailingWhitespace`, all previously undocumented options. [See breakdance's options](https://breakdance.github.io/breakdance/docs.html#options)
 
 ##### [1.0.0](https://github.com/breakdance/breakdance/compare/0.1.5...1.0.0) - 2017-03-12
 
