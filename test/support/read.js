@@ -1,8 +1,8 @@
 'use strict';
 
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
-module.exports = function(fp) {
-  return fs.readFileSync(path.join(__dirname, '..', fp), 'utf8');
+module.exports = filepath => {
+  return fs.readFileSync(path.resolve(__dirname, '..', filepath), 'utf8');
 };

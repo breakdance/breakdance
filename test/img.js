@@ -1,6 +1,6 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
 describe('img', function() {
   it('should convert img tags to markdown', function() {

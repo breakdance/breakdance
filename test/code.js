@@ -1,12 +1,10 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
 describe('code', function() {
   describe('<code>', function() {
-    it('should convert code tags to markdown', function() {
-      isEqual('code');
-    });
+    it('should convert code tags to markdown', () => isEqual('code'));
 
     it('should use double backticks when a backticks exist in code', function() {
       isEqual.inline('<code>foo`bar</code>', '``foo`bar``\n');
@@ -19,8 +17,6 @@ describe('code', function() {
   });
 
   describe('gfm', function() {
-    it('should convert gfm tags to markdown', function() {
-      isEqual('gfm');
-    });
+    it('should convert gfm tags to markdown', () => isEqual('gfm'));
   });
 });

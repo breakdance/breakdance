@@ -1,6 +1,6 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
 describe('strike', function() {
   it('should convert <strike> tags', function() {

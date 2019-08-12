@@ -1,16 +1,16 @@
 # Can I use... Support tables for HTML5, CSS3, etc
 
-* [Home](#home)
-* [News](#info-news)
+- [Home](#home)
+- [News](#info_news)
 
 [October 23, 2016 - New visualization: Date relative mode](/feed/157)
 
-* [Compare browsers](#comparison)
-* [Import stats](#stats-import)
-* [Index](#index)
-* [About](#info-about)
+- [Compare browsers](#comparison)
+- [Import stats](#stats_import)
+- [Index](#index)
+- [About](#info_about)
 
-[Can I use](#tables)?
+[Can I use](#tables) ?
 
 ##### Can I use...
 
@@ -26,19 +26,19 @@ Location detection provided by [ipinfo.io](http://ipinfo.io).
 
 ##### Site links
 
-* [Home](#home)
-* [Feature index](#index)
-* [Browser usage table](http://caniuse.com/usage-table)
-* [Feature suggestion list](http://caniuse.com/issue-list)
-* [Caniuse data on GitHub](https://github.com/fyrd/caniuse)
+- [Home](#home)
+- [Feature index](#index)
+- [Browser usage table](http://caniuse.com/usage-table)
+- [Feature suggestion list](http://caniuse.com/issue-list)
+- [Caniuse data on GitHub](https://github.com/fyrd/caniuse)
 
 ## Legend
 
-* Green = Supported
-* Red = Not supported
-* Greenish yellow = Partial support
-* Gray = Support unknown
+- Green = Supported
+- Red = Not supported
+- Greenish yellow = Partial support
+- Gray = Support unknown
 
-[Enable accessible colors](/#accessible_colors=1)
+[Enable accessible colors](#accessible_colors=1)
 
-[Use default colors](/#accessible_colors=0)
+[Use default colors](#accessible_colors=0)

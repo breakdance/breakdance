@@ -1,6 +1,6 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
 describe('title', function() {
   it('should not output <title> by default', function() {

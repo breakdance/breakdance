@@ -1,14 +1,14 @@
 # Can I use... Support tables for HTML5, CSS3, etc
 
-* [Home](#home)
-* [News](#info-news)
+- [Home](#home)
+- [News](#info-news)
 
 [October 23, 2016 - New visualization: Date relative mode](/feed/157)
 
-* [Compare browsers](#comparison)
-* [Import stats](#stats-import)
-* [Index](#index)
-* [About](#info-about)
+- [Compare browsers](#comparison)
+- [Import stats](#stats-import)
+- [Index](#index)
+- [About](#info-about)
 
 [Can I use](#tables)?
 
@@ -432,11 +432,11 @@
 
 ##### Did you know?
 
-* You can import usage data from your **Google Analytics** account and see exactly how well a feature is supported among your own site's visitors. Look under the **Settings panel** to get started!
-* Usage data for all countries and continents can be imported via the **Settings panel**.
-* By default, older browser versions are only shown if they have >= 0.5% usage share. You can increase or decrease this value from the **Settings panel**.
-* If a feature you're looking for is not available on the site, you can [vote to have it included](https://github.com/fyrd/caniuse/issues). Better yet, if you've done the research you can even [submit it yourself](https://github.com/Fyrd/caniuse/blob/master/CONTRIBUTING.md#adding-a-feature)!
-* Each feature support table includes a "Usage relative" button. This will resize each browser version cell to be relative to the amount of support it has for the selected usage source.
+- You can import usage data from your **Google Analytics** account and see exactly how well a feature is supported among your own site's visitors. Look under the **Settings panel** to get started!
+- Usage data for all countries and continents can be imported via the **Settings panel**.
+- By default, older browser versions are only shown if they have >= 0.5% usage share. You can increase or decrease this value from the **Settings panel**.
+- If a feature you're looking for is not available on the site, you can [vote to have it included](https://github.com/fyrd/caniuse/issues). Better yet, if you've done the research you can even [submit it yourself](https://github.com/Fyrd/caniuse/blob/master/CONTRIBUTING.md#adding-a-feature)!
+- Each feature support table includes a "Usage relative" button. This will resize each browser version cell to be relative to the amount of support it has for the selected usage source.
 
 ##### Browser scores
 
@@ -528,18 +528,18 @@ Location detection provided by [ipinfo.io](http://ipinfo.io).
 
 ##### Site links
 
-* [Home](#home)
-* [Feature index](#index)
-* [Browser usage table](http://caniuse.com/usage-table)
-* [Feature suggestion list](http://caniuse.com/issue-list)
-* [Caniuse data on GitHub](https://github.com/fyrd/caniuse)
+- [Home](#home)
+- [Feature index](#index)
+- [Browser usage table](http://caniuse.com/usage-table)
+- [Feature suggestion list](http://caniuse.com/issue-list)
+- [Caniuse data on GitHub](https://github.com/fyrd/caniuse)
 
 ## Legend
 
-* Green = Supported
-* Red = Not supported
-* Greenish yellow = Partial support
-* Gray = Support unknown
+- Green = Supported
+- Red = Not supported
+- Greenish yellow = Partial support
+- Gray = Support unknown
 
 [Enable accessible colors](/#accessible_colors=1)
 

@@ -1,18 +1,20 @@
 'use strict';
 
-var path = require('path');
-var assemblefile = require('./support/assemblefile');
-var cwd = process.cwd();
+const path = require('path');
+const assemblefile = require('./support/assemblefile');
+const cwd = process.cwd();
 
-module.exports = function(verb) {
+module.exports = verb => {
   verb.use(require('verb-generate-readme'));
 
-  verb.task('assemble', function(cb) {
+  // run Assemble to generate docs
+  verb.task('assemble', cb => {
     process.chdir(path.join(__dirname, 'support'));
     assemblefile.build(cb);
   });
 
-  verb.task('docs', function(cb) {
+  // build breakdance documentation
+  verb.task('docs', cb => {
     process.chdir(cwd);
     verb.build('readme', cb);
   });
