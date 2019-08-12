@@ -1,14 +1,14 @@
 [Skip to main content](#content) [Aww yeah, Bootstrap 4 is coming!](https://v4-alpha.getbootstrap.com/) [Bootstrap](../)
 
-* [Getting started](../getting-started/)
-* [CSS](../css/)
-* [Components](../components/)
-* [JavaScript](../javascript/)
-* [Customize](../customize/)
+- [Getting started](../getting-started/)
+- [CSS](../css/)
+- [Components](../components/)
+- [JavaScript](../javascript/)
+- [Customize](../customize/)
 
-* [Themes](http://themes.getbootstrap.com)
-* [Expo](http://expo.getbootstrap.com)
-* [Blog](http://blog.getbootstrap.com)
+- [Themes](http://themes.getbootstrap.com)
+- [Expo](http://expo.getbootstrap.com)
+- [Blog](http://blog.getbootstrap.com)
 
 # CSS
 
@@ -49,9 +49,9 @@ You can disable zooming capabilities on mobile devices by adding `user-scalable=
 
 Bootstrap sets basic global display, typography, and link styles. Specifically, we:
 
-* Set `background-color: #fff;` on the `body`
-* Use the `@font-family-base`, `@font-size-base`, and `@line-height-base` attributes as our typographic base
-* Set the global link color via `@link-color` and apply link underlines only on `:hover`
+- Set `background-color: #fff;` on the `body`
+- Use the `@font-family-base`, `@font-size-base`, and `@line-height-base` attributes as our typographic base
+- Set the global link color via `@link-color` and apply link underlines only on `:hover`
 
 These styles can be found within `scaffolding.less`.
 
@@ -87,15 +87,15 @@ Bootstrap includes a responsive, mobile first fluid grid system that appropriate
 
 Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Bootstrap grid system works:
 
-* Rows must be placed within a `.container` (fixed-width) or `.container-fluid` (full-width) for proper alignment and padding.
-* Use rows to create horizontal groups of columns.
-* Content should be placed within columns, and only columns may be immediate children of rows.
-* Predefined grid classes like `.row` and `.col-xs-4` are available for quickly making grid layouts. Less mixins can also be used for more semantic layouts.
-* Columns create gutters (gaps between column content) via `padding`. That padding is offset in rows for the first and last column via negative margin on `.row`s.
-* The negative margin is why the examples below are outdented. It's so that content within grid columns is lined up with non-grid content.
-* Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three `.col-xs-4`.
-* If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
-* Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any `.col-md-*` class to an element will not only affect its styling on medium devices but also on large devices if a `.col-lg-*` class is not present.
+- Rows must be placed within a `.container` (fixed-width) or `.container-fluid` (full-width) for proper alignment and padding.
+- Use rows to create horizontal groups of columns.
+- Content should be placed within columns, and only columns may be immediate children of rows.
+- Predefined grid classes like `.row` and `.col-xs-4` are available for quickly making grid layouts. Less mixins can also be used for more semantic layouts.
+- Columns create gutters (gaps between column content) via `padding`. That padding is offset in rows for the first and last column via negative margin on `.row`s.
+- The negative margin is why the examples below are outdented. It's so that content within grid columns is lined up with non-grid content.
+- Grid columns are created by specifying the number of twelve available columns you wish to span. For example, three equal columns would use three `.col-xs-4`.
+- If more than 12 columns are placed within a single row, each group of extra columns will, as one unit, wrap onto a new line.
+- Grid classes apply to devices with screen widths greater than or equal to the breakpoint sizes, and override grid classes targeted at smaller devices. Therefore, e.g. applying any `.col-md-*` class to an element will not only affect its styling on medium devices but also on large devices if a `.col-lg-*` class is not present.
 
 Look to the examples for applying these principles to your code.
 
@@ -103,7 +103,7 @@ Look to the examples for applying these principles to your code.
 
 We use the following media queries in our Less files to create the key breakpoints in our grid system.
 
-```scss
+```sass
 /* Extra small devices (phones, less than 768px) */
 /* No media query since this is the default in Bootstrap */
 
@@ -119,7 +119,7 @@ We use the following media queries in our Less files to create the key breakpoin
 
 We occasionally expand on these media queries to include a `max-width` to limit CSS to a narrower set of devices.
 
-```scss
+```sass
 @media (max-width: @screen-xs-max) { ... }
 @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { ... }
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
@@ -355,7 +355,7 @@ In addition to [prebuilt grid classes](#grid-example-basic) for fast layouts, Bo
 
 Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.
 
-```scss
+```sass
 @grid-columns:              12;
 @grid-gutter-width:         30px;
 @grid-float-breakpoint:     768px;
@@ -365,7 +365,7 @@ Variables determine the number of columns, the gutter width, and the media query
 
 Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.
 
-```scss
+```sass
 // Creates a wrapper for a series of columns
 .make-row(@gutter: @grid-gutter-width) {
   // Then clear the floated columns
@@ -503,7 +503,7 @@ Mixins are used in conjunction with the grid variables to generate semantic CSS 
 
 You can modify the variables to your own custom values, or just use the mixins with their default values. Here's an example of using the default settings to create a two-column layout with a gap between.
 
-```scss
+```sass
 .wrapper {
   .make-row();
 }
@@ -757,7 +757,7 @@ San Francisco, CA 94103<br>
 
 <address>
   <strong>Full Name</strong><br>
-  <a href="mailto:#">[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</a>
+  <a href="mailto:#">[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</a>
 </address>
 ```
 
@@ -814,18 +814,18 @@ Someone famous in <cite>Source Title</cite>
 
 A list of items in which the order does _not_ explicitly matter.
 
-* Lorem ipsum dolor sit amet
-* Consectetur adipiscing elit
-* Integer molestie lorem at massa
-* Facilisis in pretium nisl aliquet
-* Nulla volutpat aliquam velit
-  - Phasellus iaculis neque
-  - Purus sodales ultricies
-  - Vestibulum laoreet porttitor sem
-  - Ac tristique libero volutpat at
-* Faucibus porta lacus fringilla vel
-* Aenean sit amet erat nunc
-* Eget porttitor lorem
+- Lorem ipsum dolor sit amet
+- Consectetur adipiscing elit
+- Integer molestie lorem at massa
+- Facilisis in pretium nisl aliquet
+- Nulla volutpat aliquam velit
+  * Phasellus iaculis neque
+  * Purus sodales ultricies
+  * Vestibulum laoreet porttitor sem
+  * Ac tristique libero volutpat at
+- Faucibus porta lacus fringilla vel
+- Aenean sit amet erat nunc
+- Eget porttitor lorem
 
 ```html
 <ul>
@@ -856,18 +856,18 @@ A list of items in which the order _does_ explicitly matter.
 
 Remove the default `list-style` and left margin on list items (immediate children only). **This only applies to immediate children list items**, meaning you will need to add the class for any nested lists as well.
 
-* Lorem ipsum dolor sit amet
-* Consectetur adipiscing elit
-* Integer molestie lorem at massa
-* Facilisis in pretium nisl aliquet
-* Nulla volutpat aliquam velit
-  - Phasellus iaculis neque
-  - Purus sodales ultricies
-  - Vestibulum laoreet porttitor sem
-  - Ac tristique libero volutpat at
-* Faucibus porta lacus fringilla vel
-* Aenean sit amet erat nunc
-* Eget porttitor lorem
+- Lorem ipsum dolor sit amet
+- Consectetur adipiscing elit
+- Integer molestie lorem at massa
+- Facilisis in pretium nisl aliquet
+- Nulla volutpat aliquam velit
+  * Phasellus iaculis neque
+  * Purus sodales ultricies
+  * Vestibulum laoreet porttitor sem
+  * Ac tristique libero volutpat at
+- Faucibus porta lacus fringilla vel
+- Aenean sit amet erat nunc
+- Eget porttitor lorem
 
 ```html
 <ul class="list-unstyled">
@@ -879,9 +879,9 @@ Remove the default `list-style` and left margin on list items (immediate childre
 
 Place all list items on a single line with `display: inline-block;` and some light padding.
 
-* Lorem ipsum
-* Phasellus iaculis
-* Nulla volutpat
+- Lorem ipsum
+- Phasellus iaculis
+- Nulla volutpat
 
 ```html
 <ul class="list-inline">
@@ -893,7 +893,17 @@ Place all list items on a single line with `display: inline-block;` and some lig
 
 A list of terms with their associated descriptions.
 
-<dl> <dt>Description lists</dt> <dd>A description list is perfect for defining terms.</dd> <dt>Euismod</dt> <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd> <dd>Donec id elit non mi porta gravida at eget metus.</dd> <dt>Malesuada porta</dt> <dd>Etiam porta sem malesuada magna mollis euismod.</dd> </dl>
+<dl>
+  <dt>Description lists</dt>
+  <dd>A description list is perfect for defining terms.</dd>
+
+  <dt>Euismod</dt>
+  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+
+  <dt>Malesuada porta</dt>
+  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+</dl>
 
 ```html
 <dl>
@@ -906,7 +916,20 @@ A list of terms with their associated descriptions.
 
 Make terms and descriptions in `<dl>` line up side-by-side. Starts off stacked like default `<dl>`s, but when the navbar expands, so do these.
 
-<dl> <dt>Description lists</dt> <dd>A description list is perfect for defining terms.</dd> <dt>Euismod</dt> <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd> <dd>Donec id elit non mi porta gravida at eget metus.</dd> <dt>Malesuada porta</dt> <dd>Etiam porta sem malesuada magna mollis euismod.</dd> <dt>Felis euismod semper eget lacinia</dt> <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd> </dl>
+<dl>
+  <dt>Description lists</dt>
+  <dd>A description list is perfect for defining terms.</dd>
+
+  <dt>Euismod</dt>
+  <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+  <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+
+  <dt>Malesuada porta</dt>
+  <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+
+  <dt>Felis euismod semper eget lacinia</dt>
+  <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+</dl>
 
 ```html
 <dl class="dl-horizontal">
@@ -1200,7 +1223,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
   </div>
   <div class="form-group">
     <label for="exampleInputEmail2">Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */">
+    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */">
   </div>
   <button type="submit" class="btn btn-default">Send invitation</button>
 </form>
@@ -1423,7 +1446,7 @@ When you need to place plain text next to a form label within a form, use the `.
   <div class="form-group">
     <label class="col-sm-2 control-label">Email</label>
     <div class="col-sm-10">
-      <p class="form-control-static">[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</p>
+      <p class="form-control-static">[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</p>
     </div>
   </div>
   <div class="form-group">
@@ -1439,7 +1462,7 @@ When you need to place plain text next to a form label within a form, use the `.
 <form class="form-inline">
   <div class="form-group">
     <label class="sr-only">Email</label>
-    <p class="form-control-static">[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</p>
+    <p class="form-control-static">[email protected]/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</p>
   </div>
   <div class="form-group">
     <label for="inputPassword2" class="sr-only">Password</label>
@@ -2015,7 +2038,7 @@ Float an element to the left or right with a class. `!important` is included to 
 <div class="pull-right">...</div>
 ```
 
-```scss
+```sass
 // Classes
 .pull-left {
   float: left !important;
@@ -2045,7 +2068,7 @@ Set an element to `display: block` and center via `margin`. Available as a mixin
 <div class="center-block">...</div>
 ```
 
-```scss
+```sass
 // Class
 .center-block {
   display: block;
@@ -2068,7 +2091,7 @@ Easily clear `float`s by adding `.clearfix` **to the parent element**. Utilizes 
 <div class="clearfix">...</div>
 ```
 
-```scss
+```sass
 // Mixin itself
 .clearfix() {
   &:before,
@@ -2100,7 +2123,7 @@ Furthermore, `.invisible` can be used to toggle only the visibility of an elemen
 <div class="hidden">...</div>
 ```
 
-```scss
+```sass
 // Classes
 .show {
   display: block !important;
@@ -2129,7 +2152,7 @@ Hide an element to all devices **except screen readers** with `.sr-only`. Combin
 <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 ```
 
-```scss
+```sass
 // Usage as a mixin
 .skip-navigation {
   .sr-only();
@@ -2145,7 +2168,7 @@ Utilize the `.text-hide` class or mixin to help replace an element's text conten
 <h1 class="text-hide">Custom heading</h1>
 ```
 
-```scss
+```sass
 // Usage as a mixin
 .heading {
   .text-hide();
@@ -2231,7 +2254,7 @@ Variables are used throughout the entire project as a way to centralize and shar
 
 Easily make use of two color schemes: grayscale and semantic. Grayscale colors provide quick access to commonly used shades of black while semantic include various colors assigned to meaningful contextual values.
 
-```scss
+```sass
 @gray-darker:  lighten(#000, 13.5%); // #222
 @gray-dark:    lighten(#000, 20%);   // #333
 @gray:         lighten(#000, 33.5%); // #555
@@ -2239,7 +2262,7 @@ Easily make use of two color schemes: grayscale and semantic. Grayscale colors p
 @gray-lighter: lighten(#000, 93.5%); // #eee
 ```
 
-```scss
+```sass
 @brand-primary: darken(#428bca, 6.5%); // #337ab7
 @brand-success: #5cb85c;
 @brand-info:    #5bc0de;
@@ -2249,7 +2272,7 @@ Easily make use of two color schemes: grayscale and semantic. Grayscale colors p
 
 Use any of these color variables as they are or reassign them to more meaningful variables for your project.
 
-```scss
+```sass
 // Use as-is
 .masthead {
   background-color: @brand-primary;
@@ -2266,7 +2289,7 @@ Use any of these color variables as they are or reassign them to more meaningful
 
 A handful of variables for quickly customizing key elements of your site's skeleton.
 
-```scss
+```sass
 // Scaffolding
 @body-bg:    #fff;
 @text-color: @black-50;
@@ -2276,7 +2299,7 @@ A handful of variables for quickly customizing key elements of your site's skele
 
 Easily style your links with the right color with only one value.
 
-```scss
+```sass
 // Variables
 @link-color:       @brand-primary;
 @link-hover-color: darken(@link-color, 15%);
@@ -2299,7 +2322,7 @@ Note that the `@link-hover-color` uses a function, another awesome tool from Les
 
 Easily set your typeface, text size, leading, and more with a few quick variables. Bootstrap makes use of these as well to provide easy typographic mixins.
 
-```scss
+```sass
 @font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -2329,7 +2352,7 @@ Easily set your typeface, text size, leading, and more with a few quick variable
 
 Two quick variables for customizing the location and filename of your icons.
 
-```scss
+```sass
 @icon-font-path:          "../fonts/";
 @icon-font-name:          "glyphicons-halflings-regular";
 ```
@@ -2338,7 +2361,7 @@ Two quick variables for customizing the location and filename of your icons.
 
 Components throughout Bootstrap make use of some default variables for setting common values. Here are the most commonly used.
 
-```scss
+```sass
 @padding-base-vertical:          6px;
 @padding-base-horizontal:        12px;
 
@@ -2375,7 +2398,7 @@ Reset your components' box model with a single mixin. For context, see this [hel
 
 The mixin is **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixin internally until Bootstrap v4.
 
-```scss
+```sass
 .box-sizing(@box-model) {
   -webkit-box-sizing: @box-model; // Safari <= 5
      -moz-box-sizing: @box-model; // Firefox <= 19
@@ -2387,7 +2410,7 @@ The mixin is **deprecated** as of v3.2.0, with the introduction of Autoprefixer.
 
 Today all modern browsers support the non-prefixed `border-radius` property. As such, there is no `.border-radius()` mixin, but Bootstrap does include shortcuts for quickly rounding two corners on a particular side of an object.
 
-```scss
+```sass
 .border-top-radius(@radius) {
   border-top-right-radius: @radius;
    border-top-left-radius: @radius;
@@ -2414,7 +2437,7 @@ The mixin is **deprecated** as of v3.1.0, since Bootstrap doesn't officially sup
 
 Be sure to use `rgba()` colors in your box shadows so they blend as seamlessly as possible with backgrounds.
 
-```scss
+```sass
 .box-shadow(@shadow: 0 1px 3px rgba(0,0,0,.25)) {
   -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
           box-shadow: @shadow;
@@ -2427,7 +2450,7 @@ Multiple mixins for flexibility. Set all transition information with one, or spe
 
 The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
 
-```scss
+```sass
 .transition(@transition) {
   -webkit-transition: @transition;
           transition: @transition;
@@ -2462,7 +2485,7 @@ Rotate, scale, translate (move), or skew any object.
 
 The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
 
-```scss
+```sass
 .rotate(@degrees) {
   -webkit-transform: rotate(@degrees);
       -ms-transform: rotate(@degrees); // IE9 only
@@ -2522,7 +2545,7 @@ A single mixin for using all of CSS3's animation properties in one declaration a
 
 The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixer. To preserve backwards-compatibility, Bootstrap will continue to use the mixins internally until Bootstrap v4.
 
-```scss
+```sass
 .animation(@animation) {
   -webkit-animation: @animation;
           animation: @animation;
@@ -2557,7 +2580,7 @@ The mixins are **deprecated** as of v3.2.0, with the introduction of Autoprefixe
 
 Set the opacity for all browsers and provide a `filter` fallback for IE8.
 
-```scss
+```sass
 .opacity(@opacity) {
   opacity: @opacity;
   // IE8 filter
@@ -2570,7 +2593,7 @@ Set the opacity for all browsers and provide a `filter` fallback for IE8.
 
 Provide context for form controls within each field.
 
-```scss
+```sass
 .placeholder(@color: @input-color-placeholder) {
   &::-moz-placeholder           { color: @color; } // Firefox
   &:-ms-input-placeholder       { color: @color; } // Internet Explorer 10+
@@ -2582,7 +2605,7 @@ Provide context for form controls within each field.
 
 Generate columns via CSS within a single element.
 
-```scss
+```sass
 .content-columns(@width; @count; @gap) {
   -webkit-column-width: @width;
      -moz-column-width: @width;
@@ -2600,7 +2623,7 @@ Generate columns via CSS within a single element.
 
 Easily turn any two colors into a background gradient. Get more advanced and set a direction, use three colors, or use a radial gradient. With a single mixin you get all the prefixed syntaxes you'll need.
 
-```scss
+```sass
 #gradient > .vertical(#333; #000);
 #gradient > .horizontal(#333; #000);
 #gradient > .radial(#333; #000);
@@ -2608,19 +2631,19 @@ Easily turn any two colors into a background gradient. Get more advanced and set
 
 You can also specify the angle of a standard two-color, linear gradient:
 
-```scss
+```sass
 #gradient > .directional(#333; #000; 45deg);
 ```
 
 If you need a barber-stripe style gradient, that's easy, too. Just specify a single color and we'll overlay a translucent white stripe.
 
-```scss
+```sass
 #gradient > .striped(#333; 45deg);
 ```
 
 Up the ante and use three colors instead. Set the first color, the second color, the second color's color stop (a percentage value like 25%), and the third color with these mixins:
 
-```scss
+```sass
 #gradient > .vertical-three-colors(#777; #333; 25%; #000);
 #gradient > .horizontal-three-colors(#777; #333; 25%; #000);
 ```
@@ -2635,7 +2658,7 @@ Utility mixins are mixins that combine otherwise unrelated CSS properties to ach
 
 Forget adding `class="clearfix"` to any element and instead add the `.clearfix()` mixin where appropriate. Uses the [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/) from [Nicolas Gallagher](https://twitter.com/necolas).
 
-```scss
+```sass
 // Mixin
 .clearfix() {
   &:before,
@@ -2658,7 +2681,7 @@ Forget adding `class="clearfix"` to any element and instead add the `.clearfix()
 
 Quickly center any element within its parent. **Requires `width` or `max-width` to be set.**
 
-```scss
+```sass
 // Mixin
 .center-block() {
   display: block;
@@ -2677,7 +2700,7 @@ Quickly center any element within its parent. **Requires `width` or `max-width` 
 
 Specify the dimensions of an object more easily.
 
-```scss
+```sass
 // Mixins
 .size(@width; @height) {
   width: @width;
@@ -2696,7 +2719,7 @@ Specify the dimensions of an object more easily.
 
 Easily configure the resize options for any textarea, or any other element. Defaults to normal browser behavior (`both`).
 
-```scss
+```sass
 .resizable(@direction: both) {
   // Options: horizontal, vertical, both
   resize: @direction;
@@ -2709,7 +2732,7 @@ Easily configure the resize options for any textarea, or any other element. Defa
 
 Easily truncate text with an ellipsis with a single mixin. **Requires element to be `block` or `inline-block` level.**
 
-```scss
+```sass
 // Mixin
 .text-overflow() {
   overflow: hidden;
@@ -2729,7 +2752,7 @@ Easily truncate text with an ellipsis with a single mixin. **Requires element to
 
 Specify two image paths and the @1x image dimensions, and Bootstrap will provide an @2x media query. **If you have many images to serve, consider writing your retina image CSS manually in a single media query.**
 
-```scss
+```sass
 .img-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
   background-image: url("@{file-1x}");
 
@@ -2776,101 +2799,101 @@ For information on how to install and use Bootstrap for Sass, consult the [GitHu
 
 [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass)
 
-* [Overview](#overview)
-  - [HTML5 doctype](#overview-doctype)
-  - [Mobile first](#overview-mobile)
-  - [Typography and links](#overview-type-links)
-  - [Normalize.css](#overview-normalize)
-  - [Containers](#overview-container)
-* [Grid system](#grid)
-  - [Introduction](#grid-intro)
-  - [Media queries](#grid-media-queries)
-  - [Grid options](#grid-options)
-  - [Ex: Stacked-to-horizontal](#grid-example-basic)
-  - [Ex: Fluid container](#grid-example-fluid)
-  - [Ex: Mobile and desktop](#grid-example-mixed)
-  - [Ex: Mobile, tablet, desktop](#grid-example-mixed-complete)
-  - [Ex: Column wrapping](#grid-example-wrapping)
-  - [Responsive column resets](#grid-responsive-resets)
-  - [Offsetting columns](#grid-offsetting)
-  - [Nesting columns](#grid-nesting)
-  - [Column ordering](#grid-column-ordering)
-  - [Less mixins and variables](#grid-less)
-* [Typography](#type)
-  - [Headings](#type-headings)
-  - [Body copy](#type-body-copy)
-  - [Inline text elements](#type-inline-text)
-  - [Alignment classes](#type-alignment)
-  - [Transformation classes](#type-transformation)
-  - [Abbreviations](#type-abbreviations)
-  - [Addresses](#type-addresses)
-  - [Blockquotes](#type-blockquotes)
-  - [Lists](#type-lists)
-* [Code](#code)
-  - [Inline](#code-inline)
-  - [User input](#code-user-input)
-  - [Basic block](#code-block)
-  - [Variables](#code-variables)
-  - [Sample output](#code-sample-output)
-* [Tables](#tables)
-  - [Basic example](#tables-example)
-  - [Striped rows](#tables-striped)
-  - [Bordered table](#tables-bordered)
-  - [Hover rows](#tables-hover-rows)
-  - [Condensed table](#tables-condensed)
-  - [Contextual classes](#tables-contextual-classes)
-  - [Responsive tables](#tables-responsive)
-* [Forms](#forms)
-  - [Basic example](#forms-example)
-  - [Inline form](#forms-inline)
-  - [Horizontal form](#forms-horizontal)
-  - [Supported controls](#forms-controls)
-  - [Static control](#forms-controls-static)
-  - [Focus state](#forms-control-focus)
-  - [Disabled state](#forms-control-disabled)
-  - [Readonly state](#forms-control-readonly)
-  - [Help text](#forms-help-text)
-  - [Validation states](#forms-control-validation)
-  - [Control sizing](#forms-control-sizes)
-* [Buttons](#buttons)
-  - [Button tags](#buttons-tags)
-  - [Options](#buttons-options)
-  - [Sizes](#buttons-sizes)
-  - [Active state](#buttons-active)
-  - [Disabled state](#buttons-disabled)
-* [Images](#images)
-  - [Responsive images](#images-responsive)
-  - [Image shapes](#images-shapes)
-* [Helper classes](#helper-classes)
-  - [Contextual colors](#helper-classes-colors)
-  - [Contextual backgrounds](#helper-classes-backgrounds)
-  - [Close icon](#helper-classes-close)
-  - [Carets](#helper-classes-carets)
-  - [Quick floats](#helper-classes-floats)
-  - [Center content blocks](#helper-classes-center)
-  - [Clearfix](#helper-classes-clearfix)
-  - [Showing and hiding content](#helper-classes-show-hide)
-  - [Screen reader and keyboard navigation content](#helper-classes-screen-readers)
-  - [Image replacement](#helper-classes-image-replacement)
-* [Responsive utilities](#responsive-utilities)
-  - [Available classes](#responsive-utilities-classes)
-  - [Print classes](#responsive-utilities-print)
-  - [Test cases](#responsive-utilities-tests)
-* [Using Less](#less)
-  - [Compiling Bootstrap](#less-bootstrap)
-  - [Variables](#less-variables)
-  - [Vendor mixins](#less-mixins-vendor)
-  - [Utility mixins](#less-mixins-utility)
-* [Using Sass](#sass)
-  - [What's included](#sass-contents)
-  - [Installation](#sass-installation)
+- [Overview](#overview)
+  * [HTML5 doctype](#overview-doctype)
+  * [Mobile first](#overview-mobile)
+  * [Typography and links](#overview-type-links)
+  * [Normalize.css](#overview-normalize)
+  * [Containers](#overview-container)
+- [Grid system](#grid)
+  * [Introduction](#grid-intro)
+  * [Media queries](#grid-media-queries)
+  * [Grid options](#grid-options)
+  * [Ex: Stacked-to-horizontal](#grid-example-basic)
+  * [Ex: Fluid container](#grid-example-fluid)
+  * [Ex: Mobile and desktop](#grid-example-mixed)
+  * [Ex: Mobile, tablet, desktop](#grid-example-mixed-complete)
+  * [Ex: Column wrapping](#grid-example-wrapping)
+  * [Responsive column resets](#grid-responsive-resets)
+  * [Offsetting columns](#grid-offsetting)
+  * [Nesting columns](#grid-nesting)
+  * [Column ordering](#grid-column-ordering)
+  * [Less mixins and variables](#grid-less)
+- [Typography](#type)
+  * [Headings](#type-headings)
+  * [Body copy](#type-body-copy)
+  * [Inline text elements](#type-inline-text)
+  * [Alignment classes](#type-alignment)
+  * [Transformation classes](#type-transformation)
+  * [Abbreviations](#type-abbreviations)
+  * [Addresses](#type-addresses)
+  * [Blockquotes](#type-blockquotes)
+  * [Lists](#type-lists)
+- [Code](#code)
+  * [Inline](#code-inline)
+  * [User input](#code-user-input)
+  * [Basic block](#code-block)
+  * [Variables](#code-variables)
+  * [Sample output](#code-sample-output)
+- [Tables](#tables)
+  * [Basic example](#tables-example)
+  * [Striped rows](#tables-striped)
+  * [Bordered table](#tables-bordered)
+  * [Hover rows](#tables-hover-rows)
+  * [Condensed table](#tables-condensed)
+  * [Contextual classes](#tables-contextual-classes)
+  * [Responsive tables](#tables-responsive)
+- [Forms](#forms)
+  * [Basic example](#forms-example)
+  * [Inline form](#forms-inline)
+  * [Horizontal form](#forms-horizontal)
+  * [Supported controls](#forms-controls)
+  * [Static control](#forms-controls-static)
+  * [Focus state](#forms-control-focus)
+  * [Disabled state](#forms-control-disabled)
+  * [Readonly state](#forms-control-readonly)
+  * [Help text](#forms-help-text)
+  * [Validation states](#forms-control-validation)
+  * [Control sizing](#forms-control-sizes)
+- [Buttons](#buttons)
+  * [Button tags](#buttons-tags)
+  * [Options](#buttons-options)
+  * [Sizes](#buttons-sizes)
+  * [Active state](#buttons-active)
+  * [Disabled state](#buttons-disabled)
+- [Images](#images)
+  * [Responsive images](#images-responsive)
+  * [Image shapes](#images-shapes)
+- [Helper classes](#helper-classes)
+  * [Contextual colors](#helper-classes-colors)
+  * [Contextual backgrounds](#helper-classes-backgrounds)
+  * [Close icon](#helper-classes-close)
+  * [Carets](#helper-classes-carets)
+  * [Quick floats](#helper-classes-floats)
+  * [Center content blocks](#helper-classes-center)
+  * [Clearfix](#helper-classes-clearfix)
+  * [Showing and hiding content](#helper-classes-show-hide)
+  * [Screen reader and keyboard navigation content](#helper-classes-screen-readers)
+  * [Image replacement](#helper-classes-image-replacement)
+- [Responsive utilities](#responsive-utilities)
+  * [Available classes](#responsive-utilities-classes)
+  * [Print classes](#responsive-utilities-print)
+  * [Test cases](#responsive-utilities-tests)
+- [Using Less](#less)
+  * [Compiling Bootstrap](#less-bootstrap)
+  * [Variables](#less-variables)
+  * [Vendor mixins](#less-mixins-vendor)
+  * [Utility mixins](#less-mixins-utility)
+- [Using Sass](#sass)
+  * [What's included](#sass-contents)
+  * [Installation](#sass-installation)
 
 [Back to top](#top) [Preview theme](#)
 
-* [GitHub](https://github.com/twbs/bootstrap)
-* [Twitter](https://twitter.com/getbootstrap)
-* [Examples](../getting-started/#examples)
-* [About](../about/)
+- [GitHub](https://github.com/twbs/bootstrap)
+- [Twitter](https://twitter.com/getbootstrap)
+- [Examples](../getting-started/#examples)
+- [About](../about/)
 
 Designed and built with all the love in the world by [@mdo](https://twitter.com/mdo) and [@fat](https://twitter.com/fat). Maintained by the [core team](https://github.com/orgs/twbs/people) with the help of [our contributors](https://github.com/twbs/bootstrap/graphs/contributors).
 

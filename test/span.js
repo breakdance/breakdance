@@ -1,6 +1,6 @@
 'use strict';
 
-var run = require('./support/run');
+const run = require('./support/run');
 
 describe('<span>', function() {
   run([
@@ -34,6 +34,7 @@ describe('<span>', function() {
           expected: '(success)'
         },
         {
+          only: true,
           fixture: `
             <div class=bs-example data-example-id=form-validation-state-with-icon-without-label>
               <div class="form-group has-success has-feedback">

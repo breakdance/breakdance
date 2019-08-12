@@ -1,6 +1,6 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
 describe('abbr', function() {
   it('should strip attributes except for `title` from <abbr> tags', function() {

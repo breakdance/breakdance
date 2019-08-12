@@ -577,14 +577,14 @@
               <h4 id="Value_initialization">Value initialization</h4>
               <p>In order not to bother the programmer with allocations, JavaScript does it alongside with declaring values.</p>
 <pre class="brush: js">var n = 123; // allocates memory for a number
-var s = "azerty"; // allocates memory for a string 
-var o = {
+const s = "azerty"; // allocates memory for a string 
+const o = {
   a: 1,
   b: null
 }; // allocates memory for an object and contained values
 // (like object) allocates memory for the array and 
 // contained values
-var a = [1, null, "abra"]; 
+const a = [1, null, "abra"]; 
 function f(a){
   return a + 2;
 } // allocates a function (which is a callable object)
@@ -596,16 +596,16 @@ someElement.addEventListener('click', function(){
               <h4 id="Allocation_via_function_calls">Allocation via function calls</h4>
               <p>Some function calls result in object allocation.</p>
 <pre class="brush: js">var d = new Date(); // allocates a Date object
-var e = document.createElement('div'); // allocates a DOM element</pre>
+const e = document.createElement('div'); // allocates a DOM element</pre>
               <p>Some methods allocate new values or objects:</p>
 <pre class="brush: js">var s = "azerty";
-var s2 = s.substr(0, 3); // s2 is a new string
+const s2 = s.substr(0, 3); // s2 is a new string
 // Since strings are immutable value, 
 // JavaScript may decide to not allocate memory, 
 // but just store the [0, 3] range.
-var a = ["ouais ouais", "nan nan"];
-var a2 = ["generation", "nan nan"];
-var a3 = a.concat(a2); 
+const a = ["ouais ouais", "nan nan"];
+const a2 = ["generation", "nan nan"];
+const a3 = a.concat(a2); 
 // new array with 4 elements being
 // the concatenation of a and a2 elements
 </pre>
@@ -630,11 +630,11 @@ var a3 = a.concat(a2);
 // 2 objects are created. One is referenced by the other as one of its properties.
 // The other is referenced by virtue of being assigned to the 'o' variable.
 // Obviously, none can be garbage-collected
-var o2 = o; // the 'o2' variable is the second thing that 
+const o2 = o; // the 'o2' variable is the second thing that 
             // has a reference to the object
 o = 1;      // now, the object that was originally in 'o' has a unique reference
             // embodied by the 'o2' variable
-var oa = o2.a; // reference to 'a' property of the object.
+const oa = o2.a; // reference to 'a' property of the object.
                // This object has now 2 references: one as a property, 
                // the other as the 'oa' variable
 o2 = "yo"; // The object that was originally in 'o' has now zero

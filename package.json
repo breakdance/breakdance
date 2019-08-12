@@ -1,8 +1,8 @@
 {
   "name": "breakdance",
   "description": "Breakdance is a node.js library for converting HTML to markdown. Highly pluggable, flexible and easy to use. It's time for your markup to get down.",
-  "version": "3.0.1",
-  "homepage": "http://breakdance.io",
+  "version": "4.0.0-alpha",
+  "homepage": "https://breakdance.github.io/breakdance/",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "contributors": [
     "Brian Woodward (https://twitter.com/doowb)",
@@ -20,49 +20,23 @@
   ],
   "main": "index.js",
   "engines": {
-    "node": ">=4.0"
+    "node": ">=8.0"
   },
   "scripts": {
     "test": "mocha"
   },
   "dependencies": {
-    "breakdance-util": "^0.1.5",
+    "ansi-colors": "^3.2.4",
     "cheerio": "^0.22.0",
     "condense-newlines": "^0.2.1",
-    "define-property": "^1.0.0",
-    "detect-indent": "^5.0.0",
-    "export-files": "^2.1.1",
-    "extend-shallow": "^2.0.1",
-    "is-self-closing": "^1.0.0",
-    "isobject": "^3.0.0",
-    "mixin-deep": "^1.2.0",
-    "repeat-string": "^1.6.1",
-    "snapdragon": "^0.11.0",
-    "snapdragon-cheerio": "^1.1.0",
-    "snapdragon-node": "^1.0.6",
-    "snapdragon-util": "^2.1.1",
-    "strip-attributes": "^0.2.0",
-    "trim-leading-lines": "^0.1.1",
-    "trim-trailing-lines": "^1.1.0",
-    "unescape": "^0.2.0"
+    "diacritics-map": "^0.1.0",
+    "entities": "^1.1.2"
   },
   "devDependencies": {
-    "dashify": "^0.2.2",
-    "gulp": "^3.9.1",
-    "gulp-eslint": "^3.0.1",
-    "gulp-format-md": "^0.1.12",
-    "gulp-istanbul": "^1.1.1",
-    "gulp-mocha": "^3.0.0",
-    "gulp-unused": "^0.2.1",
-    "helper-changelog": "^0.3.0",
-    "js-beautify": "^1.6.12",
-    "kind-of": "^3.1.0",
-    "mocha": "^3.2.0",
-    "strip-color": "^0.1.0",
-    "time-diff": "^0.3.1",
+    "gulp-format-md": "^2.0.0",
+    "mocha": "^6.1.4",
     "verb-generate-readme": "^0.5.0",
-    "write": "^0.3.3",
-    "yargs-parser": "^5.0.0"
+    "write": "^1.0.3"
   },
   "keywords": [
     "breakdance",
@@ -80,6 +54,9 @@
   ],
   "lintDeps": {
     "devDependencies": {
+      "ignore": [
+        "src/**/*.js"
+      ],
       "files": {
         "patterns": [
           "test/configs/*.js"

@@ -1,0 +1,99 @@
+<div id="container" class="container"><div><div data-v-fea0ccda="" class="is-clearfix page-header"><div data-v-fea0ccda="" class="is-pulled-left"><!----> <h1 data-v-fea0ccda=""><span data-v-fea0ccda="">
+            Security
+          </span></h1> <!----></div> <!----></div> <section class="content"><div><div><p>Subscribers want to know that their dependencies handle security
+responsibly. We want to tell them about any vulnerabilities that
+affect their dependencies, take some proactive steps to avoid
+future vulnerabilities, and handle any new vulnerabilities
+responsibly.</p>
+<h2 id="tell-us-about-historical-vulnerabilities">Tell us about historical vulnerabilities</h2>
+<p>We keep a database of vulnerabilities along with affected package
+versions. If you've had any security vulnerabilities in the past,
+when you start lifting your package, we'd like you to tell us
+about them—there's a place to do this on the <a href="/lifter">lifter
+dashboard</a>.</p>
+<p>We use this information to notify subscribers if they're using any
+affected versions of your package.</p>
+<h2 id="agree-to-use-responsible-disclosure">Agree to use responsible disclosure</h2>
+<p>There are two elements of this:</p>
+<ul>
+<li>By agreeing to lift your package, we'd like you to agree in
+principle that you'll follow <a href="https://en.wikipedia.org/wiki/Responsible_disclosure">responsible
+disclosure</a>
+practices.</li>
+<li>If someone reports a vulnerability to you, <em>actually</em> use a
+responsible disclosure process.</li>
+</ul>
+<p>We ask that you add a vulnerability-reporting link and policy to
+your README or project website. You can create your own process OR
+you can use the Tidelift <a href="../security">reporting page</a> and
+<a href="security-process">process</a>. When you start lifting a package,
+we'll walk you through this in the lifter dashboard.</p>
+<p>If you're creating your own process, these projects with mature,
+detailed security policies might be interesting to see how other
+projects handle security bugs:</p>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/dev/internals/security/">Django</a></li>
+<li><a href="https://www.npmjs.com/policies/security">npm</a></li>
+</ul>
+<p>If you don't want to figure out your own process, all you have to
+do is link to our <a href="../security">reporting page</a>. When we get a
+report, we'll reach out to you and we'll ask you to work with us
+on it.</p>
+<h2 id="agree-to-be-responsive-to-security-issues">Agree to be responsive to security issues</h2>
+<p>We'd like you to be responsive around security issues and work to
+resolve them. Not all reported issues are severe (or even real),
+but it's important to assess each one and respond.</p>
+<p>We aren't imposing a firm time limit or deadline, because we feel
+it wouldn't be viable for smaller projects, at least not without
+more support from Tidelift. However, please put security issues at
+the front of your priority queue.</p>
+<h2 id="tell-us-about-new-vulnerabilities">Tell us about new vulnerabilities</h2>
+<p>If you're handling a responsible disclosure yourself, please enter
+the new vulnerability into the lifter dashboard when it becomes
+public. We'll then notify any affected subscribers.</p>
+<h2 id="use-two-factor-authentication-or-at-least-unique-passwords">Use two-factor authentication (or at least unique passwords)</h2>
+<p>When you agree to become a lifter, we'll ask that you enable
+two-factor authentication on all sites that are involved in the
+pipeline from code to package. This will protect your own
+accounts, while also lowering trojan horse risks for
+subscribers. <a href="https://www.npmjs.com/advisories/674">This eslint
+trojan</a> was an example of
+the kind of problem we're trying to avoid.</p>
+<p>In particular, if applicable:</p>
+<ul>
+<li><a href="https://help.github.com/articles/accessing-github-using-two-factor-authentication/">Enable 2-factor auth on GitHub</a></li>
+<li>Enable 2-factor auth for package publishing<ul>
+<li><a href="https://docs.npmjs.com/getting-started/using-two-factor-authentication">npm</a></li></ul></li>
+</ul>
+<p>For services which do not have 2-factor authentication, please us
+a strong password unique to each service (most people do this via
+a password manager).</p>
+<p>If you haven't, we know you've been <em>meaning</em> to set up 2-factor
+authentication and strong passwords. As part of agreeing to lift
+your package, we're asking you to <em>actually</em> do it.</p>
+<h2 id="if-your-project-isnt-security-sensitive">If your project isn't security-sensitive…</h2>
+<p>Not all projects parse untrusted input. If a given security task
+doesn't apply to your project, then you wouldn't be on the hook
+for that task.</p>
+<p>Some security risks can affect any project, though, such as trojan
+package uploads containing malware.</p>
+<h2 id="future-directions">Future directions</h2>
+<p>We may ask for a few more security-related tasks in the future,
+subject to figuring out the details—we want to be sure the
+details of these tasks are manageable for maintainers and valuable
+for subscribers. These ideas may or may not happen soon,
+and may or may not be part of the base lifter agreement.</p>
+<p>We'd love to talk about these or your other ideas, get in touch!</p>
+<h3 id="future-security-scanning-or-linting">Future: Security scanning or linting</h3>
+<p>There are a number of security analysis tools which proactively
+look for potential problems. We could run those regularly on
+lifted projects and ask lifters to read over the report, tagging
+reported issues as real or false-positives. The value to
+subscribers would be to quickly detect SQL injection problems,
+obvious buffer overflows, or other common mistakes.</p>
+<h3 id="future-signed-packages">Future: Signed packages</h3>
+<p>A simple version of this would be to require signatures, for
+package managers that support it.</p>
+<h2 id="back-to-overview">Back to overview</h2>
+<p>This article discussed security-specific lifter
+responsibilities. <a href="tasks-overview">Return to the tasks overview.</a></p></div></div></section></div></div>

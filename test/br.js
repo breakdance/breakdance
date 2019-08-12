@@ -1,51 +1,42 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
-describe('breaks', function() {
+describe('br', function() {
   it('should convert a break to markdown', function() {
     isEqual.inline('<br>', '<br>\n');
   });
 
-  it('1. should convert multiple breaks to markdown', function() {
-    var fixture = [
+  it('should convert multiple breaks to markdown', function() {
+    isEqual.inline([
       '<br> foo <br>bar<br> baz',
       '',
       '',
       '',
       '',
       '<br>'
-    ].join('\n');
-
-    isEqual.inline(fixture, [
+    ].join('\n'), [
       '<br>',
       'foo <br>',
       'bar<br>',
       'baz',
       '',
-      '<br>',
-      ''
+      '<br>'
     ].join('\n'));
-  });
 
-  it('2. should convert multiple breaks to markdown', function() {
-    var fixture = [
-      '<br> foo <br>bar<br> baz',
+    isEqual.inline([
+      '<br>',
+      'foo <br>bar<br> baz<br>',
       '',
       '',
       '',
       '',
-      ' <br>'
-    ].join('\n');
-
-    isEqual.inline(fixture, [
+      ''
+    ].join('\n'), [
       '<br>',
       'foo <br>',
       'bar<br>',
-      'baz',
-      '',
-      ' <br>',
-      ''
+      'baz<br>'
     ].join('\n'));
   });
 });

@@ -1,6 +1,6 @@
-* Bootstrap
-* Documentation
-* Examples
-* Themes
-* Expo
-* Blog
+- Bootstrap
+- Documentation
+- Examples
+- Themes
+- Expo
+- Blog

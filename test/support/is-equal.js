@@ -1,22 +1,32 @@
 'use strict';
 
-var path = require('path');
-var assert = require('assert');
-var read = require('./read');
-var breakdance = require('../..');
+const fs = require('fs');
+const path = require('path');
+const assert = require('assert').strict;
+const write = require('write');
+const read = require('./read');
+const breakdance = require('../..');
 
-module.exports = function(name, expectedName, options) {
+module.exports = (name, expectedName, options, description) => {
   if (typeof expectedName !== 'string') {
     options = expectedName;
     expectedName = null;
   }
 
-  var actual = breakdance(read(path.join('fixtures', name + '.html')), options);
-  var expected = read(path.join('expected', (expectedName || name) + '.md'));
-  assert.strictEqual(actual, expected);
+  let destName = expectedName || name;
+  let actual = breakdance.render(read(path.join('fixtures', `${name}.html`)), options);
+  let expectedPath = path.join(__dirname, '../expected', `${destName}.md`);
+  if (!fs.existsSync(expectedPath)) {
+    console.log('expected path does not exist:', expectedPath);
+    process.exit();
+  }
+
+  let expected = read(expectedPath);
+  assert.equal(actual, expected, description);
 };
 
-module.exports.inline = function(html, markdown, options) {
-  assert.strictEqual(breakdance(html, options).replace(/\n$/, ''), markdown.replace(/\n$/, ''));
+module.exports.inline = (html, markdown, options, description) => {
+  let actual = breakdance.render(html, options);
+  assert.equal(actual.replace(/\n$/, ''), markdown.replace(/\n$/, ''), description);
 };
 

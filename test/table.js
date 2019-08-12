@@ -1,46 +1,34 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
-describe('table', function() {
-  it('should convert table tags to markdown', function() {
+describe('table', () => {
+  it('should convert table tags to markdown', () => {
     isEqual('table');
     isEqual('table-document');
   });
 
-  it('should detect column alignment', function() {
-    isEqual('table-alignment');
-  });
+  it('should handle indentation in tables', () => isEqual('table-indented-pre'));
+  it('should handle weird indentation in tables', () => isEqual('table-weird-indent'));
+  it('should detect column alignment', () => isEqual('table-alignment'));
+  it('should use row alignment', () => isEqual('table-row-alignment'));
+  it('should convert table with colgroup', () => isEqual('table-with-colgroup'));
+  it('should convert table with colgroup and col', () => isEqual('table-with-colgroup-and-col'));
+  it('should convert table with caption', () => isEqual('table-with-caption'));
 
-  it('should now use row alignment', function() {
-    isEqual('table-row-alignment');
-  });
-
-  it('should convert table with no thead and no tbody to markdown', function() {
+  it('should convert table with no thead and no tbody to markdown', () => {
     isEqual('table-no-thead-no-tbody');
   });
 
-  it('should convert table with thead, tbody and tfoot', function() {
+  it('should convert table with thead, tbody and tfoot', () => {
     isEqual('table-thead-tbody-tfoot');
   });
 
-  it('should convert table with thead that has <th> but no <tr>', function() {
+  it('should convert table with thead that has <th> but no <tr>', () => {
     isEqual('table-thead-no-tr');
   });
 
-  it('should convert table with colgroup', function() {
-    isEqual('table-with-colgroup');
-  });
-
-  it('should convert table with colgroup and col', function() {
-    isEqual('table-with-colgroup-and-col');
-  });
-
-  it('should convert table with caption', function() {
-    isEqual('table-with-caption');
-  });
-
-  it('should convert tables with multiple trs in thead', function() {
+  it('should convert tables with multiple trs in thead', () => {
     isEqual('table-multiple-thead-tr');
     isEqual('table-multiple-thead-tr2');
   });

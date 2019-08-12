@@ -1,9 +1,9 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
-describe('em', function() {
-  var fixtures = [
+describe('em', () => {
+  let fixtures = [
     {
       it: 'should convert em tags to markdown',
       fixtures: [
@@ -12,6 +12,7 @@ describe('em', function() {
           expected: '_This is italicized!_'
         },
         {
+          // only: true,
           fixture: '<p>Force an element to be shown or hidden (<em>including for screen readers</em>) with the use of <code>.show</code> and <code>.hidden</code> classes.',
           expected: 'Force an element to be shown or hidden (_including for screen readers_) with the use of `.show` and `.hidden` classes.'
         },
@@ -44,7 +45,8 @@ describe('em', function() {
       expected: [
         '**Bold text** _Italicized text_',
         '',
-        'This is a paragraph\n'
+        'This is a paragraph',
+        '',
       ].join('\n')
     },
     {
@@ -69,9 +71,9 @@ describe('em', function() {
     }
   ];
 
-  var hasOnly = fixtures.some(function(ele) {
+  let hasOnly = fixtures.some((ele) => {
     if (Array.isArray(ele.fixtures)) {
-      return ele.fixtures.some(function(e) {
+      return ele.fixtures.some((e) => {
         return e.only === true;
       });
     }
@@ -80,10 +82,10 @@ describe('em', function() {
 
   run(fixtures);
 
-  function run(fixtures) {
-    fixtures.forEach(function(unit) {
+  function run(fixtures, parent = {}) {
+    fixtures.forEach((unit) => {
       if (Array.isArray(unit.fixtures)) {
-        run(unit.fixtures);
+        run(unit.fixtures, unit);
         return;
       }
 
@@ -91,12 +93,11 @@ describe('em', function() {
         return;
       }
 
-      it(unit.it || 'should convert strong tags to markdown', function() {
+      it(unit.it || parent.it || 'should convert <em> tags to markdown', () => {
         if (unit.skip) {
           this.skip();
           return;
         }
-
         isEqual.inline(unit.fixture, unit.expected);
       });
     });

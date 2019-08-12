@@ -1,6 +1,6 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
 
 describe('horizontal rules', function() {
   it('should convert a horizontal rule to markdown', function() {
@@ -20,7 +20,7 @@ describe('horizontal rules', function() {
     isEqual.inline(fixture, [
       '***',
       '',
-      'foo',
+      'foo ',
       '',
       '***',
       '',

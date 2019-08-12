@@ -4,32 +4,32 @@ Bootstrap includes simple and easily customized typography for headings, body te
 
 ## Contents
 
-* [Contents](#contents)
-* [Global settings](#global-settings)
-* [Headings](#headings)
-  - [Customizing headings](#customizing-headings)
-* [Display headings](#display-headings)
-* [Lead](#lead)
-* [Inline text elements](#inline-text-elements)
-* [Text utilities](#text-utilities)
-* [Abbreviations](#abbreviations)
-* [Blockquotes](#blockquotes)
-  - [Naming a source](#naming-a-source)
-  - [Reverse layout](#reverse-layout)
-* [Lists](#lists)
-  - [Unstyled](#unstyled)
-  - [Inline](#inline)
-  - [Description list alignment](#description-list-alignment)
-* [Responsive typography](#responsive-typography)
+- [Contents](#contents)
+- [Global settings](#global-settings)
+- [Headings](#headings)
+  * [Customizing headings](#customizing-headings)
+- [Display headings](#display-headings)
+- [Lead](#lead)
+- [Inline text elements](#inline-text-elements)
+- [Text utilities](#text-utilities)
+- [Abbreviations](#abbreviations)
+- [Blockquotes](#blockquotes)
+  * [Naming a source](#naming-a-source)
+  * [Reverse layout](#reverse-layout)
+- [Lists](#lists)
+  * [Unstyled](#unstyled)
+  * [Inline](#inline)
+  * [Description list alignment](#description-list-alignment)
+- [Responsive typography](#responsive-typography)
 
 ## Global settings
 
 Bootstrap sets basic global display, typography, and link styles. Specifically, we:
 
-* Use a [native font stack](/content/reboot/#native-font-stack) that selects the best `font-family` for each OS and device.
-* Use the `$font-family-base`, `$font-size-base`, and `$line-height-base` attributes as our typographic base applied to the `<body>`.
-* Set the global link color via `$link-color` and apply link underlines only on `:hover`.
-* Use `$body-bg` to set a `background-color` on the `<body>` (`#fff` by default).
+- Use a [native font stack](/content/reboot/#native-font-stack) that selects the best `font-family` for each OS and device.
+- Use the `$font-family-base`, `$font-size-base`, and `$line-height-base` attributes as our typographic base applied to the `<body>`.
+- Set the global link color via `$link-color` and apply link underlines only on `:hover`.
+- Use `$body-bg` to set a `background-color` on the `<body>` (`#fff` by default).
 
 These styles can be found within `_reboot.scss`, and the global variables are defined in `_variables.scss`.
 
@@ -251,18 +251,18 @@ Someone famous in <cite>Source Title</cite>
 
 Remove the default `list-style` and left margin on list items (immediate children only). **This only applies to immediate children list items**, meaning you will need to add the class for any nested lists as well.
 
-* Lorem ipsum dolor sit amet
-* Consectetur adipiscing elit
-* Integer molestie lorem at massa
-* Facilisis in pretium nisl aliquet
-* Nulla volutpat aliquam velit
-  - Phasellus iaculis neque
-  - Purus sodales ultricies
-  - Vestibulum laoreet porttitor sem
-  - Ac tristique libero volutpat at
-* Faucibus porta lacus fringilla vel
-* Aenean sit amet erat nunc
-* Eget porttitor lorem
+- Lorem ipsum dolor sit amet
+- Consectetur adipiscing elit
+- Integer molestie lorem at massa
+- Facilisis in pretium nisl aliquet
+- Nulla volutpat aliquam velit
+  * Phasellus iaculis neque
+  * Purus sodales ultricies
+  * Vestibulum laoreet porttitor sem
+  * Ac tristique libero volutpat at
+- Faucibus porta lacus fringilla vel
+- Aenean sit amet erat nunc
+- Eget porttitor lorem
 
 ```html
 <ul class="list-unstyled">
@@ -288,9 +288,9 @@ Remove the default `list-style` and left margin on list items (immediate childre
 
 Remove a list's bullets and apply some light `margin` with a combination of two classes, `.list-inline` and `.list-inline-item`.
 
-* Lorem ipsum
-* Phasellus iaculis
-* Nulla volutpat
+- Lorem ipsum
+- Phasellus iaculis
+- Nulla volutpat
 
 ```html
 <ul class="list-inline">

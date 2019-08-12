@@ -25,3 +25,5 @@ vendor
 temp
 tmp
 TODO.md
+package-lock.json
+!vendor/node-html-parser

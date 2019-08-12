@@ -6,10 +6,10 @@
   - Integer molestie lorem at massa
   - Facilisis in pretium nisl aliquet
   - Nested list
-    + Phasellus iaculis neque
-    + Purus sodales ultricies
-    + Vestibulum laoreet porttitor sem
-    + Ac tristique libero volutpat at
+    * Phasellus iaculis neque
+    * Purus sodales ultricies
+    * Vestibulum laoreet porttitor sem
+    * Ac tristique libero volutpat at
   - Faucibus porta lacus fringilla vel
   - Aenean sit amet erat nunc
   - Eget porttitor lorem
@@ -35,10 +35,10 @@ More text
   - Integer molestie lorem at massa
   - Facilisis in pretium nisl aliquet
   - Nested list
-    + Phasellus iaculis neque
-    + Purus sodales ultricies
-    + Vestibulum laoreet porttitor sem
-    + Ac tristique libero volutpat at
+    * Phasellus iaculis neque
+    * Purus sodales ultricies
+    * Vestibulum laoreet porttitor sem
+    * Ac tristique libero volutpat at
   - Faucibus porta lacus fringilla vel
   - Aenean sit amet erat nunc
   - Eget porttitor lorem

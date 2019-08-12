@@ -1,53 +1,53 @@
-* [Skip to main content](#document-main)
-* [Select language](#language)
-* [Skip to search](#q)
+- [Skip to main content](#document-main)
+- [Select language](#language)
+- [Skip to search](#q)
 
 [mozilla](//www.mozilla.org/) [Mozilla Developer Network](https://developer.mozilla.org/en-US/)
 
-* [Web Technologies](https://developer.mozilla.org/en-US/docs/Web) Technologies
-  - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-  - [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-  - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-  - [Graphics](https://developer.mozilla.org/en-US/docs/Web/Guide/Graphics)
-  - [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
-  - [APIs / DOM](https://developer.mozilla.org/en-US/docs/Web/API)
-  - [WebExtensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
-  - [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML) References & Guides
-  - [Learning web development](https://developer.mozilla.org/en-US/docs/Learn)
-  - [Tutorials](https://developer.mozilla.org/en-US/docs/Web/Tutorials)
-  - [References](https://developer.mozilla.org/en-US/docs/Web/Reference)
-  - [Developer Guides](https://developer.mozilla.org/en-US/docs/Web/Guide)
-  - [Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
-  - [Game development](https://developer.mozilla.org/en-US/docs/Games)
-  - [...more docs](https://developer.mozilla.org/en-US/docs/Web)
-* [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Zones)
-  - [Add-ons](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons)
-  - [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox)
-* [Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
-* [Feedback](https://developer.mozilla.org/en-US/docs/MDN/Feedback)
-  - [Get Firefox help](https://support.mozilla.org/)
-  - [Get web development help](http://stackoverflow.com/)
-  - [Join the MDN community](https://developer.mozilla.org/en-US/docs/MDN/Community)
-  - [Report a content problem](https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-  - [Report a bug](https://bugzilla.mozilla.org/form.mdn)
+- [Web Technologies](https://developer.mozilla.org/en-US/docs/Web) Technologies
+  * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+  * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+  * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  * [Graphics](https://developer.mozilla.org/en-US/docs/Web/Guide/Graphics)
+  * [HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP)
+  * [APIs / DOM](https://developer.mozilla.org/en-US/docs/Web/API)
+  * [WebExtensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+  * [MathML](https://developer.mozilla.org/en-US/docs/Web/MathML) References & Guides
+  * [Learning web development](https://developer.mozilla.org/en-US/docs/Learn)
+  * [Tutorials](https://developer.mozilla.org/en-US/docs/Web/Tutorials)
+  * [References](https://developer.mozilla.org/en-US/docs/Web/Reference)
+  * [Developer Guides](https://developer.mozilla.org/en-US/docs/Web/Guide)
+  * [Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+  * [Game development](https://developer.mozilla.org/en-US/docs/Games)
+  * [...more docs](https://developer.mozilla.org/en-US/docs/Web)
+- [Mozilla Docs](https://developer.mozilla.org/en-US/docs/Zones)
+  * [Add-ons](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons)
+  * [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Firefox)
+- [Developer Tools](https://developer.mozilla.org/en-US/docs/Tools)
+- [Feedback](https://developer.mozilla.org/en-US/docs/MDN/Feedback)
+  * [Get Firefox help](https://support.mozilla.org/)
+  * [Get web development help](http://stackoverflow.com/)
+  * [Join the MDN community](https://developer.mozilla.org/en-US/docs/MDN/Community)
+  * [Report a content problem](https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+  * [Report a bug](https://bugzilla.mozilla.org/form.mdn)
 
 *
-  - <bdi>[বাংলা (বাংলাদেশ) (bn-BD)](https://developer.mozilla.org/bn-BD/docs/Web/JavaScript/Memory_Management "Bengali (Bangladesh)")</bdi>
-  - <bdi>[Deutsch (de)](https://developer.mozilla.org/de/docs/Web/JavaScript/Speicherverwaltung "German")</bdi>
-  - <bdi>[Español (es)](https://developer.mozilla.org/es/docs/Web/JavaScript/Gestion_de_Memoria "Spanish")</bdi>
-  - <bdi>[Français (fr)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Gestion_de_la_m%C3%A9moire "French")</bdi>
-  - <bdi>[Bahasa Indonesia (id)](https://developer.mozilla.org/id/docs/Web/JavaScript/Memory_Management "Indonesian")</bdi>
-  - <bdi>[Italiano (it)](https://developer.mozilla.org/it/docs/Web/JavaScript/Gestione_della_Memoria "Italian")</bdi>
-  - <bdi>[日本語 (ja)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management "Japanese")</bdi>
-  - <bdi>[한국어 (ko)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management "Korean")</bdi>
-  - <bdi>[Português (do Brasil) (pt-BR)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Memory_Management "Portuguese (Brazilian)")</bdi>
-  - <bdi>[Русский (ru)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_Management "Russian")</bdi>
-  - <bdi>[中文 (简体) (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management "Chinese (Simplified)")</bdi>
-  - [Add a translation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$locales)
-* [Edit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$edit)
-* Advanced
-  - [History](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$history)
-  - [Print this article](#)
+  * <bdi>[বাংলা (বাংলাদেশ) (bn-BD)](https://developer.mozilla.org/bn-BD/docs/Web/JavaScript/Memory_Management "Bengali (Bangladesh)")</bdi>
+  * <bdi>[Deutsch (de)](https://developer.mozilla.org/de/docs/Web/JavaScript/Speicherverwaltung "German")</bdi>
+  * <bdi>[Español (es)](https://developer.mozilla.org/es/docs/Web/JavaScript/Gestion_de_Memoria "Spanish")</bdi>
+  * <bdi>[Français (fr)](https://developer.mozilla.org/fr/docs/Web/JavaScript/Gestion_de_la_m%C3%A9moire "French")</bdi>
+  * <bdi>[Bahasa Indonesia (id)](https://developer.mozilla.org/id/docs/Web/JavaScript/Memory_Management "Indonesian")</bdi>
+  * <bdi>[Italiano (it)](https://developer.mozilla.org/it/docs/Web/JavaScript/Gestione_della_Memoria "Italian")</bdi>
+  * <bdi>[日本語 (ja)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management "Japanese")</bdi>
+  * <bdi>[한국어 (ko)](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management "Korean")</bdi>
+  * <bdi>[Português (do Brasil) (pt-BR)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Memory_Management "Portuguese (Brazilian)")</bdi>
+  * <bdi>[Русский (ru)](https://developer.mozilla.org/ru/docs/Web/JavaScript/Memory_Management "Russian")</bdi>
+  * <bdi>[中文 (简体) (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management "Chinese (Simplified)")</bdi>
+  * [Add a translation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$locales)
+- [Edit](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$edit)
+- Advanced
+  * [History](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management$history)
+  * [Print this article](#)
 
 1. [MDN](https://developer.mozilla.org/en-US)
 2. [Web technology For developers](https://developer.mozilla.org/en-US/docs/Web)
@@ -56,29 +56,29 @@
 
 Your Search Results
 
-* [lleaff](https://developer.mozilla.org/en-US/profiles/lleaff "View profile: lleaff")
-* [rudolfo](https://developer.mozilla.org/en-US/profiles/rudolfo "View profile: rudolfo")
-* [beytek](https://developer.mozilla.org/en-US/profiles/beytek "View profile: beytek")
-* [jontejada](https://developer.mozilla.org/en-US/profiles/jontejada "View profile: jontejada")
-* [mbjordan](https://developer.mozilla.org/en-US/profiles/mbjordan "View profile: mbjordan")
-* [ronyeh](https://developer.mozilla.org/en-US/profiles/ronyeh "View profile: ronyeh")
-* [fscholz](https://developer.mozilla.org/en-US/profiles/fscholz "View profile: fscholz")
-* [mishra](https://developer.mozilla.org/en-US/profiles/mishra "View profile: mishra")
-* [macinnir](https://developer.mozilla.org/en-US/profiles/macinnir "View profile: macinnir")
-* [RogerPoon](https://developer.mozilla.org/en-US/profiles/RogerPoon "View profile: RogerPoon")
-* [xfq](https://developer.mozilla.org/en-US/profiles/xfq "View profile: xfq")
-* [bigperm](https://developer.mozilla.org/en-US/profiles/bigperm "View profile: bigperm")
-* [anirudh_venkatesh](https://developer.mozilla.org/en-US/profiles/anirudh_venkatesh "View profile: anirudh_venkatesh")
-* [Agamemnus](https://developer.mozilla.org/en-US/profiles/Agamemnus "View profile: Agamemnus")
-* [velvel53](https://developer.mozilla.org/en-US/profiles/velvel53 "View profile: velvel53")
-* [hectorsan68](https://developer.mozilla.org/en-US/profiles/hectorsan68 "View profile: hectorsan68")
-* [Nick_Pershin](https://developer.mozilla.org/en-US/profiles/Nick_Pershin "View profile: Nick_Pershin")
-* [Sheppy](https://developer.mozilla.org/en-US/profiles/Sheppy "View profile: Sheppy")
-* [RichardC](https://developer.mozilla.org/en-US/profiles/RichardC "View profile: RichardC")
-* [ethertank](https://developer.mozilla.org/en-US/profiles/ethertank "View profile: ethertank")
-* [maxatwork](https://developer.mozilla.org/en-US/profiles/maxatwork "View profile: maxatwork")
-* [iskitz](https://developer.mozilla.org/en-US/profiles/iskitz "View profile: iskitz")
-* [dbruant](https://developer.mozilla.org/en-US/profiles/dbruant "View profile: dbruant")
+- [lleaff](https://developer.mozilla.org/en-US/profiles/lleaff "View profile: lleaff")
+- [rudolfo](https://developer.mozilla.org/en-US/profiles/rudolfo "View profile: rudolfo")
+- [beytek](https://developer.mozilla.org/en-US/profiles/beytek "View profile: beytek")
+- [jontejada](https://developer.mozilla.org/en-US/profiles/jontejada "View profile: jontejada")
+- [mbjordan](https://developer.mozilla.org/en-US/profiles/mbjordan "View profile: mbjordan")
+- [ronyeh](https://developer.mozilla.org/en-US/profiles/ronyeh "View profile: ronyeh")
+- [fscholz](https://developer.mozilla.org/en-US/profiles/fscholz "View profile: fscholz")
+- [mishra](https://developer.mozilla.org/en-US/profiles/mishra "View profile: mishra")
+- [macinnir](https://developer.mozilla.org/en-US/profiles/macinnir "View profile: macinnir")
+- [RogerPoon](https://developer.mozilla.org/en-US/profiles/RogerPoon "View profile: RogerPoon")
+- [xfq](https://developer.mozilla.org/en-US/profiles/xfq "View profile: xfq")
+- [bigperm](https://developer.mozilla.org/en-US/profiles/bigperm "View profile: bigperm")
+- [anirudh_venkatesh](https://developer.mozilla.org/en-US/profiles/anirudh_venkatesh "View profile: anirudh_venkatesh")
+- [Agamemnus](https://developer.mozilla.org/en-US/profiles/Agamemnus "View profile: Agamemnus")
+- [velvel53](https://developer.mozilla.org/en-US/profiles/velvel53 "View profile: velvel53")
+- [hectorsan68](https://developer.mozilla.org/en-US/profiles/hectorsan68 "View profile: hectorsan68")
+- [Nick_Pershin](https://developer.mozilla.org/en-US/profiles/Nick_Pershin "View profile: Nick_Pershin")
+- [Sheppy](https://developer.mozilla.org/en-US/profiles/Sheppy "View profile: Sheppy")
+- [RichardC](https://developer.mozilla.org/en-US/profiles/RichardC "View profile: RichardC")
+- [ethertank](https://developer.mozilla.org/en-US/profiles/ethertank "View profile: ethertank")
+- [maxatwork](https://developer.mozilla.org/en-US/profiles/maxatwork "View profile: maxatwork")
+- [iskitz](https://developer.mozilla.org/en-US/profiles/iskitz "View profile: iskitz")
+- [dbruant](https://developer.mozilla.org/en-US/profiles/dbruant "View profile: dbruant")
 
 # Memory Management
 
@@ -123,15 +123,15 @@ The first and second parts are explicit in all languages. The last part is expli
 In order not to bother the programmer with allocations, JavaScript does it alongside with declaring values.
 
 ```js
-var n = 123; // allocates memory for a number
-var s = "azerty"; // allocates memory for a string
-var o = {
+const n = 123; // allocates memory for a number
+const s = "azerty"; // allocates memory for a string
+const o = {
   a: 1,
   b: null
 }; // allocates memory for an object and contained values
 // (like object) allocates memory for the array and
 // contained values
-var a = [1, null, "abra"];
+const a = [1, null, "abra"];
 function f(a){
   return a + 2;
 } // allocates a function (which is a callable object)
@@ -146,21 +146,21 @@ someElement.addEventListener('click', function(){
 Some function calls result in object allocation.
 
 ```js
-var d = new Date(); // allocates a Date object
-var e = document.createElement('div'); // allocates a DOM element
+const d = new Date(); // allocates a Date object
+const e = document.createElement('div'); // allocates a DOM element
 ```
 
 Some methods allocate new values or objects:
 
 ```js
-var s = "azerty";
-var s2 = s.substr(0, 3); // s2 is a new string
+const s = "azerty";
+const s2 = s.substr(0, 3); // s2 is a new string
 // Since strings are immutable value,
 // JavaScript may decide to not allocate memory,
 // but just store the [0, 3] range.
-var a = ["ouais ouais", "nan nan"];
-var a2 = ["generation", "nan nan"];
-var a3 = a.concat(a2);
+const a = ["ouais ouais", "nan nan"];
+const a2 = ["generation", "nan nan"];
+const a3 = a.concat(a2);
 // new array with 4 elements being
 // the concatenation of a and a2 elements
 ```
@@ -192,7 +192,7 @@ This is the most naive garbage collection algorithm. This algorithm reduces the 
 #### Example
 
 ```js
-var o = {
+const o = {
   a: {
     b:2
   }
@@ -200,11 +200,11 @@ var o = {
 // 2 objects are created. One is referenced by the other as one of its properties.
 // The other is referenced by virtue of being assigned to the 'o' variable.
 // Obviously, none can be garbage-collected
-var o2 = o; // the 'o2' variable is the second thing that
+const o2 = o; // the 'o2' variable is the second thing that
             // has a reference to the object
 o = 1;      // now, the object that was originally in 'o' has a unique reference
             // embodied by the 'o2' variable
-var oa = o2.a; // reference to 'a' property of the object.
+const oa = o2.a; // reference to 'a' property of the object.
                // This object has now 2 references: one as a property,
                // the other as the 'oa' variable
 o2 = "yo"; // The object that was originally in 'o' has now zero
@@ -235,7 +235,7 @@ f();
 Internet Explorer 6 and 7 are known to have reference-counting garbage collectors for DOM objects. Cycles are a common mistake that can generate memory leaks:
 
 ```js
-var div;
+const div;
 window.onload = function(){
   div = document.getElementById("myDivElement");
   div.circularReference = div;
@@ -267,18 +267,18 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
 
 ## See also
 
-* [IBM article on "Memory leak patterns in JavaScript" (2007)](http://www.ibm.com/developerworks/web/library/wa-memleak/)
-* [Kangax article on how to register event handler and avoid memory leaks (2010)](http://msdn.microsoft.com/en-us/magazine/ff728624.aspx)
-* [Performance](https://developer.mozilla.org/en-US/docs/Mozilla/Performance "https://developer.mozilla.org/en-US/docs/Mozilla/Performance")
+- [IBM article on "Memory leak patterns in JavaScript" (2007)](http://www.ibm.com/developerworks/web/library/wa-memleak/)
+- [Kangax article on how to register event handler and avoid memory leaks (2010)](http://msdn.microsoft.com/en-us/magazine/ff728624.aspx)
+- [Performance](https://developer.mozilla.org/en-US/docs/Mozilla/Performance "https://developer.mozilla.org/en-US/docs/Mozilla/Performance")
 
 ## Document Tags and Contributors
 
 **Tags:**
 
-* [JavaScript](https://developer.mozilla.org/en-US/docs/tag/JavaScript)
-* [memory](https://developer.mozilla.org/en-US/docs/tag/memory)
-* [Performance](https://developer.mozilla.org/en-US/docs/tag/Performance)
-* [performance](https://developer.mozilla.org/en-US/docs/tag/performance)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/tag/JavaScript)
+- [memory](https://developer.mozilla.org/en-US/docs/tag/memory)
+- [Performance](https://developer.mozilla.org/en-US/docs/tag/Performance)
+- [performance](https://developer.mozilla.org/en-US/docs/tag/performance)
 
 **Contributors to this page:** [lleaff](https://developer.mozilla.org/en-US/profiles/lleaff),
 [rudolfo](https://developer.mozilla.org/en-US/profiles/rudolfo),
@@ -341,18 +341,18 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   6. [Concurrency model and Event Loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 7. **[References:](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)**
 8. [Built-in objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects)
-  1. [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array "The JavaScript Array object is a global object that is used in the construction of arrays; which are high-level, list-like objects.")
+  1. [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array "The JavaScript Array object is a global object that is used in the construction of arrays; which are high-level, list-like objects.")
   2. [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer "The ArrayBuffer object is used to represent a generic, fixed-length raw binary data buffer. You cannot directly manipulate the contents of an ArrayBuffer; instead, you create one of the typed array objects or a DataView object which represents the buffer in a specific format, and use that to read and write the contents of the buffer.")
   3. [Atomics](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Atomics "The Atomics object provides atomic operations as static methods. They are used with SharedArrayBuffer objects.")
   4. [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean "The Boolean object is an object wrapper for a boolean value.")
-  5. [DataView](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView "The DataView view provides a low-level interface for reading and writing multiple number types in an ArrayBuffer irrespective of the platform's endianness.")
+  5. [DataView](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView "The DataView view provides a low-level interface for reading and writing multiple number types in an ArrayBuffer irrespective of the platform's endianness.")
   6. [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date "Creates a JavaScript Date instance that represents a single moment in time. Date objects are based on a time value that is the number of milliseconds since 1 January, 1970 UTC.")
-  7. [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error "The Error constructor creates an error object. Instances of Error objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. See below for standard built-in error types.")
+  7. [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error "The Error constructor creates an error object. Instances of Error objects are thrown when runtime errors occur. The Error object can also be used as a base object for user-defined exceptions. See below for standard built-in error types.")
   8. [EvalError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError "The EvalError object indicates an error regarding the global eval() function. This exception is not thrown by JavaScript anymore, however the EvalError object remains for compatibility.")
   9. [Float32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array "The Float32Array typed array represents an array of 32-bit floating point numbers (corresponding to the C float data type) in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
   10. [Float64Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array "The Float64Array typed array represents an array of 64-bit floating point numbers (corresponding to the C double data type) in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
   11. [Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function "The Function constructor creates a new Function object. In JavaScript every function is actually a Function object.")
-  12. [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator "The Generator object is returned by a generator function and it conforms to both the iterable protocol and the iterator protocol.")
+  12. [Generator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator "The Generator object is returned by a generator function and it conforms to both the iterable protocol and the iterator protocol.")
   13. [GeneratorFunction](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction "The GeneratorFunction constructor creates a new generator function object. In JavaScript every generator function is actually a GeneratorFunction object.")
   14. [Infinity](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity "The global Infinity property is a numeric value representing infinity.")
   15. [Int16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array "The Int16Array typed array represents an array of twos-complement 16-bit signed integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
@@ -397,13 +397,13 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   54. [Symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol "A symbol is a unique and immutable data type and may be used as an identifier for object properties. The Symbol object is an implicit object wrapper for the symbol primitive data type.")
   55. [SyntaxError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError "The SyntaxError object represents an error when trying to interpret syntactically invalid code.")
   56. [TypeError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError "The TypeError object represents an error when a value is not of the expected type.")
-  57. [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray "A TypedArray object describes an array-like view of an underlying binary data buffer. There is no global property named TypedArray, nor is there a directly visible TypedArray constructor.  Instead, there are a number of different global properties, whose values are typed array constructors for specific element types, listed below. On the following pages you will find common properties and methods that can be used with any typed array containing elements of any type.")
+  57. [TypedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray "A TypedArray object describes an array-like view of an underlying binary data buffer. There is no global property named TypedArray, nor is there a directly visible TypedArray constructor.  Instead, there are a number of different global properties, whose values are typed array constructors for specific element types, listed below. On the following pages you will find common properties and methods that can be used with any typed array containing elements of any type.")
   58. [URIError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError "The URIError object represents an error when a global URI handling function was used in a wrong way.")
   59. [Uint16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array "The Uint16Array typed array represents an array of 16-bit unsigned integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
   60. [Uint32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array "The Uint32Array typed array represents an array of 32-bit unsigned integers in the platform byte order. If control over byte order is needed, use DataView instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
   61. [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array "The Uint8Array typed array represents an array of 8-bit unsigned integers. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
   62. [Uint8ClampedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray "The Uint8ClampedArray typed array represents an array of 8-bit unsigned integers clamped to 0-255; if you specified a value that is out of the range of [0,255], 0 or 255 will be set instead. The contents are initialized to 0. Once established, you can reference elements in the array using the object's methods, or using standard array index syntax (that is, using bracket notation).")
-  63. [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap "The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced.  The keys must be objects and the values can be arbitrary values.")
+  63. [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap "The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced.  The keys must be objects and the values can be arbitrary values.")
   64. [WeakSet](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet "The WeakSet object lets you store weakly held objects in a collection.")
   65. [decodeURI()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURI "The decodeURI() function decodes a Uniform Resource Identifier (URI) previously created by encodeURI or by a similar routine.")
   66. [decodeURIComponent()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent "The decodeURIComponent() function decodes a Uniform Resource Identifier (URI) component previously created by encodeURIComponent or by a similar routine.")
@@ -413,12 +413,12 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   70. [eval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval "The eval() function evaluates JavaScript code represented as a string.")
   71. [isFinite()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isFinite "The global isFinite() function determines whether the passed value is a finite number. If needed, the parameter is first converted to a number.")
   72. [isNaN()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN "The isNaN() function determines whether a value is NaN or not. Note: coercion inside the isNaN function has interesting rules; you may alternatively want to use Number.isNaN(), as defined in ECMAScript 6, or you can use typeof to determine if the value is Not-A-Number.")
-  73. [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null "The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values.")
+  73. [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null "The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values.")
   74. [parseFloat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat "The parseFloat() function parses a string argument and returns a floating point number.")
   75. [parseInt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt "The parseInt() function parses a string argument and returns an integer of the specified radix (the base in mathematical numeral systems).")
   76. [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined "The global undefined property represents the primitive value undefined. It is one of JavaScript's primitive types.")
   77. [unescape()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/unescape "The deprecated unescape() function computes a new string in which hexadecimal escape sequences are replaced with the character that it represents. The escape sequences might be introduced by a function like escape. Because unescape is deprecated, use decodeURI or decodeURIComponent instead.")
-  78. [uneval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/uneval "The uneval() function creates a string representation of the source code of an Object.")
+  78. [uneval()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/uneval "The uneval() function creates a string representation of the source code of an Object.")
   79. [Array.from()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from "The Array.from() method creates a new Array instance from an array-like or iterable object.")
   80. [Array.isArray()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray "The Array.isArray() determines whether the passed value is an Array.")
   81. [Array.observe()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe "The Array.observe() method was used for asynchronously observing changes to Arrays, similar to Object.observe() for objects. It provided a stream of changes in order of occurrence. It's equivalent to Object.observe() invoked with the accept type list ["add", "update", "delete", "splice"]. However, this API has been deprecated and removed from Browsers. You can use the more general Proxy object instead.")
@@ -457,14 +457,14 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   114. [Array.prototype[@@iterator]()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator "The initial value of the @@iterator property is the same function object as the initial value of the values() property.")
   115. [Array.prototype[@@unscopables]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@unscopables "The @@unscopable symbol property contains property names that were not included in the ECMAScript standard prior to the ES2015 (ES6) version. These properties are excluded from with statement bindings.")
   116. [Array.unobserve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unobserve "The Array.unobserve() method was used to remove observers set by Array.observe(), but has been deprecated and removed from Browsers. You can use the more general Proxy object instead.")
-  117. [array.length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length "The length property represents an unsigned, 32-bit integer that is always numerically greater than the highest index in the array.")
+  117. [array.length](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/length "The length property represents an unsigned, 32-bit integer that is always numerically greater than the highest index in the array.")
   118. [get Array[@@species]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@species "The Array[@@species] accessor property returns the Array constructor.")
 9. [Expressions & operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators)
   1. [Arithmetic operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators "Arithmetic operators take numerical values (either literals or variables) as their operands and return a single numerical value. The standard arithmetic operators are addition (+), subtraction (-), multiplication (*), and division (/).")
   2. [Array comprehensions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Array_comprehensions "The array comprehension syntax is a JavaScript expression which allows you to quickly assemble a new array based on an existing one. Comprehensions exist in many programming languages.")
   3. [Assignment operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment_Operators "An assignment operator assigns a value to its left operand based on the value of its right operand.")
   4. [Bitwise operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators "Bitwise operators treat their operands as a sequence of 32 bits (zeroes and ones), rather than as decimal, hexadecimal, or octal numbers. For example, the decimal number nine has a binary representation of 1001. Bitwise operators perform their operations on such binary representations, but they return standard JavaScript numerical values.")
-  5. [Comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator "The comma operator evaluates each of its operands (from left to right) and returns the value of the last operand.")
+  5. [Comma operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comma_Operator "The comma operator evaluates each of its operands (from left to right) and returns the value of the last operand.")
   6. [Comparison operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Comparison_Operators "JavaScript has both strict and type–converting comparisons. A strict comparison (e.g., ===) is only true if the operands are of the same type and the contents match. The more commonly-used abstract comparison (e.g. ==) converts the operands to the same type before making the comparison. For relational abstract comparisons (e.g., <=), the operands are first converted to primitives, then to the same type, before comparison.")
   7. [Conditional (ternary) Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator "The conditional (ternary) operator is the only JavaScript operator that takes three operands. This operator is frequently used as a shortcut for the if statement.")
   8. [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment "The destructuring assignment syntax is a JavaScript expression that makes it possible to extract data from arrays or objects into distinct variables.")
@@ -476,7 +476,7 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   14. [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer "Objects can be initialized using new Object(), Object.create(), or using the literal notation (initializer notation). An object initializer is a list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({}).")
   15. [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence "Operator precedence determines the order in which operators are evaluated. Operators with higher precedence are evaluated first.")
   16. [Property accessors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Property_Accessors "Property accessors provide access to an object's properties by using the dot notation or the bracket notation.")
-  17. [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator "The spread operator allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables  (for destructuring assignment) are expected.")
+  17. [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator "The spread operator allows an expression to be expanded in places where multiple arguments (for function calls) or multiple elements (for array literals) or multiple variables  (for destructuring assignment) are expected.")
   18. [class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class "The class expression is one way to define a class in ECMAScript 2015 (ES6). Similar to function expressions, class expressions can be named or unnamed. If named, the name of the class is local to the class body only. JavaScript classes are using prototype-based inheritance.")
   19. [delete operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete "The delete operator removes a property from an object.")
   20. [function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function "The function keyword can be used to define a function inside an expression.")
@@ -484,7 +484,7 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   22. [in operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in "The in operator returns true if the specified property is in the specified object.")
   23. [instanceof](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof "The instanceof operator tests whether an object has in its prototype chain the prototype property of a constructor.")
   24. [new operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new "The new operator creates an instance of a user-defined object type or of one of the built-in object types that has a constructor function.")
-  25. [new.target](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target "The new.target property lets you detect whether a function or constructor was called using the new operator. In constructors and functions instantiated with the new operator, new.target returns a reference to the constructor or function. In normal function calls, new.target is undefined.")
+  25. [new.target](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new.target "The new.target property lets you detect whether a function or constructor was called using the new operator. In constructors and functions instantiated with the new operator, new.target returns a reference to the constructor or function. In normal function calls, new.target is undefined.")
   26. [super](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super "The super keyword is used to call functions on an object's parent.")
   27. [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this "A function's this keyword behaves a little differently in JavaScript compared to other languages. It also has some differences between strict mode and non-strict mode.")
   28. [typeof](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof "The typeof operator returns a string indicating the type of the unevaluated operand.")
@@ -496,7 +496,7 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   2. [block](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/block "A block statement (or compound statement in other languages) is used to group zero or more statements. The block is delimited by a pair of curly brackets.")
   3. [break](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/break "The break statement terminates the current loop, switch, or label statement and transfers program control to the statement following the terminated statement.")
   4. [class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class "The class declaration creates a new class with a given name using prototype-based inheritance.")
-  5. [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const "The const declaration creates a read-only reference to a value. It does not mean the value it holds is immutable, just that the variable identifier cannot be reassigned.")
+  5. [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const "The const declaration creates a read-only reference to a value. It does not mean the value it holds is immutable, just that the variable identifier cannot be reassigned.")
   6. [continue](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue "The continue statement terminates execution of the statements in the current iteration of the current or labeled loop, and continues execution of the loop with the next iteration.")
   7. [debugger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger "The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.")
   8. [default](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/default "Technical review completed.")
@@ -522,7 +522,7 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   28. [with](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with "The with statement extends the scope chain for a statement.")
 11. [Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions)
   1. [Arguments object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments "The arguments object is an Array-like object corresponding to the arguments passed to a function.")
-  2. [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions "An arrow function expression has a shorter syntax compared to function expressions and lexically binds the this value (does not bind its own this, arguments, super, or new.target). Arrow functions are always anonymous. These function expressions are best suited for non-method functions and they can not be used as constructors.")
+  2. [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions "An arrow function expression has a shorter syntax compared to function expressions and lexically binds the this value (does not bind its own this, arguments, super, or new.target). Arrow functions are always anonymous. These function expressions are best suited for non-method functions and they can not be used as constructors.")
   3. [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters "Default function parameters allow formal parameters to be initialized with default values if no value or undefined is passed.")
   4. [Method definitions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions "Starting with ECMAScript 2015 (ES6), a shorter syntax for method definitions on objects initializers is introduced. It is a shorthand for a function assigned to the method's name.")
   5. [Rest parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters "The rest parameter syntax allows us to represent an indefinite number of arguments as an array.")
@@ -595,7 +595,7 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
   9. [New in JavaScript 1.5](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.5 "The following is a changelog for JavaScript 1.5. This version was included in Netscape Navigator 6.0 was released on November 14, 2000 and was also used in later versions of Netscape Navigator and Firefox 1.0. You can compare JavaScript 1.5 to JScript version 5.5 and Internet Explorer 5.5, which was released in July 2000. The corresponding ECMA standard is ECMA-262 Edition 3 (from December 1999).")
   10. [New in JavaScript 1.6](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.6 "The following is a changelog for JavaScript 1.6. This version was included in Firefox 1.5 (Gecko 1.8), which was released in November 2005. The corresponding ECMA standard is ECMA-262 Edition 3 and ECMAScript for XML (E4X) with some additional features. Several new features were introduced: E4X, several new Array methods, and Array and String generics.")
   11. [New in JavaScript 1.7](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.7 "The following is a changelog for JavaScript 1.7. This version was included in Firefox 2 (October 2006).")
-  12. [New in JavaScript 1.8](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8 "The following is a changelog for JavaScript 1.8. This version was included in Firefox 3 and is part of Gecko 1.9. See bug 380236 for a tracking development bug for JavaScript 1.8.")
+  12. [New in JavaScript 1.8](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8 "The following is a changelog for JavaScript 1.8. This version was included in Firefox 3 and is part of Gecko 1.9. See bug 380236 for a tracking development bug for JavaScript 1.8.")
   13. [New in JavaScript 1.8.1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8.1 "The following is a changelog for JavaScript 1.8.1. This version was included in Firefox 3.5.")
   14. [New in JavaScript 1.8.5](https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/1.8.5 "The following is a changelog for JavaScript 1.8.5. This version was included in Firefox 4.")
 16. **[Documentation:](https://developer.mozilla.org/en-US/docs/MDN)**
@@ -612,8 +612,8 @@ Although this is marked as a limitation, it is one that is rarely reached in pra
 
 Content is available under [these licenses](https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses).
 
-* [About MDN](https://developer.mozilla.org/docs/MDN/About)
-* [Terms](//www.mozilla.org/about/legal/terms/mozilla)
-* [Privacy](//www.mozilla.org/privacy/websites/)
-* [Cookies](//www.mozilla.org/privacy/websites/#cookies)
-* [Contribute to the code](//github.com/mozilla/kuma)
+- [About MDN](https://developer.mozilla.org/docs/MDN/About)
+- [Terms](//www.mozilla.org/about/legal/terms/mozilla)
+- [Privacy](//www.mozilla.org/privacy/websites/)
+- [Cookies](//www.mozilla.org/privacy/websites/#cookies)
+- [Contribute to the code](//github.com/mozilla/kuma)

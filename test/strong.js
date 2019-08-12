@@ -1,10 +1,11 @@
 'use strict';
 
-var isEqual = require('./support/is-equal');
+const isEqual = require('./support/is-equal');
+const run = require('./support/run');
 
-describe('emphasis', function() {
+describe('strong', function() {
   describe('strong inline', function() {
-    var fixtures = [
+    let fixtures = [
       {
         it: 'should convert strong tags to markdown',
         fixtures: [
@@ -31,8 +32,49 @@ describe('emphasis', function() {
               'This is a paragraph',
               ''
             ].join('\n')
+          },
+          {
+            options: { whitespace: true },
+            fixture: [
+              '<div class="footer">',
+              '  <strong>Strong text</strong>',
+              '  <strong>Strong text</strong>',
+              '  <strong>Strong text</strong>',
+              '  <p>This is a paragraph</p>',
+              '</div>'
+            ].join('\n'),
+            expected: [
+              '**Strong text** **Strong text** **Strong text** ',
+              '',
+              'This is a paragraph',
+              ''
+            ].join('\n')
           }
         ]
+      },
+      {
+        it: 'should convert strong tags in headings',
+        fixture: [
+          '<h1><strong>this is bold</strong></h1>',
+          '<h2><strong>this is bold</strong></h2>',
+          '<h3><strong>this is bold</strong></h3>',
+          '<h4><strong>this is bold</strong></h4>',
+          '<h5><strong>this is bold</strong></h5>',
+          '<h6><strong>this is bold</strong></h6>',
+        ].join('\n'),
+        expected: [
+          '# **this is bold**',
+          '',
+          '## **this is bold**',
+          '',
+          '### **this is bold**',
+          '',
+          '#### **this is bold**',
+          '',
+          '##### **this is bold**',
+          '',
+          '###### **this is bold**',
+        ].join('\n')
       },
       {
         it: 'should render leading spaces correctly',
@@ -69,7 +111,6 @@ describe('emphasis', function() {
         ].join('\n')
       },
       {
-        // only: true,
         it: 'should correctly render in list items',
         fixture: [
           '<ul>',
@@ -101,7 +142,7 @@ describe('emphasis', function() {
         expected: [
           'A line with **a bold statement at the end and weird spacing.**',
           '',
-          'some text',
+          ' some text',
           '',
           'A line with **a bold statement at the end**',
           '',
@@ -110,32 +151,6 @@ describe('emphasis', function() {
       }
     ];
 
-    var hasOnly = fixtures.some(function(ele) {
-      if (Array.isArray(ele.fixtures)) {
-        return ele.fixtures.some(function(e) {
-          return e.only === true;
-        });
-      }
-      return ele.only === true;
-    });
-
     run(fixtures);
-
-    function run(fixtures) {
-      fixtures.forEach(function(unit) {
-        if (Array.isArray(unit.fixtures)) {
-          run(unit.fixtures);
-          return;
-        }
-
-        if (hasOnly && unit.only !== true) {
-          return;
-        }
-
-        it(unit.it || 'should convert strong tags to markdown', function() {
-          isEqual.inline(unit.fixture, unit.expected);
-        });
-      });
-    }
   });
 });

@@ -2,12 +2,12 @@
 
 [Skip to main content](#content) [Bootstrap](/)
 
-* [Bootstrap](/)
-* [Documentation](/getting-started/introduction/)
-* [Examples](/examples/)
-* [Themes](https://themes.getbootstrap.com)
-* [Expo](https://expo.getbootstrap.com)
-* [Blog](https://blog.getbootstrap.com)
+- [Bootstrap](/)
+- [Documentation](/getting-started/introduction/)
+- [Examples](/examples/)
+- [Themes](https://themes.getbootstrap.com)
+- [Expo](https://expo.getbootstrap.com)
+- [Blog](https://blog.getbootstrap.com)
 
 # Content
 
@@ -15,81 +15,81 @@ Styles for displaying content with some of the most commonly used HTML elements,
 
 [Getting started](/getting-started/introduction)
 
-* [Introduction](/getting-started/introduction/)
-* [Download](/getting-started/download/)
-* [Contents](/getting-started/contents/)
-* [Browsers & devices](/getting-started/browsers-devices/)
-* [JavaScript](/getting-started/javascript/)
-* [Options](/getting-started/options/)
-* [Flexbox](/getting-started/flexbox/)
-* [Build tools](/getting-started/build-tools/)
-* [Best practices](/getting-started/best-practices/)
-* [Accessibility](/getting-started/accessibility/)
+- [Introduction](/getting-started/introduction/)
+- [Download](/getting-started/download/)
+- [Contents](/getting-started/contents/)
+- [Browsers & devices](/getting-started/browsers-devices/)
+- [JavaScript](/getting-started/javascript/)
+- [Options](/getting-started/options/)
+- [Flexbox](/getting-started/flexbox/)
+- [Build tools](/getting-started/build-tools/)
+- [Best practices](/getting-started/best-practices/)
+- [Accessibility](/getting-started/accessibility/)
 
 [Layout](/layout/overview)
 
-* [Overview](/layout/overview/)
-* [Grid](/layout/grid/)
-* [Flexbox grid](/layout/flexbox-grid/)
-* [Media object](/layout/media-object/)
-* [Responsive utilities](/layout/responsive-utilities/)
+- [Overview](/layout/overview/)
+- [Grid](/layout/grid/)
+- [Flexbox grid](/layout/flexbox-grid/)
+- [Media object](/layout/media-object/)
+- [Responsive utilities](/layout/responsive-utilities/)
 
 [Content](/content/reboot)
 
-* [Reboot](/content/reboot/)
-* [Typography](/content/typography/)
-* [Code](/content/code/)
-* [Images](/content/images/)
-* [Tables](/content/tables/)
-* [Figures](/content/figures/)
+- [Reboot](/content/reboot/)
+- [Typography](/content/typography/)
+- [Code](/content/code/)
+- [Images](/content/images/)
+- [Tables](/content/tables/)
+- [Figures](/content/figures/)
 
 [Components](/components/alerts)
 
-* [Alerts](/components/alerts/)
-* [Breadcrumb](/components/breadcrumb/)
-* [Buttons](/components/buttons/)
-* [Button group](/components/button-group/)
-* [Card](/components/card/)
-* [Carousel](/components/carousel/)
-* [Collapse](/components/collapse/)
-* [Dropdowns](/components/dropdowns/)
-* [Forms](/components/forms/)
-* [Input group](/components/input-group/)
-* [Jumbotron](/components/jumbotron/)
-* [List group](/components/list-group/)
-* [Modal](/components/modal/)
-* [Navs](/components/navs/)
-* [Navbar](/components/navbar/)
-* [Pagination](/components/pagination/)
-* [Popovers](/components/popovers/)
-* [Progress](/components/progress/)
-* [Scrollspy](/components/scrollspy/)
-* [Tag](/components/tag/)
-* [Tooltips](/components/tooltips/)
+- [Alerts](/components/alerts/)
+- [Breadcrumb](/components/breadcrumb/)
+- [Buttons](/components/buttons/)
+- [Button group](/components/button-group/)
+- [Card](/components/card/)
+- [Carousel](/components/carousel/)
+- [Collapse](/components/collapse/)
+- [Dropdowns](/components/dropdowns/)
+- [Forms](/components/forms/)
+- [Input group](/components/input-group/)
+- [Jumbotron](/components/jumbotron/)
+- [List group](/components/list-group/)
+- [Modal](/components/modal/)
+- [Navs](/components/navs/)
+- [Navbar](/components/navbar/)
+- [Pagination](/components/pagination/)
+- [Popovers](/components/popovers/)
+- [Progress](/components/progress/)
+- [Scrollspy](/components/scrollspy/)
+- [Tag](/components/tag/)
+- [Tooltips](/components/tooltips/)
 
 [Utilities](/utilities/borders)
 
-* [Borders](/utilities/borders/)
-* [Clearfix](/utilities/clearfix/)
-* [Close icon](/utilities/close-icon/)
-* [Colors](/utilities/colors/)
-* [Display property](/utilities/display-property/)
-* [Image replacement](/utilities/image-replacement/)
-* [Invisible content](/utilities/invisible-content/)
-* [Responsive helpers](/utilities/responsive-helpers/)
-* [Screenreaders](/utilities/screenreaders/)
-* [Sizing and positioning](/utilities/sizing-and-positioning/)
-* [Spacing](/utilities/spacing/)
-* [Typography](/utilities/typography/)
-* [Vertical align](/utilities/vertical-align/)
+- [Borders](/utilities/borders/)
+- [Clearfix](/utilities/clearfix/)
+- [Close icon](/utilities/close-icon/)
+- [Colors](/utilities/colors/)
+- [Display property](/utilities/display-property/)
+- [Image replacement](/utilities/image-replacement/)
+- [Invisible content](/utilities/invisible-content/)
+- [Responsive helpers](/utilities/responsive-helpers/)
+- [Screenreaders](/utilities/screenreaders/)
+- [Sizing and positioning](/utilities/sizing-and-positioning/)
+- [Spacing](/utilities/spacing/)
+- [Typography](/utilities/typography/)
+- [Vertical align](/utilities/vertical-align/)
 
 [About](/about/history)
 
-* [History](/about/history/)
-* [Team](/about/team/)
-* [Brand](/about/brand/)
-* [License](/about/license/)
-* [Translations](/about/translations/)
+- [History](/about/history/)
+- [Team](/about/team/)
+- [Brand](/about/brand/)
+- [License](/about/license/)
+- [Translations](/about/translations/)
 
 [Migration](/migration/)
 
@@ -101,39 +101,39 @@ Reboot builds upon Normalize, providing many HTML elements with somewhat opinion
 
 ## Contents
 
-* [Contents](#contents)
-* [Approach](#approach)
-* [Page defaults](#page-defaults)
-* [Native font stack](#native-font-stack)
-* [Headings and paragraphs](#headings-and-paragraphs)
-* [Lists](#lists)
-* [Preformatted text](#preformatted-text)
-* [Tables](#tables)
-* [Forms](#forms)
-* [Misc elements](#misc-elements)
-  - [Address](#address)
-  - [Blockquote](#blockquote)
-  - [Inline elements](#inline-elements)
-* [HTML5 `[hidden]` attribute](#html5-hidden-attribute)
-* [Click delay optimization for touch](#click-delay-optimization-for-touch)
+- [Contents](#contents)
+- [Approach](#approach)
+- [Page defaults](#page-defaults)
+- [Native font stack](#native-font-stack)
+- [Headings and paragraphs](#headings-and-paragraphs)
+- [Lists](#lists)
+- [Preformatted text](#preformatted-text)
+- [Tables](#tables)
+- [Forms](#forms)
+- [Misc elements](#misc-elements)
+  * [Address](#address)
+  * [Blockquote](#blockquote)
+  * [Inline elements](#inline-elements)
+- [HTML5 `[hidden]` attribute](#html5-hidden-attribute)
+- [Click delay optimization for touch](#click-delay-optimization-for-touch)
 
 ## Approach
 
 Here are our guidelines and reasons for choosing what to override in Reboot:
 
-* Update some browser default values to use `rem`s instead of `em`s for scalable component spacing.
-* Avoid `margin-top`. Vertical margins can collapse, yielding unexpected results. More importantly though, a single direction of `margin` is a simpler mental model.
-* For easier scaling across device sizes, block elements should use `rem`s for `margin`s.
-* Keep declarations of `font` -related properties to a minimum, using `inherit` whenever possible.
+- Update some browser default values to use `rem`s instead of `em`s for scalable component spacing.
+- Avoid `margin-top`. Vertical margins can collapse, yielding unexpected results. More importantly though, a single direction of `margin` is a simpler mental model.
+- For easier scaling across device sizes, block elements should use `rem`s for `margin`s.
+- Keep declarations of `font` -related properties to a minimum, using `inherit` whenever possible.
 
 ## Page defaults
 
 The `<html>` and `<body>` elements are updated to provide better page-wide defaults. More specifically:
 
-* The `box-sizing` is globally set on every element—including `*:before` and `*:after`, to `border-box`. This ensures that the declared width of element is never exceeded due to padding or border.
-* A base `font-size: 16px` is declared on the `<html>` and `font-size: 1rem` on the `<body>` for easy responsive type-scaling via media queries.
-* The `<body>` also sets a global `font-family` and `line-height`. This is inherited later by some form elements to prevent font inconsistencies.
-* For safety, the `<body>` has a declared `background-color`, defaulting to `#fff`.
+- The `box-sizing` is globally set on every element—including `*:before` and `*:after`, to `border-box`. This ensures that the declared width of element is never exceeded due to padding or border.
+- A base `font-size: 16px` is declared on the `<html>` and `font-size: 1rem` on the `<body>` for easy responsive type-scaling via media queries.
+- The `<body>` also sets a global `font-family` and `line-height`. This is inherited later by some form elements to prevent font inconsistencies.
+- For safety, the `<body>` has a declared `background-color`, defaulting to `#fff`.
 
 ## Native font stack
 
@@ -187,18 +187,18 @@ Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem 
 
 All lists— `<ul>`, `<ol>`, and `<dl>` —have their `margin-top` removed and a `margin-bottom: 1rem`. Nested lists have no `margin-bottom`.
 
-* Lorem ipsum dolor sit amet
-* Consectetur adipiscing elit
-* Integer molestie lorem at massa
-* Facilisis in pretium nisl aliquet
-* Nulla volutpat aliquam velit
+- Lorem ipsum dolor sit amet
+- Consectetur adipiscing elit
+- Integer molestie lorem at massa
+- Facilisis in pretium nisl aliquet
+- Nulla volutpat aliquam velit
   - Phasellus iaculis neque
   - Purus sodales ultricies
   - Vestibulum laoreet porttitor sem
   - Ac tristique libero volutpat at
-* Faucibus porta lacus fringilla vel
-* Aenean sit amet erat nunc
-* Eget porttitor lorem
+- Faucibus porta lacus fringilla vel
+- Aenean sit amet erat nunc
+- Eget porttitor lorem
 
 1. Lorem ipsum dolor sit amet
 2. Consectetur adipiscing elit
@@ -228,21 +228,21 @@ The `<pre>` element is reset to remove its `margin-top` and use `rem` units for 
 Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure consistent `text-align` throughout. Additional changes for borders, padding, and more come with [the `.table` class](/content/tables/).
 
 <caption>This is an example table, and this is its caption to describe the contents.</caption>
-| Table heading | Table heading | Table heading | Table heading | 
-| --- | --- | --- | --- | 
-| Table cell | Table cell | Table cell | Table cell | 
-| Table cell | Table cell | Table cell | Table cell | 
-| Table cell | Table cell | Table cell | Table cell | 
+| Table heading | Table heading | Table heading | Table heading |
+| --- | --- | --- | --- |
+| Table cell | Table cell | Table cell | Table cell |
+| Table cell | Table cell | Table cell | Table cell |
+| Table cell | Table cell | Table cell | Table cell |
 
 ## Forms
 
 Various form elements have been rebooted for simpler base styles. Here are some of the most notable changes:
 
-* `<fieldset>s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.`s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.
-* `<legend>s, like fieldsets, have also been restyled to be displayed as a heading of sorts.`s, like fieldsets, have also been restyled to be displayed as a heading of sorts.
-* `<label>s are set to display: inline-block to allow margin to be applied.`s are set to `<label>s are set to display: inline-block to allow margin to be applied.` to allow `<label>s are set to display: inline-block to allow margin to be applied.` to be applied.
-* `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, and `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s are mostly addressed by Normalize, but Reboot removes their `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.` and sets `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`, too.
-* `<textarea>s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.`s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.
+- `<fieldset>s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.`s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.
+- `<legend>s, like fieldsets, have also been restyled to be displayed as a heading of sorts.`s, like fieldsets, have also been restyled to be displayed as a heading of sorts.
+- `<label>s are set to display: inline-block to allow margin to be applied.`s are set to `<label>s are set to display: inline-block to allow margin to be applied.` to allow `<label>s are set to display: inline-block to allow margin to be applied.` to be applied.
+- `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s, and `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`s are mostly addressed by Normalize, but Reboot removes their `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.` and sets `<input>s, <select>s, <textarea>s, and <button>s are mostly addressed by Normalize, but Reboot removes their margin and sets line-height: inherit, too.`, too.
+- `<textarea>s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.`s are modified to only be resizable vertically as horizontal resizing often “breaks” page layout.
 
 These changes, and more, are demonstrated below.
 
@@ -274,7 +274,7 @@ The `<address>` element is updated to reset the browser default `font-style` fro
 
 <br>
 
-[[email protected]](/cdn-cgi/l/email-protection#e6c5)
+[[email protected]](/cdn-cgi/l/email-protection#e6c5)
 </address>
 
 ### Blockquote
@@ -317,10 +317,10 @@ In the case of old iOS versions (prior to 9.3), the suggested approach is to use
 
 For further details, see the compatibility table for [suppressing 300ms delay for touchscreen interactions](https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay).
 
-* [GitHub](https://github.com/twbs/bootstrap)
-* [Twitter](https://twitter.com/getbootstrap)
-* [Examples](/examples/)
-* [About](/about/history/)
+- [GitHub](https://github.com/twbs/bootstrap)
+- [Twitter](https://twitter.com/getbootstrap)
+- [Examples](/examples/)
+- [About](/about/history/)
 
 Designed and built with all the love in the world by [@mdo](https://twitter.com/mdo) and [@fat](https://twitter.com/fat). Maintained by the [core team](https://github.com/orgs/twbs/people) with the help of [our contributors](https://github.com/twbs/bootstrap/graphs/contributors).
 
