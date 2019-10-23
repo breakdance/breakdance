@@ -26,7 +26,7 @@ Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, a
 
 Every part of the conversion is customizable:
 
-* [options](https://breakdance.github.io/breakdance/plugins.html) are available for customizing output of any HTML tag if you don't like the defaults
+* [options](https://breakdance.github.io/breakdance/docs.html#options) are available for customizing output of any HTML tag if you don't like the defaults
 * [plugins](https://breakdance.github.io/breakdance/plugins.html) are easy to write if you'd like to share your customizations with the world
 
 ## HTML-to-markdown example
