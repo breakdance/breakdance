@@ -56,7 +56,7 @@
     "gulp-unused": "^0.2.1",
     "helper-changelog": "^0.3.0",
     "js-beautify": "^1.6.12",
-    "kind-of": "^3.1.0",
+    "kind-of": "^6.0.3",
     "mocha": "^3.2.0",
     "strip-color": "^0.1.0",
     "time-diff": "^0.3.1",
