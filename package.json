@@ -62,7 +62,7 @@
     "time-diff": "^0.3.1",
     "verb-generate-readme": "^0.5.0",
     "write": "^0.3.3",
-    "yargs-parser": "^5.0.0"
+    "yargs-parser": "^19.0.4"
   },
   "keywords": [
     "breakdance",
