@@ -33,7 +33,7 @@
     "handlebars-helpers": "^0.8.0",
     "helper-geopattern": "^0.2.0",
     "helper-uigradient": "^1.0.0",
-    "highlight.js": "^9.12.0",
+    "highlight.js": ">=10.4.1",
     "isobject": "^3.0.0",
     "log-utils": "^0.2.1",
     "markdown-toc": "^1.1.0",
