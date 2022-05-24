@@ -6,7 +6,7 @@ First and foremost, thank you! We appreciate that you want to contribute to brea
 
 Creating an issue is the simplest form of contributing to a project. But there are many ways to contribute, including the following:
 
-- [Updating or correcting documentation](#documentation)
+- [Updating or correcting documentation](#contributing-documentation)
 - [Feature requests](#issues)
 - [Bug reports](#issues)
 
@@ -44,15 +44,15 @@ Please be as descriptive as possible when creating an issue. Give us the informa
 
 ## Contributing documentation
 
-Please read this section if you're contributing to breakdance and would like to add documentation. More information about how the site was created can be found on the [about](about.html#how-was-this-site-created) page.
+Please read this section if you're contributing to breakdance and would like to add documentation. More information about how the site was created can be found on the [about](https://breakdance.github.io/breakdance/about.html#how-was-this-site-created) page.
 
 **breakdance.io documentation**
 
-If you're contributing docs to breakdance.io, you will want to modify or add a file to the [support/src/content](https://github.com/breakdance/breakdance/blob/master/support/src/content) directory in [breakdance's GitHub repository](https://github.com/breakdance/breakdance).
+If you're contributing docs to breakdance.io, you will want to modify or add a file to the [support/src/templates](https://github.com/delphidabbler/breakdance/tree/master/support/src/templates) directory in [breakdance's GitHub repository](https://github.com/breakdance/breakdance).
 
 Building the actual site isn't necessary for our purposes, but you are welcome to do so if you'd like to see how your documentation renders before doing your pull request.
 
-breakdance.io is a static site that is generated using [assemble][]. Assuming you've already [cloned breakdance](http://breakdance.io#getting-started), <kbd>cd</kbd> into the `support` directory of the breakdance project, then run the following command to install dependencies and build the site:
+breakdance.io is a static site that is generated using [assemble][]. Assuming you've already [cloned breakdance](https://breakdance.github.io/breakdance/contributing.html#clone-breakdance), <kbd>cd</kbd> into the `support` directory of the breakdance project, then run the following command to install dependencies and build the site:
 
 ```sh
 $ npm install -g assemble && npm install
