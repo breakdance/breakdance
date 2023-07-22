@@ -8,6 +8,6 @@ describe('title', function() {
   });
 
   it('should output <title> when `options.title` is true', function() {
-    isEqual.inline('<title>This is a title</title>', '# This is a title\n', {title: true});
+    isEqual.inline('<title>This is a title</title>', '# This is a title\n', { title: true });
   });
 });

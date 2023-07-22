@@ -13,7 +13,7 @@ describe('options', () => {
       isEqual.inline('<strong>Foo</strong>', '**FOO**', {
         handlers: {
           text(node) {
-           return node.value.toUpperCase();
+            return node.value.toUpperCase();
           }
         }
       });
@@ -31,7 +31,7 @@ describe('options', () => {
       isEqual.inline('<title>This is a title</title>', '', {
         handlers: {
           title(node) {
-           return '';
+            return '';
           }
         }
       });
@@ -39,7 +39,7 @@ describe('options', () => {
       isEqual.inline('<title>This is a title</title>', 'foo', {
         handlers: {
           title(node) {
-           return 'foo';
+            return 'foo';
           }
         }
       });
@@ -47,7 +47,7 @@ describe('options', () => {
       isEqual.inline('<title>This is a title</title>', '# This is a title', {
         handlers: {
           title(node) {
-           return '# ' + this.mapVisit(node);
+            return '# ' + this.mapVisit(node);
           }
         }
       });

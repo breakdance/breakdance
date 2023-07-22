@@ -47,7 +47,7 @@ describe('lists', () => {
   });
 
   describe('ol', () => {
-    let opts = { keepListItemNumbers: true };
+    const opts = { keepListItemNumbers: true };
     it('should convert an ordered list to markdown', () => {
       isEqual('list-ol', opts);
     });

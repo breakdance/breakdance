@@ -3,7 +3,7 @@
 const isEqual = require('./support/is-equal');
 
 describe('em', () => {
-  let fixtures = [
+  const fixtures = [
     {
       it: 'should convert em tags to markdown',
       fixtures: [
@@ -46,7 +46,7 @@ describe('em', () => {
         '**Bold text** _Italicized text_',
         '',
         'This is a paragraph',
-        '',
+        ''
       ].join('\n')
     },
     {
@@ -71,9 +71,9 @@ describe('em', () => {
     }
   ];
 
-  let hasOnly = fixtures.some((ele) => {
+  const hasOnly = fixtures.some(ele => {
     if (Array.isArray(ele.fixtures)) {
-      return ele.fixtures.some((e) => {
+      return ele.fixtures.some(e => {
         return e.only === true;
       });
     }
@@ -83,7 +83,7 @@ describe('em', () => {
   run(fixtures);
 
   function run(fixtures, parent = {}) {
-    fixtures.forEach((unit) => {
+    fixtures.forEach(unit => {
       if (Array.isArray(unit.fixtures)) {
         run(unit.fixtures, unit);
         return;

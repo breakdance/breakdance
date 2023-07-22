@@ -8,7 +8,7 @@ describe('horizontal rules', function() {
   });
 
   it('should convert multiple hrs to markdown', function() {
-    var fixture = [
+    const fixture = [
       '<hr> foo <hr>bar<hr> baz',
       '',
       '',

@@ -5,7 +5,7 @@ const run = require('./support/run');
 
 describe('strong', function() {
   describe('strong inline', function() {
-    let fixtures = [
+    const fixtures = [
       {
         it: 'should convert strong tags to markdown',
         fixtures: [
@@ -60,7 +60,7 @@ describe('strong', function() {
           '<h3><strong>this is bold</strong></h3>',
           '<h4><strong>this is bold</strong></h4>',
           '<h5><strong>this is bold</strong></h5>',
-          '<h6><strong>this is bold</strong></h6>',
+          '<h6><strong>this is bold</strong></h6>'
         ].join('\n'),
         expected: [
           '# **this is bold**',
@@ -73,7 +73,7 @@ describe('strong', function() {
           '',
           '##### **this is bold**',
           '',
-          '###### **this is bold**',
+          '###### **this is bold**'
         ].join('\n')
       },
       {

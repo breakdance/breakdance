@@ -2,11 +2,14 @@
 
 const parser = require('./lib/parser');
 const compiler = require('./lib/compiler');
-const utils = require('./lib/utils');
+
+exports.parse = (input, options = {}) => {
+  const ast = parser.parse(input, options);
+  return ast.picked || ast;
+};
 
 exports.render = (input, options = {}) => {
-  let ast = parser.parse(input, options);
-  return compiler.render(ast.picked || ast, options);
+  return compiler.render(exports.parse(input, options), options);
 };
 
 exports.Compiler = compiler;

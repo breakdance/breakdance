@@ -39,7 +39,7 @@ describe('whitespace', function() {
   });
 
   it('should normalize whitespace when enabled', function() {
-    let opts = { whitespace: true };
+    const opts = { whitespace: true };
     isEqual.inline('<div>foo <em>bar</em> baz</div>', 'foo _bar_ baz', opts);
     isEqual.inline('<div>foo\n <em>bar</em> baz</div>', 'foo _bar_ baz', opts);
     isEqual.inline('<div>foo\n <em>bar</em> \nbaz</div>', 'foo _bar_ baz', opts);
