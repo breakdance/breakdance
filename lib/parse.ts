@@ -1,5 +1,3 @@
-'use strict';
-
 // const { RE_ATTRIBUTE } = require('./constants');
 const { tags } = require('./tags');
 const Node = require('./node');

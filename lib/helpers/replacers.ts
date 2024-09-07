@@ -1,5 +1,3 @@
-'use strict';
-
 const constants = require('../constants');
 const replace = module.exports = exports;
 

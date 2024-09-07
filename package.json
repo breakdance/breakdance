@@ -33,10 +33,20 @@
     "entities": "^1.1.2"
   },
   "devDependencies": {
+    "@types/eslint": "^8.56.7",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
+    "eslint": "^8.57.0",
     "gulp-format-md": "^2.0.0",
-    "mocha": "^6.1.4",
-    "verb-generate-readme": "^0.5.0",
-    "write": "^1.0.3"
+    "write": "^1.0.3",
+    "mocha": "^10.4.0",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.4",
+    "verb-generate-readme": "^0.5.0"
   },
   "keywords": [
     "breakdance",

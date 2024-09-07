@@ -1,5 +1,3 @@
-'use strict';
-
 const Events = require('events');
 const condense = require('condense-newlines');
 const entities = require('entities');

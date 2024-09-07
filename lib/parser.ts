@@ -1,5 +1,3 @@
-'use strict';
-
 const cheerio = require('cheerio');
 const utils = require('./utils');
 

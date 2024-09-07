@@ -1,5 +1,3 @@
-'use strict';
-
 class Position {
   constructor(loc) {
     this.index = loc.index;

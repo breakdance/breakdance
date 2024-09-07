@@ -1,8 +1,7 @@
-'use strict';
-
 module.exports = {
   root: true,
   extends: 'eslint:recommended',
+
   env: {
     commonjs: true,
     es2023: true,
@@ -10,9 +9,11 @@ module.exports = {
     node: true
   },
 
+  plugins: ['@typescript-eslint'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'script',
+    sourceType: 'module',
     requireConfigFile: false
   },
 
@@ -31,8 +32,8 @@ module.exports = {
     'callback-return': 0,
     'camelcase': [0, { allow: [] }],
     'capitalized-comments': 0,
-    'class-methods-use-this': 1,
-    'comma-dangle': [2, 'never'],
+    'class-methods-use-this': 0,
+    'comma-dangle': [1, 'never'],
     'comma-spacing': [1, { before: false, after: true }],
     'comma-style': [1, 'last'],
     'complexity': 1,
@@ -73,7 +74,7 @@ module.exports = {
     'no-dupe-class-members': 2,
     'no-dupe-keys': 2,
     'no-duplicate-case': 2,
-    'no-duplicate-imports': 1,
+    'no-duplicate-imports': 0,
     'no-else-return': 0,
     'no-empty-character-class': 2,
     'no-empty-function': 0,
@@ -106,7 +107,7 @@ module.exports = {
     'no-loop-func': 1,
     'no-mixed-requires': 1,
     'no-mixed-spaces-and-tabs': 2,
-    'no-multi-assign': 1,
+    'no-multi-assign': 0,
     'no-multi-spaces': 1,
     'no-multi-str': 2,
     'no-multiple-empty-lines': [1, { max: 1 }],
@@ -165,16 +166,16 @@ module.exports = {
     'no-useless-return': 1,
     'no-var': 1,
     'no-void': 1,
-    'no-warning-comments': 1,
+    'no-warning-comments': 0,
     'no-with': 2,
-    'object-curly-spacing': [2, 'always', { objectsInObjects: true }],
+    'object-curly-spacing': [1, 'always', { objectsInObjects: true }],
     'object-shorthand': 1,
     'one-var': [1, { initialized: 'never' }],
     'operator-linebreak': [0, 'after', { overrides: { '?': 'before', ':': 'before' } }],
     'padded-blocks': [1, { switches: 'never' }],
     'prefer-const': [1, { destructuring: 'all', ignoreReadBeforeAssign: false }],
     'prefer-promise-reject-errors': 1,
-    'quotes': [1, 'single'],
+    'quotes': [1, 'single', 'avoid-escape'],
     'radix': 2,
     'rest-spread-spacing': 1,
     'semi-spacing': [1, { before: false, after: true }],
@@ -196,7 +197,10 @@ module.exports = {
     'valid-jsdoc': 1,
     'valid-typeof': 2,
     'wrap-iife': [1, 'any'],
-    'yoda': [1, 'never']
+    'yoda': [1, 'never'],
+
+    // TypeScript
+    '@typescript-eslint/consistent-type-imports': 1
   },
 
   ignorePatterns: [
@@ -204,9 +208,9 @@ module.exports = {
     'dist',
     'tmp',
     'temp',
-    'lib/templates/*',
-    'support/*',
-    'test/fixtures/*',
-    'test/support/*'
+    'lib/templates',
+    'support',
+    'test/fixtures',
+    'test/support'
   ]
 };

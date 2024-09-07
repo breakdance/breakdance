@@ -1,5 +1,3 @@
-'use strict';
-
 // eslint-disable-next-line complexity
 exports.div = (name, node) => {
   if (!name.endsWith(':before')) return;

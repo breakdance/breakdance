@@ -1,5 +1,3 @@
-'use strict';
-
 const colors = require('ansi-colors');
 const diacritics = require('diacritics-map');
 const constants = require('./constants');

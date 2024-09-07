@@ -1,5 +1,3 @@
-'use strict';
-
 const path = require('path');
 const assemblefile = require('./support/assemblefile');
 const cwd = process.cwd();

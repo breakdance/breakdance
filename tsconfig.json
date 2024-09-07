@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["es2022"],
+    "target": "ES2022",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "noEmit": true
+  },
+  "ts-node": {
+    "swc": true,
+    "experimentalDecorators": true,
+    "transpileOnly": true
+  },
+  "include": ["*.ts", "lib/**/*.ts", "examples/**/*.ts"],
+  "exclude": ["node_modules", "build", "public", "dist", "tmp", "temp"]
+}
