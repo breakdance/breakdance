@@ -1,7 +1,8 @@
-const colors = require('ansi-colors');
-const diacritics = require('diacritics-map');
-const constants = require('./constants');
-const define = (obj, key, value = obj[key], enumerable = false) => {
+import colors from 'ansi-colors';
+import diacritics from 'diacritics-map';
+import { constants } from './constants';
+
+const define = (obj: any, key: string, value = obj[key], enumerable = false) => {
   Reflect.defineProperty(obj, key, { enumerable, value });
 };
 
@@ -16,14 +17,14 @@ const {
   RE_QUOTES
 } = constants;
 
-exports.pick = (node, options = {}) => {
+export const pick = (node: any, options: any = {}) => {
   if (node.attribs && options.pick) {
     const query = options.pick;
     if (query === node.type) return true;
 
     const name = query.slice(1);
     const char = query[0];
-    const type = { '.': 'class', '#': 'id' };
+    const type: { [key: string]: string } = { '.': 'class', '#': 'id' };
     let ele = node.attribs[type[char]];
     if (!ele) return false;
 
@@ -53,7 +54,7 @@ exports.pick = (node, options = {}) => {
 //   return attribs;
 // };
 
-const attributes = (hash, keys) => {
+const attributes = (hash: any, keys: string[] | boolean) => {
   if (keys === true) keys = [];
 
   if (typeof keys === 'string') {
@@ -64,7 +65,7 @@ const attributes = (hash, keys) => {
     return '';
   }
 
-  const attribs = [];
+  const attribs: string[] = [];
 
   for (const key of Object.keys(hash)) {
     if (keys && keys.length && !keys.includes(key)) continue;
@@ -74,13 +75,14 @@ const attributes = (hash, keys) => {
 
   return attribs.join(' ');
 };
-exports.attributes = attributes;
 
-const replaceDiacritics = str => {
+export { attributes };
+
+const replaceDiacritics = (str: string) => {
   return str.replace(RE_DIACRITICS, ch => diacritics[ch] || ch);
 };
 
-const langMap = (lang, options = {}) => {
+const langMap = (lang: string, options: any = {}) => {
   if (!lang) return '';
 
   if (options.normalizeLanguage === false) {
@@ -104,7 +106,7 @@ const langMap = (lang, options = {}) => {
   }
 };
 
-exports.mapCheerioKeys = node => {
+export const mapCheerioKeys = (node: any) => {
   if (node.mapped === true) return node;
 
   if (node.name) {
@@ -118,8 +120,8 @@ exports.mapCheerioKeys = node => {
   }
 
   if (node.children) {
-    node.nodes = node.children.map(n => {
-      n = exports.mapCheerioKeys(n);
+    node.nodes = node.children.map((n: any) => {
+      n = mapCheerioKeys(n);
       define(n, 'siblings', node.children);
       return n;
     });
@@ -130,7 +132,7 @@ exports.mapCheerioKeys = node => {
     node.attribs.class = node.attribs.class.split(' ');
   }
 
-  node.stringify = () => exports.stringify(node);
+  node.stringify = () => stringify(node);
   define(node, 'root');
   define(node, 'parent');
   define(node, 'prev');
@@ -139,8 +141,8 @@ exports.mapCheerioKeys = node => {
   return node;
 };
 
-exports.mapKeys = node => {
-  return exports.mapCheerioKeys(node);
+export const mapKeys = (node: any) => {
+  return mapCheerioKeys(node);
   // if (node.mapped) return node;
 
   // define(node, 'mapped', true);
@@ -197,23 +199,26 @@ exports.mapKeys = node => {
   // return node;
 };
 
-exports.encodeHTML = str => {
+export const encodeHTML = (str: string) => {
   return str.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 };
 
-exports.unindent = input => {
-  const lines = input.split('\n').filter(line => line.trim() !== '').join('\n');
+export const unindent = (input: string) => {
+  const lines = input
+    .split('\n')
+    .filter(line => line.trim() !== '')
+    .join('\n');
   const match = lines.match(RE_LEADING_WHITESPACE);
   if (!match) return input;
   const fewest = Math.min(...match.map(indent => indent.length));
   if (fewest > 0) {
-    return input.replace(new RegExp(`^[ \\t]{${fewest}}`, 'gm'), '');
+    return input.replace(new RegExp(`^[ \t]{${fewest}}`, 'gm'), '');
   }
   return input;
 };
 
-exports.removeEmptyEndLines = str => {
-  const last = arr => arr[arr.length - 1];
+export const removeEmptyEndLines = (str: string) => {
+  const last = (arr: string[]) => arr[arr.length - 1];
   const lines = str.split('\n');
 
   while (typeof lines[0] === 'string' && lines[0].trim() === '') {
@@ -227,7 +232,7 @@ exports.removeEmptyEndLines = str => {
   return lines.join('\n');
 };
 
-exports.hasAttributeValue = (node, regex, keep = []) => {
+export const hasAttributeValue = (node: any, regex: RegExp, keep: string[] = []) => {
   const attribs = [].concat(keep);
 
   if (node.attribs) {
@@ -245,7 +250,7 @@ exports.hasAttributeValue = (node, regex, keep = []) => {
   return false;
 };
 
-exports.parseAttributeValue = (node, regex) => {
+export const parseAttributeValue = (node: any, regex: RegExp) => {
   if (node.attribs) {
     for (const key of Object.keys(node.attribs)) {
       const value = node.attribs[key];
@@ -258,7 +263,7 @@ exports.parseAttributeValue = (node, regex) => {
   return null;
 };
 
-exports.getLanguage = (node, options) => {
+export const getLanguage = (node: any, options: any) => {
   // const sanitize = str => str.trim().replace(/^(highlight[- ]|[\s*])+/g, '').trim();
 
   if (node && node.attribs) {
@@ -289,15 +294,16 @@ exports.getLanguage = (node, options) => {
   return '';
 };
 
-exports.trimStart = str => str ? str.replace(RE_NON_NEWLINE_SPACE, '') : '';
-exports.unquote = str => str.replace(RE_QUOTES, '');
-exports.enquote = str => `"${exports.unquote(str)}"`;
+export const trimStart = (str: string) =>
+  str ? str.replace(RE_NON_NEWLINE_SPACE, '') : '';
+export const unquote = (str: string) => str.replace(RE_QUOTES, '');
+export const enquote = (str: string) => `"${unquote(str)}"`;
 
-exports.getIndentLen = str => {
-  return str ? str.length - exports.trimStart(str).length : 0;
+export const getIndentLen = (str: string) => {
+  return str ? str.length - trimStart(str).length : 0;
 };
 
-exports.slugify = (input, options = {}) => {
+export const slugify = (input: string, options: any = {}) => {
   if (options.slugify === false) return input;
 
   if (typeof options.slugify === 'function') {
@@ -312,7 +318,9 @@ exports.slugify = (input, options = {}) => {
   str = str.split(/ /).join('-');
   str = str.split(/\t/).join('--');
   str = str.split(/[|$&`~=\\/@+*!?({[\]})<>=.,;:'"^]/).join('');
-  str = str.split(/[。？！，、；：“”【】（）〔〕［］﹃﹄“ ”‘’﹁﹂—…－～《》〈〉「」]/).join('');
+  str = str
+    .split(/[。？！，、；：“”【】（）〔〕［］﹃﹄“ ”‘’﹁﹂—…－～《》〈〉「」]/)
+    .join('');
 
   str = replaceDiacritics(str);
 
@@ -326,30 +334,30 @@ exports.slugify = (input, options = {}) => {
  * Type Utils
  */
 
-exports.isObject = val => {
+export const isObject = (val: any) => {
   return val !== null && typeof val === 'object' && !Array.isArray(val);
 };
 
-exports.visit = (node, fn, mapKeys = true) => {
-  if (mapKeys !== false) exports.mapKeys(node);
+export const visit = (node: any, fn: Function, mapKeys: boolean = true) => {
+  if (mapKeys !== false) mapKeys(node);
 
   const value = fn(node);
   if (value === false) return node;
 
   if (node.nodes || node.childNodes) {
-    return exports.mapVisit(node, fn, mapKeys);
+    return mapVisit(node, fn, mapKeys);
   }
 
   return node;
 };
 
-exports.mapVisit = (node, fn, mapKeys = true) => {
-  if (mapKeys !== false) exports.mapKeys(node);
+export const mapVisit = (node: any, fn: Function, mapKeys: boolean = true) => {
+  if (mapKeys !== false) mapKeys(node);
 
   for (const child of node.nodes || node.childNodes) {
     child.parent ||= node;
 
-    const value = exports.visit(child, fn, mapKeys);
+    const value = visit(child, fn, mapKeys);
     if (value === false) {
       break;
     }
@@ -358,9 +366,9 @@ exports.mapVisit = (node, fn, mapKeys = true) => {
   return node;
 };
 
-exports.find = (nodes, type) => nodes.find(n => n.type === type);
-exports.filter = (nodes, type) => nodes.filter(n => n.type === type);
-exports.isInside = (node, type) => {
+export const find = (nodes: any[], type: string) => nodes.find(n => n.type === type);
+export const filter = (nodes: any[], type: string) => nodes.filter(n => n.type === type);
+export const isInside = (node: any, type: string | string[]) => {
   const types = [].concat(type || []);
   let parent = node.parent;
   while (parent && parent.type !== 'root') {
@@ -373,9 +381,9 @@ exports.isInside = (node, type) => {
 };
 
 // eslint-disable-next-line complexity
-exports.stringify = (node, options = {}) => {
+export const stringify = (node: any, options: any = {}) => {
   const { attribs = false, omit = ['code'] } = options;
-  const output = node.value ? [node.value] : [];
+  const output: string[] = node.value ? [node.value] : [];
   let prefix = '';
   let attr = '';
 
@@ -385,7 +393,7 @@ exports.stringify = (node, options = {}) => {
 
   if (omit.includes(node.type)) {
     if (node.nodes) {
-      return node.nodes.map(n => exports.stringify(n, options)).join('');
+      return node.nodes.map((n: any) => stringify(n, options)).join('');
     }
     return '';
   }
@@ -408,7 +416,7 @@ exports.stringify = (node, options = {}) => {
       output.push(['br', 'hr'].includes(node.type) ? `<${open}>` : '');
     }
   } else if (node.open === true && node.nodes) {
-    const inner = node.nodes.map(n => exports.stringify(n, options)).join('');
+    const inner = node.nodes.map((n: any) => stringify(n, options)).join('');
     if (inner.trim()) {
       if (!prefix && options.wrap !== false) {
         output.push(`<${open}>${inner}</${node.type}>`);
@@ -419,4 +427,29 @@ exports.stringify = (node, options = {}) => {
   }
 
   return prefix + output.join(' ');
+};
+
+export default {
+  pick,
+  attributes,
+  mapCheerioKeys,
+  mapKeys,
+  encodeHTML,
+  unindent,
+  removeEmptyEndLines,
+  hasAttributeValue,
+  parseAttributeValue,
+  getLanguage,
+  trimStart,
+  unquote,
+  enquote,
+  getIndentLen,
+  slugify,
+  isObject,
+  visit,
+  mapVisit,
+  find,
+  filter,
+  isInside,
+  stringify
 };

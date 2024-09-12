@@ -10,12 +10,12 @@ interface Compiler {
 }
 
 interface Options {
-  [key: string]: any; // Since the options type is unknown
+  [key: string]: any;
 }
 
 interface ASTNode {
   picked?: ASTNode;
-  [key: string]: any; // Assuming there might be other unknown properties
+  [key: string]: any;
 }
 
 export const parse = (input: string, options: Options = {}): ASTNode => {

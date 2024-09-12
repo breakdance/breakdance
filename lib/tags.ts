@@ -1,7 +1,4 @@
-const tags = {};
-exports.tags = tags;
-
-tags.block = [
+export const block = [
   'address',
   'blockquote',
   'div',
@@ -23,9 +20,9 @@ tags.block = [
   'ul'
 ];
 
-tags.metadata = ['base', 'command', 'link', 'meta', 'noscript', 'script', 'style', 'template', 'title'];
+export const metadata = ['base', 'command', 'link', 'meta', 'noscript', 'script', 'style', 'template', 'title'];
 
-tags.flow = [
+export const flow = [
   'a',
   'abbr',
   'address',
@@ -109,9 +106,9 @@ tags.flow = [
   'wbr'
 ];
 
-tags.heading = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup'];
-tags.embedded = ['audio', 'canvas', 'embed', 'iframe', 'img', 'math', 'object', 'svg', 'video'];
-tags.inline = [
+export const heading = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'hgroup'];
+export const embedded = ['audio', 'canvas', 'embed', 'iframe', 'img', 'math', 'object', 'svg', 'video'];
+export const inline = [
   'a',
   'abbr',
   'acronym',
@@ -146,7 +143,7 @@ tags.inline = [
   'var'
 ];
 
-tags.phrasing = [
+export const phrasing = [
   'abbr',
   'audio',
   'b',
@@ -194,7 +191,7 @@ tags.phrasing = [
   'wbr'
 ];
 
-tags.form = [
+export const form = [
   'button',
   'fieldset',
   'input',
@@ -208,7 +205,7 @@ tags.form = [
   'textarea'
 ];
 
-tags.other = [
+export const other = [
   'acronym',
   'applet',
   'basefont',
@@ -247,9 +244,9 @@ tags.other = [
   'u'
 ];
 
-tags.svgElements = ['circle', 'ellipse', 'line', 'path', 'polygon', 'polyline', 'rect', 'stop', 'use'];
+export const svgElements = ['circle', 'ellipse', 'line', 'path', 'polygon', 'polyline', 'rect', 'stop', 'use'];
 
-tags.voidElements = [
+export const voidElements = [
   'area',
   'base',
   'br',
@@ -268,4 +265,19 @@ tags.voidElements = [
   'wbr'
 ];
 
-tags.selfClosing = [...tags.svgElements, ...tags.voidElements];
+export const selfClosing = [...svgElements, ...voidElements];
+
+export const tags = {
+  block,
+  metadata,
+  flow,
+  heading,
+  embedded,
+  inline,
+  phrasing,
+  form,
+  other,
+  svgElements,
+  voidElements,
+  selfClosing
+};

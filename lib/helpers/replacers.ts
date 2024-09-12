@@ -1,5 +1,4 @@
-const constants = require('../constants');
-const replace = module.exports = exports;
+import constants from '../constants';
 
 const {
   CHAR_ELLIPSIS,
@@ -11,7 +10,7 @@ const {
   RE_SLASHES
 } = constants;
 
-replace.smartQuotes = (str, options = {}) => {
+export const smartQuotes = (str: string, options: { replaceSmartQuotes?: boolean } = {}): string => {
   if (options.replaceSmartQuotes !== false) {
     str = str.replace(/(&ldquo;|&rdquo;|&#822[01];|\u201C|\u201D|[“”])/g, '"');
     str = str.replace(/(&lsquo;|&rsquo;|&#8217;|&apos;|\u2019|[‘’])/g, '\'');
@@ -19,29 +18,28 @@ replace.smartQuotes = (str, options = {}) => {
   return str;
 };
 
-replace.ellipsis = (str, options = {}) => {
+export const ellipsis = (str: string, options: { unsmarty?: boolean } = {}): string => {
   const ellipsis = options.unsmarty ? CHAR_THREE_DOTS : CHAR_ELLIPSIS;
   return str.replace(RE_ELLIPSIS, ellipsis);
 };
 
-replace.slashes = str => {
+export const slashes = (str: string): string => {
   return str.replace(RE_SLASHES, CHAR_FORWARD_SLASH);
 };
 
-replace.angles = (str, options = {}) => {
+export const angles = (str: string, options: { unsmarty?: boolean } = {}): string => {
   if (!options.unsmarty) return str;
   return str
     .replace(/[⟨‹]/g, '<')
     .replace(/[›⟩]/g, '>')
-    .replace(/[«]/g, '"')
-    .replace(/[»]/g, '"');
+    .replace(/[«»]/g, '"');
 };
 
-replace.chars = (str, options) => {
-  str = replace.slashes(str, options);
-  str = replace.smartQuotes(str, options);
-  str = replace.ellipsis(str, options);
-  str = replace.angles(str, options);
+export const chars = (str: string, options: { replaceSmartQuotes?: boolean, unsmarty?: boolean } = {}): string => {
+  str = slashes(str);
+  str = smartQuotes(str, options);
+  str = ellipsis(str, options);
+  str = angles(str, options);
   return str
     .replace(/(\u2014|&#x2014;|&#8212;|&mdash;)/g, CHAR_EM_DASH)
     .replace(/&ndash;/g, '–')
@@ -54,6 +52,12 @@ replace.chars = (str, options) => {
     .replace(/&ge;/g, '≥');
 };
 
-// replace. = (input, options = {}) => {
+const replace = {
+  smartQuotes,
+  ellipsis,
+  slashes,
+  angles,
+  chars
+};
 
-// };
+export default replace;

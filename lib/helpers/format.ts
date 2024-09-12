@@ -1,13 +1,20 @@
 class Position {
-  constructor(loc) {
+  index: number;
+  column: number;
+  line: number;
+
+  constructor(loc: { index: number, column: number, line: number }) {
     this.index = loc.index;
     this.column = loc.column;
     this.line = loc.line;
   }
 }
 
-class Location {
-  constructor(start, end) {
+export class Location {
+  start: Position;
+  end: Position;
+
+  constructor(start: Position, end: Position) {
     this.start = start;
     this.end = end;
   }
@@ -16,28 +23,33 @@ class Location {
   }
 }
 
-class Token {
-  constructor(type, value) {
+export class Token {
+  type: string;
+  value: string;
+  loc?: Location;
+  output?: string;
+
+  constructor(type: string, value: string) {
     this.type = type;
     this.value = value;
   }
 }
 
-const location = state => {
+const location = (state: any) => {
   const start = new Position(state.loc);
-  return token => {
+  return (token: Token) => {
     const end = new Position(state.loc);
     token.loc = new Location(start, end);
     return token;
   };
 };
 
-const format = (input, options = {}) => {
-  const pos = state => new Position(state.loc);
+const format = (input: string, options: any = {}) => {
+  const pos = (state: any) => new Position(state.loc);
   const ast = { type: 'root', nodes: [] };
-  const bos = { type: 'bos', value: '' };
+  const bos: Token = { type: 'bos', value: '' };
   const stack = [ast];
-  const tokens = [bos];
+  const tokens: Token[] = [bos];
   const state = {
     input,
     output: '',
@@ -49,7 +61,7 @@ const format = (input, options = {}) => {
   let prev = tokens[0] = loc(bos);
   let value;
 
-  const updateCursor = (token = {}) => {
+  const updateCursor = (token: Token = {}) => {
     if (token.type === 'newline') {
       state.loc.column = 0;
       state.loc.line++;
@@ -58,7 +70,7 @@ const format = (input, options = {}) => {
     }
   };
 
-  const push = token => {
+  const push = (token: Token) => {
     updateCursor(token);
     Reflect.defineProperty(token, 'prev', { value: prev });
     Reflect.defineProperty(prev, 'next', { value: token });
@@ -66,9 +78,9 @@ const format = (input, options = {}) => {
     prev = token;
   };
 
-  const append = (token, value, output) => {
+  const append = (token: Token, value: string, output?: string) => {
     if (output) token.output = (token.output || '') + output;
-    token.loc.end = pos(state);
+    token.loc!.end = pos(state);
     token.value += value;
     updateCursor(token);
   };
@@ -133,7 +145,7 @@ const format = (input, options = {}) => {
 
     if (value === '#') {
       if (prev.type === 'bos' || prev.type === 'newline') {
-        const token = { type: 'heading', value };
+        const token: Token = { type: 'heading', value };
 
         while (peek() === '#') {
           value += advance();
@@ -154,7 +166,7 @@ const format = (input, options = {}) => {
 
     if (prev.type === 'text') {
       prev.value += value;
-      prev.loc.end = pos(state);
+      prev.loc!.end = pos(state);
       updateCursor();
       continue;
     }

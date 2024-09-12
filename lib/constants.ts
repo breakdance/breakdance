@@ -1,4 +1,4 @@
-module.exports = {
+export const constants = {
   BULLETS: ['-', '*', '+'],
   CHAR_ELLIPSIS: '…',
   CHAR_THREE_DOTS: '...',
@@ -24,3 +24,4 @@ module.exports = {
   RE_ZERO_WIDTH_SPACE: /\u200b/g
 };
 
+export default constants;

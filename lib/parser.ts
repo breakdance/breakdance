@@ -1,15 +1,14 @@
-const cheerio = require('cheerio');
-const utils = require('./utils');
-
-const {
+import cheerio from 'cheerio';
+import * as utils from './utils';
+import {
   RE_BOM,
   RE_NEWLINES,
   RE_NON_BREAKING_SPACE,
   RE_TABS,
   RE_ZERO_WIDTH_SPACE
-} = require('./constants');
+} from './constants';
 
-exports.parse = (input, options = {}) => {
+export const parse = (input: string, options: any = {}): any => {
   const str = input.trim()
     .replace(RE_NON_BREAKING_SPACE, ' ')
     .replace(RE_ZERO_WIDTH_SPACE, '')
@@ -29,7 +28,7 @@ exports.parse = (input, options = {}) => {
   const ast = cheerio.parseHTML(output, { normalizeWhitespace: false, ...options });
   let root = ast[0].root;
 
-  utils.visit(root, node => {
+  utils.visit(root, (node: any) => {
     const isMatch = utils.pick(node, options);
     if (isMatch === true) {
       root = node;
@@ -40,3 +39,4 @@ exports.parse = (input, options = {}) => {
   return root;
 };
 
+export default parse;
