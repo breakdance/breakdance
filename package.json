@@ -14,39 +14,42 @@
     "url": "https://github.com/breakdance/breakdance/issues"
   },
   "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "files": [
-    "index.js",
-    "lib"
+    "dist"
   ],
-  "main": "index.js",
-  "engines": {
-    "node": ">=8.0"
-  },
   "scripts": {
-    "test": "mocha"
+    "eslint": "npx eslint --ext .ts .",
+    "test": "ts-mocha -r esbuild-register 'test/**/*.ts'",
+    "tsup": "npx tsup"
   },
   "dependencies": {
     "ansi-colors": "^3.2.4",
     "cheerio": "^0.22.0",
     "condense-newlines": "^0.2.1",
     "diacritics-map": "^0.1.0",
-    "entities": "^1.1.2"
+    "entities": "^1.1.2",
+    "minimist": "^1.2.8"
   },
   "devDependencies": {
+    "@mozilla/readability": "^0.5.0",
     "@types/eslint": "^8.56.7",
     "@types/node": "^20.12.7",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
+    "esbuild-register": "^3.6.0",
     "eslint": "^8.57.0",
     "gulp-format-md": "^2.0.0",
-    "write": "^1.0.3",
+    "jsdom": "^25.0.1",
     "mocha": "^10.4.0",
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tsup": "^8.0.2",
     "typescript": "^5.4.4",
-    "verb-generate-readme": "^0.5.0"
+    "verb-generate-readme": "^0.5.0",
+    "write": "^1.0.3"
   },
   "keywords": [
     "breakdance",

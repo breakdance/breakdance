@@ -97,7 +97,7 @@ module.exports = {
     'no-implied-eval': 2,
     'no-inner-declarations': [1, 'functions'],
     'no-invalid-regexp': 2,
-    'no-invalid-this': 1,
+    'no-invalid-this': 0,
     'no-irregular-whitespace': 2,
     'no-iterator': 2,
     'no-label-var': 2,
@@ -204,13 +204,12 @@ module.exports = {
   },
 
   ignorePatterns: [
+    'docs/assets',
     'node_modules',
     'dist',
     'tmp',
     'temp',
     'lib/templates',
-    'support',
-    'test/fixtures',
-    'test/support'
+    'test/fixtures'
   ]
 };

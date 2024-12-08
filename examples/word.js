@@ -1,21 +1,22 @@
 #!/usr/bin/env node
 
-var fs = require('fs');
-var path = require('path');
-var util = require('util');
-var breakdance = require('..');
-var argv = require('yargs-parser')(process.argv.slice(2));
-var name = argv._[0];
+import fs from 'fs';
+import path from 'path';
+import parse from 'yargs-parser';
+import { breakdance } from '..';
 
-var fp = path.join(process.cwd(), 'test/fixtures', name + '.html');
-var str = fs.readFileSync(fp, 'utf8');
+const argv = parse(process.argv.slice(2));
+const name = argv._[0];
+
+const fp = path.join(process.cwd(), 'test/fixtures', name + '.html');
+const str = fs.readFileSync(fp, 'utf8');
 
 /**
  * Convert MS Word documents to markdown (this is not finished,
  * but it works)
  */
 
-var res = breakdance(str, {
+const res = breakdance(str, {
   preprocess: function fn(node, prev, $) {
     if (node.name === 'html' && node.attribs) {
       if (/office:word$/.test(node.attribs['xmlns:w'])) {
@@ -27,7 +28,7 @@ var res = breakdance(str, {
 
     if (node.name === 'p' && node.attribs.class === 'MsoTitle') {
       node.type = 'h1';
-      var text = $('span', node).text().trim();
+      const text = $('span', node).text().trim();
       if (!text) node.type = 'text';
       node.val = text;
       delete node.name;
@@ -35,8 +36,8 @@ var res = breakdance(str, {
 
     } else if (/^h[1-6]/.test(node.name)) {
       node.name = node.name.replace(/^h([1-5])/, function(m, $1) {
-        return 'h' + (+$1 + 1);
-      })
+        return 'h' + (Number($1) + 1);
+      });
     }
   }
 });

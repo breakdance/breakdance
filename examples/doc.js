@@ -1,6 +1,6 @@
 
-var breakdance = require('..');
-var doc = `
+import { breakdance } from '..';
+const doc = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,4 +19,4 @@ var doc = `
 </html>
 `;
 
-console.log(breakdance(doc))
+console.log(breakdance(doc));

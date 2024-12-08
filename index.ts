@@ -1,13 +1,6 @@
-import parser from './lib/parser';
-import compiler from './lib/compiler';
-
-interface Parser {
-  parse(input: string, options: Options): ASTNode;
-}
-
-interface Compiler {
-  render(ast: ASTNode, options: Options): string;
-}
+import * as parser from '~/parser';
+import { Compiler } from '~/Compiler';
+export { Compiler };
 
 interface Options {
   [key: string]: any;
@@ -24,11 +17,33 @@ export const parse = (input: string, options: Options = {}): ASTNode => {
 };
 
 export const render = (input: string, options: Options = {}): string => {
-  return compiler.render(parse(input, options), options);
+  return Compiler.render(parse(input, options), options);
 };
 
 export const breakdance = (input: string, options: Options = {}): string => {
   return render(input, options);
 };
 
-export default breakdance;
+export class Breakdance {
+  constructor(options = {}) {
+    this.options = options;
+  }
+
+  parse(input, options) {
+    return parse(input, { ...this.options, ...options });
+  }
+
+  render(input, options) {
+    return render(input, { ...this.options, ...options });
+  }
+
+  static parse(input, options) {
+    return parse(input, options);
+  }
+
+  static render(input, options) {
+    return render(input, options);
+  }
+}
+
+export default Breakdance;

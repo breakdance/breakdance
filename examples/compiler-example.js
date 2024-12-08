@@ -1,9 +1,9 @@
-var ast = {
+const ast = {
   type: 'root',
   nodes: [
     {
       // "beginning-of-string"
-      type: 'bos',
+      type: 'bos'
     },
     {
       type: 'strong',
@@ -31,25 +31,25 @@ var ast = {
   ]
 };
 
-var str = '';
+let str = '';
 
-var handlers = {
-  bos: function(node) {
+const handlers = {
+  bos() {
     // do nothing
   },
-  text: function(node) {
+  text(node) {
     str += node.val;
   },
-  strong: function(node) {
+  strong(node) {
     mapVisit(node.nodes);
   },
-  'strong.open': function(node) {
+  'strong.open'() {
     str += '**';
   },
-  'strong.close': function(node) {
+  'strong.close'() {
     str += '**';
   },
-  eos: function(node) {
+  eos() {
     // do nothing
   }
 };

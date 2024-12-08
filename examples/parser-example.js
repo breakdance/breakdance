@@ -1,14 +1,14 @@
-var define = require('define-property');
-var parsers = [
+const define = require('define-property');
+const parsers = [
   function(str) {
-    var match = /^{/.exec(str);
+    const match = /^{/.exec(str);
     if (match) {
-      var node = {
+      const node = {
         type: 'open.brace',
         match: match[0]
       };
 
-      var brace = {
+      const brace = {
         type: 'brace',
         nodes: [node]
       };
@@ -19,10 +19,10 @@ var parsers = [
     }
   },
   function(str) {
-    var match = /^}/.exec(str);
+    const match = /^}/.exec(str);
     if (match) {
-      var brace = this.stack.pop();
-      var node = {
+      const brace = this.stack.pop();
+      const node = {
         type: 'close.brace',
         match: match[0]
       };
@@ -33,52 +33,52 @@ var parsers = [
     }
   },
   function(str) {
-    var match = /^[a-z]/.exec(str);
+    const match = /^[a-z]/.exec(str);
     if (match) {
-      return {type: 'text', match: match[0]};
+      return { type: 'text', match: match[0] };
     }
   },
   function(str) {
-    var match = /^\./.exec(str);
+    const match = /^\./.exec(str);
     if (match) {
-      return {type: 'dot', match: match[0]};
+      return { type: 'dot', match: match[0] };
     }
   },
   function(str) {
-    var match = /^\//.exec(str);
+    const match = /^\//.exec(str);
     if (match) {
-      return {type: 'slash', match: match[0]};
+      return { type: 'slash', match: match[0] };
     }
   },
   function(str) {
-    var match = /^,/.exec(str);
+    const match = /^,/.exec(str);
     if (match) {
-      return {type: 'comma', match: match[0]};
+      return { type: 'comma', match: match[0] };
     }
   }
 ];
 
 function parse(str) {
-  var ast = {type: 'root', tokens: [], nodes: [], stack: []};
+  const ast = { type: 'root', tokens: [], nodes: [], stack: [] };
 
   ast.parent = function() {
     return ast.stack.length ? ast.stack[ast.stack.length - 1] : ast;
   };
 
   // add a "beginning-of-string" node
-  ast.nodes.push({type: 'bos'});
+  ast.nodes.push({ type: 'bos' });
 
   while (str.length) {
-    var parent = ast.parent();
+    const parent = ast.parent();
 
     // capture length of nodes before parsing
-    var len = str.length;
+    const len = str.length;
 
-    for (var i = 0; i < parsers.length; i++) {
-      var fn = parsers[i];
-      var node = fn.call(ast, str);
+    for (let i = 0; i < parsers.length; i++) {
+      const fn = parsers[i];
+      const node = fn.call(ast, str);
       if (node) {
-        var tok = node.nodes ? node.nodes[0] : node;
+        const tok = node.nodes ? node.nodes[0] : node;
 
         // slice the matched valued off of the string
         str = str.slice(tok.match[0].length);
@@ -105,9 +105,9 @@ function parse(str) {
   }
 
   // add a "end-of-string" node
-  ast.nodes.push({type: 'eos'});
+  ast.nodes.push({ type: 'eos' });
   return ast;
 }
 
-var ast = parse('a/{b,c}/d');
+const ast = parse('a/{b,c}/d');
 console.log(ast);

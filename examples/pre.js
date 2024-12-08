@@ -1,5 +1,5 @@
-var Breakdance = require('..');
-var breakdance = new Breakdance();
+import Breakdance from '..';
+const breakdance = new Breakdance();
 
 breakdance
   .set('pre', function(node) {
@@ -9,10 +9,10 @@ breakdance
     // to output the inner contents of the pre tag
     this.mapVisit(node);
   })
-  .set('pre.open', function(node) {
+  .set('pre.open', function() {
     this.emit('```\n');
   })
-  .set('pre.close', function(node) {
+  .set('pre.close', function() {
     this.emit('\n```');
   })
 
@@ -27,10 +27,10 @@ breakdance
       // that will already be done by the "text" handler
       node.val = node.val.replace(/^var /g, 'const ');
     }
-  })
+  });
 
-var ast = breakdance.parse('<div><pre>var foo = "bar";</pre></div>');
-var str = breakdance.compile(ast).output;
+const ast = breakdance.parse('<div><pre>var foo = "bar";</pre></div>');
+const str = breakdance.compile(ast).output;
 console.log(str);
 // ```
 // const foo = "bar";

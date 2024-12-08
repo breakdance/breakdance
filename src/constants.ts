@@ -1,0 +1,23 @@
+export const BULLETS = ['-', '*', '+'];
+export const CHAR_ELLIPSIS = '…';
+export const CHAR_THREE_DOTS = '...';
+export const CHAR_FORWARD_SLASH = '/';
+export const CHAR_EM_DASH = '—';
+export const RE_ALL_WHITESPACE = /\s+/g;
+export const RE_ATTRIBUTE = /^\s*([^=]+)="([^"]+)(?<!\\)"\s*/;
+export const RE_BOM = /^\ufeff/; // byte-order marks
+export const RE_CODE_TAG = /(?:`{3,4}|<code>)\s*([\s\S]+?)\s*(?:`{3,4}|<\/code>)/;
+export const RE_DIACRITICS = /[À-ž]/g;
+export const RE_ELLIPSIS = /(&hellip;|&#x2026;|[\u2026…⋯])/g;
+export const RE_LANGUAGE = /(?:lang(?:uage)?|highlight|source|brush:\s*)-?(.+)$/;
+export const RE_LANGUAGE_DATA_KEY = /data-lang(uage)?/;
+export const RE_LEADING_WHITESPACE = /^[ \t]*/gm;
+export const RE_NEWLINES = /\r*\n/g;
+export const RE_NON_BREAKING_SPACE = /(&#xA0;|&#160;|&nbsp;)/gi;
+export const RE_NON_NEWLINE_SPACE = /^[^\S\n]+/; // all whitespace besides newlines
+export const RE_QUOTES = /^["' ]+|["' ]+$/g;
+export const RE_RST_PARAGRAPH = /¶\s*/g;
+export const RE_SLASHES = /[⧸⁄]/g;
+export const RE_TABS = /\t/g;
+export const RE_ZERO_WIDTH_SPACE = /\u200b/g;
+export const RE_INVISIBLE = /(?:(?:^|-)(?:nav|hidden|banner)(?:-|$)|navbar)/;

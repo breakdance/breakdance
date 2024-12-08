@@ -3,22 +3,24 @@
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
+    "checkJs": false,
+    "declaration": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "lib": ["es2022"],
-    "target": "ES2022",
-    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "noEmit": true,
+    "paths": { "~/*": ["src/*"] },
     "resolveJsonModule": true,
     "strict": true,
-    "noEmit": true
+    "target": "ES2022",
+    "types": ["node"],
   },
   "ts-node": {
-    "swc": true,
-    "experimentalDecorators": true,
     "transpileOnly": true
   },
-  "include": ["*.ts", "lib/**/*.ts", "examples/**/*.ts"],
-  "exclude": ["node_modules", "build", "public", "dist", "tmp", "temp"]
+  "include": ["src", "test", "support", "examples", "bin", "*.ts"],
+  "exclude": ["node_modules", "build", "public", "dist", "tmp", "temp", "vendor"]
 }

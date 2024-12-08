@@ -1,6 +1,6 @@
 
-var breakdance = require('..');
-var doc = `
+import { breakdance } from '..';
+const doc = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,4 +30,4 @@ var doc = `
 // console.log(breakdance(doc, {omit: ['hr']}))
 // console.log(breakdance(doc, {pick: ['.main-content']}))
 // console.log(breakdance(doc, {pick: ['.footer']}))
-console.log(breakdance(doc, {pick: ['.main-content', '.footer']}))
+console.log(breakdance(doc, { pick: ['.main-content', '.footer'] }));
