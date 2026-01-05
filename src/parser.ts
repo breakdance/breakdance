@@ -8,6 +8,12 @@ import {
   RE_ZERO_WIDTH_SPACE
 } from '~/constants';
 
+export async function parseHtml(html: string) {
+  const parse5 = await import('parse5');
+  const parsed = parse5.parse(html);
+  return parsed;
+}
+
 export const parse = (input: string, options: any = {}): any => {
   const str = input.trim()
     .replace(RE_NON_BREAKING_SPACE, ' ')

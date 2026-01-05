@@ -1,7 +1,6 @@
-'use strict';
 
-var through = require('through2');
-var cheerio = require('cheerio');
+const through = require('through2');
+const cheerio = require('cheerio');
 
 module.exports = function(options) {
   return through.obj(function(file, enc, next) {

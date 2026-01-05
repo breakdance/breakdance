@@ -1,30 +1,29 @@
-'use strict';
 
-var log = require('log-utils');
-var cheerio = require('cheerio');
-var isObject = require('isobject');
-var extend = require('extend-shallow');
-var utils = require('markdown-toc');
+const log = require('log-utils');
+const cheerio = require('cheerio');
+const isObject = require('isobject');
+const extend = require('extend-shallow');
+const utils = require('markdown-toc');
 
 module.exports = function(file, options) {
-  var opts = extend({selectors: 'h1,h2'}, options);
+  const opts = extend({ selectors: 'h1,h2' }, options);
 
   if (typeof file.$ === 'undefined') {
     file.$ = cheerio.load(file.contents.toString());
   }
 
-  var $ = file.$;
+  const $ = file.$;
 
   // get all the anchor tags from inside the headers
-  var headings = $(opts.selectors);
-  var navigation = [];
-  var slugs = {};
+  const headings = $(opts.selectors);
+  const navigation = [];
+  const slugs = {};
 
   function findLocation(navigation, depth) {
     if (depth === 1) {
       return navigation;
     }
-    var loc = navigation[navigation.length - 1];
+    let loc = navigation[navigation.length - 1];
     if (!loc) {
       loc = {
         children: []
@@ -37,11 +36,11 @@ module.exports = function(file, options) {
   }
 
   headings.map(function(i, ele) {
-    var $ele = $(ele);
-    var text = $ele.text().trim();
+    const $ele = $(ele);
+    const text = $ele.text().trim();
     if (!text) return;
 
-    var slug = utils.slugify(text);
+    let slug = utils.slugify(text);
     if (slugs.hasOwnProperty(slug)) {
       slugs[slug] = slugs[slug] + 1;
       slug += '-' + slugs[slug];
@@ -49,15 +48,15 @@ module.exports = function(file, options) {
       slugs[slug] = 0;
     }
 
-    var node = {
-      text: text,
+    const node = {
+      text,
       link: slug,
-      level: +ele.name.slice(1) - 1,
+      level: Number(ele.name.slice(1)) - 1,
       $e: $ele
     };
 
     // var depth = node.level <= 1 ? 1 : 2;
-    var location = findLocation(navigation, node.level);
+    const location = findLocation(navigation, node.level);
     location.push(node);
   });
 
@@ -79,13 +78,13 @@ module.exports = function(file, options) {
   $('#navigation').append(buildHTML(navigation, true));
 
   headings.map(function(i, e) {
-    var $e = $(e);
-    var id = $e.attr('id');
+    const $e = $(e);
+    const id = $e.attr('id');
 
     // Anchor template
     $(this).append(anchorTemplate(id));
     if ($(this).prev().children().hasClass('source-link')) {
-      var sourceLink = $(this).prev().children('.source-link');
+      const sourceLink = $(this).prev().children('.source-link');
       $(this).append(sourceLink);
     }
   });

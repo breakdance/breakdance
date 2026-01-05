@@ -1,43 +1,42 @@
-'use strict';
 
-var path = require('path');
-var verb = require('verb');
-var rename = require('middleware-rename-file');
-var pageData = require('assemble-middleware-page-variable');
-var geopattern = require('helper-geopattern');
-var reflinks = require('verb-reflinks');
-var helpers = require('handlebars-helpers');
-var assemble = require('assemble');
-var uncss = require('gulp-uncss');
-var sass = require('gulp-sass');
-var del = require('delete');
-var Pkg = require('expand-pkg');
-var pkg = new Pkg();
+const path = require('path');
+const verb = require('verb');
+const rename = require('middleware-rename-file');
+const pageData = require('assemble-middleware-page-variable');
+const geopattern = require('helper-geopattern');
+const reflinks = require('verb-reflinks');
+const helpers = require('handlebars-helpers');
+const assemble = require('assemble');
+const uncss = require('gulp-uncss');
+const sass = require('gulp-sass');
+const del = require('delete');
+const Pkg = require('expand-pkg');
+const pkg = new Pkg();
 
 /**
  * Local dependencies
  */
 
-var verbfile = require('./verbfile');
-var pipeline = require('./build/pipeline');
-var defaults = require('./build/defaults');
-var tools = require('./build/tools');
+const verbfile = require('./verbfile');
+const pipeline = require('./build/pipeline');
+const defaults = require('./build/defaults');
+const tools = require('./build/tools');
 
 /**
  * Build variables
  */
 
-var dest = path.join.bind(path, __dirname, '../docs');
-var css = path.join.bind(path, dest('assets/css'));
-var src = path.join.bind(path, __dirname, 'src');
-var tmpl = path.join.bind(path, src('templates'));
-var assets = path.join.bind(path, dest('assets'));
+const dest = path.join.bind(path, __dirname, '../docs');
+const css = path.join.bind(path, dest('assets/css'));
+const src = path.join.bind(path, __dirname, 'src');
+const tmpl = path.join.bind(path, src('templates'));
+const assets = path.join.bind(path, dest('assets'));
 
 /**
  * App
  */
 
-var app = module.exports = assemble({
+const app = module.exports = assemble({
   exts: ['md', 'hbs', 'html', 'xml', 'txt']
 });
 
@@ -45,8 +44,8 @@ var app = module.exports = assemble({
  * Custom collections
  */
 
-app.create('includes', {viewType: 'partial'});
-app.create('examples', {viewType: 'partial'});
+app.create('includes', { viewType: 'partial' });
+app.create('examples', { viewType: 'partial' });
 app.create('files');
 
 /**
@@ -87,7 +86,7 @@ app.helper('geoColor', geopattern.color(app.options));
  * Site data
  */
 
-app.data({site: pkg.expand(require('../package'))});
+app.data({ site: pkg.expand(require('../package')) });
 app.data('site.title', app.data('site.name'));
 app.data('site.repo', 'breakdance/breakdance');
 app.data('site.nav.main', ['docs', 'plugins']);
@@ -134,7 +133,7 @@ app.task('site', ['preload-templates'], function() {
     .pipe(pipeline.unescape())
     .pipe(app.renderFile('hbs'))
     .pipe(pipeline.cheerio())
-    .pipe(pipeline.sidenav({selectors: 'h2,h3'}))
+    .pipe(pipeline.sidenav({ selectors: 'h2,h3' }))
     .pipe(pipeline.prettify())
     .pipe(app.dest(dest()));
 });
@@ -153,13 +152,13 @@ app.task('verb', function(cb) {
 
 app.task('sass', function() {
   return app.src('src/sass/**/*.scss')
-    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(app.dest(css()));
 });
 
 app.task('uncss', function() {
-  return app.src('*.css', {cwd: css()})
-    .pipe(uncss({html: [dest('*.html')]}))
+  return app.src('*.css', { cwd: css() })
+    .pipe(uncss({ html: [dest('*.html')] }))
     .pipe(app.dest(css()));
 });
 
@@ -168,14 +167,14 @@ app.task('uncss', function() {
  */
 
 app.task('copy-root', function() {
-  return app.copy(src('root/*'), dest(), {dot: true});
+  return app.copy(src('root/*'), dest(), { dot: true });
 });
 
 app.task('copy-assets', function() {
-  return app.copy(src('assets/**/*'), assets(), {dot: true});
+  return app.copy(src('assets/**/*'), assets(), { dot: true });
 });
 
-var config = {
+const config = {
   vendors: ['bryanbraun/anchorjs', 'leafo/sticky-kit', 'zenorocha/clipboard.js', 'HubSpot/tether'],
   scripts: ['anchorjs/anchor.min.js', 'sticky-kit/dist/sticky-kit.min.js', 'clipboard.js/dist/clipboard.min.js', 'tether/dist/js/tether.min.js']
 };
@@ -195,7 +194,7 @@ app.task('clone', function(cb) {
  */
 
 app.task('clean', function(cb) {
-  del(dest(), {force: true}, cb);
+  del(dest(), { force: true }, cb);
 });
 
 /**

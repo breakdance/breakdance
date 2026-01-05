@@ -1,7 +1,6 @@
-'use strict';
 
-var toc = require('markdown-toc');
-var through = require('through2');
+const toc = require('markdown-toc');
+const through = require('through2');
 
 /**
  * This file is not used at the moment
@@ -9,16 +8,16 @@ var through = require('through2');
 
 module.exports = function(options) {
   return through.obj(function(file, enc, next) {
-    var str = anchors(file.contents.toString());
+    const str = anchors(file.contents.toString());
     file.contents = new Buffer(toc.insert(str, options));
     next(null, file);
   });
 };
 
 function anchors(str) {
-  var slugs = {};
+  const slugs = {};
   return str.replace(/^#{1,4} ([^\n]+)/gm, function(m, $1) {
-    var slug = toc.slugify($1);
+    let slug = toc.slugify($1);
     if (slugs.hasOwnProperty(slug)) {
       slugs[slug] = slugs[slug] + 1;
       slug += '-' + slugs[slug];

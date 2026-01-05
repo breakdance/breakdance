@@ -210,6 +210,7 @@ module.exports = {
     'tmp',
     'temp',
     'lib/templates',
-    'test/fixtures'
+    'test/fixtures',
+    'vendor'
   ]
 };

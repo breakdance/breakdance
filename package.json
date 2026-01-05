@@ -30,7 +30,8 @@
     "condense-newlines": "^0.2.1",
     "diacritics-map": "^0.1.0",
     "entities": "^1.1.2",
-    "minimist": "^1.2.8"
+    "minimist": "^1.2.8",
+    "parse5": "^7.3.0"
   },
   "devDependencies": {
     "@mozilla/readability": "^0.5.0",

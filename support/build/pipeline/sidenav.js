@@ -1,8 +1,7 @@
-'use strict';
 
-var through = require('through2');
-var PluginError = require('plugin-error');
-var sidenav = require('../tools/sidenav');
+const through = require('through2');
+const PluginError = require('plugin-error');
+const sidenav = require('../tools/sidenav');
 
 /**
  * Add navigation to page
@@ -18,7 +17,7 @@ module.exports = function(options) {
     try {
       file.contents = new Buffer(sidenav(file, options));
     } catch (err) {
-      this.emit('error', new PluginError('navigation', err, {fileName: file.path}));
+      this.emit('error', new PluginError('navigation', err, { fileName: file.path }));
       return;
     }
     next(null, file);

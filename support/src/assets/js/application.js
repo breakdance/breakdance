@@ -12,7 +12,6 @@
 
 /* global Clipboard, anchors */
 !(function($) {
-  'use strict';
 
   $(function() {
     // Disable empty links in docs examples
@@ -22,18 +21,18 @@
 
     // Insert copy to clipboard button before .highlight
     $('pre > code').each(function() {
-      var btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>';
+      const btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>';
       $(this).parent().before(btnHtml);
       $('.btn-clipboard').tooltip();
     });
 
-    var clipboard = new Clipboard('.btn-clipboard', {
-      target: function(trigger) {
+    const clipboard = new Clipboard('.btn-clipboard', {
+      target(trigger) {
         return trigger.parentNode.nextElementSibling;
       },
-      text: function(trigger) {
-        var sib = trigger.parentNode.nextElementSibling;
-        var val = $(sib).text();
+      text(trigger) {
+        const sib = trigger.parentNode.nextElementSibling;
+        const val = $(sib).text();
         return val.replace(/^\s*\$ +/, '');
       }
     });
@@ -50,8 +49,8 @@
     });
 
     clipboard.on('error', function(e) {
-      var modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-';
-      var fallbackMsg = 'Press ' + modifierKey + 'C to copy';
+      const modifierKey = /Mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-';
+      const fallbackMsg = 'Press ' + modifierKey + 'C to copy';
 
       $(e.trigger)
         .attr('title', fallbackMsg)
@@ -65,15 +64,15 @@
     //
     // See Getting Started docs for more information
     if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
-      var msViewportStyle = document.createElement('style');
+      const msViewportStyle = document.createElement('style');
       msViewportStyle.appendChild(
         document.createTextNode('@-ms-viewport{width:auto!important}')
       );
       document.querySelector('head').appendChild(msViewportStyle);
     }
 
-    var $window = $(window);
-    var $body   = $(document.body);
+    const $window = $(window);
+    const $body = $(document.body);
 
     $body.scrollspy({
       target: '.sidebar'
@@ -91,9 +90,9 @@
       toggle: 'popover',
       template: '<div class="popover popover-source"> <div class="arrow"></div> <div class="popover-inner"> <h3 class="popover-title"></h3> <div class="popover-content"> <p></p> </div> </div> </div>',
       html: true,
-      delay: {show: 50, hide: 750}
+      delay: { show: 50, hide: 750 }
     }).on('mouseenter', function() {
-      var self = this;
+      const self = this;
       $(this).popover('show');
       $(this).addClass('active');
 
@@ -103,7 +102,7 @@
       });
 
     }).on('mouseleave', function() {
-      var self = this;
+      const self = this;
       setTimeout(function() {
         if (!$('.popover:hover').length) {
           $(self).popover('hide');
@@ -114,18 +113,18 @@
 
     // back to top
     setTimeout(function() {
-      var $sideBar = $('.sidebar');
+      const $sideBar = $('.sidebar');
 
       $sideBar.affix({
         offset: {
-          top: function() {
-            var offsetTop      = $sideBar.offset().top;
-            var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10);
-            var navOuterHeight = $('.site-navigation').height() + $('.masthead').height();
+          top() {
+            const offsetTop = $sideBar.offset().top;
+            const sideBarMargin = parseInt($sideBar.children(0).css('margin-top'), 10);
+            const navOuterHeight = $('.site-navigation').height() + $('.masthead').height();
 
             return (this.top = offsetTop - navOuterHeight - sideBarMargin);
           },
-          bottom: function() {
+          bottom() {
             return (this.bottom = $('.site-footer').outerHeight(true));
           }
         }

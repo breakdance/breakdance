@@ -1,6 +1,5 @@
-'use strict';
 
-var camelcase = require('camel-case');
+const camelcase = require('camel-case');
 
 /**
  * Helper for sorting pages before rendering
@@ -10,10 +9,10 @@ module.exports = function(items, order, options) {
   if (!Array.isArray(order)) {
     return items;
   }
-  var len = order.length;
-  var arr = new Array(len);
-  for (var i = 0; i < len; i++) {
-    var item = filterItem(items, order[i]);
+  const len = order.length;
+  const arr = new Array(len);
+  for (let i = 0; i < len; i++) {
+    const item = filterItem(items, order[i]);
     if (item) {
       arr.push(item);
     }
@@ -22,9 +21,9 @@ module.exports = function(items, order, options) {
 };
 
 function filterItem(items, name) {
-  var len = items.length;
-  for (var i = 0; i < len; i++) {
-    var item = items[i];
+  const len = items.length;
+  for (let i = 0; i < len; i++) {
+    const item = items[i];
     if (camelcase(item.stem) === camelcase(name)) {
       return item;
     }

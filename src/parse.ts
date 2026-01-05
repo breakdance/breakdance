@@ -1,6 +1,7 @@
 import { tags } from '~/tags';
 import { Node } from '~/node';
 import { parseAttributes } from '~/parse-attributes';
+
 const handlers = {};
 
 const define = (node, key, value) => {

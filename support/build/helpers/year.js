@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * Helper for rendering the current year

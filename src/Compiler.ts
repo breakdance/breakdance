@@ -63,10 +63,12 @@ export class Compiler extends Events {
   }
 
   addHandlers(compiler, options) {
-    const opts = options || this.options;
-    if (opts.visitors) {
-      for (const type of Object.keys(opts.visitors)) {
-        const value = opts.visitors[type];
+    const opts = { ...this.options, ...options };
+
+    if (opts.handlers) {
+      for (const type of Object.keys(opts.handlers)) {
+        const value = opts.handlers[type];
+
         if (value === false) {
           this.handler(type, () => '');
         } else {
@@ -173,6 +175,7 @@ export class Compiler extends Events {
     const fn = this.visitors.get(ele.type);
 
     if (typeof fn !== 'function') {
+      // console.log(ele.type);
       if (ele.selfClosing === true || !this.known.has(ele.type)) return '';
       throw new Error(`No visitors are registered for "${ele.type}"`);
     }

@@ -50,6 +50,44 @@ const createTable = () => {
   return table;
 };
 
+const escapeTableCell = str => {
+  return str.replace(/\|/g, '\\|');
+};
+
+const escapeCodeBlock = str => {
+  const backtickCount = (str.match(/`+/g) || []).reduce((max, seq) => Math.max(max, seq.length), 0);
+  const fence = '`'.repeat(backtickCount + 1);
+  return { content: str, fence };
+};
+
+const handleNestedLists = (node, level = 0) => {
+  let output = '';
+  if (node.nodes) {
+    for (const child of node.nodes) {
+      if (child.type === 'ul' || child.type === 'ol') {
+        output += '\n' + ' '.repeat(level * 2) + handleNestedLists(child, level + 1);
+      } else {
+        output += child.value || '';
+      }
+    }
+  }
+  return output;
+};
+
+const handleNestedBlockquotes = (node, level = 1) => {
+  let output = '';
+  if (node.nodes) {
+    for (const child of node.nodes) {
+      if (child.type === 'blockquote') {
+        output += '\n' + '>'.repeat(level) + ' ' + handleNestedBlockquotes(child, level + 1);
+      } else {
+        output += child.value || '';
+      }
+    }
+  }
+  return output;
+};
+
 export const init = compiler => {
   const options = compiler.options;
   const bullets = options.bullets || BULLETS;
@@ -405,6 +443,11 @@ export const init = compiler => {
 
   compiler.handler('div', node => {
     let allInline = node.inline === true;
+    // const attribs = utils.attributes(node.attribs);
+
+    // if (node.attribs.class.includes('segment-start-offset')) {
+    //   return '';
+    // }
 
     utils.visit(node, child => {
       if (child === node) return;
@@ -481,7 +524,7 @@ export const init = compiler => {
     const code = node.nodes[0].type === 'code' ? node.nodes[0] : null;
     let output = '';
 
-    const stringify = (node, options, code = true) => {
+    const serialize = (node, options, code = true) => {
       let output = '';
 
       if (node.value) {
@@ -490,7 +533,7 @@ export const init = compiler => {
 
       if (node.nodes) {
         for (const child of node.nodes) {
-          output += stringify(child);
+          output += serialize(child);
         }
       }
 
@@ -523,7 +566,7 @@ export const init = compiler => {
 
     if (code) {
       if (options.literalPre === true) {
-        output = stringify(code, options, false);
+        output = serialize(code, options, false);
       } else {
         utils.visit(code, child => {
           if (child === code) return;
@@ -542,7 +585,7 @@ export const init = compiler => {
     } else if (options.visitPre === true) {
       output = mapVisit(node);
     } else {
-      output = stringify(node, options);
+      output = serialize(node, options);
     }
 
     const opts = { ...options, attribs: true, omit: ['code'] };
@@ -571,6 +614,9 @@ export const init = compiler => {
     if (!lang && /^\s*curl /.test(inner)) {
       lang = 'sh';
     }
+
+    // const { content, fence } = escapeCodeBlock(inner);
+    // let res = utils.removeEmptyEndLines(content);
 
     const fence = /(?<!\\)```/.test(inner) ? '````' : '```';
     let res = utils.removeEmptyEndLines(inner);
@@ -1112,7 +1158,7 @@ export const init = compiler => {
    */
 
   compiler.handler('td', node => {
-    const prev = compiler.state.output;
+    // const prev = compiler.state.output;
     const table = compiler.state.tables[compiler.state.tables.length - 1];
     const col = trim(mapVisit(node)).replace(/\s+/g, ' ');
     if (table && table.rows) {
@@ -1363,9 +1409,11 @@ export const init = compiler => {
     alt = trim(alt);
     title = trim(title) ? ' ' + utils.enquote(trim(title)) : '';
     src = toUrl(src, options);
+
     if (src) {
       return `![${alt}](${src}${title})`;
     }
+
     return '';
   });
 
@@ -1451,6 +1499,51 @@ export const init = compiler => {
     .handler('summary', mapVisit)
     .handler('template', () => '')
     .handler('tt', () => '');
+
+  compiler.handler('ytd-transcript-renderer', node => mapVisit(node));
+  compiler.handler('ytd-engagement-panel-section-list-renderer', node => mapVisit(node));
+  compiler.handler('ytd-engagement-panel-title-header-renderer', node => {
+    return heading('', node);
+  });
+
+  compiler.handler('ytd-transcript-search-panel-renderer', node => {
+    // console.log(mapVisit(node));
+    // console.log(node);
+    return mapVisit(node);
+  });
+
+  compiler.handler('ytd-transcript-segment-list-renderer', node => {
+    // console.log(mapVisit(node));
+    // console.log(node);
+    return mapVisit(node);
+  });
+
+  compiler.handler('ytd-transcript-segment-renderer', node => {
+    // console.log(mapVisit(node));
+    // console.log(node);
+    return mapVisit(node);
+  });
+
+  compiler.handler('yt-attributed-string', node => {
+    // console.log(mapVisit(node));
+    // console.log(node);
+    return mapVisit(node);
+  });
+
+  compiler.handler('yt-formatted-string', node => {
+    // console.log(node);
+    // console.log(mapVisit(node));
+    return mapVisit(node);
+  });
+
+  compiler.handler('ytd-transcript-renderer', node => {
+    // console.log(mapVisit(node));
+    return mapVisit(node);
+  });
+
+  compiler.handler('text', node => {
+    return trim(node.value);
+  });
 
   return compiler;
 };

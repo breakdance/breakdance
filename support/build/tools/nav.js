@@ -1,27 +1,26 @@
-'use strict';
 
-var cheerio = require('cheerio');
-var extend = require('extend-shallow');
-var utils = require('markdown-toc');
+const cheerio = require('cheerio');
+const extend = require('extend-shallow');
+const utils = require('markdown-toc');
 
 /**
  * Generate HTML navigation from headings
  */
 
 module.exports = function(str, options) {
-  var opts = extend({id: 'toc', selectors: 'h1,h2'}, options);
-  var classes = extend({ol: '', li: '', a: 'toc-link'}, opts.classes);
-  var $ = cheerio.load(str);
-  var headings = $(opts.selectors);
-  var navigation = [];
-  var slugs = {};
+  const opts = extend({ id: 'toc', selectors: 'h1,h2' }, options);
+  const classes = extend({ ol: '', li: '', a: 'toc-link' }, opts.classes);
+  const $ = cheerio.load(str);
+  const headings = $(opts.selectors);
+  const navigation = [];
+  const slugs = {};
 
   headings.map(function(i, ele) {
-    var $ele = $(ele);
-    var text = $ele.text();
+    const $ele = $(ele);
+    const text = $ele.text();
     if (!text.trim()) return;
 
-    var slug = utils.slugify(text);
+    let slug = utils.slugify(text);
     if (slugs.hasOwnProperty(slug)) {
       slugs[slug] = slugs[slug] + 1;
       slug += '-' + slugs[slug];
@@ -29,14 +28,14 @@ module.exports = function(str, options) {
       slugs[slug] = 0;
     }
 
-    var node = {
+    const node = {
       text: text.trim(),
-      level: +ele.name.slice(1),
-      slug: slug,
-      $ele: $ele
+      level: Number(ele.name.slice(1)),
+      slug,
+      $ele
     };
 
-    var list = normalize(navigation, node.level, opts);
+    const list = normalize(navigation, node.level, opts);
     list.push(node);
     $(this).before(anchor(node));
   });
@@ -47,9 +46,9 @@ module.exports = function(str, options) {
 };
 
 function renderList(nodes, classes) {
-  var str = '';
-  for (var i = 0; i < nodes.length; i++) {
-    var node = nodes[i];
+  let str = '';
+  for (let i = 0; i < nodes.length; i++) {
+    const node = nodes[i];
     if (node.slug) {
       str = renderItem(str, node, classes);
     }
@@ -58,9 +57,9 @@ function renderList(nodes, classes) {
 }
 
 function renderItem(str, node, classes) {
-  var inner = node.children ? renderList(node.children, classes) : '';
-  var a = node.text ? link(node, classes) : '';
-  var res = `  <li class="${classes.li}">` + a + inner + '</li>';
+  const inner = node.children ? renderList(node.children, classes) : '';
+  const a = node.text ? link(node, classes) : '';
+  const res = `  <li class="${classes.li}">` + a + inner + '</li>';
   str += '\n';
   str += res;
   return str;
@@ -70,7 +69,7 @@ function normalize(navigation, level, options) {
   if (level <= 2) {
     return navigation;
   }
-  var node = navigation[navigation.length - 1];
+  const node = navigation[navigation.length - 1];
   if (typeof node === 'undefined') {
     throw new Error('navigation plugin cannot find selector(s): ' + options.selectors);
   }

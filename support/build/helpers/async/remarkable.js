@@ -1,7 +1,6 @@
-'use strict';
 
-var Remarkable = require('remarkable');
-var extend = require('extend-shallow');
+const Remarkable = require('remarkable');
+const extend = require('extend-shallow');
 
 module.exports = function(str, options, cb) {
   if (typeof str !== 'string') {
@@ -11,8 +10,8 @@ module.exports = function(str, options, cb) {
   }
 
   try {
-    var opts = extend({}, this.options.remarkable, options.hash);
-    var md = new Remarkable(opts);
+    const opts = extend({}, this.options.remarkable, options.hash);
+    const md = new Remarkable(opts);
 
     if (typeof options.fn !== 'function') {
       cb(null, md.render(str));

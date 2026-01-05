@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import read from './read';
-import { breakdance } from '../..';
+import { breakdance } from '~/breakdance';
 
 export const isEqual = (name, expectedName, options, description) => {
   if (typeof expectedName !== 'string') {

@@ -47,7 +47,7 @@ Custom labels used in this changelog:
 
 **Changed**
 
-- Changed the CLI command from `tomd` to either `br`. As a fallback, you can also use `breakdance` if there is a conflict. The CLI has not yet been documented, so hopefully this doesn't cause any issues for anyone. 
+- Changed the CLI command from `tomd` to either `br`. As a fallback, you can also use `breakdance` if there is a conflict. The CLI has not yet been documented, so hopefully this doesn't cause any issues for anyone.
 
 ### [0.1.5]
 

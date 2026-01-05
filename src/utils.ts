@@ -12,6 +12,8 @@ import {
   RE_QUOTES
 } from '~/constants';
 
+export const lastLine = (arr: string[]) => arr[arr.length - 1];
+
 export const define = (obj: any, key: string, value = obj[key], enumerable = false) => {
   Reflect.defineProperty(obj, key, { enumerable, value });
 };
@@ -209,8 +211,10 @@ export const unindent = (input: string) => {
     .split('\n')
     .filter(line => line.trim() !== '')
     .join('\n');
+
   const match = lines.match(RE_LEADING_WHITESPACE);
   if (!match) return input;
+
   const fewest = Math.min(...match.map(indent => indent.length));
   if (fewest > 0) {
     return input.replace(new RegExp(`^[ \t]{${fewest}}`, 'gm'), '');
@@ -220,14 +224,13 @@ export const unindent = (input: string) => {
 
 export const removeEmptyEndLines = (str: string) => {
   if (!str) return '';
-  const last = (arr: string[]) => arr[arr.length - 1];
   const lines = str.split('\n');
 
   while (lines.length && typeof lines[0] === 'string' && lines[0].trim() === '') {
     lines.shift();
   }
 
-  while (lines.length && typeof last(lines) === 'string' && last(lines).trim() === '') {
+  while (lines.length && typeof lastLine(lines) === 'string' && lastLine(lines).trim() === '') {
     lines.pop();
   }
 

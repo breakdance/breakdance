@@ -1,6 +1,5 @@
-'use strict';
 
-var utils = require('./utils');
+const utils = require('./utils');
 
 /**
  * Not used
@@ -28,20 +27,20 @@ module.exports = function(pattern, data) {
       file.options = file.options || {};
       file.data = file.data || {};
 
-      var opts = utils.merge({}, data, file.options.permalinks);
-      var ctx = utils.merge({}, opts, locals, file.data);
+      const opts = utils.merge({}, data, file.options.permalinks);
+      let ctx = utils.merge({}, opts, locals, file.data);
       if (!(ctx.regex instanceof RegExp)) {
         ctx.regex = /:([-\w (),._]+)/;
       }
 
-      var paths = utils.copyPaths(file, ctx.parsePath);
+      const paths = utils.copyPaths(file, ctx.parsePath);
       // merge in paths before context, so custom values
       // passed on the options will override parsed values
       ctx = utils.merge({}, paths, ctx);
 
       try {
-        var fn = utils.placeholders(ctx);
-        var str = dest || ctx.pattern || pattern || ':path';
+        const fn = utils.placeholders(ctx);
+        const str = dest || ctx.pattern || pattern || ':path';
 
         // set the pattern on `options.permalink`
         file.options.permalink = str;
