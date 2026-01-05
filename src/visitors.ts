@@ -110,7 +110,7 @@ export const init = compiler => {
 
   const isInsideHeading = () => {
     const { h1, h2, h3, h4, h5, h6 } = compiler.state.tags;
-    return h1 && h2 && h3 && h4 && h5 && h6;
+    return Boolean(h1 || h2 || h3 || h4 || h5 || h6);
   };
 
   const condenseSpaces = str => {
@@ -191,15 +191,19 @@ export const init = compiler => {
       const ws = nospace ? '' : space(lastChar);
       return `${ws}<${node.type}>${inner}</${node.type}>`;
     }
+
     return '';
   };
 
   const wrapChars = (node, chars) => {
     const isInside = compiler.state[node.type] > 0;
     const lastChar = compiler.state.output.slice(-1);
+    const index = node.parent.nodes.indexOf(node);
+    const next = node.parent.nodes[index + 1];
     let inner = mapVisit(node);
+
     if (isInside) chars = '';
-    if (inner.startsWith(chars) && inner.endsWith(chars)) {
+    if (chars && inner.startsWith(chars) && inner.endsWith(chars)) {
       chars = '';
     }
 
@@ -211,14 +215,29 @@ export const init = compiler => {
     }
 
     if (inner.trim() !== '') {
-      if (!/`/.test(inner)) {
-        // inner = entities.encodeHTML(inner);
-      }
+      // if (/`/.test(inner)) {
+      //   // inner = entities.encodeHTML(inner);
+      //   // return `<code>${inner}</code>`;
+      // }
+
       if (options.whitespace === true) {
         inner = inner.replace(RE_ALL_WHITESPACE, ' ');
       }
-      return `${space(lastChar)}${left}${trim(inner)}${right}`;
+
+      let ws = space(lastChar);
+      let after = '';
+
+      if (next && next.type === 'text' && /^\w/.test(next.value)) {
+        after = ' ';
+      }
+
+      if (!ws && left && ['*', '_', '~', '+'].includes(left[0]) && lastChar === left[0]) {
+        ws = ' ';
+      }
+
+      return `${ws}${left}${trim(inner)}${right}${after}`;
     }
+
     return inner ? ' ' : '';
   };
 
@@ -331,8 +350,8 @@ export const init = compiler => {
    */
 
   compiler.handler('text', node => {
-    const { last } = compiler.state;
     const { blockquote, code, pre } = compiler.state.tags;
+    const lastChar = compiler.state.output.slice(-1);
     let value = toValue(node);
 
     if (pre || code || options.whitespace === 'pre') return value;
@@ -344,7 +363,7 @@ export const init = compiler => {
       value = value.replace(/\n[^\S\n]+$/gm, '\n');
     }
 
-    if (last && /\s/.test(last.slice(-1))) {
+    if (lastChar && /\s/.test(lastChar)) {
       value = value.replace(/^\s+/, '');
     }
 
@@ -353,6 +372,20 @@ export const init = compiler => {
         return value.replace(/\n\n*[^\S\n]+/gm, '\n');
       }
     }
+
+    // if (
+    //   node.prev
+    //   && node.prev.type !== 'text'
+    //   && isInlineTag(node.prev)
+    //   && !['br', 'wbr'].includes(node.prev.type)
+    //   && value
+    //   && !/^\s/.test(value)
+    //   && /^\w/.test(value)
+    //   && lastChar
+    //   && !/\s/.test(lastChar)
+    // ) {
+    //   value = ' ' + value;
+    // }
 
     return value;
   });
@@ -402,14 +435,10 @@ export const init = compiler => {
     .handler('aside', () => '') // tangential/related content
     .handler('article', mapVisit) // article
     .handler('body', mapVisit) // document body
+    .handler('footer', mapVisit) // footer for a section
     .handler('main', mapVisit) // main content of the <body>
     .handler('nav', mapVisit) // group of navigational links
-    .handler('section', mapVisit) // section of content
-    .handler('footer', node => { // footer
-      if (!node.parent || node.parent.type !== 'body') {
-        return mapVisit(node);
-      }
-    });
+    .handler('section', mapVisit); // section of content
 
   /**
    * Headings (WC3 "section" elements)
@@ -442,7 +471,7 @@ export const init = compiler => {
    */
 
   compiler.handler('div', node => {
-    let allInline = node.inline === true;
+    let block = !node.inline;
     // const attribs = utils.attributes(node.attribs);
 
     // if (node.attribs.class.includes('segment-start-offset')) {
@@ -458,7 +487,7 @@ export const init = compiler => {
         }
 
         if (child.inline === true) {
-          allInline = true;
+          block = false;
         }
 
         // if (child !== node && child.inline !== true && !tags.inline.includes(child.type)) {
@@ -469,14 +498,14 @@ export const init = compiler => {
 
     const output = mapVisit(node);
 
-    if (allInline === true) {
+    if (block !== true) {
       return output;
     }
 
     // if (options.whitespace !== false && allInline === true) {
     //   output = newlinesToSpace(trim(output));
     // }
-    // console.log([node.inline]);
+
     return `\n${output}\n`;
   });
 
@@ -1541,10 +1570,13 @@ export const init = compiler => {
     return mapVisit(node);
   });
 
-  compiler.handler('text', node => {
-    return trim(node.value);
-  });
+  // compiler.handler('text', node => {
+  //   if (options.whitespace === false) {
+  //     return node.value;
+  //   }
+
+  //   return trim(node.value);
+  // });
 
   return compiler;
 };
-

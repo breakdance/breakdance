@@ -18,6 +18,7 @@ export class Location {
     this.start = start;
     this.end = end;
   }
+
   get range() {
     return [this.start.index, this.end.index];
   }
@@ -37,6 +38,7 @@ export class Token {
 
 export const location = (state: any) => {
   const start = new Position(state.loc);
+
   return (token: Token) => {
     const end = new Position(state.loc);
     token.loc = new Location(start, end);
@@ -70,7 +72,16 @@ export const format = (input: string, options: any = {}) => {
     }
   };
 
+  const isText = tok => tok && (tok.type === 'text' || tok.type === 'space');
+
   const push = (token: Token) => {
+    if (isText(token) && isText(prev)) {
+      prev.value += token.value;
+      prev.loc.end = pos(state);
+      updateCursor(token);
+      return;
+    }
+
     updateCursor(token);
     Reflect.defineProperty(token, 'prev', { value: prev });
     Reflect.defineProperty(prev, 'next', { value: token });
@@ -166,7 +177,7 @@ export const format = (input: string, options: any = {}) => {
 
     if (prev.type === 'text') {
       prev.value += value;
-      prev.loc!.end = pos(state);
+      prev.loc.end = pos(state);
       updateCursor();
       continue;
     }
@@ -199,7 +210,8 @@ const str = `
 `;
 
 const state = format(str);
-state.tokens.forEach(tok => console.log(tok));
+console.log(state);
+// state.tokens.forEach(tok => console.log(tok));
 const token = state.tokens[state.tokens.length - 6];
 const lines = str.split('\n');
 // console.log([str.slice(token.loc.range[0], token.loc.range[1])])

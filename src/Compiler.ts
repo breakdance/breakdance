@@ -1,15 +1,15 @@
 import Events from 'events';
 import condense from 'condense-newlines';
 import entities from 'entities';
-// import constants from '~/constants';
-// import replace from '~/helpers/replacers';
-// import parser from '~/parser';
 import { Plugins } from '~/plugins/Plugins';
+import { RE_INVISIBLE } from '~/constants';
 import * as plugins from '~/plugins';
 import * as tags from '~/tags';
 import * as utils from '~/utils';
 import * as visitors from '~/visitors';
-import { RE_INVISIBLE } from '~/constants';
+// import constants from '~/constants';
+// import replace from '~/helpers/replacers';
+// import parser from '~/parser';
 // const { NEGATIVE_SCORE_HINTS, IGNORED_RE, RE_ATTRIBUTE, RE_RST_PARAGRAPH } = constants;
 
 export const initState = () => ({
@@ -34,7 +34,7 @@ export class Compiler extends Events {
     this.options = { ...options };
     this.visitors = new Map();
     this.seenTypes = new Set();
-    this.seen = new Set();
+    this.seen = new WeakSet();
     this.started = !this.options.start;
 
     const omit = [].concat(this.options.omit || ['button', 'alert', 'nav', 'navbar', 'navbar-nav', 'navbar-item', 'navbar-brand']);
@@ -147,9 +147,9 @@ export class Compiler extends Events {
   }
 
   handle(node, filter) {
-    if (node.seen) return;
+    if (this.seen.has(node)) return;
     this.seenTypes.add(node.type);
-    node.seen = true;
+    this.seen.add(node);
 
     this.renameNode(node);
 

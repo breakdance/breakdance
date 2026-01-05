@@ -40,6 +40,7 @@ describe('whitespace', () => {
     const opts = { whitespace: true };
     isEqual.inline('<div>foo <em>bar</em> baz</div>', 'foo _bar_ baz', opts);
     isEqual.inline('<div>foo\n <em>bar</em> baz</div>', 'foo _bar_ baz', opts);
+    isEqual.inline('<div>foo<em>bar</em>baz</div>', 'foo _bar_ baz', opts);
     isEqual.inline('<div>foo\n <em>bar</em> \nbaz</div>', 'foo _bar_ baz', opts);
 
     isEqual.inline('<div>foo <strong>bar</strong> baz</div>', 'foo **bar** baz', opts);
@@ -54,7 +55,9 @@ describe('whitespace', () => {
 
   it('should not normalize whitespace when disabled', () => {
     const opts = { whitespace: false };
+
     isEqual.inline('<div>foo <em>bar</em> baz</div>', 'foo _bar_ baz', opts);
+    isEqual.inline('<div>foo<em>bar</em>baz</div>', 'foo _bar_ baz', opts);
     isEqual.inline('<div>foo\n <em>bar</em> baz</div>', 'foo\n_bar_ baz', opts);
     isEqual.inline('<div>foo\n <em>bar</em> \nbaz</div>', 'foo\n_bar_ \nbaz', opts);
 

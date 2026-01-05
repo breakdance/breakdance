@@ -1,4 +1,4 @@
-import * as parser from '~/parser';
+import * as parser from '~/parse/parser';
 import { Compiler } from '~/Compiler';
 export { Compiler };
 

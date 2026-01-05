@@ -16,7 +16,7 @@ export const isEqual = (name, expectedName, options, description) => {
 
   if (!fs.existsSync(expectedPath)) {
     console.log('expected path does not exist:', expectedPath);
-    process.exit();
+    process.exit(1);
   }
 
   const expected = read(expectedPath);

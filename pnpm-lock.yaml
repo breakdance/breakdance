@@ -26,9 +26,6 @@ importers:
       minimist:
         specifier: ^1.2.8
         version: 1.2.8
-      parse5:
-        specifier: ^7.3.0
-        version: 7.3.0
     devDependencies:
       '@mozilla/readability':
         specifier: ^0.5.0
@@ -60,6 +57,9 @@ importers:
       mocha:
         specifier: ^10.4.0
         version: 10.7.3
+      parse5:
+        specifier: ^7.3.0
+        version: 7.3.0
       ts-mocha:
         specifier: ^10.0.0
         version: 10.0.0(mocha@10.7.3)
@@ -2009,6 +2009,7 @@ packages:
 
   lodash.pick@4.4.0:
     resolution: {integrity: sha512-hXt6Ul/5yWjfklSGvLQl8vM//l3FtyHZeuelpzK6mm99pNvN9yTDruNZPEJZD1oWrqo+izBmB7oUfWgcCX7s4Q==}
+    deprecated: This package is deprecated. Use destructuring assignment syntax instead.
 
   lodash.reduce@4.6.0:
     resolution: {integrity: sha512-6raRe2vxCYBhpBu+B+TtNGUzah+hQjVdu3E17wfusjyrXBka2nBS8OH/gjVZ5PvHOhWmIZTYri09Z6n/QfnNMw==}
@@ -2747,9 +2748,6 @@ packages:
 
   string_decoder@1.1.1:
     resolution: {integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==}
-
-  string_decoder@1.3.0:
-    resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
 
   stringify-author@0.1.3:
     resolution: {integrity: sha512-OxmcAnr4DESGl/ics9lAv30DdOBC2bdqswEAzTiOZSQRqVpWfnmlr3cpfxTmExf7phS5WxBJ1flD1e3ResNTBA==}
@@ -5814,7 +5812,7 @@ snapshots:
   readable-stream@3.6.2:
     dependencies:
       inherits: 2.0.4
-      string_decoder: 1.3.0
+      string_decoder: 1.1.1
       util-deprecate: 1.0.2
 
   readdirp@3.6.0:
@@ -6116,10 +6114,6 @@ snapshots:
   string_decoder@1.1.1:
     dependencies:
       safe-buffer: 5.1.2
-
-  string_decoder@1.3.0:
-    dependencies:
-      safe-buffer: 5.2.1
 
   stringify-author@0.1.3: {}
 

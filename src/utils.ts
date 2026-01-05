@@ -111,8 +111,12 @@ export const mapCheerioKeys = (node: any) => {
   if (node.mapped === true) return node;
 
   if (node.name) {
-    node.type = node.name;
+    node.type = String(node.name).toLowerCase();
     delete node.name;
+  }
+
+  if (node.type && typeof node.type === 'string') {
+    node.type = node.type.toLowerCase();
   }
 
   if (node.data && !node.value) {
@@ -120,12 +124,25 @@ export const mapCheerioKeys = (node: any) => {
     delete node.data;
   }
 
+  if (node.attribs) {
+    const lowered = {};
+    for (const key of Object.keys(node.attribs)) {
+      lowered[key.toLowerCase()] = node.attribs[key];
+    }
+    node.attribs = lowered;
+  }
+
   if (node.children) {
-    node.nodes = node.children.map((n: any) => {
-      n = mapCheerioKeys(n);
-      define(n, 'siblings', node.children);
-      return n;
-    });
+    node.nodes = node.children.map((n: any) => mapCheerioKeys(n));
+
+    for (let i = 0; i < node.nodes.length; i++) {
+      const child = node.nodes[i];
+      define(child, 'parent', node);
+      define(child, 'siblings', node.nodes);
+      define(child, 'prev', node.nodes[i - 1]);
+      define(child, 'next', node.nodes[i + 1]);
+    }
+
     delete node.children;
   }
 
