@@ -1,17 +1,17 @@
-[Breakdance](http://breakdance.io/index.html)
+[Breakdance](https://breakdance.github.io/breakdance/index.html)
 
-- [Documentation](http://breakdance.io/docs.html)
-- [Plugins](http://breakdance.io/plugins.html)
-- [More](https://github.com/breakdance/breakdance) [Examples](http://breakdance.io/examples.html) [Recipes](http://breakdance.io/recipes.html) [Contributing](http://breakdance.io/contributing.html) [About](http://breakdance.io/about.html)
+- [Documentation](https://breakdance.github.io/breakdance/docs.html)
+- [Plugins](https://breakdance.github.io/breakdance/plugins.html)
+- [More](https://github.com/breakdance/breakdance) [Examples](https://breakdance.github.io/breakdance/examples.html) [Recipes](https://breakdance.github.io/breakdance/recipes.html) [Contributing](https://breakdance.github.io/breakdance/contributing.html) [About](https://breakdance.github.io/breakdance/about.html)
 
 ![](./breakdance_files/breakdance-logo-white.png)
 <br>
 
 _It's time for your markup get down._
 
-- [What is breakdance?](http://breakdance.io/#what-is-breakdance)
-- [Quickstart](http://breakdance.io/#quickstart)
-- [Next steps](http://breakdance.io/#next-steps)
+- [What is breakdance?](https://breakdance.github.io/breakdance/#what-is-breakdance)
+- [Quickstart](https://breakdance.github.io/breakdance/#quickstart)
+- [Next steps](https://breakdance.github.io/breakdance/#next-steps)
 
 ## What is breakdance?
 
@@ -19,7 +19,7 @@ Breakdance is a node.js library for converting HTML to markdown.
 
 **What's different about breakdance?**
 
-Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides comprehensive coverage of HTML 4 and 5 elements, and granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](http://breakdance.io/plugins.html).
+Breakdance uses [cheerio](https://github.com/cheeriojs/cheerio) to parse HTML, and [snapdragon](https://github.com/jonschlinkert/snapdragon) for rendering, which provides comprehensive coverage of HTML 4 and 5 elements, and granular control over the entire conversion process in a way that is easy to understand, reason about, and [customize](https://breakdance.github.io/breakdance/plugins.html).
 
 **Why use breakdance?**
 
@@ -54,10 +54,10 @@ console.log(breakdance('<strong>The freaks come out at night!</strong>'));
 //=> '**The freaks come out at night!**'
 ```
 
-## Next steps [](http://breakdance.io#next-steps)
+## Next steps [](https://breakdance.github.io/breakdance/#next-steps)
 
-- Learn more about [using breakdance](http://breakdance.io/docs.html)
-- See [HTML-to-markdown examples](http://breakdance.io/docs.html#examples)
+- Learn more about [using breakdance](https://breakdance.github.io/breakdance/docs.html)
+- See [HTML-to-markdown examples](https://breakdance.github.io/breakdance/docs.html#examples)
 - Visit the breakdance [unit tests](https://github.com/breakdance/breakdance/test), this is a great way to see comprehensive and detailed usage examples.
 
 [breakdance](https://github.com/jonschlinkert/test) is maintained by

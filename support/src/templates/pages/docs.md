@@ -11,7 +11,7 @@ geopattern: j
 
 ## Getting started
 
-If you want to see how breakdance works, the CLI is the fastest way to get started. 
+If you want to see how breakdance works, the CLI is the fastest way to get started.
 
 ### Installing the CLI
 
@@ -21,7 +21,7 @@ Install the breakdance CLI with [npm](https://www.npmjs.com/):
 $ npm install  --global breakdance-cli
 ```
 
-This adds the `bd` command to your system path, allowing you to run the breakdance CLI from any directory. 
+This adds the `bd` command to your system path, allowing you to run the breakdance CLI from any directory.
 
 ```sh
 $ bd
@@ -94,7 +94,7 @@ Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
 ### CLI options
 
-Most of the [breakdance options](http://breakdance.io/docs.html#options) can be set from the command line. Play around with the options on the following help menu to customize output. 
+Most of the [breakdance options](https://breakdance.github.io/breakdance/docs.html#options) can be set from the command line. Play around with the options on the following help menu to customize output.
 
 **Help menu**
 

@@ -46,13 +46,13 @@ Please be as descriptive as possible when creating an issue. Give us the informa
 
 Please read this section if you're contributing to breakdance and would like to add documentation. More information about how the site was created can be found on the [about](about.html#how-was-this-site-created) page.
 
-**breakdance.io documentation**
+**breakdance.github.io documentation**
 
-If you're contributing docs to breakdance.io, you will want to modify or add a file to the [support/src/content](https://github.com/breakdance/breakdance/blob/master/support/src/content) directory in [breakdance's GitHub repository](https://github.com/breakdance/breakdance).
+If you're contributing docs to breakdance.github.io, you will want to modify or add a file to the [support/src/content](https://github.com/breakdance/breakdance/blob/master/support/src/content) directory in [breakdance's GitHub repository](https://github.com/breakdance/breakdance).
 
 Building the actual site isn't necessary for our purposes, but you are welcome to do so if you'd like to see how your documentation renders before doing your pull request.
 
-breakdance.io is a static site that is generated using [assemble][]. Assuming you've already [cloned breakdance](http://breakdance.io#getting-started), <kbd>cd</kbd> into the `support` directory of the breakdance project, then run the following command to install dependencies and build the site:
+breakdance.github.io is a static site that is generated using [assemble][]. Assuming you've already [cloned breakdance](https://breakdance.github.io/breakdance/#getting-started), <kbd>cd</kbd> into the `support` directory of the breakdance project, then run the following command to install dependencies and build the site:
 
 ```sh
 $ npm install -g assemble && npm install

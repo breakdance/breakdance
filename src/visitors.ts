@@ -183,6 +183,7 @@ export const init = compiler => {
     const lastChar = compiler.state.output.slice(-1);
     const value = mapVisit(node);
     const inner = trim(value, node);
+
     if (inner !== '') {
       if (inner.includes(`${node.type}>`)) {
         return inner;

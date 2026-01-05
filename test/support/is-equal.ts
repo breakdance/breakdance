@@ -11,6 +11,9 @@ export const isEqual = (name, expectedName, options, description) => {
   }
 
   const destName = expectedName || name;
+  // console.log(options);
+  // process.exit();
+
   const actual = breakdance(read(path.join('fixtures', `${name}.html`)), options);
   const expectedPath = path.join(__dirname, '../expected', `${destName}.md`);
 
@@ -20,6 +23,9 @@ export const isEqual = (name, expectedName, options, description) => {
   }
 
   const expected = read(expectedPath);
+  // fs.writeFileSync(path.join(process.cwd(), `actual-${destName}.md`), actual);
+  // fs.writeFileSync(path.join(process.cwd(), `expected-${destName}.md`), expected);
+
   assert.equal(actual, expected, description);
 };
 

@@ -3,4 +3,4 @@
 # Allow crawling of all content
 User-agent: *
 
-Sitemap: https://breakdance.io/sitemap.xml
+Sitemap: https://breakdance.github.io/breakdance/sitemap.xml
